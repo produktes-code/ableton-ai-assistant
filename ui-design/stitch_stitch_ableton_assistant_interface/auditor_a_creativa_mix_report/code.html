@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI Analyst - Mix Report</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono:wght@400&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #16130b; /* surface */
+            color: #e9e2d3; /* on-surface */
+            overflow-x: hidden;
+        }
+        .spectrum-container {
+            background: linear-gradient(180deg, rgba(56, 53, 42, 0.5) 0%, rgba(22, 19, 11, 1) 100%);
+        }
+        .frequency-grid {
+            background-image: 
+                linear-gradient(to right, #3d3d3d 1px, transparent 1px),
+                linear-gradient(to bottom, #3d3d3d 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .knob-indicator {
+            transform-origin: center;
+            transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface": "#16130b",
+                        "on-primary-fixed": "#221b00",
+                        "tertiary-fixed": "#ffdad4",
+                        "on-background": "#e9e2d3",
+                        "on-surface": "#e9e2d3",
+                        "surface-bright": "#3c392f",
+                        "on-surface-variant": "#cfc6ae",
+                        "inverse-surface": "#e9e2d3",
+                        "on-secondary-fixed": "#001e2b",
+                        "inverse-primary": "#6f5d00",
+                        "secondary-container": "#00b0e6",
+                        "tertiary": "#fff3f1",
+                        "tertiary-container": "#ffcec6",
+                        "on-tertiary": "#680200",
+                        "on-primary-fixed-variant": "#534600",
+                        "on-error": "#690005",
+                        "error-container": "#93000a",
+                        "primary-fixed-dim": "#e3c53b",
+                        "secondary": "#73d1ff",
+                        "tertiary-fixed-dim": "#ffb4a7",
+                        "surface-dim": "#16130b",
+                        "error": "#ffb4ab",
+                        "on-tertiary-container": "#b12c1d",
+                        "surface-container-lowest": "#100e06",
+                        "on-primary-container": "#6f5e00",
+                        "primary-container": "#f7d84d",
+                        "on-secondary-container": "#003e54",
+                        "primary": "#fff5da",
+                        "surface-container-low": "#1e1b12",
+                        "surface-variant": "#38352a",
+                        "on-secondary-fixed-variant": "#004d67",
+                        "on-tertiary-fixed": "#400100",
+                        "surface-container-highest": "#38352a",
+                        "on-tertiary-fixed-variant": "#8f1107",
+                        "outline": "#98907b",
+                        "surface-tint": "#e3c53b",
+                        "inverse-on-surface": "#333026",
+                        "background": "#16130b",
+                        "on-secondary": "#003548",
+                        "on-primary": "#3a3000",
+                        "outline-variant": "#4c4735",
+                        "surface-container-high": "#2d2a20",
+                        "secondary-fixed": "#c1e8ff",
+                        "surface-container": "#221f16",
+                        "secondary-fixed-dim": "#73d1ff",
+                        "on-error-container": "#ffdad6",
+                        "primary-fixed": "#ffe263"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "container-padding": "12px",
+                        "element-gap": "4px",
+                        "section-margin": "16px",
+                        "unit": "4px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Inter"],
+                        "body-sm": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "mono-data": ["JetBrains Mono"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["14px", {"lineHeight": "18px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "body-sm": ["11px", {"lineHeight": "14px", "fontWeight": "400"}],
+                        "label-caps": ["10px", {"lineHeight": "12px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                        "mono-data": ["11px", {"lineHeight": "12px", "fontWeight": "400"}],
+                        "body-md": ["12px", {"lineHeight": "16px", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="font-body-md text-on-surface pb-20">
+<!-- Top Navigation Bar -->
+<header class="bg-surface dark:bg-surface text-primary dark:text-primary fixed top-0 w-full z-50 border-b border-outline-variant transition-colors duration-100 flex justify-between items-center h-12 px-container-padding">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">waves</span>
+<h1 class="font-headline-sm text-headline-sm font-bold tracking-tighter text-on-surface uppercase">AI ANALYST v1.0</h1>
+</div>
+<div class="flex items-center gap-4">
+<span class="font-mono-data text-secondary">PROJECT: NEON_DREAMS_STEMS</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:bg-surface-variant cursor-pointer p-1">settings</span>
+</div>
+</header>
+<!-- Side Navigation (Mobile Hidden) -->
+<nav class="fixed left-0 top-12 h-full w-64 z-[40] bg-surface-container-low dark:bg-surface-container-low border-r border-outline-variant flex flex-col py-section-margin hidden md:flex">
+<div class="px-4 mb-4">
+<span class="font-label-caps text-label-caps text-outline">UTILITIES</span>
+</div>
+<div class="space-y-1">
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-container-highest transition-all duration-75" href="#">
+<span class="material-symbols-outlined text-lg">health_and_safety</span>
+<span class="font-body-md text-body-md">Session Health</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-secondary font-bold bg-surface-variant transition-all duration-75" href="#">
+<span class="material-symbols-outlined text-lg">layers</span>
+<span class="font-body-md text-body-md">Stem Splitter</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-container-highest transition-all duration-75" href="#">
+<span class="material-symbols-outlined text-lg">reorder</span>
+<span class="font-body-md text-body-md">Plugin Chain</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant hover:bg-surface-container-highest transition-all duration-75" href="#">
+<span class="material-symbols-outlined text-lg">menu_book</span>
+<span class="font-body-md text-body-md">User Manual</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="mt-12 md:ml-64 p-container-padding max-w-5xl mx-auto">
+<!-- Header Section -->
+<div class="mb-section-margin">
+<div class="flex items-baseline gap-2 mb-1">
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">MIX AUDIT:</h2>
+<span class="font-headline-sm text-headline-sm text-secondary">Master Chain</span>
+</div>
+<div class="h-[1px] w-full bg-outline-variant"></div>
+</div>
+<!-- Section 1: Educational Insight -->
+<section class="mb-section-margin">
+<div class="bg-surface-container-low border border-outline-variant p-4">
+<div class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary-container mt-1">info</span>
+<div>
+<h3 class="font-label-caps text-label-caps text-outline mb-2">AI RATIONALE</h3>
+<p class="font-body-md text-body-md leading-relaxed text-on-surface-variant">
+                            Increased <span class="text-secondary font-bold">+2dB at 3kHz</span> to enhance vocal presence and applied <span class="text-secondary font-bold">soft-clipping</span> for 1.5dB of loudness. The high-mid boost compensates for mask frequencies detected in the synthesizer group, while the clipping maintains transient peaks without digital distortion.
+                        </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 2: Visual Comparison (Bento Layout) -->
+<section class="grid grid-cols-1 lg:grid-cols-3 gap-element-gap mb-section-margin">
+<!-- Spectrum Analyzer -->
+<div class="lg:col-span-2 bg-surface-container-low border border-outline-variant p-4 flex flex-col">
+<div class="flex justify-between items-center mb-4">
+<h3 class="font-label-caps text-label-caps text-outline">FREQUENCY SPECTRUM COMPARISON</h3>
+<div class="flex gap-4">
+<div class="flex items-center gap-2">
+<div class="w-3 h-1 bg-outline-variant"></div>
+<span class="font-label-caps text-label-caps">BEFORE</span>
+</div>
+<div class="flex items-center gap-2">
+<div class="w-3 h-1 bg-secondary"></div>
+<span class="font-label-caps text-label-caps">AFTER</span>
+</div>
+</div>
+</div>
+<div class="relative h-64 spectrum-container frequency-grid border border-outline-variant overflow-hidden group">
+<!-- Before Curve (Subtle Gray) -->
+<svg class="absolute inset-0 w-full h-full opacity-40" preserveaspectratio="none" viewbox="0 0 1000 200">
+<path d="M0,150 Q100,160 200,140 T400,150 T600,130 T800,160 T1000,140" fill="none" stroke="#98907b" stroke-width="2"></path>
+</svg>
+<!-- After Curve (Live Yellow/Blue) -->
+<svg class="absolute inset-0 w-full h-full" preserveaspectratio="none" viewbox="0 0 1000 200">
+<path d="M0,150 Q100,160 200,140 T400,120 T600,130 T800,160 T1000,140" fill="none" stroke="#73d1ff" stroke-width="3"></path>
+<!-- Highlighted EQ Node at 3kHz -->
+<circle class="animate-pulse" cx="400" cy="120" fill="#73d1ff" r="4"></circle>
+<text class="font-mono-data text-[10px] fill-secondary" x="410" y="115">+2dB @ 3.1kHz</text>
+</svg>
+<!-- Dynamic Waveform Placeholder (Animated via CSS) -->
+<div class="absolute bottom-0 left-0 w-full h-full pointer-events-none">
+
+</div>
+</div>
+<div class="flex justify-between mt-2 font-mono-data text-[9px] text-outline px-1">
+<span>20Hz</span>
+<span>100Hz</span>
+<span>1kHz</span>
+<span>5kHz</span>
+<span>20kHz</span>
+</div>
+</div>
+<!-- Stats/Metrics -->
+<div class="bg-surface-container-low border border-outline-variant p-4 space-y-4">
+<h3 class="font-label-caps text-label-caps text-outline">LOUDNESS METRICS</h3>
+<div class="space-y-3">
+<div>
+<div class="flex justify-between mb-1">
+<span class="font-body-sm text-body-sm text-on-surface-variant">LUFS Integrated</span>
+<span class="font-mono-data text-secondary">-14.2 dB</span>
+</div>
+<div class="h-1 bg-surface-variant w-full overflow-hidden">
+<div class="h-full bg-secondary w-[72%]"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-1">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Dynamic Range</span>
+<span class="font-mono-data text-secondary">8.4 DR</span>
+</div>
+<div class="h-1 bg-surface-variant w-full overflow-hidden">
+<div class="h-full bg-secondary w-[55%]"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-1">
+<span class="font-body-sm text-body-sm text-on-surface-variant">True Peak</span>
+<span class="font-mono-data text-secondary">-1.1 dBTP</span>
+</div>
+<div class="h-1 bg-surface-variant w-full overflow-hidden">
+<div class="h-full bg-secondary w-[89%]"></div>
+</div>
+</div>
+</div>
+<div class="pt-4 border-t border-outline-variant">
+<h4 class="font-label-caps text-label-caps text-outline mb-3">AI CONFIDENCE</h4>
+<div class="flex items-center gap-2">
+<div class="w-12 h-12 rounded-full border-2 border-secondary flex items-center justify-center">
+<span class="font-mono-data text-headline-sm text-secondary">94</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">The AI is highly confident this chain improves clarity across translation devices.</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 3: Parameters List -->
+<section class="bg-surface-container-low border border-outline-variant">
+<div class="px-4 py-3 border-b border-outline-variant flex justify-between items-center bg-surface-container-high">
+<h3 class="font-label-caps text-label-caps text-on-surface">TECHNICAL ADJUSTMENTS</h3>
+<div class="flex gap-2">
+<button class="bg-outline-variant hover:bg-surface-variant text-on-surface font-label-caps text-label-caps px-3 py-1 transition-colors">REVERT ALL</button>
+<button class="bg-secondary-container text-on-secondary-container hover:opacity-90 font-label-caps text-label-caps px-3 py-1 transition-colors">APPLY ALL</button>
+</div>
+</div>
+<div class="divide-y divide-outline-variant">
+<!-- Parameter Row 1 -->
+<div class="flex items-center p-4 hover:bg-surface-variant transition-colors group">
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-1">
+<span class="font-headline-sm text-headline-sm">Linear Phase EQ</span>
+<span class="bg-surface-container-highest text-outline text-[9px] px-1 font-mono-data">INSERT 01</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Mid-Side: High Shelf +1.5dB @ 12kHz, Cut -2.0dB @ 250Hz (Side only)</p>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex flex-col items-center gap-1">
+<div class="w-8 h-8 rounded-full border border-outline flex items-center justify-center bg-surface cursor-pointer relative overflow-hidden">
+<div class="absolute h-1 w-full bg-secondary bottom-0" style="height: 60%"></div>
+<span class="font-mono-data text-[9px] z-10">60%</span>
+</div>
+<span class="font-label-caps text-[8px] text-outline">DRY/WET</span>
+</div>
+<div class="flex items-center gap-2">
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-secondary"></div>
+</label>
+</div>
+</div>
+</div>
+<!-- Parameter Row 2 -->
+<div class="flex items-center p-4 hover:bg-surface-variant transition-colors group">
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-1">
+<span class="font-headline-sm text-headline-sm">Glue Compressor</span>
+<span class="bg-surface-container-highest text-outline text-[9px] px-1 font-mono-data">INSERT 02</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Threshold: -12dB, Ratio: 2:1, Makeup: +2.5dB, Attack: 30ms</p>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex flex-col items-center gap-1">
+<div class="w-8 h-8 rounded-full border border-outline flex items-center justify-center bg-surface cursor-pointer relative overflow-hidden">
+<div class="absolute h-1 w-full bg-secondary bottom-0" style="height: 100%"></div>
+<span class="font-mono-data text-[9px] z-10 text-on-secondary-container">100%</span>
+</div>
+<span class="font-label-caps text-[8px] text-outline">DRY/WET</span>
+</div>
+<div class="flex items-center gap-2">
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-secondary"></div>
+</label>
+</div>
+</div>
+</div>
+<!-- Parameter Row 3 -->
+<div class="flex items-center p-4 hover:bg-surface-variant transition-colors group">
+<div class="flex-1">
+<div class="flex items-center gap-2 mb-1">
+<span class="font-headline-sm text-headline-sm">Soft Clipper</span>
+<span class="bg-surface-container-highest text-outline text-[9px] px-1 font-mono-data">INSERT 03</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Drive: +1.5dB, Mode: Oversampling 4x, Ceil: -0.3dB</p>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex flex-col items-center gap-1">
+<div class="w-8 h-8 rounded-full border border-outline flex items-center justify-center bg-surface cursor-pointer relative overflow-hidden">
+<div class="absolute h-1 w-full bg-secondary bottom-0" style="height: 45%"></div>
+<span class="font-mono-data text-[9px] z-10">45%</span>
+</div>
+<span class="font-label-caps text-[8px] text-outline">DRY/WET</span>
+</div>
+<div class="flex items-center gap-2">
+<label class="relative inline-flex items-center cursor-pointer">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-9 h-5 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-secondary"></div>
+</label>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contextual Help -->
+<footer class="mt-8 text-center">
+<button class="group flex items-center gap-2 mx-auto text-outline hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined text-sm">help</span>
+<span class="font-body-sm text-body-sm">Why did the AI suggest these changes? Click for deep dive.</span>
+</button>
+</footer>
+</main>
+<!-- Bottom Navigation Bar (Mobile) -->
+<nav class="fixed bottom-0 w-full z-50 h-14 bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-outline-variant flex justify-around items-center md:hidden">
+<button class="flex flex-col items-center justify-center text-on-surface-variant h-full w-full hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined">dashboard</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant h-full w-full hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined">explore</span>
+</button>
+<button class="flex flex-col items-center justify-center bg-secondary-container dark:bg-secondary-container text-on-secondary-container rounded-none h-full w-full border-t-2 border-secondary transition-all">
+<span class="material-symbols-outlined">equalizer</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant h-full w-full hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined">piano</span>
+</button>
+<button class="flex flex-col items-center justify-center text-on-surface-variant h-full w-full hover:bg-surface-container-high transition-all">
+<span class="material-symbols-outlined">terminal</span>
+</button>
+</nav>
+<script>
+        // Micro-interaction for knobs
+        document.querySelectorAll('.rounded-full.border.cursor-pointer').forEach(knob => {
+            knob.addEventListener('mousedown', (e) => {
+                let startY = e.clientY;
+                let currentHeight = parseInt(knob.querySelector('.bg-secondary').style.height);
+                
+                const onMouseMove = (moveEvent) => {
+                    let deltaY = startY - moveEvent.clientY;
+                    let newHeight = Math.max(0, Math.min(100, currentHeight + deltaY));
+                    knob.querySelector('.bg-secondary').style.height = newHeight + '%';
+                    knob.querySelector('.font-mono-data').innerText = newHeight + '%';
+                };
+                
+                const onMouseUp = () => {
+                    document.removeEventListener('mousemove', onMouseMove);
+                    document.removeEventListener('mouseup', onMouseUp);
+                };
+                
+                document.addEventListener('mousemove', onMouseMove);
+                document.addEventListener('mouseup', onMouseUp);
+            });
+        });
+
+        // Simple pulse effect for the "Thinking" state
+        const statusBox = document.querySelector('.spectrum-container circle');
+        if(statusBox) {
+            setInterval(() => {
+                statusBox.classList.toggle('opacity-50');
+            }, 1000);
+        }
+    </script>
+</body></html>
