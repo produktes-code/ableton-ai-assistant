@@ -134,3 +134,25 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# --- Ableton AI Assistant Specific ---
+# Python
+__pycache__/
+*.pyc
+
+# Audio Files
+*.wav
+*.mp3
+*.flac
+*.mid
+*.midi
+
+# Ableton Live
+*.als
+*.alp
+
+# Installers
+*.dmg
+*.exe
+dist/
+dist-electron/

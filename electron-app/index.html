@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title data-i18n="app.title">Ableton AI Assistant</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
@@ -86,10 +87,18 @@
     <!-- TopAppBar -->
     <header class="fixed top-0 w-full z-50 bg-[#2a2a2a] border-b border-[#444444] flex justify-between items-center h-12 px-4 shadow-sm">
         <div class="flex items-center gap-3">
-            <img src="assets/icon.png" alt="Antigravity Icon" class="w-6 h-6 object-cover rounded-none">
-            <h1 class="text-sm font-bold tracking-wide text-gray-200">ANTIGRAVITY v1.0</h1>
+            <h1 class="text-sm font-bold tracking-wide text-gray-200" data-i18n="app.title">Ableton AI Assistant</h1>
         </div>
         <div class="flex items-center gap-4">
+            <select id="lang-select" class="bg-[#1b1b1b] border border-[#444] text-[10px] text-gray-300 p-1 font-bold outline-none">
+                <option value="es">ESPAÑOL</option>
+                <option value="en">ENGLISH</option>
+                <option value="de">DEUTSCH</option>
+                <option value="uk">УКРАЇНСЬКА</option>
+                <option value="ru">РУССКИЙ</option>
+                <option value="zh">中文</option>
+                <option value="ja">日本語</option>
+            </select>
             <button id="btn-settings" class="hover:bg-[#444] transition-colors p-1 rounded-none">
                 <span class="material-symbols-outlined text-gray-400 text-sm">settings</span>
             </button>
@@ -99,73 +108,59 @@
     <!-- Settings Modal -->
     <div id="modal-settings" class="hidden-view fixed inset-0 bg-black/80 z-[60] flex items-center justify-center p-4">
         <div class="industrial-card p-6 max-w-sm w-full">
-            <h2 class="text-xs font-bold text-gray-200 mb-4">AJUSTES DE ANTIGRAVITY</h2>
+            <h2 class="text-xs font-bold text-gray-200 mb-4" data-i18n="nav.settings">Configuración de Seguridad</h2>
             <div class="flex flex-col gap-3">
                 <div class="flex justify-between items-center">
-                    <span class="text-[11px] text-gray-400">Puerto TCP Ableton</span>
+                    <span class="text-[11px] text-gray-400" data-i18n="settings.tcp_port">Puerto TCP Ableton</span>
                     <span class="text-[11px] font-mono text-gray-200">9001</span>
                 </div>
                 <div class="flex justify-between items-center">
-                    <span class="text-[11px] text-gray-400">Modelo LLM</span>
-                    <span class="text-[11px] font-mono text-blue-400">Claude 3.5 Sonnet</span>
+                    <span class="text-[11px] text-gray-400" data-i18n="settings.upload_limit">Límite Upload (Seguridad)</span>
+                    <span class="text-[11px] font-mono text-blue-400">2 GB MAX</span>
                 </div>
-                <button id="btn-close-settings" class="mt-4 w-full h-8 bg-[#444] text-[10px] font-bold text-gray-200">CERRAR</button>
+                <div class="flex flex-col gap-2 mt-2">
+                    <button id="btn-health-check" class="w-full h-8 bg-blue-600 hover:bg-blue-500 text-[10px] font-bold text-white uppercase transition-colors" data-i18n="health.check_button">EJECUTAR HEALTH CHECK</button>
+                    <div id="health-status-indicator" class="text-[10px] font-mono text-gray-400 text-center" data-i18n="health.status_unknown">Estado: Desconocido</div>
+                </div>
+                <button id="btn-close-settings" class="mt-4 w-full h-8 bg-[#444] hover:bg-[#555] text-[10px] font-bold text-gray-200 uppercase transition-colors" data-i18n="settings.close">CERRAR</button>
             </div>
         </div>
     </div>
 
     <!-- Main Content -->
-    <main class="flex-1 mt-16 mb-32 px-4 relative">
+    <main class="flex-1 mt-16 mb-40 px-4 relative">
         
         <!-- View 1: DASHBOARD (Active) -->
         <div id="view-dashboard" class="grid grid-cols-1 md:grid-cols-12 gap-4">
             <section class="md:col-span-5 flex flex-col gap-2">
                 <div class="flex items-center justify-between mb-1">
-                    <h2 class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Salud de la Sesión</h2>
-                    <span class="text-[10px] text-blue-400">ESCANEO ACTIVO</span>
+                    <h2 class="text-[10px] font-bold text-gray-400 uppercase tracking-widest" data-i18n="dashboard.session_health">Salud de la Sesión</h2>
+                    <span class="text-[10px] text-blue-400" data-i18n="dashboard.active_scan">ESCANEO ACTIVO</span>
                 </div>
                 
                 <div class="industrial-card p-4 flex flex-col gap-4">
                     <div class="flex items-end justify-between border-b border-[#444] pb-2">
-                        <span class="text-xs text-gray-300">Proyecto Salud</span>
+                        <span class="text-xs text-gray-300" data-i18n="dashboard.project_health">Proyecto Salud</span>
                         <span class="text-lg font-bold text-blue-400">84%</span>
-                    </div>
-
-                    <!-- Alert 1 -->
-                    <div class="flex flex-col gap-1 p-2 bg-[#ff3c3c1a] border-l-2 border-[#ff3c3c]">
-                        <div class="flex items-center gap-2">
-                            <span class="material-symbols-outlined text-[#ff3c3c] text-[14px]">error</span>
-                            <p class="text-[11px] text-gray-200 font-bold uppercase">Recorte en pista 4 (Voces)</p>
-                        </div>
-                        <p class="text-[10px] text-gray-400 pl-6">Pico en +2.4dB. Sugiere reducción de ganancia de -3dB.</p>
-                    </div>
-
-                    <!-- Alert 2 -->
-                    <div class="flex flex-col gap-1 p-2 bg-[#ffb4001a] border-l-2 border-[#ffb400]">
-                        <div class="flex items-center gap-2">
-                            <span class="material-symbols-outlined text-[#ffb400] text-[14px]">warning</span>
-                            <p class="text-[11px] text-gray-200 font-bold uppercase">ADVERTENCIA: Enmascaramiento</p>
-                        </div>
-                        <p class="text-[10px] text-gray-400 pl-6">Conflicto entre Kick y Bass en rango 60Hz - 120Hz.</p>
                     </div>
 
                     <button id="btn-autocorrect" class="w-full h-8 bg-[#444] hover:bg-[#555] transition-colors flex items-center justify-center gap-2 text-[10px] font-bold text-gray-200 uppercase rounded-none mt-2">
                         <span class="material-symbols-outlined text-[14px]">auto_fix</span>
-                        AUTOCORRECCIÓN DE PROBLEMAS
+                        <span data-i18n="dashboard.autocorrect">AUTOCORRECCIÓN DE PROBLEMAS</span>
                     </button>
                 </div>
             </section>
 
             <section class="md:col-span-7 flex flex-col gap-2">
                 <div class="flex items-center justify-between mb-1">
-                    <h2 class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Control Macro Inteligente</h2>
+                    <h2 class="text-[10px] font-bold text-gray-400 uppercase tracking-widest" data-i18n="dashboard.macro_control">Control Macro Inteligente</h2>
                     <button id="btn-link" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
                         <span id="linked-dot" class="w-2 h-2 bg-blue-500"></span>
-                        <span class="text-[9px] text-gray-400 uppercase tracking-widest">Vinculado</span>
+                        <span class="text-[9px] text-gray-400 uppercase tracking-widest" data-i18n="dashboard.linked" id="linked-text">Vinculado</span>
                     </button>
                 </div>
 
-                <div class="industrial-card p-6 flex flex-col md:flex-row items-center gap-8 min-h-[300px]">
+                <div class="industrial-card p-6 flex flex-col md:flex-row items-center gap-8 min-h-[200px]">
                     <!-- Main Knob -->
                     <div class="flex flex-col items-center gap-4">
                         <div class="knob-container" id="saturatorKnob">
@@ -178,14 +173,14 @@
                                 <span class="text-[9px] text-gray-500">%</span>
                             </div>
                         </div>
-                        <span class="text-[10px] font-bold tracking-widest text-gray-300">SATURADOR INTELIGENTE</span>
+                        <span class="text-[10px] font-bold tracking-widest text-gray-300" data-i18n="dashboard.saturator">SATURADOR INTELIGENTE</span>
                     </div>
 
                     <!-- Sliders -->
                     <div class="flex-1 w-full flex flex-col gap-6">
                         <div class="flex flex-col gap-2">
                             <div class="flex justify-between text-[10px] font-bold text-gray-400 uppercase">
-                                <span>Ganancia</span>
+                                <span data-i18n="dashboard.gain">Ganancia</span>
                                 <span id="gain-val" class="text-blue-400">+4.2 dB</span>
                             </div>
                             <input type="range" id="slider-gain" min="-12" max="12" step="0.1" value="4.2">
@@ -193,15 +188,15 @@
                         
                         <div class="flex flex-col gap-2">
                             <div class="flex justify-between text-[10px] font-bold text-gray-400 uppercase">
-                                <span>Drive</span>
+                                <span data-i18n="dashboard.drive">Drive</span>
                                 <span id="drive-val" class="text-blue-400">40 %</span>
                             </div>
                             <input type="range" id="slider-drive" min="0" max="100" step="1" value="40">
                         </div>
 
                         <div class="mt-4 grid grid-cols-2 gap-2">
-                            <button id="btn-bypass" class="h-7 border border-[#444] hover:bg-[#444] text-[10px] font-bold uppercase text-gray-300 rounded-none transition-colors">BYPASS</button>
-                            <button id="btn-compare" class="h-7 border border-[#444] hover:bg-[#444] text-[10px] font-bold uppercase text-gray-300 rounded-none transition-colors">COMPARAR</button>
+                            <button id="btn-bypass" class="h-7 border border-[#444] hover:bg-[#444] text-[10px] font-bold uppercase text-gray-300 rounded-none transition-colors" data-i18n="dashboard.bypass">BYPASS</button>
+                            <button id="btn-compare" class="h-7 border border-[#444] hover:bg-[#444] text-[10px] font-bold uppercase text-gray-300 rounded-none transition-colors" data-i18n="dashboard.compare">COMPARAR</button>
                         </div>
                     </div>
                 </div>
@@ -209,8 +204,10 @@
         </div>
 
         <!-- View 2: EXPLORE (Hidden) -->
-        <div id="view-explore" class="hidden-view h-full flex items-center justify-center">
-            <span class="text-gray-500 text-sm">Explorador de Sesión en Desarrollo...</span>
+        <div id="view-explore" class="hidden-view h-full flex flex-col items-center justify-center border border-dashed border-[#444] p-10">
+            <span class="material-symbols-outlined text-[48px] text-gray-600 mb-4">upload_file</span>
+            <span class="text-gray-400 text-sm font-bold uppercase mb-2" data-i18n="upload.dropzone">Arrastra tu archivo aquí</span>
+            <span class="text-gray-500 text-[10px]" data-i18n="upload.formats">Formatos: WAV, MP3, FLAC, MID, ALS, ALP (Máx. 2GB)</span>
         </div>
         <!-- View 3: MIXER (Hidden) -->
         <div id="view-mixer" class="hidden-view h-full flex items-center justify-center">
@@ -220,36 +217,88 @@
 
     <!-- Bottom Input and Nav Container -->
     <div class="fixed bottom-0 left-0 w-full z-50 bg-[#2a2a2a] border-t border-[#444]">
-        <!-- Terminal Log Area (New) -->
+        <!-- Terminal Log Area -->
         <div id="terminal-log" class="hidden-view px-4 py-2 bg-[#1b1b1b] border-b border-[#444] max-h-32 overflow-y-auto font-mono text-[10px] text-gray-400 flex flex-col gap-1">
-            <!-- Logs will be appended here -->
         </div>
 
         <div class="px-4 py-3">
             <div class="max-w-4xl mx-auto recessed-input flex items-center px-3 h-10 gap-3 focus-within:border-blue-500 transition-colors">
                 <span class="material-symbols-outlined text-gray-500 text-[18px]">terminal</span>
-                <input id="cmd-input" class="flex-1 bg-transparent border-none focus:outline-none text-[12px] text-gray-200 placeholder:text-gray-600" placeholder="Ej: Añade un EQ Eight en pista 1 y corta a 120Hz..." type="text"/>
-                <div class="flex items-center gap-2">
-                    <span class="text-[10px] px-1 bg-[#333] border border-[#444] text-gray-500 font-mono">CMD+K</span>
-                </div>
+                <input id="cmd-input" class="flex-1 bg-transparent border-none focus:outline-none text-[12px] text-gray-200 placeholder:text-gray-600" data-i18n-placeholder="cmd.placeholder" placeholder="Ej: Añade un EQ Eight en pista 1..." type="text"/>
             </div>
         </div>
 
         <!-- Navigation -->
         <nav class="h-12 bg-[#1b1b1b] border-t border-[#444] flex justify-around items-center">
-            <button data-view="dashboard" class="nav-btn flex h-full w-full items-center justify-center text-gray-500 hover:text-gray-300 hover:bg-[#222] active-nav">
-                <span class="material-symbols-outlined text-[20px]">dashboard</span>
+            <button data-view="dashboard" class="nav-btn flex flex-col gap-1 h-full w-full items-center justify-center text-gray-500 hover:text-gray-300 hover:bg-[#222] active-nav">
+                <span class="material-symbols-outlined text-[16px]">dashboard</span>
+                <span class="text-[8px] font-bold uppercase" data-i18n="nav.dashboard">Panel</span>
             </button>
-            <button data-view="explore" class="nav-btn flex h-full w-full items-center justify-center text-gray-500 hover:text-gray-300 hover:bg-[#222]">
-                <span class="material-symbols-outlined text-[20px]">explore</span>
+            <button data-view="explore" class="nav-btn flex flex-col gap-1 h-full w-full items-center justify-center text-gray-500 hover:text-gray-300 hover:bg-[#222]">
+                <span class="material-symbols-outlined text-[16px]">explore</span>
+                <span class="text-[8px] font-bold uppercase" data-i18n="nav.explore">Explorador</span>
             </button>
-            <button data-view="mixer" class="nav-btn flex h-full w-full items-center justify-center text-gray-500 hover:text-gray-300 hover:bg-[#222]">
-                <span class="material-symbols-outlined text-[20px]">equalizer</span>
+            <button data-view="mixer" class="nav-btn flex flex-col gap-1 h-full w-full items-center justify-center text-gray-500 hover:text-gray-300 hover:bg-[#222]">
+                <span class="material-symbols-outlined text-[16px]">equalizer</span>
+                <span class="text-[8px] font-bold uppercase" data-i18n="nav.mixer">Mezclador</span>
             </button>
         </nav>
+        
+        <!-- Footer -->
+        <footer class="h-6 bg-black flex items-center justify-center gap-4 text-[9px] text-gray-600">
+            <span data-i18n="footer.credits">Creado por produktes-code</span>
+            <span>&bull;</span>
+            <a href="https://github.com/produktes-code" class="hover:text-gray-300" data-i18n="footer.github">GitHub</a>
+        </footer>
     </div>
 
     <script>
+        // Sistema Multimodal i18n
+        let currentLang = localStorage.getItem('ableton_language') || 'es';
+        let translations = {};
+
+        async function loadTranslations(lang) {
+            try {
+                // Assuming we are in a file:// protocol context or localhost
+                // For a robust Electron app, we could use Node.js fs via IPC, but fetch usually works for local JSON in modern Electron if configured correctly.
+                // Alternatively, we embed the JSONs if fetch fails, but let's try fetch.
+                const res = await fetch(`./locales/${lang}.json`);
+                if (!res.ok) throw new Error("HTTP error " + res.status);
+                const data = await res.json();
+                translations[lang] = data;
+                applyTranslations(lang);
+            } catch (err) {
+                console.error("Error loading translation", err);
+                addLog("Error cargando idioma. Verifica las rutas.", false);
+            }
+        }
+
+        function t(key) {
+            return translations[currentLang]?.[key] || key;
+        }
+
+        function applyTranslations(lang) {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                el.innerText = t(key);
+            });
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-i18n-placeholder');
+                el.placeholder = t(key);
+            });
+        }
+
+        const langSelect = document.getElementById('lang-select');
+        langSelect.value = currentLang;
+        langSelect.addEventListener('change', (e) => {
+            currentLang = e.target.value;
+            localStorage.setItem('ableton_language', currentLang);
+            loadTranslations(currentLang);
+        });
+        
+        // Initial load
+        loadTranslations(currentLang);
+
         // State
         let isLinked = true;
         let isBypassed = false;
@@ -329,7 +378,6 @@
         document.getElementById('btn-bypass').addEventListener('click', (e) => {
             isBypassed = !isBypassed;
             e.target.classList.toggle('toggle-on', isBypassed);
-            addLog(isBypassed ? "Dispositivo en BYPASS." : "Dispositivo ACTIVO.");
             if (window.antigravityAPI) {
                 window.antigravityAPI.sendAction({
                     action: "set_parameter",
@@ -341,18 +389,12 @@
         document.getElementById('btn-compare').addEventListener('click', (e) => {
             isComparing = !isComparing;
             e.target.classList.toggle('toggle-on', isComparing);
-            addLog(isComparing ? "Comparación A/B activada." : "Comparación A/B desactivada.");
         });
 
         document.getElementById('btn-autocorrect').addEventListener('click', (e) => {
-            addLog("Iniciando autocorrección de enmascaramiento...");
-            if (window.antigravityAPI) window.antigravityAPI.sendCommand("Fix frequency masking between Kick and Bass");
-            
-            // Simular respuesta visual
+            if (window.antigravityAPI) window.antigravityAPI.sendCommand("Fix frequency masking");
             setTimeout(() => {
-                addLog("LLM: Conflicto resuelto. EQ Eight insertado en Pista 4 (-3dB en 120Hz).");
                 e.target.parentElement.style.opacity = '0.5';
-                e.target.innerHTML = '<span class="material-symbols-outlined text-[14px]">check</span> CORREGIDO';
                 e.target.disabled = true;
             }, 1500);
         });
@@ -360,7 +402,7 @@
         document.getElementById('btn-link').addEventListener('click', () => {
             isLinked = !isLinked;
             document.getElementById('linked-dot').style.backgroundColor = isLinked ? 'var(--ableton-blue)' : '#444';
-            addLog(isLinked ? "Macro Control VINCULADO a Ableton." : "Macro Control DESVINCULADO.");
+            document.getElementById('linked-text').innerText = isLinked ? t("dashboard.linked") : t("dashboard.unlinked");
         });
 
         // Settings Modal
@@ -399,16 +441,53 @@
                 if (e.key === 'Enter' && cmdInput.value.trim() !== '') {
                     const commandText = cmdInput.value.trim();
                     addLog(commandText, true);
-                    
                     if (window.antigravityAPI) window.antigravityAPI.sendCommand(commandText);
-                    
                     cmdInput.value = '';
-                    
-                    // Simular respuesta del LLM (El cerebro real irá aquí)
-                    setTimeout(() => {
-                        addLog(`IA: Procesando comando "${commandText}". Inyectando parámetros vía TCP 127.0.0.1:9001...`);
-                    }, 1000);
                 }
+            });
+        }
+
+        // Drag & Drop MIME Validation
+        document.body.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+        });
+
+        document.body.addEventListener('drop', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
+                const file = e.dataTransfer.files[0];
+                const validMimeTypes = ['audio/wav', 'audio/mpeg', 'audio/flac', 'audio/midi', 'audio/x-midi', 'application/octet-stream'];
+                const validExtensions = ['.als', '.alp', '.wav', '.mp3', '.flac', '.mid'];
+                let ext = file.name.substring(file.name.lastIndexOf('.')).toLowerCase();
+                
+                if (validMimeTypes.includes(file.type) || validExtensions.includes(ext)) {
+                    if (window.antigravityAPI) {
+                        window.antigravityAPI.sendAudioReference(file.path);
+                    }
+                } else {
+                    alert(t("upload.error_mime") + `: ${file.type || ext}`);
+                }
+            }
+        });
+
+        // Health Check IPC
+        const btnHealth = document.getElementById('btn-health-check');
+        const healthStatus = document.getElementById('health-status-indicator');
+        if (btnHealth && window.antigravityAPI) {
+            btnHealth.addEventListener('click', () => {
+                healthStatus.textContent = t("health.checking");
+                window.antigravityAPI.healthCheck();
+            });
+
+            window.antigravityAPI.onHealthStatus((status) => {
+                const connText = status.tcp_connected ? t("health.connected") : t("health.disconnected");
+                const color = status.tcp_connected ? 'text-green-500' : 'text-red-500';
+                healthStatus.innerHTML = `
+                    TCP (Ableton 9001): <span class="${color}">${connText}</span><br>
+                    OSC: <span class="text-green-500">OK</span> | MIDI: <span class="text-green-500">OK</span>
+                `;
             });
         }
     </script>

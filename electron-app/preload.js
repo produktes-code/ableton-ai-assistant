@@ -12,5 +12,9 @@ contextBridge.exposeInMainWorld('antigravityAPI', {
     onResponse: (callback) => ipcRenderer.on('command-response', (_event, value) => callback(value)),
     
     // Función Multimodal: Enviar ruta de archivo de audio soltado
-    sendAudioReference: (filePath) => ipcRenderer.send('send-audio-reference', filePath)
+    sendAudioReference: (filePath) => ipcRenderer.send('send-audio-reference', filePath),
+
+    // Health Check
+    healthCheck: () => ipcRenderer.send('health-check'),
+    onHealthStatus: (callback) => ipcRenderer.on('health-status', (_event, status) => callback(status))
 });

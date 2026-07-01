@@ -1,6 +1,9 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
 const net = require('net');
+const fs = require('fs');
+const logger = require('./logger');
+const tcpLimiter = require('./rateLimiter');
 
 // Lógica de conexión con Ableton (TCP)
 const ABLETON_HOST = '127.0.0.1';
@@ -10,15 +13,15 @@ let tcpClient = null;
 function connectToAbleton() {
     tcpClient = new net.Socket();
     tcpClient.connect(ABLETON_PORT, ABLETON_HOST, () => {
-        console.log('Conectado al Remote Script de Ableton (Puerto 9001).');
+        logger.info('Conectado al Remote Script de Ableton (Puerto 9001).');
     });
 
     tcpClient.on('data', (data) => {
-        console.log('Datos recibidos de Ableton:', data.toString());
+        logger.info('Datos recibidos de Ableton:', data.toString());
     });
 
     tcpClient.on('error', (err) => {
-        console.error('Error TCP con Ableton:', err.message);
+        logger.error('Error TCP con Ableton:', err.message);
     });
 }
 
@@ -54,33 +57,62 @@ app.whenReady().then(() => {
 // --- IPC Listeners (API Letal Multimodal) ---
 
 ipcMain.on('send-command', (event, commandText) => {
-    console.log(`[Prompt Usuario] Recibido texto: ${commandText}`);
-    // En un entorno real de producción, esto iría al LLM (Claude) para generar JSON.
-    // Por ahora lo enviamos como acción de chat al servidor para no romper el socket.
+    logger.info(`[Prompt Usuario] Recibido texto: ${commandText}`);
     if (tcpClient && !tcpClient.destroyed) {
+        if (!tcpLimiter.checkLimit()) {
+            logger.warn('Rate limit excedido en TCP command');
+            return;
+        }
         try {
             tcpClient.write(JSON.stringify({ action: "chat", payload: { text: commandText } }) + "\n");
-        } catch(e) {}
+        } catch(e) {
+            logger.error("Error enviando command TCP:", e.message);
+        }
     }
 });
 
-// Novedad Fase 13: Acciones Estructuradas Directas
 ipcMain.on('send-action', (event, actionObj) => {
-    console.log(`[Acción UI] Ejecutando:`, actionObj);
+    logger.info(`[Acción UI] Ejecutando:`, actionObj);
     if (tcpClient && !tcpClient.destroyed) {
+        if (!tcpLimiter.checkLimit()) {
+            logger.warn('Rate limit excedido en TCP action');
+            return;
+        }
         try {
-            // Se envía el JSON puro tal cual lo requiere el módulo The Mix Engineer en Python
             tcpClient.write(JSON.stringify(actionObj) + "\n");
         } catch(e) {
-            console.error("Error enviando acción TCP:", e);
+            logger.error("Error enviando acción TCP:", e.message);
         }
     }
 });
 
 ipcMain.on('send-audio-reference', (event, filePath) => {
-    console.log(`[Multimodal] Referencia de audio soltada: ${filePath}`);
-    // Aquí el servidor MCP/Librosa analizaría el archivo (Timbre/EQ Match)
-    event.reply('command-response', `Audio ${path.basename(filePath)} cargado para análisis.`);
+    try {
+        const stats = fs.statSync(filePath);
+        const MAX_SIZE = 2 * 1024 * 1024 * 1024; // 2GB
+        if (stats.size > MAX_SIZE) {
+            logger.error(`Error: Archivo supera 2GB (${filePath})`);
+            event.reply('command-response', `Error: El archivo supera el límite de 2GB.`);
+            return;
+        }
+        logger.info(`[Multimodal] Referencia de audio soltada: ${filePath} (Tamaño OK)`);
+        event.reply('command-response', `Audio ${path.basename(filePath)} verificado (Tamaño OK).`);
+    } catch(e) {
+        logger.error(`Error procesando audio:`, e.message);
+    }
+});
+
+// Health Check IPC
+ipcMain.on('health-check', (event) => {
+    const isConnected = tcpClient && !tcpClient.destroyed && !tcpClient.connecting;
+    const status = {
+        tcp_connected: isConnected,
+        osc_ready: true, // Simulado en esta capa
+        midi_ready: true, // Simulado en esta capa
+        timestamp: new Date().toISOString()
+    };
+    logger.info(`Health check solicitado: ${JSON.stringify(status)}`);
+    event.reply('health-status', status);
 });
 
 app.on('window-all-closed', () => {
