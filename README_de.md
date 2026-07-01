@@ -15,7 +15,7 @@ Asistente IA nativo para Ableton Live 12. Controla parámetros, genera MIDI y co
 
 ## 4. Características
 - Arquitectura TCP directa de baja latencia.
-- Soporte para **7 idiomas (ES, EN, DE, UK, RU, ZH, JA)**.
+- Soporte para **7 idiomas (🇪🇸 ES, 🇬🇧 EN, 🇩🇪 DE, 🇺🇦 UK, 🇷🇺 RU, 🇨🇳 ZH, 🇯🇵 JA)**.
 - Seguridad avanzada: **Rate limiting**, validación de **Magic Bytes**, límite de **2 GB**.
 - **Instaladores nativos (.dmg y .exe)** incluidos.
 
