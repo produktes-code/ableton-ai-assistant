@@ -1,46 +1,58 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/produktes-code/ableton-ai-assistant/main/build/icon.png" width="128" />
+  <img src="https://raw.githubusercontent.com/produktes-code/ableton-ai-assistant/main/build/icon.png" width="128" alt="Logo" />
   <h1>Ableton AI Assistant</h1>
 </div>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Build-Passing-brightgreen?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-blue?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/Version-1.0.0-orange?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/Status-Stable-success?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Build-Passing-brightgreen?style=for-the-badge" alt="Build" />
+  <img src="https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-blue?style=for-the-badge" alt="License" />
+  <img src="https://img.shields.io/badge/Version-1.0.0-orange?style=for-the-badge" alt="Version" />
+  <img src="https://img.shields.io/badge/Status-Stable-success?style=for-the-badge" alt="Status" />
 </p>
 
-## 3. Descripción
-Asistente IA nativo para Ableton Live 12. Controla parámetros, genera MIDI y corrige problemas de mezcla usando Inteligencia Artificial.
+🌐 **Multilingual & Multimodal Support / Soporte Multiidioma:**
+🇪🇸 Spanish | 🇬🇧 English | 🇩🇪 Deutsch | 🇺🇦 Ukrainian | 🇷🇺 Russian | 🇨🇳 Chinese | 🇯🇵 Japanese
 
-## 4. Características
-- Arquitectura TCP directa de baja latencia.
-- Soporte para **7 idiomas (🇪🇸 ES, 🇬🇧 EN, 🇩🇪 DE, 🇺🇦 UK, 🇷🇺 RU, 🇨🇳 ZH, 🇯🇵 JA)**.
-- Seguridad avanzada: **Rate limiting**, validación de **Magic Bytes**, límite de **2 GB**.
-- **Instaladores nativos (.dmg y .exe)** incluidos.
+---
 
-## 5. Capturas de Pantalla
-![Dashboard](docs/screenshot.jpg)
+## 🎯 Descripción del Proyecto
+Ableton AI Assistant es el asistente de producción musical definitivo. Transforma Ableton Live en un entorno reactivo impulsado por Inteligencia Artificial (Claude / OpenAI) mediante el protocolo **Model Context Protocol (MCP)**. Actúa como tu ingeniero de mezcla personal, corrigiendo enmascaramiento de frecuencias, añadiendo dispositivos nativos y procesando audio en tiempo real, todo ello sin romper el flujo de trabajo ni arrebatar el control creativo.
 
-## 6. Instalación
-1. Descarga el instalador nativo.
-2. Configura tu `.env`.
-3. Carga el Remote Script en Ableton.
+## ✨ Características Principales
+- **Arquitectura TCP directa**: Baja latencia y comunicación instantánea con Ableton Live.
+- **Soporte Multimodal**: Interfaz y procesamiento de comandos en 7 idiomas.
+- **Seguridad y Blindaje**: 
+  - **Rate limiting** para evitar saturación del servidor.
+  - Validación de **Magic Bytes** y tipos MIME para archivos de audio.
+  - Límite estricto de **2 GB** por archivo para procesamiento.
+- **Instaladores Nativos**: Binarios optimizados para macOS (.dmg) y Windows (.exe).
 
-## 7. Guía de Uso Rápido
-Escribe un prompt en la terminal de la App: "Añade un EQ Eight en la pista 1".
+## 💻 Instalación y Requisitos
+El proceso de instalación ha sido diseñado para ser completamente *Plug & Play*:
+1. Dirígete a la sección de [Releases](https://github.com/produktes-code/ableton-ai-assistant/releases/latest) y descarga el instalador correspondiente a tu sistema operativo (macOS o Windows).
+2. Ejecuta el instalador y sigue las instrucciones en pantalla.
+3. Abre Ableton Live, dirígete a `Preferences > Link/Tempo/MIDI` y selecciona el *Remote Script* del asistente.
+4. *(Opcional)* Configura tu archivo `.env` para añadir claves de API personalizadas si utilizas modelos en la nube.
 
-## 8. Stack Tecnológico
-- **Frontend**: Electron
-- **Backend/Script**: Python
-- **DAW**: Ableton Live API
-- **IA**: Claude AI
+## 🚀 Guía de Uso Rápido
+Una vez instalado y conectado:
+1. Abre la interfaz del asistente junto a tu sesión de Ableton Live.
+2. Escribe o dicta un comando en la terminal del asistente (por ejemplo: *"Añade un EQ Eight en la pista 1 y recorta los graves a 100Hz"*).
+3. La IA procesará la solicitud a través del protocolo TCP y ejecutará los cambios automáticamente.
 
-## 9. Licencia
-Distribuido bajo la licencia **CC BY-NC-SA 4.0**.
+## 🛠️ Stack Tecnológico
+Este proyecto ha sido desarrollado utilizando tecnologías de vanguardia para asegurar el máximo rendimiento:
+- **Frontend**: Electron y Vanilla JS para una interfaz de escritorio ligera y reactiva.
+- **Backend/Core**: Python (integración nativa y procesamiento de bajo nivel).
+- **Integración DAW**: Ableton Live API y scripts remotos (MIDI/OSC).
+- **Inteligencia Artificial**: Integración nativa con Claude AI (Anthropic) y soporte para LLMs locales.
 
-## 10. Documentación
-Lee el manual completo en `docs/USER_MANUAL.pdf`.
+## 📄 Licencia
+Este proyecto está distribuido bajo la licencia **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)**. Puedes compartir y adaptar el material, siempre y cuando des el crédito apropiado y no lo utilices con fines comerciales.
 
-## 11. Créditos
-Creado por **produktes-code**.
+## 📚 Documentación y Manuales
+Para una explicación técnica exhaustiva, guías de resolución de problemas, y detalles completos de la API, por favor descarga y consulta nuestro manual oficial:
+📥 **[Descargar Manual de Usuario en PDF (Todos los idiomas)](https://github.com/produktes-code/ableton-ai-assistant/releases/download/v1.0.0/USER_MANUAL.pdf)**
+
+## 👥 Créditos
+Diseñado, desarrollado y mantenido por **produktes-code** y **Chus BZN**.
