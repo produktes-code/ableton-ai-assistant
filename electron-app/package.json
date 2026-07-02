@@ -2,6 +2,7 @@
   "name": "antigravity-app",
   "version": "1.0.0",
   "description": "Asistente de IA para Ableton Live",
+  "author": "produktes-code",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
