@@ -3,16 +3,16 @@
 ---
 ## ESPAÑOL (ES)
 
-### 1. Introduccion y bienvenida
+### 1. Introducción y bienvenida
 Bienvenido a Ableton AI Assistant, el puente definitivo entre la Inteligencia Artificial (Claude) y tu DAW.
 
-### 2. Instalacion y requisitos del sistema
+### 2. Instalación y requisitos del sistema
 Requiere Ableton Live 12, Node.js y conexión a internet. Los instaladores nativos (.dmg y .exe) están disponibles.
 
-### 3. Configuracion inicial (Ableton Live, OSC, Claude API)
+### 3. Configuración inicial (Ableton Live, OSC, Claude API)
 Configura tu clave en `.env` y el puerto OSC 11000.
 
-### 4. Guia de uso paso a paso
+### 4. Guía de uso paso a paso
 Abre la app, escribe tu prompt en la terminal inferior y observa cómo la IA genera MIDI y controla parámetros.
 
 ### 5. Explicación de cada funcionalidad
@@ -31,7 +31,11 @@ El sistema incluye **Rate limiting** para proteger el puerto TCP, validación de
 ### 8. Solución de problemas (FAQ)
 Si el puente falla, reinicia el *Health Check*.
 
-### 9. Creditos y licencia
+
+¿Por qué macOS dice que la aplicación no se puede abrir? Esto ocurre porque la aplicación no está firmada con un certificado de Apple Developer. La aplicación es completamente segura. Para abrirla: haz clic derecho sobre la aplicación y selecciona "Abrir", luego haz clic en "Abrir" en el aviso. La próxima vez no aparecerá el aviso.
+
+
+### 9. Créditos y licencia
 Creado por produktes-code. Distribuido bajo licencia **CC BY-NC-SA 4.0**.
 
 ---
@@ -60,6 +64,10 @@ Includes **Rate limiting**, **Magic Bytes** validation, and a **2 GB** max limit
 
 ### 8. Troubleshooting (FAQ)
 Use the Health Check if issues arise.
+
+
+Why does macOS say the application cannot be opened? This happens because the application is not signed with an Apple Developer certificate. The application is completely safe. To open it: right-click on the application and select "Open", then click "Open" in the warning. The warning will not appear next time.
+
 
 ### 9. Credits and License
 By produktes-code. License: **CC BY-NC-SA 4.0**.
@@ -91,6 +99,14 @@ Mit **Rate limiting**, **Magic Bytes** Prüfung und **2 GB** Limit.
 ### 8. Fehlerbehebung (FAQ)
 Nutzen Sie den Health Check.
 
+
+Why does macOS say the application cannot be opened? This happens because the application is not signed with an Apple Developer certificate. The application is completely safe. To open it: right-click on the application and select "Open", then click "Open" in the warning. The warning will not appear next time.
+
+
+
+Warum sagt macOS, dass die Anwendung nicht geöffnet werden kann? Dies geschieht, weil die Anwendung nicht mit einem Apple Developer-Zertifikat signiert ist. Die Anwendung ist völlig sicher. Zum Öffnen: Klicken Sie mit der rechten Maustaste auf die Anwendung und wählen Sie "Öffnen", dann klicken Sie im Warnhinweis auf "Öffnen". Beim nächsten Mal erscheint der Hinweis nicht mehr.
+
+
 ### 9. Credits und Lizenz
 Von produktes-code. **CC BY-NC-SA 4.0**.
 
@@ -113,6 +129,10 @@ Health Check, Upload, AI Prompt, MIDI Generator, OSC Controller.
 **Rate limiting**, **Magic Bytes**, ліміт **2 GB**.
 ### 8. Вирішення проблем
 Використовуйте Health Check.
+
+Чому macOS каже, що програму не можна відкрити? Це відбувається тому, що програма не підписана сертифікатом Apple Developer. Програма повністю безпечна. Щоб відкрити її: клацніть правою кнопкою миші на програмі та виберіть "Відкрити", потім натисніть "Відкрити" в попередженні. Наступного разу попередження не з'явиться.
+
+
 ### 9. Кредити та ліцензія
 produktes-code, **CC BY-NC-SA 4.0**.
 
@@ -135,6 +155,10 @@ Health Check, Upload, AI Prompt, MIDI Generator, OSC Controller.
 **Rate limiting**, **Magic Bytes**, лимит **2 GB**.
 ### 8. Решение проблем (FAQ)
 Используйте Health Check.
+
+Почему macOS говорит, что приложение нельзя открыть? Это происходит потому, что приложение не подписано сертификатом Apple Developer. Приложение полностью безопасно. Чтобы открыть его: щелкните правой кнопкой мыши на приложении и выберите "Открыть", затем нажмите "Открыть" в предупреждении. В следующий раз предупреждение не появится.
+
+
 ### 9. Кредиты и лицензия
 produktes-code, **CC BY-NC-SA 4.0**.
 
@@ -157,6 +181,10 @@ Health Check, Upload, AI Prompt, MIDI Generator, OSC Controller.
 **Rate limiting**, **Magic Bytes**, **2 GB** 限制。
 ### 8. 故障排除 (FAQ)
 使用 Health Check。
+
+为什么 macOS 说应用程序无法打开？这是因为应用程序未使用 Apple Developer 证书签名。该应用程序是完全安全的。要打开它：右键单击应用程序并选择"打开"，然后在警告中单击"打开"。下次不会出现该警告。
+
+
 ### 9. 鸣谢与许可
 produktes-code, **CC BY-NC-SA 4.0**.
 
@@ -179,5 +207,9 @@ Health Check, Upload, AI Prompt, MIDI Generator, OSC Controller.
 **Rate limiting**, **Magic Bytes**, **2 GB** の制限。
 ### 8. トラブルシューティング (FAQ)
 Health Checkを使用してください。
+
+なぜmacOSはアプリケーションを開けないと言うのですか？これは、アプリケーションがApple Developer証明書で署名されていないためです。アプリケーションは完全に安全です。開くには：アプリケーションを右クリックして「開く」を選択し、警告で「開く」をクリックします。次回から警告は表示されません。
+
+
 ### 9. クレジットとライセンス
 produktes-code, **CC BY-NC-SA 4.0**.

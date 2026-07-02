@@ -1,7 +1,7 @@
 %PDF-1.3
 1 0 obj
 <<
-/Count 8
+/Count 9
 /Kids [3 0 R
 5 0 R
 7 0 R
@@ -9,7 +9,8 @@
 11 0 R
 13 0 R
 15 0 R
-17 0 R]
+17 0 R
+19 0 R]
 /MediaBox [0 0 595.28 841.89]
 /Type /Pages
 >>
@@ -26,7 +27,7 @@ endobj
 <<
 /Contents 4 0 R
 /Parent 1 0 R
-/Resources 22 0 R
+/Resources 24 0 R
 /Type /Page
 >>
 endobj
@@ -44,22 +45,22 @@ BT 31.18 752.65 Td (ESPAÑOL \(ES\)) Tj ET
 BT /F2 10.00 Tf ET
 BT 31.18 718.42 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 681.78 Td (1. Introduccion y bienvenida) Tj ET
+BT 31.18 681.78 Td (1. Introducción y bienvenida) Tj ET
 BT /F2 10.00 Tf ET
 BT 31.18 661.72 Td (Bienvenido a Ableton AI Assistant, el puente defin itivo entre la Inteligencia Artificial \(Claude\) y  tu DAW.) Tj ET
 BT 31.18 633.38 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 596.75 Td (2. Instalacion y requisitos del sistema) Tj ET
+BT 31.18 596.75 Td (2. Instalación y requisitos del sistema) Tj ET
 BT /F2 10.00 Tf ET
 BT 31.18 576.69 Td (Requiere Ableton Live 12, Node.js y conexión a int ernet. Los instaladores nativos \(.dmg y .exe\) está n disponibles.) Tj ET
 BT 31.18 548.34 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 511.71 Td (3. Configuracion inicial \(Ableton Live, OSC, Claud e API\)) Tj ET
+BT 31.18 511.71 Td (3. Configuración inicial \(Ableton Live, OSC, Claud e API\)) Tj ET
 BT /F2 10.00 Tf ET
 BT 31.18 491.65 Td (Configura tu clave en `.env` y el puerto OSC 11000 .) Tj ET
 BT 31.18 463.30 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 426.67 Td (4. Guia de uso paso a paso) Tj ET
+BT 31.18 426.67 Td (4. Guía de uso paso a paso) Tj ET
 BT /F2 10.00 Tf ET
 BT 31.18 406.61 Td (Abre la app, escribe tu prompt en la terminal infe rior y observa cómo la IA genera MIDI y controla p arámetros.) Tj ET
 BT 31.18 378.26 Td (#) Tj ET
@@ -92,13 +93,13 @@ endobj
 <<
 /Contents 6 0 R
 /Parent 1 0 R
-/Resources 23 0 R
+/Resources 25 0 R
 /Type /Page
 >>
 endobj
 6 0 obj
 <<
-/Length 1849
+/Length 2096
 >>
 stream
 2 J
@@ -109,45 +110,43 @@ BT /F1 14.00 Tf ET
 BT 31.18 752.65 Td (8. Solución de problemas \(FAQ\)) Tj ET
 BT /F2 10.00 Tf ET
 BT 31.18 732.59 Td (Si el puente falla, reinicia el *Health Check*.) Tj ET
-BT 31.18 704.24 Td (#) Tj ET
+BT 31.18 690.07 Td ( ¿Por qué macOS dice que la aplicación no se puede  abrir? Esto ocurre porque la aplicación no está fi rmada con un) Tj ET
+BT 31.18 675.90 Td (certificado de Apple Developer. La ap licación es completamente segura. Para abrirla: ha z clic derecho sobre la) Tj ET
+BT 31.18 661.72 Td (aplicación y selecciona "A brir", luego haz clic en "Abrir" en el aviso. La p róxima vez no aparecerá el aviso.) Tj ET
+BT 31.18 619.20 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 667.61 Td (9. Creditos y licencia) Tj ET
+BT 31.18 582.57 Td (9. Créditos y licencia) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 647.55 Td (Creado por produktes-code. Distribuido bajo licenc ia **CC BY-NC-SA 4.0**.) Tj ET
-BT 31.18 619.20 Td (---) Tj ET
+BT 31.18 562.51 Td (Creado por produktes-code. Distribuido bajo licenc ia **CC BY-NC-SA 4.0**.) Tj ET
+BT 31.18 534.17 Td (---) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 568.40 Td (ENGLISH \(EN\)) Tj ET
+BT 31.18 483.36 Td (ENGLISH \(EN\)) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 534.17 Td (#) Tj ET
-BT /F1 14.00 Tf ET
-BT 31.18 497.53 Td (1. Introduction and Welcome) Tj ET
-BT /F2 10.00 Tf ET
-BT 31.18 477.47 Td (Welcome to Ableton AI Assistant.) Tj ET
 BT 31.18 449.13 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 412.49 Td (2. Installation and System Requirements) Tj ET
+BT 31.18 412.49 Td (1. Introduction and Welcome) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 392.43 Td (Requires Ableton Live 12. Native installers \(.dmg,  .exe\) included.) Tj ET
+BT 31.18 392.43 Td (Welcome to Ableton AI Assistant.) Tj ET
 BT 31.18 364.09 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 327.45 Td (3. Initial Setup \(Ableton Live, OSC, Claude API\)) Tj ET
+BT 31.18 327.45 Td (2. Installation and System Requirements) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 307.39 Td (Set up the OSC 11000 port.) Tj ET
+BT 31.18 307.39 Td (Requires Ableton Live 12. Native installers \(.dmg,  .exe\) included.) Tj ET
 BT 31.18 279.05 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 242.41 Td (4. Step-by-Step Guide) Tj ET
+BT 31.18 242.41 Td (3. Initial Setup \(Ableton Live, OSC, Claude API\)) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 222.35 Td (Write a prompt and let the AI generate MIDI.) Tj ET
+BT 31.18 222.35 Td (Set up the OSC 11000 port.) Tj ET
 BT 31.18 194.01 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 157.38 Td (5. Features Explanation) Tj ET
+BT 31.18 157.38 Td (4. Step-by-Step Guide) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 137.32 Td (Includes Health Check, Upload, AI Prompt, MIDI Gen erator, OSC Controller.) Tj ET
+BT 31.18 137.32 Td (Write a prompt and let the AI generate MIDI.) Tj ET
 BT 31.18 108.97 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 72.34 Td (6. Multimodal System) Tj ET
+BT 31.18 72.34 Td (5. Features Explanation) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 52.28 Td (Supports **7 idiomas** natively.) Tj ET
+BT 31.18 52.28 Td (Includes Health Check, Upload, AI Prompt, MIDI Gen erator, OSC Controller.) Tj ET
 BT /F3 8.00 Tf ET
 BT 281.85 25.95 Td (Pagina 2) Tj ET
 
@@ -157,13 +156,13 @@ endobj
 <<
 /Contents 8 0 R
 /Parent 1 0 R
-/Resources 24 0 R
+/Resources 26 0 R
 /Type /Page
 >>
 endobj
 8 0 obj
 <<
-/Length 1687
+/Length 1870
 >>
 stream
 2 J
@@ -173,43 +172,41 @@ BT 180.29 795.77 Td (Ableton AI Assistant - Manual de Usuario) Tj ET
 BT /F2 10.00 Tf ET
 BT 31.18 746.76 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 710.13 Td (7. Hardening and Security) Tj ET
+BT 31.18 710.13 Td (6. Multimodal System) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 690.07 Td (Includes **Rate limiting**, **Magic Bytes** valida tion, and a **2 GB** max limit.) Tj ET
+BT 31.18 690.07 Td (Supports **7 idiomas** natively.) Tj ET
 BT 31.18 661.72 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 625.09 Td (8. Troubleshooting \(FAQ\)) Tj ET
+BT 31.18 625.09 Td (7. Hardening and Security) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 605.03 Td (Use the Health Check if issues arise.) Tj ET
+BT 31.18 605.03 Td (Includes **Rate limiting**, **Magic Bytes** valida tion, and a **2 GB** max limit.) Tj ET
 BT 31.18 576.69 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 540.05 Td (9. Credits and License) Tj ET
+BT 31.18 540.05 Td (8. Troubleshooting \(FAQ\)) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 519.99 Td (By produktes-code. License: **CC BY-NC-SA 4.0**.) Tj ET
-BT 31.18 491.65 Td ( ---) Tj ET
-BT /F1 14.00 Tf ET
-BT 31.18 440.84 Td (DEUTSCH \(DE\)) Tj ET
-BT /F2 10.00 Tf ET
+BT 31.18 519.99 Td (Use the Health Check if issues arise.) Tj ET
+BT 31.18 477.47 Td (Why does m acOS say the application cannot be opened? This ha ppens because the application is not signed with a n) Tj ET
+BT 31.18 463.30 Td (Apple Developer certificate. The application is  completely safe. To open it: right-click on the ap plication and select) Tj ET
+BT 31.18 449.13 Td ("Open", then click "Open" in  the warning. The warning will not appear next time .) Tj ET
 BT 31.18 406.61 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 369.97 Td (1. Einführung und Willkommen) Tj ET
+BT 31.18 369.97 Td (9. Credits and License) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 349.91 Td (Willkommen bei Ableton AI Assistant.) Tj ET
-BT 31.18 321.57 Td (#) Tj ET
+BT 31.18 349.91 Td (By produktes-code. License: **CC BY-NC-SA 4.0**.) Tj ET
+BT 31.18 321.57 Td ( ---) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 284.93 Td (2. Installation und Systemanforderungen) Tj ET
+BT 31.18 270.76 Td (DEUTSCH \(DE\)) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 264.87 Td (Erfordert Ableton Live 12.) Tj ET
 BT 31.18 236.53 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 199.89 Td (3. Ersteinrichtung \(Ableton Live, OSC, Claude API\)) Tj ET
+BT 31.18 199.89 Td (1. Einführung und Willkommen) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 179.83 Td (Konfigurieren Sie OSC.) Tj ET
+BT 31.18 179.83 Td (Willkommen bei Ableton AI Assistant.) Tj ET
 BT 31.18 151.49 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 114.86 Td (4. Schritt-für-Schritt-Anleitung) Tj ET
+BT 31.18 114.86 Td (2. Installation und Systemanforderungen) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 94.80 Td (Senden Sie Prompts zur MIDI-Generierung.) Tj ET
+BT 31.18 94.80 Td (Erfordert Ableton Live 12.) Tj ET
 BT 31.18 66.45 Td (#) Tj ET
 BT /F3 8.00 Tf ET
 BT 281.85 25.95 Td (Pagina 3) Tj ET
@@ -220,13 +217,13 @@ endobj
 <<
 /Contents 10 0 R
 /Parent 1 0 R
-/Resources 25 0 R
+/Resources 27 0 R
 /Type /Page
 >>
 endobj
 10 0 obj
 <<
-/Length 1674
+/Length 2284
 >>
 stream
 2 J
@@ -234,49 +231,44 @@ stream
 BT /F1 12.00 Tf ET
 BT 180.29 795.77 Td (Ableton AI Assistant - Manual de Usuario) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 752.65 Td (5. Erklärung der Funktionen) Tj ET
+BT 31.18 752.65 Td (3. Ersteinrichtung \(Ableton Live, OSC, Claude API\)) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 732.59 Td (Health Check, Upload, AI Prompt, MIDI Generator, O SC Controller.) Tj ET
+BT 31.18 732.59 Td (Konfigurieren Sie OSC.) Tj ET
 BT 31.18 704.24 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 667.61 Td (6. Multimodales System) Tj ET
+BT 31.18 667.61 Td (4. Schritt-für-Schritt-Anleitung) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 647.55 Td (Unterstützt **7 idiomas**.) Tj ET
+BT 31.18 647.55 Td (Senden Sie Prompts zur MIDI-Generierung.) Tj ET
 BT 31.18 619.20 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 582.57 Td (7. Härtung und Sicherheit) Tj ET
+BT 31.18 582.57 Td (5. Erklärung der Funktionen) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 562.51 Td (Mit **Rate limiting**, **Magic Bytes** Prüfung und  **2 GB** Limit.) Tj ET
+BT 31.18 562.51 Td (Health Check, Upload, AI Prompt, MIDI Generator, O SC Controller.) Tj ET
 BT 31.18 534.17 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 497.53 Td (8. Fehlerbehebung \(FAQ\)) Tj ET
+BT 31.18 497.53 Td (6. Multimodales System) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 477.47 Td (Nutzen Sie den Health Check.) Tj ET
+BT 31.18 477.47 Td (Unterstützt **7 idiomas**.) Tj ET
 BT 31.18 449.13 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 412.49 Td (9. Credits und Lizenz) Tj ET
+BT 31.18 412.49 Td (7. Härtung und Sicherheit) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 392.43 Td (Von produktes-code. **CC BY-NC-SA 4.0**.) Tj ET
-BT 31.18 364.09 Td (---) Tj ET
+BT 31.18 392.43 Td (Mit **Rate limiting**, **Magic Bytes** Prüfung und  **2 GB** Limit.) Tj ET
+BT 31.18 364.09 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 313.28 Td ( \(UK\)) Tj ET
+BT 31.18 327.45 Td (8. Fehlerbehebung \(FAQ\)) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 279.05 Td (#) Tj ET
+BT 31.18 307.39 Td (Nutzen Sie den Health Check.) Tj ET
+BT 31.18 264.87 Td (Why does macOS say  the application cannot be opened? This happens bec ause the application is not signed with an) Tj ET
+BT 31.18 250.70 Td (Apple D eveloper certificate. The application is completel y safe. To open it: right-click on the application  and select) Tj ET
+BT 31.18 236.53 Td ("Open", then click "Open" in the warni ng. The warning will not appear next time.) Tj ET
+BT 31.18 179.83 Td (Waru m sagt macOS, dass die Anwendung nicht geöffnet we rden kann? Dies geschieht, weil die Anwendung nich t mit) Tj ET
+BT 31.18 165.66 Td (einem Apple Developer-Zertifikat signiert is t. Die Anwendung ist völlig sicher. Zum Öffnen: Kl icken Sie mit der rechten) Tj ET
+BT 31.18 151.49 Td (Maustaste auf die Anwend ung und wählen Sie "Öffnen", dann klicken Sie im W arnhinweis auf "Öffnen". Beim nächsten) Tj ET
+BT 31.18 137.32 Td (Mal erschei nt der Hinweis nicht mehr.) Tj ET
+BT 31.18 94.80 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 242.41 Td (1. ) Tj ET
-BT /F2 10.00 Tf ET
-BT 31.18 222.35 Td (   Ableton AI Assistant.) Tj ET
-BT 31.18 208.18 Td (#) Tj ET
-BT /F1 14.00 Tf ET
-BT 31.18 171.55 Td (2. ) Tj ET
-BT /F2 10.00 Tf ET
-BT 31.18 151.49 Td ( Ableton Live 12.) Tj ET
-BT 31.18 137.32 Td (#) Tj ET
-BT /F1 14.00 Tf ET
-BT 31.18 100.68 Td (3.  \(Ableton Live, OSC, Claude API\)) Tj ET
-BT /F2 10.00 Tf ET
-BT 31.18 80.62 Td ( OSC.) Tj ET
-BT 31.18 66.45 Td (#) Tj ET
+BT 31.18 58.16 Td (9. Credits und Lizenz) Tj ET
 BT /F3 8.00 Tf ET
 BT 281.85 25.95 Td (Pagina 4) Tj ET
 
@@ -286,68 +278,66 @@ endobj
 <<
 /Contents 12 0 R
 /Parent 1 0 R
-/Resources 26 0 R
+/Resources 28 0 R
 /Type /Page
 >>
 endobj
 12 0 obj
 <<
-/Length 1628
+/Length 1678
 >>
 stream
 2 J
 0.57 w
 BT /F1 12.00 Tf ET
 BT 180.29 795.77 Td (Ableton AI Assistant - Manual de Usuario) Tj ET
-BT /F1 14.00 Tf ET
-BT 31.18 752.65 Td (4. ) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 732.59 Td ( .) Tj ET
-BT 31.18 718.42 Td (#) Tj ET
+BT 31.18 760.94 Td (Von produktes-code. **CC BY-NC-SA 4.0**.) Tj ET
+BT 31.18 732.59 Td (---) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 681.78 Td (5. ) Tj ET
+BT 31.18 681.78 Td ( \(UK\)) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 661.72 Td (Health Check, Upload, AI Prompt, MIDI Generator, O SC Controller.) Tj ET
 BT 31.18 647.55 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 610.92 Td (6.  ) Tj ET
+BT 31.18 610.92 Td (1. ) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 590.86 Td ( **7 idiomas**.) Tj ET
+BT 31.18 590.86 Td (   Ableton AI Assistant.) Tj ET
 BT 31.18 576.69 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 540.05 Td (7. ) Tj ET
+BT 31.18 540.05 Td (2. ) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 519.99 Td (**Rate limiting**, **Magic Bytes**,  **2 GB**.) Tj ET
+BT 31.18 519.99 Td ( Ableton Live 12.) Tj ET
 BT 31.18 505.82 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 469.19 Td (8.  ) Tj ET
+BT 31.18 469.19 Td (3.  \(Ableton Live, OSC, Claude API\)) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 449.13 Td ( Health Check.) Tj ET
+BT 31.18 449.13 Td ( OSC.) Tj ET
 BT 31.18 434.95 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 398.32 Td (9.   ) Tj ET
+BT 31.18 398.32 Td (4. ) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 378.26 Td (produktes-code, **CC BY-NC-SA 4.0**.) Tj ET
-BT 31.18 349.91 Td (---) Tj ET
+BT 31.18 378.26 Td ( .) Tj ET
+BT 31.18 364.09 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 299.11 Td ( \(RU\)) Tj ET
+BT 31.18 327.45 Td (5. ) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 264.87 Td (#) Tj ET
+BT 31.18 307.39 Td (Health Check, Upload, AI Prompt, MIDI Generator, O SC Controller.) Tj ET
+BT 31.18 293.22 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 228.24 Td (1. ) Tj ET
+BT 31.18 256.59 Td (6.  ) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 208.18 Td ( .) Tj ET
-BT 31.18 194.01 Td (#) Tj ET
+BT 31.18 236.53 Td ( **7 idiomas**.) Tj ET
+BT 31.18 222.35 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 157.38 Td (2. ) Tj ET
+BT 31.18 185.72 Td (7. ) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 137.32 Td ( Ableton Live 12.) Tj ET
-BT 31.18 123.14 Td (#) Tj ET
+BT 31.18 165.66 Td (**Rate limiting**, **Magic Bytes**,  **2 GB**.) Tj ET
+BT 31.18 151.49 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 86.51 Td (3.  \(Ableton Live, OSC, Claude API\)) Tj ET
+BT 31.18 114.86 Td (8.  ) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 66.45 Td ( OSC.) Tj ET
-BT 31.18 52.28 Td (#) Tj ET
+BT 31.18 94.80 Td ( Health Check.) Tj ET
+BT 31.18 66.45 Td ( macOS ,     ?   ,      Apple Deve loper.   .   :         "",   ""  .     '.) Tj ET
 BT /F3 8.00 Tf ET
 BT 281.85 25.95 Td (Pagina 5) Tj ET
 
@@ -357,67 +347,65 @@ endobj
 <<
 /Contents 14 0 R
 /Parent 1 0 R
-/Resources 27 0 R
+/Resources 29 0 R
 /Type /Page
 >>
 endobj
 14 0 obj
 <<
-/Length 1604
+/Length 1536
 >>
 stream
 2 J
 0.57 w
 BT /F1 12.00 Tf ET
 BT 180.29 795.77 Td (Ableton AI Assistant - Manual de Usuario) Tj ET
-BT /F1 14.00 Tf ET
-BT 31.18 752.65 Td (4. ) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 732.59 Td ( .) Tj ET
-BT 31.18 718.42 Td (#) Tj ET
+BT 31.18 746.76 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 681.78 Td (5. ) Tj ET
+BT 31.18 710.13 Td (9.   ) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 661.72 Td (Health Check, Upload, AI Prompt, MIDI Generator, O SC Controller.) Tj ET
-BT 31.18 647.55 Td (#) Tj ET
+BT 31.18 690.07 Td (produktes-code, **CC BY-NC-SA 4.0**.) Tj ET
+BT 31.18 661.72 Td (---) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 610.92 Td (6.  ) Tj ET
+BT 31.18 610.92 Td ( \(RU\)) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 590.86 Td ( **7 idiomas**.) Tj ET
 BT 31.18 576.69 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 540.05 Td (7. ) Tj ET
+BT 31.18 540.05 Td (1. ) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 519.99 Td (**Rate limiting**, **Magic Bytes**,  **2 GB**.) Tj ET
+BT 31.18 519.99 Td ( .) Tj ET
 BT 31.18 505.82 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 469.19 Td (8.   \(FAQ\)) Tj ET
+BT 31.18 469.19 Td (2. ) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 449.13 Td ( Health Check.) Tj ET
+BT 31.18 449.13 Td ( Ableton Live 12.) Tj ET
 BT 31.18 434.95 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 398.32 Td (9.   ) Tj ET
+BT 31.18 398.32 Td (3.  \(Ableton Live, OSC, Claude API\)) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 378.26 Td (produktes-code, **CC BY-NC-SA 4.0**.) Tj ET
-BT 31.18 349.91 Td (---) Tj ET
+BT 31.18 378.26 Td ( OSC.) Tj ET
+BT 31.18 364.09 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 299.11 Td ( \(ZH\)) Tj ET
+BT 31.18 327.45 Td (4. ) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 264.87 Td (#) Tj ET
+BT 31.18 307.39 Td ( .) Tj ET
+BT 31.18 293.22 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 228.24 Td (1. ) Tj ET
+BT 31.18 256.59 Td (5. ) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 194.01 Td (#) Tj ET
+BT 31.18 236.53 Td (Health Check, Upload, AI Prompt, MIDI Generator, O SC Controller.) Tj ET
+BT 31.18 222.35 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 157.38 Td (2. ) Tj ET
+BT 31.18 185.72 Td (6.  ) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 137.32 Td ( Ableton Live 12) Tj ET
-BT 31.18 123.14 Td (#) Tj ET
+BT 31.18 165.66 Td ( **7 idiomas**.) Tj ET
+BT 31.18 151.49 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 86.51 Td (3.  \(Ableton Live, OSC, Claude API\)) Tj ET
+BT 31.18 114.86 Td (7. ) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 66.45 Td ( OSC) Tj ET
-BT 31.18 52.28 Td (#) Tj ET
+BT 31.18 94.80 Td (**Rate limiting**, **Magic Bytes**,  **2 GB**.) Tj ET
+BT 31.18 80.62 Td (#) Tj ET
 BT /F3 8.00 Tf ET
 BT 281.85 25.95 Td (Pagina 6) Tj ET
 
@@ -427,13 +415,13 @@ endobj
 <<
 /Contents 16 0 R
 /Parent 1 0 R
-/Resources 28 0 R
+/Resources 30 0 R
 /Type /Page
 >>
 endobj
 16 0 obj
 <<
-/Length 1565
+/Length 1504
 >>
 stream
 2 J
@@ -441,52 +429,48 @@ stream
 BT /F1 12.00 Tf ET
 BT 180.29 795.77 Td (Ableton AI Assistant - Manual de Usuario) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 752.65 Td (4. ) Tj ET
+BT 31.18 752.65 Td (8.   \(FAQ\)) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 718.42 Td (#) Tj ET
+BT 31.18 732.59 Td ( Health Check.) Tj ET
+BT 31.18 704.24 Td ( macOS ,    ?   ,      Apple Devel oper.   .   :         "",   ""  .      .) Tj ET
+BT 31.18 661.72 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 681.78 Td (5. ) Tj ET
+BT 31.18 625.09 Td (9.   ) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 661.72 Td (Health Check, Upload, AI Prompt, MIDI Generator, O SC Controller.) Tj ET
-BT 31.18 647.55 Td (#) Tj ET
+BT 31.18 605.03 Td (produktes-code, **CC BY-NC-SA 4.0**.) Tj ET
+BT 31.18 576.69 Td (---) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 610.92 Td (6. ) Tj ET
+BT 31.18 525.88 Td ( \(ZH\)) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 590.86 Td ( **7 idiomas**) Tj ET
-BT 31.18 576.69 Td (#) Tj ET
+BT 31.18 491.65 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 540.05 Td (7. ) Tj ET
+BT 31.18 455.01 Td (1. ) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 519.99 Td (**Rate limiting**, **Magic Bytes**, **2 GB** ) Tj ET
-BT 31.18 505.82 Td (#) Tj ET
+BT 31.18 420.78 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 469.19 Td (8.  \(FAQ\)) Tj ET
+BT 31.18 384.15 Td (2. ) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 449.13 Td ( Health Check) Tj ET
-BT 31.18 434.95 Td (#) Tj ET
+BT 31.18 364.09 Td ( Ableton Live 12) Tj ET
+BT 31.18 349.91 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 398.32 Td (9. ) Tj ET
+BT 31.18 313.28 Td (3.  \(Ableton Live, OSC, Claude API\)) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 378.26 Td (produktes-code, **CC BY-NC-SA 4.0**.) Tj ET
-BT 31.18 349.91 Td (---) Tj ET
+BT 31.18 293.22 Td ( OSC) Tj ET
+BT 31.18 279.05 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 299.11 Td ( \(JA\)) Tj ET
+BT 31.18 242.41 Td (4. ) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 264.87 Td (#) Tj ET
+BT 31.18 208.18 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 228.24 Td (1. ) Tj ET
+BT 31.18 171.55 Td (5. ) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 194.01 Td (#) Tj ET
+BT 31.18 151.49 Td (Health Check, Upload, AI Prompt, MIDI Generator, O SC Controller.) Tj ET
+BT 31.18 137.32 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 157.38 Td (2. ) Tj ET
+BT 31.18 100.68 Td (6. ) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 137.32 Td (Ableton Live 12) Tj ET
-BT 31.18 123.14 Td (#) Tj ET
-BT /F1 14.00 Tf ET
-BT 31.18 86.51 Td (3.  \(Ableton Live, OSC, Claude API\)) Tj ET
-BT /F2 10.00 Tf ET
-BT 31.18 66.45 Td (OSC) Tj ET
-BT 31.18 52.28 Td (#) Tj ET
+BT 31.18 80.62 Td ( **7 idiomas**) Tj ET
+BT 31.18 66.45 Td (#) Tj ET
 BT /F3 8.00 Tf ET
 BT 281.85 25.95 Td (Pagina 7) Tj ET
 
@@ -496,13 +480,13 @@ endobj
 <<
 /Contents 18 0 R
 /Parent 1 0 R
-/Resources 29 0 R
+/Resources 31 0 R
 /Type /Page
 >>
 endobj
 18 0 obj
 <<
-/Length 1032
+/Length 1482
 >>
 stream
 2 J
@@ -510,33 +494,48 @@ stream
 BT /F1 12.00 Tf ET
 BT 180.29 795.77 Td (Ableton AI Assistant - Manual de Usuario) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 752.65 Td (4. ) Tj ET
+BT 31.18 752.65 Td (7. ) Tj ET
 BT /F2 10.00 Tf ET
+BT 31.18 732.59 Td (**Rate limiting**, **Magic Bytes**, **2 GB** ) Tj ET
 BT 31.18 718.42 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 681.78 Td (5. ) Tj ET
+BT 31.18 681.78 Td (8.  \(FAQ\)) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 661.72 Td (Health Check, Upload, AI Prompt, MIDI Generator, O SC Controller.) Tj ET
-BT 31.18 647.55 Td (#) Tj ET
+BT 31.18 661.72 Td ( Health Check) Tj ET
+BT 31.18 633.38 Td ( macOS  Apple Developer """") Tj ET
+BT 31.18 590.86 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 610.92 Td (6. ) Tj ET
+BT 31.18 554.23 Td (9. ) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 590.86 Td (**7 idiomas** ) Tj ET
-BT 31.18 576.69 Td (#) Tj ET
+BT 31.18 534.17 Td (produktes-code, **CC BY-NC-SA 4.0**.) Tj ET
+BT 31.18 505.82 Td (---) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 540.05 Td (7. ) Tj ET
+BT 31.18 455.01 Td ( \(JA\)) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 519.99 Td (**Rate limiting**, **Magic Bytes**, **2 GB** ) Tj ET
-BT 31.18 505.82 Td (#) Tj ET
+BT 31.18 420.78 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 469.19 Td (8.  \(FAQ\)) Tj ET
+BT 31.18 384.15 Td (1. ) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 449.13 Td (Health Check) Tj ET
-BT 31.18 434.95 Td (#) Tj ET
+BT 31.18 349.91 Td (#) Tj ET
 BT /F1 14.00 Tf ET
-BT 31.18 398.32 Td (9. ) Tj ET
+BT 31.18 313.28 Td (2. ) Tj ET
 BT /F2 10.00 Tf ET
-BT 31.18 378.26 Td (produktes-code, **CC BY-NC-SA 4.0**.) Tj ET
+BT 31.18 293.22 Td (Ableton Live 12) Tj ET
+BT 31.18 279.05 Td (#) Tj ET
+BT /F1 14.00 Tf ET
+BT 31.18 242.41 Td (3.  \(Ableton Live, OSC, Claude API\)) Tj ET
+BT /F2 10.00 Tf ET
+BT 31.18 222.35 Td (OSC) Tj ET
+BT 31.18 208.18 Td (#) Tj ET
+BT /F1 14.00 Tf ET
+BT 31.18 171.55 Td (4. ) Tj ET
+BT /F2 10.00 Tf ET
+BT 31.18 137.32 Td (#) Tj ET
+BT /F1 14.00 Tf ET
+BT 31.18 100.68 Td (5. ) Tj ET
+BT /F2 10.00 Tf ET
+BT 31.18 80.62 Td (Health Check, Upload, AI Prompt, MIDI Generator, O SC Controller.) Tj ET
+BT 31.18 66.45 Td (#) Tj ET
 BT /F3 8.00 Tf ET
 BT 281.85 25.95 Td (Pagina 8) Tj ET
 
@@ -544,23 +543,49 @@ endstream
 endobj
 19 0 obj
 <<
-/BaseFont /Helvetica-Bold
-/Encoding /WinAnsiEncoding
-/Subtype /Type1
-/Type /Font
+/Contents 20 0 R
+/Parent 1 0 R
+/Resources 32 0 R
+/Type /Page
 >>
 endobj
 20 0 obj
 <<
-/BaseFont /Helvetica
-/Encoding /WinAnsiEncoding
-/Subtype /Type1
-/Type /Font
+/Length 791
 >>
+stream
+2 J
+0.57 w
+BT /F1 12.00 Tf ET
+BT 180.29 795.77 Td (Ableton AI Assistant - Manual de Usuario) Tj ET
+BT /F1 14.00 Tf ET
+BT 31.18 752.65 Td (6. ) Tj ET
+BT /F2 10.00 Tf ET
+BT 31.18 732.59 Td (**7 idiomas** ) Tj ET
+BT 31.18 718.42 Td (#) Tj ET
+BT /F1 14.00 Tf ET
+BT 31.18 681.78 Td (7. ) Tj ET
+BT /F2 10.00 Tf ET
+BT 31.18 661.72 Td (**Rate limiting**, **Magic Bytes**, **2 GB** ) Tj ET
+BT 31.18 647.55 Td (#) Tj ET
+BT /F1 14.00 Tf ET
+BT 31.18 610.92 Td (8.  \(FAQ\)) Tj ET
+BT /F2 10.00 Tf ET
+BT 31.18 590.86 Td (Health Check) Tj ET
+BT 31.18 562.51 Td (macOSApple Developer) Tj ET
+BT 31.18 519.99 Td (#) Tj ET
+BT /F1 14.00 Tf ET
+BT 31.18 483.36 Td (9. ) Tj ET
+BT /F2 10.00 Tf ET
+BT 31.18 463.30 Td (produktes-code, **CC BY-NC-SA 4.0**.) Tj ET
+BT /F3 8.00 Tf ET
+BT 281.85 25.95 Td (Pagina 9) Tj ET
+
+endstream
 endobj
 21 0 obj
 <<
-/BaseFont /Helvetica-Oblique
+/BaseFont /Helvetica-Bold
 /Encoding /WinAnsiEncoding
 /Subtype /Type1
 /Type /Font
@@ -568,113 +593,140 @@ endobj
 endobj
 22 0 obj
 <<
-/Font <</F1 19 0 R
-/F2 20 0 R
-/F3 21 0 R>>
-/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+/BaseFont /Helvetica
+/Encoding /WinAnsiEncoding
+/Subtype /Type1
+/Type /Font
 >>
 endobj
 23 0 obj
 <<
-/Font <</F1 19 0 R
-/F2 20 0 R
-/F3 21 0 R>>
-/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+/BaseFont /Helvetica-Oblique
+/Encoding /WinAnsiEncoding
+/Subtype /Type1
+/Type /Font
 >>
 endobj
 24 0 obj
 <<
-/Font <</F1 19 0 R
-/F2 20 0 R
-/F3 21 0 R>>
+/Font <</F1 21 0 R
+/F2 22 0 R
+/F3 23 0 R>>
 /ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
 >>
 endobj
 25 0 obj
 <<
-/Font <</F1 19 0 R
-/F2 20 0 R
-/F3 21 0 R>>
+/Font <</F1 21 0 R
+/F2 22 0 R
+/F3 23 0 R>>
 /ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
 >>
 endobj
 26 0 obj
 <<
-/Font <</F1 19 0 R
-/F2 20 0 R
-/F3 21 0 R>>
+/Font <</F1 21 0 R
+/F2 22 0 R
+/F3 23 0 R>>
 /ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
 >>
 endobj
 27 0 obj
 <<
-/Font <</F1 19 0 R
-/F2 20 0 R
-/F3 21 0 R>>
+/Font <</F1 21 0 R
+/F2 22 0 R
+/F3 23 0 R>>
 /ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
 >>
 endobj
 28 0 obj
 <<
-/Font <</F1 19 0 R
-/F2 20 0 R
-/F3 21 0 R>>
+/Font <</F1 21 0 R
+/F2 22 0 R
+/F3 23 0 R>>
 /ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
 >>
 endobj
 29 0 obj
 <<
-/Font <</F1 19 0 R
-/F2 20 0 R
-/F3 21 0 R>>
+/Font <</F1 21 0 R
+/F2 22 0 R
+/F3 23 0 R>>
 /ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
 >>
 endobj
 30 0 obj
 <<
-/CreationDate (D:20260702021738Z)
+/Font <</F1 21 0 R
+/F2 22 0 R
+/F3 23 0 R>>
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+>>
+endobj
+31 0 obj
+<<
+/Font <</F1 21 0 R
+/F2 22 0 R
+/F3 23 0 R>>
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+>>
+endobj
+32 0 obj
+<<
+/Font <</F1 21 0 R
+/F2 22 0 R
+/F3 23 0 R>>
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+>>
+endobj
+33 0 obj
+<<
+/CreationDate (D:20260702022814Z)
 >>
 endobj
 xref
-0 31
+0 34
 0000000000 65535 f 
 0000000009 00000 n 
-0000000142 00000 n 
-0000000245 00000 n 
-0000000326 00000 n 
-0000002749 00000 n 
-0000002830 00000 n 
-0000004731 00000 n 
-0000004812 00000 n 
-0000006551 00000 n 
-0000006633 00000 n 
-0000008360 00000 n 
-0000008443 00000 n 
-0000010124 00000 n 
-0000010207 00000 n 
-0000011864 00000 n 
-0000011947 00000 n 
-0000013565 00000 n 
-0000013648 00000 n 
-0000014733 00000 n 
-0000014836 00000 n 
-0000014934 00000 n 
-0000015040 00000 n 
-0000015151 00000 n 
-0000015262 00000 n 
-0000015373 00000 n 
-0000015484 00000 n 
-0000015595 00000 n 
-0000015706 00000 n 
-0000015817 00000 n 
-0000015928 00000 n 
+0000000149 00000 n 
+0000000252 00000 n 
+0000000333 00000 n 
+0000002756 00000 n 
+0000002837 00000 n 
+0000004985 00000 n 
+0000005066 00000 n 
+0000006988 00000 n 
+0000007070 00000 n 
+0000009407 00000 n 
+0000009490 00000 n 
+0000011221 00000 n 
+0000011304 00000 n 
+0000012893 00000 n 
+0000012976 00000 n 
+0000014533 00000 n 
+0000014616 00000 n 
+0000016151 00000 n 
+0000016234 00000 n 
+0000017077 00000 n 
+0000017180 00000 n 
+0000017278 00000 n 
+0000017384 00000 n 
+0000017495 00000 n 
+0000017606 00000 n 
+0000017717 00000 n 
+0000017828 00000 n 
+0000017939 00000 n 
+0000018050 00000 n 
+0000018161 00000 n 
+0000018272 00000 n 
+0000018383 00000 n 
 trailer
 <<
-/Size 31
+/Size 34
 /Root 2 0 R
-/Info 30 0 R
-/ID [<2D7B2A87F152EC77CAEA1D580242BA31><2D7B2A87F152EC77CAEA1D580242BA31>]
+/Info 33 0 R
+/ID [<C16DE159E5536893627B9238AAB9654A><C16DE159E5536893627B9238AAB9654A>]
 >>
 startxref
-15984
+18439
 %%EOF

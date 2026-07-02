@@ -56,3 +56,7 @@ Para una explicación técnica exhaustiva, guías de resolución de problemas, y
 
 ## 👥 Créditos
 Diseñado, desarrollado y mantenido por **produktes-code** y **Chus BZN**.
+
+
+⚠️ Hinweis für macOS-Benutzer: Beim ersten Öffnen der Anwendung zeigt macOS möglicherweise eine Sicherheitswarnung an. Lösung: Klicken Sie mit der rechten Maustaste auf die Anwendung und wählen Sie "Öffnen", dann klicken Sie im Dialog auf "Öffnen". Falls sie bereits blockiert wurde, gehen Sie zu Systemeinstellungen > Datenschutz & Sicherheit und klicken Sie auf "Trotzdem öffnen".
+

@@ -56,3 +56,7 @@ Para una explicación técnica exhaustiva, guías de resolución de problemas, y
 
 ## 👥 Créditos
 Diseñado, desarrollado y mantenido por **produktes-code** y **Chus BZN**.
+
+
+⚠️ macOSユーザーへの注意：アプリケーションを初めて開くとき、macOSがセキュリティ警告を表示する場合があります。解決方法：アプリケーションを右クリックして「開く」を選択し、ダイアログで「開く」をクリックします。既にブロックされている場合は、システム設定 > プライバシーとセキュリティに移動し、「このまま開く」をクリックします。
+
