@@ -1,62 +1,83 @@
-<div align="center">
-  <img src="https://raw.githubusercontent.com/produktes-code/ableton-ai-assistant/main/build/icon.png" width="128" alt="Logo" />
-  <h1>Ableton AI Assistant</h1>
-</div>
+<p align="center">
+  <img src="build/icon.png" width="128" height="128" style="border-radius: 28px; box-shadow: 0 8px 24px rgba(0,0,0,0.25);" alt="Ableton AI Assistant Logo" />
+</p>
+
+<h1 align="center">Ableton AI Assistant V1.0.0</h1>
+
+<p align="center">
+  <b>Cognitive AI Mixing Engineer & MCP Real-Time Audio Assistant</b><br/>
+  <i>Ingeniero de Mezcla Cognitivo IA y Asistente de Audio en Tiempo Real MCP</i>
+</p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Build-Passing-brightgreen?style=for-the-badge" alt="Build" />
-  <img src="https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-blue?style=for-the-badge" alt="License" />
-  <img src="https://img.shields.io/badge/Version-1.0.0-orange?style=for-the-badge" alt="Version" />
-  <img src="https://img.shields.io/badge/Status-Stable-success?style=for-the-badge" alt="Status" />
+  <img src="https://img.shields.io/badge/Version-1.0.0-blue?style=for-the-badge" alt="Version" />
+  <img src="https://img.shields.io/badge/Status-Enterprise_Ready-success?style=for-the-badge" alt="Status" />
+  <img src="https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-red?style=for-the-badge" alt="License" />
 </p>
 
-🌐 **Multilingual & Multimodal Support / Soporte Multiidioma:**
-🇪🇸 Spanish | 🇬🇧 English | 🇩🇪 Deutsch | 🇺🇦 Ukrainian | 🇷🇺 Russian | 🇨🇳 Chinese | 🇯🇵 Japanese
+🌐 **Читати українською:** [🇬🇧 English](README.md) | [🇪🇸 Español](README_es.md) | [🇩🇪 Deutsch](README_de.md) | [🇷🇺 Русский](README_ru.md) | [🇯🇵 日本語](README_ja.md) | **🇺🇦 Українська** | [🇨🇳 中文](README_zh.md)
 
 ---
 
-## 🎯 Descripción del Proyecto
-Ableton AI Assistant es el asistente de producción musical definitivo. Transforma Ableton Live en un entorno reactivo impulsado por Inteligencia Artificial (Claude / OpenAI) mediante el protocolo **Model Context Protocol (MCP)**. Actúa como tu ingeniero de mezcla personal, corrigiendo enmascaramiento de frecuencias, añadiendo dispositivos nativos y procesando audio en tiempo real, todo ello sin romper el flujo de trabajo ni arrebatar el control creativo.
+## 🎯 Бачення
 
-## ✨ Características Principales
-- **Arquitectura TCP directa**: Baja latencia y comunicación instantánea con Ableton Live.
-- **Soporte Multimodal**: Interfaz y procesamiento de comandos en 7 idiomas.
-- **Seguridad y Blindaje**: 
-  - **Rate limiting** para evitar saturación del servidor.
-  - Validación de **Magic Bytes** y tipos MIME para archivos de audio.
-  - Límite estricto de **2 GB** por archivo para procesamiento.
-- **Instaladores Nativos**: Binarios optimizados para macOS (.dmg) y Windows (.exe).
+Зведення - це аналітичне вузьке місце. Ми розробили цей інструмент, ставлячи під сумнів парадигму DAW: навіщо крутити ручки вручну, коли машина може розрахувати маскування? Цей штучний інтелект діє як когнітивний інженер, читаючи стан Ableton через MCP і виконуючи рішення з майстерингу.
 
-## 💻 Instalación y Requisitos
-El proceso de instalación ha sido diseñado para ser completamente *Plug & Play*:
-1. Dirígete a la sección de [Releases](https://github.com/produktes-code/ableton-ai-assistant/releases/latest) y descarga el instalador correspondiente a tu sistema operativo (macOS o Windows).
-2. Ejecuta el instalador y sigue las instrucciones en pantalla.
-3. Abre Ableton Live, dirígete a `Preferences > Link/Tempo/MIDI` y selecciona el *Remote Script* del asistente.
-4. *(Opcional)* Configura tu archivo `.env` para añadir claves de API personalizadas si utilizas modelos en la nube.
+> [!NOTE]
+> Developed by **produktes-code** and **Jesús Ferrer (CHUS BZN)** to establish professional standards in commercial engineering.
 
-## 🚀 Guía de Uso Rápido
-Una vez instalado y conectado:
-1. Abre la interfaz del asistente junto a tu sesión de Ableton Live.
-2. Escribe o dicta un comando en la terminal del asistente (por ejemplo: *"Añade un EQ Eight en la pista 1 y recorta los graves a 100Hz"*).
-3. La IA procesará la solicitud a través del protocolo TCP y ejecutará los cambios automáticamente.
+---
 
-## 🛠️ Stack Tecnológico
-Este proyecto ha sido desarrollado utilizando tecnologías de vanguardia para asegurar el máximo rendimiento:
-- **Frontend**: Electron y Vanilla JS para una interfaz de escritorio ligera y reactiva.
-- **Backend/Core**: Python (integración nativa y procesamiento de bajo nivel).
-- **Integración DAW**: Ableton Live API y scripts remotos (MIDI/OSC).
-- **Inteligencia Artificial**: Integración nativa con Claude AI (Anthropic) y soporte para LLMs locales.
+## 📸 Interface / Ergonomics
 
-## 📄 Licencia
-Este proyecto está distribuido bajo la licencia **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)**. Puedes compartir y adaptar el material, siempre y cuando des el crédito apropiado y no lo utilices con fines comerciales.
-
-## 📚 Documentación y Manuales
-Para una explicación técnica exhaustiva, guías de resolución de problemas, y detalles completos de la API, por favor descarga y consulta nuestro manual oficial:
-📥 **[Descargar Manual de Usuario en PDF (Todos los idiomas)](https://github.com/produktes-code/ableton-ai-assistant/releases/download/v1.0.0/USER_MANUAL.pdf)**
-
-## 👥 Créditos
-Diseñado, desarrollado y mantenido por **produktes-code** y **Chus BZN**.
+![Desktop Interface](docs/screenshot-UI.png)
 
 
-⚠️ Попередження для користувачів macOS: Коли ви вперше відкриваєте програму, macOS може показати попередження безпеки. Рішення: клацніть правою кнопкою миші на програмі та виберіть "Відкрити", потім натисніть "Відкрити" в діалоговому вікні. Якщо її вже заблоковано, перейдіть у Системні параметри > Конфіденційність і безпека та натисніть "Все одно відкрити".
+---
 
+## ⚙️ Майстер-клас параметрів
+
+- **Адаптивна компресія**: Встановлює повільну атаку та швидкий реліз (на основі BPM), щоб компресор дихав у ритмі треку.
+- **Фазова роздільна здатність (EQ Eight)**: Зріз Side (S) нижче 120 Гц фіксує бас у Mono, щоб уникнути фазових скасувань.
+- **Протокол MCP**: ШІ читає стан доріжок через JSON і виконує математичні рішення.
+- **Ядро TCP**: Сирі сокети TCP керують Ableton без затримки MIDI.
+- **Менеджер True Peak / LUFS**: Встановлює лімітери для ідеальної доставки на стримінгові платформи.
+
+---
+
+## 🛡️ Архітектура екранування
+
+Екранування:
+
+• Anti-Flood: Блокування сплесків запитів.
+• Magic Bytes: Гексадецимальна перевірка файлів.
+• 2 GB Limit: Захист оперативної пам'яті.
+
+---
+
+## 🚀 Технічне розгортання
+
+Архітектура 'Zero-Friction':
+
+• macOS: Gatekeeper заблокує файл. Рішення: 'Правий клік -> Відкрити'.
+• Windows: Автоматична конфігурація PATH.
+
+---
+
+## 📚 Документація та посібники
+
+Завантажте наш офіційний посібник:
+
+📥 **[USER_MANUAL.pdf (PDF - 7 Languages)](docs/USER_MANUAL.pdf)**
+
+
+---
+
+## ⚖️ Інженерний маніфест
+
+Розроблено produktes-code та Jesus Ferrer (CHUS BZN). CC BY-NC-SA 4.0. CORPORATE STANDARD.
+
+
+
+⚠️ macOS Users Notice: When opening the application for the first time, macOS may show a security warning. Solution: right-click on the application and select "Open", then click "Open" in the dialog. If it was already blocked, go to System Preferences > Privacy & Security and click "Open Anyway".

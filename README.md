@@ -1,64 +1,85 @@
-<div align="center">
-  <img src="https://raw.githubusercontent.com/produktes-code/ableton-ai-assistant/main/build/icon.png" width="128" alt="Logo" />
-  <h1>Ableton AI Assistant</h1>
-</div>
+<p align="center">
+  <img src="build/icon.png" width="128" height="128" style="border-radius: 28px; box-shadow: 0 8px 24px rgba(0,0,0,0.25);" alt="Ableton AI Assistant Logo" />
+</p>
+
+<h1 align="center">Ableton AI Assistant V1.0.0</h1>
+
+<p align="center">
+  <b>Cognitive AI Mixing Engineer & MCP Real-Time Audio Assistant</b><br/>
+  <i>Ingeniero de Mezcla Cognitivo IA y Asistente de Audio en Tiempo Real MCP</i>
+</p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Build-Passing-brightgreen?style=for-the-badge" alt="Build" />
-  <img src="https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-blue?style=for-the-badge" alt="License" />
-  <img src="https://img.shields.io/badge/Version-1.0.0-orange?style=for-the-badge" alt="Version" />
-  <img src="https://img.shields.io/badge/Status-Stable-success?style=for-the-badge" alt="Status" />
+  <img src="https://img.shields.io/badge/Version-1.0.0-blue?style=for-the-badge" alt="Version" />
+  <img src="https://img.shields.io/badge/Status-Enterprise_Ready-success?style=for-the-badge" alt="Status" />
+  <img src="https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-red?style=for-the-badge" alt="License" />
 </p>
 
-🌐 **Multilingual & Multimodal Support / Soporte Multiidioma:**
-🇪🇸 Spanish | 🇬🇧 English | 🇩🇪 Deutsch | 🇺🇦 Ukrainian | 🇷🇺 Russian | 🇨🇳 Chinese | 🇯🇵 Japanese
+🌐 **Read this in:** **🇬🇧 English** | [🇪🇸 Español](README_es.md) | [🇩🇪 Deutsch](README_de.md) | [🇷🇺 Русский](README_ru.md) | [🇯🇵 日本語](README_ja.md) | [🇺🇦 Українська](README_uk.md) | [🇨🇳 中文](README_zh.md)
 
 ---
 
-## 🎯 Descripción del Proyecto
-Ableton AI Assistant es el asistente de producción musical definitivo. Transforma Ableton Live en un entorno reactivo impulsado por Inteligencia Artificial (Claude / OpenAI) mediante el protocolo **Model Context Protocol (MCP)**. Actúa como tu ingeniero de mezcla personal, corrigiendo enmascaramiento de frecuencias, añadiendo dispositivos nativos y procesando audio en tiempo real, todo ello sin romper el flujo de trabajo ni arrebatar el control creativo.
+## 🎯 The Vision (Introduction)
 
-## ✨ Características Principales
-- **Arquitectura TCP directa**: Baja latencia y comunicación instantánea con Ableton Live.
-- **Soporte Multimodal**: Interfaz y procesamiento de comandos en 7 idiomas.
-- **Seguridad y Blindaje**: 
-  - **Rate limiting** para evitar saturación del servidor.
-  - Validación de **Magic Bytes** y tipos MIME para archivos de audio.
-  - Límite estricto de **2 GB** por archivo para procesamiento.
-- **Instaladores Nativos**: Binarios optimizados para macOS (.dmg) y Windows (.exe).
+Advanced audio mixing is often an analytical bottleneck. The producer's brain enters ear fatigue trying to resolve millimeter phase conflicts, losing global creative perspective. We developed Ableton AI Assistant questioning the DAW paradigm: Why must we move knobs manually when a machine has the surgical precision to calculate frequency masking? This tool is a revolutionary cognitive engineer. Connecting in real time via the Model Context Protocol (MCP) and relentless TCP architecture, Claude's AI 'listens' to your console's state and natively executes hardcoded mastering decisions. It is the bridge between Ableton's low-level code and the natural semantics of AI.
 
-## 💻 Instalación y Requisitos
-El proceso de instalación ha sido diseñado para ser completamente *Plug & Play*:
-1. Dirígete a la sección de [Releases](https://github.com/produktes-code/ableton-ai-assistant/releases/latest) y descarga el instalador correspondiente a tu sistema operativo (macOS o Windows).
-2. Ejecuta el instalador y sigue las instrucciones en pantalla.
-3. Abre Ableton Live, dirígete a `Preferences > Link/Tempo/MIDI` y selecciona el *Remote Script* del asistente.
-4. *(Opcional)* Configura tu archivo `.env` para añadir claves de API personalizadas si utilizas modelos en la nube.
+> [!NOTE]
+> Developed by **produktes-code** and **Jesús Ferrer (CHUS BZN)** to establish professional standards in commercial engineering.
 
-## 🚀 Guía de Uso Rápido
-Una vez instalado y conectado:
-1. Abre la interfaz del asistente junto a tu sesión de Ableton Live.
-2. Escribe o dicta un comando en la terminal del asistente (por ejemplo: *"Añade un EQ Eight en la pista 1 y recorta los graves a 100Hz"*).
-3. La IA procesará la solicitud a través del protocolo TCP y ejecutará los cambios automáticamente.
+---
 
-## 🛠️ Stack Tecnológico
-Este proyecto ha sido desarrollado utilizando tecnologías de vanguardia para asegurar el máximo rendimiento:
-- **Frontend**: Electron y Vanilla JS para una interfaz de escritorio ligera y reactiva.
-- **Backend/Core**: Python (integración nativa y procesamiento de bajo nivel).
-- **Integración DAW**: Ableton Live API y scripts remotos (MIDI/OSC).
-- **Inteligencia Artificial**: Integración nativa con Claude AI (Anthropic) y soporte para LLMs locales.
+## 📸 Interface / Ergonomics
 
-## 📄 Licencia
-Este proyecto está distribuido bajo la licencia **Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)**. Puedes compartir y adaptar el material, siempre y cuando des el crédito apropiado y no lo utilices con fines comerciales.
+![Desktop Interface](docs/screenshot-UI.png)
 
-## 📚 Documentación y Manuales
-Para una explicación técnica exhaustiva, guías de resolución de problemas, y detalles completos de la API, por favor descarga y consulta nuestro manual oficial:
-📥 **[Descargar Manual de Usuario en PDF (Todos los idiomas)](https://github.com/produktes-code/ableton-ai-assistant/releases/download/v1.0.0/USER_MANUAL.pdf)**
 
-## 👥 Créditos
-Diseñado, desarrollado y mantenido por **produktes-code** y **Chus BZN**.
+---
+
+## ⚙️ Parameter Masterclass (Features)
+
+- **Adaptive Algorithmic Compression (Glue Compressor)**: The assistant doesn't throw a blind preset. It dynamically sets a slow Attack (to safeguard transient punch) and an ultra-fast Release calculated on the session's BPM. The engineering goal? To make the compressor 'breathe' with the track's rhythm, achieving commercial density without strangling dynamic range.
+- **Masking and Phase Clearing (EQ Eight)**: A classic amateur production issue is bass clashing. Our logic injects a strict Side (S) cut below 120Hz. This technical directive anchors the physical energy of the Kick and Sub-bass purely in Mono (Mid), eradicating phase cancellations in clubs.
+- **LLM Framework (MCP Protocol)**: Here lies the heart of the genius. Ableton Assistant stands as an MCP server empowering the Claude model. The AI doesn't guess; it 'reads' the JSON payload of the tracks' states, mathematically reasons the fix, and returns the execution order.
+- **Low-Latency Network Telemetry (TCP Core)**: Moving a 'Gain' or 'Freq' knob from outside the DAW requires relentless access. We programmed the Python backend using raw TCP sockets that attack the Ableton Remote Script. This ensures voice/text modifications reflect natively in milliseconds.
+- **True Peak and LUFS Control Manager**: The platform audits and deploys limiters on the master with a parametric hard ceiling and adjusted lookahead, mathematically ensuring delivery to streaming platforms at standard LUFS levels.
+
+---
+
+## 🛡️ Shielding Architecture (Security)
+
+In Retail and Enterprise deployment, a system crash is not a bug; it is capital loss. We designed a defensive armor (Shielding) emulating DevSecOps best practices:
+
+• **Anti-Flood Engineering (Rate limiting)**: Asynchronous algorithms strangle anomalous request spikes using limitation middlewares.
+• **Binary Crystallography (Magic Bytes)**: The system opens the file header and verifies the native hexadecimal sequence to certify container integrity.
+• **RAM Sanity (2 GB Limit)**: We relentlessly reject any atypical weight at the upload threshold to prevent Out Of Memory attacks.
+
+---
+
+## 🚀 Technical Deployment (Installation)
+
+The deployment process of this tool responds to an industry imperative: in a studio or production environment, time spent configuring dependencies is time wasted. We packaged a 'Zero-Friction' architecture compiling DSP libraries, Python binaries, and renderers directly into the application's core.
+
+• **macOS Systems**: The `.dmg` binary guarantees absolute portability. Note: Because it lacks a paid developer certificate for Apple's Notarization Service, macOS Gatekeeper will quarantine the binary. As engineers, we know the legitimate local bypass method is 'Right-click -> Open'. It is not a flaw; it is the standard flow of high-performance open-source software.
+• **Windows Systems**: The installer payload silently auto-configures the Windows PATH environment, evading conflicts with pre-existing Python installations.
+
+---
+
+## 📚 Documentation & Manuals
+
+For an exhaustive technical masterclass, troubleshooting guides, and full API details, please download our official manual:
+
+📥 **[USER_MANUAL.pdf (PDF - 7 Languages)](docs/USER_MANUAL.pdf)**
+
+
+---
+
+## ⚖️ Engineering Manifesto, Credits & License
+
+Software conceived and articulated from the produktes-code labs in inseparable union with Engineer Jesus Ferrer Garcia (CHUS BZN).
+
+Licensed under proprietary restrictions and strictest open source margins (CC BY-NC-SA 4.0). CORPORATE STANDARD - RETAIL READY.
+
 
 
 ⚠️ macOS Users Notice: When opening the application for the first time, macOS may show a security warning. Solution: right-click on the application and select "Open", then click "Open" in the dialog. If it was already blocked, go to System Preferences > Privacy & Security and click "Open Anyway".
-
-⚠️ Aviso para usuarios de macOS: Al abrir la aplicación por primera vez, macOS puede mostrar un aviso de seguridad. Solución: haz clic derecho sobre la aplicación y selecciona "Abrir", luego haz clic en "Abrir" en el diálogo. Si ya fue bloqueada, ve a Preferencias del Sistema > Privacidad y Seguridad y haz clic en "Abrir de todos modos".
-
