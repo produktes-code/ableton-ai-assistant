@@ -3,16 +3,16 @@
 ---
 ## ESPAÑOL (ES)
 
-### 1. Introducción y bienvenida
+### 1. Introduccion y bienvenida
 Bienvenido a Ableton AI Assistant, el puente definitivo entre la Inteligencia Artificial (Claude) y tu DAW.
 
-### 2. Instalación y requisitos del sistema
+### 2. Instalacion y requisitos del sistema
 Requiere Ableton Live 12, Node.js y conexión a internet. Los instaladores nativos (.dmg y .exe) están disponibles.
 
-### 3. Configuración inicial (Ableton Live, OSC, Claude API)
+### 3. Configuracion inicial (Ableton Live, OSC, Claude API)
 Configura tu clave en `.env` y el puerto OSC 11000.
 
-### 4. Guía de uso paso a paso
+### 4. Guia de uso paso a paso
 Abre la app, escribe tu prompt en la terminal inferior y observa cómo la IA genera MIDI y controla parámetros.
 
 ### 5. Explicación de cada funcionalidad
@@ -31,7 +31,7 @@ El sistema incluye **Rate limiting** para proteger el puerto TCP, validación de
 ### 8. Solución de problemas (FAQ)
 Si el puente falla, reinicia el *Health Check*.
 
-### 9. Créditos y licencia
+### 9. Creditos y licencia
 Creado por produktes-code. Distribuido bajo licencia **CC BY-NC-SA 4.0**.
 
 ---

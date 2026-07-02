@@ -124,7 +124,7 @@ class AntigravityCore(ControlSurface):
             if hasattr(self, 'server_socket'):
                 self.server_socket.close()
         except Exception:
-            pass
+            logger.debug("Error closing server socket")
         self.show_message("Antigravity Core Desconectado")
         logger.info("AntigravityCore desconectado.")
         super(AntigravityCore, self).disconnect()
