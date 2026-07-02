@@ -14,25 +14,27 @@ jobs:
     
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 18
 
       - name: Install Dependencies
-        working-directory: ./electron-app
+        working-directory: electron-app
         run: npm install
 
       - name: Build Installers
-        working-directory: ./electron-app
+        working-directory: electron-app
         run: npm run dist
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: installers-${{ matrix.os }}
-          path: electron-app/dist/*.{dmg,exe}
+          path: |
+            electron-app/dist/*.dmg
+            electron-app/dist/*.exe
