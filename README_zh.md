@@ -56,17 +56,20 @@
 
 ---
 
-## 🚀 技术部署 (安装)
+## 🚀 技术部署 (安装) 与 CI/CD 安装
 
-零摩擦架构将 DSP 和 Python 直接编译到应用程序核心。
+我们为桌面应用程序采用 **基于 GitHub Actions 的自动化 CI/CD**。从 **[Releases](https://github.com/produktes-code/ableton-ai-assistant/releases)** 部分下载适用于您操作系统的最新自动化版本。
+
+#### 🧠 后端安装 (关键)
+该工具不仅是一个UI；它直接连接到 Ableton Live 的 Python 解释器和 Claude Desktop。
+1. **Ableton Remote Script**：您必须将 `remote-script/AbletonAIAssistant` 文件夹复制到您的 Ableton Live MIDI Remote Scripts 目录。
+2. **MCP Server**：您必须配置 Claude Desktop 的 `claude_desktop_config.json`，使其指向 `mcp-server/main.py` 脚本。
 
 ### 🍎 macOS 用户 (Gatekeeper)
-由于缺乏付费证书，Gatekeeper 将隔离文件。合法的本地绕过方法是：**右键单击应用 -> 打开**。
+合法本地绕过方法是 **右键单击应用程序 -> 打开**。
 
 ### 🪟 Windows 用户 (SmartScreen)
-运行 `.exe` 时，Windows Defender 可能会显示蓝色警告。点击 **'更多信息'**，然后点击 **'仍要运行'**。
-
----
+点击 **“更多信息”**，然后点击 **“仍要运行”**。
 
 ## 📚 文档和手册
 

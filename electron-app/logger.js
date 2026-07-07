@@ -1,9 +1,10 @@
 const fs = require('fs');
 const path = require('path');
+const { app } = require('electron');
 
-const logDir = path.join(__dirname, 'logs');
+const logDir = path.join(app ? app.getPath('userData') : require('os').homedir(), 'logs');
 if (!fs.existsSync(logDir)) {
-    fs.mkdirSync(logDir);
+    fs.mkdirSync(logDir, { recursive: true });
 }
 
 const logFile = path.join(logDir, 'ableton_ai.log');

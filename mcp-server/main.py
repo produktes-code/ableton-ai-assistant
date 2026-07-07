@@ -4,15 +4,15 @@ import logging
 from mcp.server.fastmcp import FastMCP
 
 logging.basicConfig(level=logging.INFO)
-logger = logging.getLogger("AntigravityMCP")
+logger = logging.getLogger("AbletonAIAssistantMCP")
 
-mcp = FastMCP("Antigravity")
+mcp = FastMCP("Ableton AI Assistant")
 
 ABLETON_HOST = '127.0.0.1'
 ABLETON_PORT = 9001
 
 def send_to_ableton(action: str, payload: dict = None) -> dict:
-    """Envía un comando al servidor TCP de Antigravity en Ableton Live."""
+    """Envía un comando al servidor TCP de Ableton AI Assistant en Ableton Live."""
     if payload is None:
         payload = {}
     
@@ -94,6 +94,6 @@ def set_device_parameter(track_index: int, device_index: int, param_name: str, v
     return f"Comando de ajuste de parámetro enviado: {result['message']}"
 
 if __name__ == "__main__":
-    logger.info("Iniciando servidor MCP de Antigravity...")
+    logger.info("Iniciando servidor MCP de Ableton AI Assistant...")
     # FastMCP se encarga de manejar el transporte stdio por defecto
     mcp.run()

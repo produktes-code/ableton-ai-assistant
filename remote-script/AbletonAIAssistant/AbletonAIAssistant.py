@@ -10,16 +10,16 @@ from .session_manager import SessionManager
 # Configurar logging básico para depuración dentro de Live
 logger = logging.getLogger(__name__)
 
-class AntigravityCore(ControlSurface):
+class AbletonAIAssistant(ControlSurface):
     """
-    Núcleo del asistente Antigravity para Ableton Live.
+    Núcleo del asistente Ableton AI Assistant para Ableton Live.
     Actúa como un puente entre la API de Live (LOM) y el servidor MCP.
     """
     
     def __init__(self, *a, **k):
-        super(AntigravityCore, self).__init__(*a, **k)
-        self.show_message("Antigravity Core Inicializado")
-        logger.info("AntigravityCore se ha cargado correctamente.")
+        super(AbletonAIAssistant, self).__init__(*a, **k)
+        self.show_message("Ableton AI Assistant Inicializado")
+        logger.info("AbletonAIAssistant se ha cargado correctamente.")
         self.midi_gen = MidiGenerator(self.song())
         self.session_man = SessionManager(self.song(), self.application())
         self._setup_server()
@@ -40,7 +40,7 @@ class AntigravityCore(ControlSurface):
         self.server_thread = threading.Thread(target=self._server_loop)
         self.server_thread.daemon = True
         self.server_thread.start()
-        logger.info(f"Antigravity TCP Server escuchando en {self.host}:{self.port}")
+        logger.info(f"Ableton AI Assistant TCP Server escuchando en {self.host}:{self.port}")
 
     def _server_loop(self):
         while self.running:
@@ -69,7 +69,7 @@ class AntigravityCore(ControlSurface):
             payload = command.get('payload', {})
             
             if action == 'ping':
-                self.schedule_message(1, lambda: self.show_message("Antigravity: PING recibido"))
+                self.schedule_message(1, lambda: self.show_message("Ableton AI Assistant: PING recibido"))
             elif action == 'read_midi':
                 track_idx = payload.get('track_index', 0)
                 clip_idx = payload.get('clip_index', 0)
@@ -102,13 +102,13 @@ class AntigravityCore(ControlSurface):
         result = self.midi_gen.inject_midi_notes(track_idx, clip_idx, notes)
         logger.info(f"Inyección MIDI resultado: {result}")
         if result['status'] == 'success':
-            self.show_message("Antigravity: Notas MIDI inyectadas")
+            self.show_message("Ableton AI Assistant: Notas MIDI inyectadas")
 
     def _execute_add_device(self, track_idx, device_name):
         result = self.session_man.add_native_device(track_idx, device_name)
         logger.info(f"Add device resultado: {result}")
         if result['status'] == 'success':
-            self.show_message(f"Antigravity: {device_name} añadido")
+            self.show_message(f"Ableton AI Assistant: {device_name} añadido")
 
     def _execute_set_param(self, track_idx, device_idx, param_name, val):
         result = self.session_man.set_device_parameter(track_idx, device_idx, param_name, val)
@@ -125,7 +125,7 @@ class AntigravityCore(ControlSurface):
                 self.server_socket.close()
         except Exception:
             logger.debug("Error closing server socket")
-        self.show_message("Antigravity Core Desconectado")
-        logger.info("AntigravityCore desconectado.")
-        super(AntigravityCore, self).disconnect()
+        self.show_message("Ableton AI Assistant Desconectado")
+        logger.info("AbletonAIAssistant desconectado.")
+        super(AbletonAIAssistant, self).disconnect()
 

@@ -56,17 +56,20 @@ Systemabstürze sind Kapitalverlust. Shielding:
 
 ---
 
-## 🚀 Technische Bereitstellung
+## 🚀 Technische Bereitstellung & CI/CD Installation
 
-Zeit für Abhängigkeiten ist in der Produktion verschwendet. 'Zero-Friction'-Architektur kompilliert DSP und Python direkt.
+Wir verwenden **Automatisierte CI/CD über GitHub Actions** für die Desktop-Anwendung. Laden Sie den neuesten Build für Ihr Betriebssystem im Bereich **[Releases](https://github.com/produktes-code/ableton-ai-assistant/releases)** herunter.
+
+#### 🧠 Backend-Installation (Entscheidend)
+Dies ist nicht nur eine UI; es verbindet sich direkt mit dem Python-Interpreter von Ableton Live und Claude Desktop.
+1. **Ableton Remote Script**: Sie MÜSSEN den Ordner `remote-script/AbletonAIAssistant` in Ihr Ableton Live MIDI Remote Scripts-Verzeichnis kopieren.
+2. **MCP Server**: Sie MÜSSEN Ihre `claude_desktop_config.json` so konfigurieren, dass sie auf das Skript `mcp-server/main.py` verweist.
 
 ### 🍎 macOS-Benutzer (Gatekeeper)
-Gatekeeper wird die Binärdatei unter Quarantäne stellen (fehlendes Bezahlzertifikat). Ingenieurslösung: **Rechtsklick -> Öffnen** (nicht doppelklicken).
+Da ein kostenpflichtiges Apple-Entwicklerzertifikat fehlt, wird Gatekeeper die Binärdatei unter Quarantäne stellen. Die legitime lokale Umgehung ist **Rechtsklick auf die App -> Öffnen** (nicht doppelklicken).
 
 ### 🪟 Windows-Benutzer (SmartScreen)
-Windows Defender zeigt möglicherweise einen blauen Warnbildschirm beim `.exe` an. Klicken Sie auf **'Weitere Informationen'** und dann auf **'Trotzdem ausführen'**.
-
----
+Windows Defender zeigt möglicherweise einen blauen Warnbildschirm beim Ausführen des `.exe`-Installationsprogramms an. Klicken Sie auf **'Weitere Informationen'** und dann auf **'Trotzdem ausführen'**.
 
 ## 📚 Dokumentation & Handbücher
 

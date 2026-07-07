@@ -56,9 +56,14 @@ In Retail and Enterprise deployment, a system crash is not a bug; it is capital 
 
 ---
 
-## 🚀 Technical Deployment (Installation)
+### 🚀 Technical Deployment & CI/CD Installation
 
-The deployment process responds to an industry imperative: in production, time spent configuring dependencies is time wasted. We packaged a 'Zero-Friction' architecture compiling DSP libraries, Python binaries, and renderers directly into the application's core.
+We employ **Automated CI/CD via GitHub Actions** for the frontend desktop application. Download the latest automated build for your Operating System from the **[Releases](https://github.com/produktes-code/ableton-ai-assistant/releases)** section.
+
+#### 🧠 Backend Installation (Crucial)
+This tool is not just a UI; it connects directly to Ableton Live's Python interpreter and Claude Desktop.
+1. **Ableton Remote Script**: You MUST copy the `remote-script/AbletonAIAssistant` folder to your Ableton Live MIDI Remote Scripts directory.
+2. **MCP Server**: You MUST configure your Claude Desktop `claude_desktop_config.json` to point to the `mcp-server/main.py` script. 
 
 ### 🍎 macOS Users (Gatekeeper)
 Lacking a paid Apple developer certificate, Gatekeeper will quarantine the binary. As engineers, the legitimate local bypass is to **Right-click the app -> Open** (do not double-click). It is the standard flow of high-performance open-source software.

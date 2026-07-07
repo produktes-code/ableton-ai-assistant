@@ -80,7 +80,7 @@
         }
         .hidden-view { display: none !important; }
         .active-nav { border-top: 2px solid var(--ableton-blue); color: var(--ableton-blue); background: #333; }
-        .toggle-on { background-color: var(--ableton-blue); color: #fff; border-color: var(--ableton-blue); }
+        .toggle-on, .toggle-on:hover { background-color: var(--ableton-blue) !important; color: #fff !important; border-color: var(--ableton-blue) !important; }
     </style>
 </head>
 <body class="flex flex-col">
@@ -204,14 +204,36 @@
         </div>
 
         <!-- View 2: EXPLORE (Hidden) -->
-        <div id="view-explore" class="hidden-view h-full flex flex-col items-center justify-center border border-dashed border-[#444] p-10">
-            <span class="material-symbols-outlined text-[48px] text-gray-600 mb-4">upload_file</span>
-            <span class="text-gray-400 text-sm font-bold uppercase mb-2" data-i18n="upload.dropzone">Arrastra tu archivo aquí</span>
-            <span class="text-gray-500 text-[10px]" data-i18n="upload.formats">Formatos: WAV, MP3, FLAC, MID, ALS, ALP (Máx. 2GB)</span>
+        <div id="view-explore" class="hidden-view h-full flex flex-col items-center justify-center border border-dashed border-[#444] p-10 cursor-pointer hover:bg-[#333] transition-colors" onclick="document.getElementById('file-upload').click()">
+            <input type="file" id="file-upload" class="hidden" accept=".als,.alp,.wav,.mp3,.flac,.mid">
+            <span class="material-symbols-outlined text-[48px] text-gray-600 mb-4 pointer-events-none">upload_file</span>
+            <span class="text-gray-400 text-sm font-bold uppercase mb-2 pointer-events-none" data-i18n="upload.dropzone">Arrastra tu archivo aquí o haz clic</span>
+            <span class="text-gray-500 text-[10px] pointer-events-none" data-i18n="upload.formats">Formatos: WAV, MP3, FLAC, MID, ALS, ALP (Máx. 2GB)</span>
         </div>
         <!-- View 3: MIXER (Hidden) -->
-        <div id="view-mixer" class="hidden-view h-full flex items-center justify-center">
-            <span class="text-gray-500 text-sm">Consola de Mezcla en Desarrollo...</span>
+        <div id="view-mixer" class="hidden-view h-full flex items-stretch gap-2 p-4">
+            <!-- Channels 1-4 -->
+            <div class="flex-1 industrial-card p-2 flex flex-col items-center justify-end gap-2">
+                <span class="text-[9px] text-gray-400 font-bold uppercase">CH 1</span>
+                <input type="range" class="w-2 h-32" style="writing-mode: bt-lr; -webkit-appearance: slider-vertical;" min="-70" max="6" value="-12">
+            </div>
+            <div class="flex-1 industrial-card p-2 flex flex-col items-center justify-end gap-2">
+                <span class="text-[9px] text-gray-400 font-bold uppercase">CH 2</span>
+                <input type="range" class="w-2 h-32" style="writing-mode: bt-lr; -webkit-appearance: slider-vertical;" min="-70" max="6" value="-6">
+            </div>
+            <div class="flex-1 industrial-card p-2 flex flex-col items-center justify-end gap-2">
+                <span class="text-[9px] text-gray-400 font-bold uppercase">CH 3</span>
+                <input type="range" class="w-2 h-32" style="writing-mode: bt-lr; -webkit-appearance: slider-vertical;" min="-70" max="6" value="-18">
+            </div>
+            <div class="flex-1 industrial-card p-2 flex flex-col items-center justify-end gap-2">
+                <span class="text-[9px] text-gray-400 font-bold uppercase">CH 4</span>
+                <input type="range" class="w-2 h-32" style="writing-mode: bt-lr; -webkit-appearance: slider-vertical;" min="-70" max="6" value="-3">
+            </div>
+            <!-- Master -->
+            <div class="flex-1 industrial-card p-2 flex flex-col items-center justify-end gap-2 border-l-2 border-[#1b1b1b]">
+                <span class="text-[9px] text-blue-400 font-bold uppercase">MASTER</span>
+                <input type="range" class="w-2 h-32" style="writing-mode: bt-lr; -webkit-appearance: slider-vertical;" min="-70" max="6" value="0">
+            </div>
         </div>
     </main>
 
@@ -259,12 +281,15 @@
 
         async function loadTranslations(lang) {
             try {
-                // Assuming we are in a file:// protocol context or localhost
-                // For a robust Electron app, we could use Node.js fs via IPC, but fetch usually works for local JSON in modern Electron if configured correctly.
-                // Alternatively, we embed the JSONs if fetch fails, but let's try fetch.
-                const res = await fetch(`./locales/${lang}.json`);
-                if (!res.ok) throw new Error("HTTP error " + res.status);
-                const data = await res.json();
+                let data = null;
+                if (window.assistantAPI && window.assistantAPI.getTranslation) {
+                    data = window.assistantAPI.getTranslation(lang);
+                }
+                if (!data) {
+                    const res = await fetch(`./locales/${lang}.json`);
+                    if (!res.ok) throw new Error("HTTP error " + res.status);
+                    data = await res.json();
+                }
                 translations[lang] = data;
                 applyTranslations(lang);
             } catch (err) {
@@ -307,7 +332,7 @@
         // Terminal Log Helper
         const terminalLog = document.getElementById('terminal-log');
         function addLog(message, isUser = false) {
-            terminalLog.classList.remove('hidden-view');
+            if (isUser) terminalLog.classList.remove('hidden-view');
             const logEntry = document.createElement('div');
             logEntry.className = isUser ? 'text-blue-400' : 'text-gray-300';
             logEntry.innerHTML = `<span class="text-gray-600">[${new Date().toLocaleTimeString()}]</span> ${isUser ? 'USER:' : 'SYS:'} ${message}`;
@@ -317,9 +342,9 @@
 
         // Bridge sender wrapper
         function sendTcpAction(paramName, value) {
-            if (window.antigravityAPI && window.antigravityAPI.sendAction) {
+            if (window.assistantAPI && window.assistantAPI.sendAction) {
                 const payload = { track_index: 0, device_index: 0, param_name: paramName, value: parseFloat(value) };
-                window.antigravityAPI.sendAction({ action: "set_parameter", payload: payload });
+                window.assistantAPI.sendAction({ action: "set_parameter", payload: payload });
                 addLog(`TCP Payload enviado -> set_parameter: ${paramName} = ${value}`);
             }
         }
@@ -328,7 +353,7 @@
         const sliderGain = document.getElementById('slider-gain');
         const gainVal = document.getElementById('gain-val');
         if (sliderGain) {
-            sliderGain.addEventListener('change', (e) => {
+            sliderGain.addEventListener('input', (e) => {
                 const val = parseFloat(e.target.value);
                 gainVal.textContent = (val > 0 ? '+' : '') + val.toFixed(1) + ' dB';
                 sendTcpAction("Gain", val);
@@ -338,7 +363,7 @@
         const sliderDrive = document.getElementById('slider-drive');
         const driveVal = document.getElementById('drive-val');
         if (sliderDrive) {
-            sliderDrive.addEventListener('change', (e) => {
+            sliderDrive.addEventListener('input', (e) => {
                 const val = parseFloat(e.target.value);
                 driveVal.textContent = val.toFixed(0) + ' %';
                 sendTcpAction("Drive", val);
@@ -378,8 +403,8 @@
         document.getElementById('btn-bypass').addEventListener('click', (e) => {
             isBypassed = !isBypassed;
             e.target.classList.toggle('toggle-on', isBypassed);
-            if (window.antigravityAPI) {
-                window.antigravityAPI.sendAction({
+            if (window.assistantAPI) {
+                window.assistantAPI.sendAction({
                     action: "set_parameter",
                     payload: { track_index: 0, device_index: 0, param_name: "Device On", value: isBypassed ? 0 : 1 }
                 });
@@ -392,7 +417,7 @@
         });
 
         document.getElementById('btn-autocorrect').addEventListener('click', (e) => {
-            if (window.antigravityAPI) window.antigravityAPI.sendCommand("Fix frequency masking");
+            if (window.assistantAPI) window.assistantAPI.sendCommand("Fix frequency masking");
             setTimeout(() => {
                 e.target.parentElement.style.opacity = '0.5';
                 e.target.disabled = true;
@@ -441,8 +466,22 @@
                 if (e.key === 'Enter' && cmdInput.value.trim() !== '') {
                     const commandText = cmdInput.value.trim();
                     addLog(commandText, true);
-                    if (window.antigravityAPI) window.antigravityAPI.sendCommand(commandText);
+                    if (window.assistantAPI) window.assistantAPI.sendCommand(commandText);
                     cmdInput.value = '';
+                }
+            });
+        }
+
+        // Explore File Input
+        const fileUpload = document.getElementById('file-upload');
+        if (fileUpload) {
+            fileUpload.addEventListener('change', (e) => {
+                if (e.target.files && e.target.files.length > 0) {
+                    const file = e.target.files[0];
+                    if (window.assistantAPI) {
+                        window.assistantAPI.sendAudioReference(file.path);
+                    }
+                    e.target.value = ''; // Reset
                 }
             });
         }
@@ -463,8 +502,8 @@
                 let ext = file.name.substring(file.name.lastIndexOf('.')).toLowerCase();
                 
                 if (validMimeTypes.includes(file.type) || validExtensions.includes(ext)) {
-                    if (window.antigravityAPI) {
-                        window.antigravityAPI.sendAudioReference(file.path);
+                    if (window.assistantAPI) {
+                        window.assistantAPI.sendAudioReference(file.path);
                     }
                 } else {
                     alert(t("upload.error_mime") + `: ${file.type || ext}`);
@@ -475,13 +514,13 @@
         // Health Check IPC
         const btnHealth = document.getElementById('btn-health-check');
         const healthStatus = document.getElementById('health-status-indicator');
-        if (btnHealth && window.antigravityAPI) {
+        if (btnHealth && window.assistantAPI) {
             btnHealth.addEventListener('click', () => {
                 healthStatus.textContent = t("health.checking");
-                window.antigravityAPI.healthCheck();
+                window.assistantAPI.healthCheck();
             });
 
-            window.antigravityAPI.onHealthStatus((status) => {
+            window.assistantAPI.onHealthStatus((status) => {
                 const connText = status.tcp_connected ? t("health.connected") : t("health.disconnected");
                 const color = status.tcp_connected ? 'text-green-500' : 'text-red-500';
                 healthStatus.innerHTML = `

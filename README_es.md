@@ -56,15 +56,20 @@ En el despliegue Retail y Enterprise, una caída de sistema no es un bug, es pé
 
 ---
 
-## 🚀 Despliegue Técnico (Instalación)
+### 🚀 Despliegue Técnico e Instalación CI/CD
 
-El proceso de despliegue de esta herramienta responde a un imperativo de la industria: en un entorno de estudio o producción, el tiempo invertido en configurar dependencias es tiempo perdido. Hemos empaquetado una arquitectura 'Zero-Friction' compilando bibliotecas DSP, los binarios de Python y los renders directamente en el núcleo de la aplicación.
+Empleamos **CI/CD Automatizado vía GitHub Actions** para la aplicación de escritorio. Descarga la última versión compilada automáticamente para tu Sistema Operativo desde la sección **[Releases](https://github.com/produktes-code/ableton-ai-assistant/releases)**.
+
+#### 🧠 Instalación del Backend (Crucial)
+Esta herramienta no es solo una interfaz; se conecta directamente al intérprete Python de Ableton Live y a Claude Desktop.
+1. **Ableton Remote Script**: DEBES copiar la carpeta `remote-script/AbletonAIAssistant` en tu directorio de MIDI Remote Scripts de Ableton Live.
+2. **Servidor MCP**: DEBES configurar el archivo `claude_desktop_config.json` de Claude Desktop para que apunte al script `mcp-server/main.py`.
 
 ### 🍎 Usuarios de macOS (Gatekeeper)
 Al no contar con un certificado de desarrollador de pago de Apple, Gatekeeper marcará el binario. El método legítimo de bypass local es hacer **Clic derecho sobre la app -> Abrir** (no hagas doble clic). No es un fallo, es el flujo estándar de software open-source de alto rendimiento.
 
 ### 🪟 Usuarios de Windows (SmartScreen)
-Windows Defender puede mostrar un aviso azul de 'PC protegido' al ejecutar el instalador `.exe` por ser una app sin firma corporativa. Haz clic en **'Más información'** y luego en **'Ejecutar de todas formas'**.
+Windows Defender puede mostrar un aviso azul de 'PC protegido' al ejecutar el instalador `.exe`. Haz clic en **'Más información'** y luego en **'Ejecutar de todas formas'**.
 
 ---
 

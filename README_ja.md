@@ -56,17 +56,20 @@
 
 ---
 
-## 🚀 技術展開（インストール）
+## 🚀 技術展開（インストール） とCI/CDインストール
 
-ゼロフリクションアーキテクチャにより、DSPとPythonがアプリケーションコアに直接コンパイルされます。
+デスクトップアプリケーションには、**GitHub Actionsを介した自動CI/CD**を採用しています。**[Releases](https://github.com/produktes-code/ableton-ai-assistant/releases)** セクションから最新のビルドをダウンロードします。
+
+#### 🧠 バックエンドのインストール (重要)
+これは単なるUIではありません。Ableton LiveのPythonインタープリターとClaude Desktopに直接接続します。
+1. **Ableton Remote Script**：`remote-script/AbletonAIAssistant` フォルダーをAbleton LiveのMIDI Remote Scriptsディレクトリにコピーする必要があります。
+2. **MCP Server**：Claude Desktopの `claude_desktop_config.json` を設定して、`mcp-server/main.py` スクリプトを指すようにする必要があります。
 
 ### 🍎 macOSユーザー（Gatekeeper）
-有料証明書がないため、Gatekeeperはファイルを隔離します。ローカルでの正当なバイパス方法は、**アプリを右クリック -> 開く** です。
+正当なローカルバイパス方法は、**アプリを右クリック -> 開く**ことです。
 
 ### 🪟 Windowsユーザー（SmartScreen）
-`.exe`を実行すると、Windows Defenderが青い警告を表示する場合があります。**「詳細情報」**をクリックしてから、**「実行」**をクリックしてください。
-
----
+**「詳細情報」**をクリックし、**「実行」**をクリックします。
 
 ## 📚 ドキュメントとマニュアル
 
