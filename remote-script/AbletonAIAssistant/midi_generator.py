@@ -66,14 +66,21 @@ class MidiGenerator(object):
             import Live
             new_notes = []
             for n in notes_data:
+                # E19: Clamp pitch (and other values) to valid ranges
+                raw_pitch = n.get('pitch', 60)
+                clamped_pitch = max(0, min(127, int(raw_pitch)))
+                
+                clamped_velocity = max(1, min(127, int(n.get('velocity', 100))))
+                clamped_probability = max(0.0, min(1.0, float(n.get('probability', 1.0))))
+                
                 # Live.Clip.MidiNoteSpecification(start_time, duration, pitch, velocity, mute, probability)
                 note_spec = Live.Clip.MidiNoteSpecification(
-                    start_time=n.get('time', 0.0),
-                    duration=n.get('duration', 1.0),
-                    pitch=n.get('pitch', 60),
-                    velocity=n.get('velocity', 100),
+                    start_time=float(n.get('time', 0.0)),
+                    duration=float(n.get('duration', 1.0)),
+                    pitch=clamped_pitch,
+                    velocity=clamped_velocity,
                     mute=False,
-                    probability=n.get('probability', 1.0)
+                    probability=clamped_probability
                 )
                 new_notes.append(note_spec)
                 
