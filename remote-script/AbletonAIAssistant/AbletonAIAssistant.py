@@ -51,6 +51,10 @@ class AbletonAIAssistant(ControlSurface):
                 logger.info(f"Ableton AI Assistant TCP Server escuchando en {self.host}:{self.port}")
                 retries = 0 # Reset retries on successful bind
                 
+                # E16: Rate Limiting
+                msg_count = 0
+                window_start = time.time()
+                
                 while self.running:
                     try:
                         self.server_socket.settimeout(1.0)
@@ -58,7 +62,18 @@ class AbletonAIAssistant(ControlSurface):
                         with conn:
                             data = conn.recv(4096)
                             if data:
-                                self._handle_command(data.decode('utf-8'))
+                                current_time = time.time()
+                                if current_time - window_start > 1.0:
+                                    window_start = current_time
+                                    msg_count = 0
+                                    
+                                msg_count += 1
+                                if msg_count <= 20:
+                                    self._handle_command(data.decode('utf-8'))
+                                else:
+                                    logger.warning(f"Rate limit superado ({msg_count} > 20 msgs/s). Ignorando comando.")
+                                    # Enviar respuesta de error para que el cliente lo sepa (opcional, pero útil para testing)
+                                    conn.sendall(b'{"status": "error", "message": "Rate limit exceeded"}')
                     except socket.timeout:
                         continue
                     except Exception as inner_e:
