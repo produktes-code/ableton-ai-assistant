@@ -26,36 +26,58 @@ class AbletonAIAssistant(ControlSurface):
 
     def _setup_server(self):
         """
-        Inicializa un servidor TCP simple en un hilo separado para 
+        Inicializa un servidor TCP en un hilo separado para 
         comunicarse con el servidor MCP externo sin bloquear Live.
         """
         self.host = '127.0.0.1'
         self.port = 9001
-        self.server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-        self.server_socket.bind((self.host, self.port))
-        self.server_socket.listen(5)
         
         self.running = True
         self.server_thread = threading.Thread(target=self._server_loop)
         self.server_thread.daemon = True
         self.server_thread.start()
-        logger.info(f"Ableton AI Assistant TCP Server escuchando en {self.host}:{self.port}")
 
     def _server_loop(self):
-        while self.running:
+        import time
+        max_retries = 3
+        retries = 0
+        
+        while self.running and retries < max_retries:
             try:
-                self.server_socket.settimeout(1.0)
-                conn, addr = self.server_socket.accept()
-                with conn:
-                    data = conn.recv(4096)
-                    if data:
-                        self._handle_command(data.decode('utf-8'))
-            except socket.timeout:
-                continue
+                self.server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+                self.server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+                self.server_socket.bind((self.host, self.port))
+                self.server_socket.listen(5)
+                logger.info(f"Ableton AI Assistant TCP Server escuchando en {self.host}:{self.port}")
+                retries = 0 # Reset retries on successful bind
+                
+                while self.running:
+                    try:
+                        self.server_socket.settimeout(1.0)
+                        conn, addr = self.server_socket.accept()
+                        with conn:
+                            data = conn.recv(4096)
+                            if data:
+                                self._handle_command(data.decode('utf-8'))
+                    except socket.timeout:
+                        continue
+                    except Exception as inner_e:
+                        if self.running:
+                            logger.error(f"Error en loop de conexion: {inner_e}")
+                            break # Romper al bucle exterior para reconectar
             except Exception as e:
-                if self.running:
-                    logger.error(f"Error en socket: {e}")
+                logger.error(f"Error vinculando TCP socket (intento {retries + 1}): {e}")
+                retries += 1
+                if hasattr(self, 'server_socket') and self.server_socket:
+                    try:
+                        self.server_socket.close()
+                    except:
+                        pass
+                if self.running and retries < max_retries:
+                    time.sleep(5)
+                    
+        if retries >= max_retries:
+            logger.error("Maximos intentos de TCP superados. El asistente no recibira comandos.")
 
     def _handle_command(self, raw_data):
         """
