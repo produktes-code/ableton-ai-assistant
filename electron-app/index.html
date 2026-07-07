@@ -528,6 +528,13 @@
                     OSC: <span class="text-green-500">OK</span> | MIDI: <span class="text-green-500">OK</span>
                 `;
             });
+
+            // E6: Polling automático cada 2 segundos
+            setInterval(() => {
+                if (window.assistantAPI && typeof window.assistantAPI.healthCheck === 'function') {
+                    window.assistantAPI.healthCheck();
+                }
+            }, 2000);
         }
     </script>
 </body>
