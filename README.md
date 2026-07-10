@@ -65,6 +65,9 @@ This tool is not just a UI; it connects directly to Ableton Live's Python interp
 1. **Ableton Remote Script**: You MUST copy the `remote-script/AbletonAIAssistant` folder to your Ableton Live MIDI Remote Scripts directory.
 2. **MCP Server**: You MUST configure your Claude Desktop `claude_desktop_config.json` to point to the `mcp-server/main.py` script. 
 
+> [!CAUTION]
+> **CRITICAL REQUIREMENT:** Ableton Live **MUST** be open and running with the Remote Script active BEFORE starting the AI Assistant or Claude Desktop. If Ableton Live is closed, the TCP connection will fail, causing the assistant to malfunction or crash immediately.
+
 ### 🍎 macOS Users (Gatekeeper)
 Lacking a paid Apple developer certificate, Gatekeeper will quarantine the binary. As engineers, the legitimate local bypass is to **Right-click the app -> Open** (do not double-click). It is the standard flow of high-performance open-source software.
 
