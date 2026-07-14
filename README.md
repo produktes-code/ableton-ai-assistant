@@ -26,6 +26,7 @@ Advanced audio mixing is often an analytical bottleneck. The producer's brain en
 
 > [!NOTE]
 > Developed by **produktes-code** and **Jesús Ferrer (CHUS BZN)** to establish professional standards in commercial engineering.
+> **DISCLAIMER: This is an unofficial community tool. It is not affiliated with, endorsed by, or in any way officially connected to Ableton AG.**
 
 ---
 
