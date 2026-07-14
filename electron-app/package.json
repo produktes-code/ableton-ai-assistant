@@ -11,7 +11,7 @@
     "dist": "electron-builder"
   },
   "build": {
-    "appId": "com.ableton.aiassistant",
+    "appId": "com.produktescode.abletonaiassistant",
     "directories": {
       "buildResources": "assets"
     },

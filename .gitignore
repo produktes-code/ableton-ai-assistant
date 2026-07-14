@@ -156,3 +156,4 @@ __pycache__/
 *.exe
 dist/
 dist-electron/
+mcp-server/venv/
