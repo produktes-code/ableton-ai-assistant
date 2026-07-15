@@ -36,7 +36,6 @@ jobs:
       - name: Build and Package Electron App
         run: npm run dist
         working-directory: ./electron-app
-
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -46,8 +45,6 @@ jobs:
         with:
           files: |
             electron-app/dist/*.dmg
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             electron-app/dist/*.exe
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
