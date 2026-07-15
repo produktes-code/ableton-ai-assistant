@@ -9,7 +9,9 @@
   "scripts": {
     "start": "electron .",
     "pack": "electron-builder --dir",
-    "dist": "electron-builder"
+    "dist": "electron-builder --publish never",
+    "pack:mac": "electron-builder --mac --publish never",
+    "pack:win": "electron-builder --win --publish never"
   },
   "build": {
     "appId": "com.produktescode.abletonaiassistant",
