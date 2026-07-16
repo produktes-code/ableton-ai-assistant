@@ -16,6 +16,15 @@ from AbletonAIAssistant import AbletonAIAssistant
 
 class TestTcpRateLimit(unittest.TestCase):
     def test_rate_limit_25_messages(self):
+        import os
+        # Obtener un puerto libre
+        s_temp = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        s_temp.bind(('127.0.0.1', 0))
+        port = s_temp.getsockname()[1]
+        s_temp.close()
+        
+        os.environ["ABLETON_TCP_PORT"] = str(port)
+
         assistant = AbletonAIAssistant()
         assistant.show_message = MagicMock()
         assistant.song = MagicMock()
@@ -33,7 +42,7 @@ class TestTcpRateLimit(unittest.TestCase):
             try:
                 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
                 s.settimeout(0.5)
-                s.connect(('127.0.0.1', 9001))
+                s.connect(('127.0.0.1', port))
                 s.sendall(json.dumps({"action": "ping"}).encode('utf-8'))
                 
                 # Intentamos leer respuesta
