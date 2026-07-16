@@ -15,10 +15,12 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Run python tests
+      - name: Install dependencies
         run: |
-          cd remote-script
-          PYTHONPATH=. python -m unittest AbletonAIAssistant.test_tcp_reconnect AbletonAIAssistant.test_tcp_rate_limit
+          pip install pytest mcp
+          if [ -f mcp-server/requirements.txt ]; then pip install -r mcp-server/requirements.txt; fi
+      - name: Run python tests
+        run: PYTHONPATH=remote-script python -m pytest tests/ remote-script/tests/ remote-script/AbletonAIAssistant -q
 
   electron-tests:
     runs-on: ubuntu-latest
