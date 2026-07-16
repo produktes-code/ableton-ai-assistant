@@ -29,8 +29,9 @@ class AbletonAIAssistant(ControlSurface):
         Inicializa un servidor TCP en un hilo separado para 
         comunicarse con el servidor MCP externo sin bloquear Live.
         """
+        import os
         self.host = '127.0.0.1'
-        self.port = 9001
+        self.port = int(os.environ.get("ABLETON_TCP_PORT", 9001))
         
         self.running = True
         self.server_thread = threading.Thread(target=self._server_loop)

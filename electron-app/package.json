@@ -8,6 +8,7 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
+    "test": "jest --ci",
     "pack": "electron-builder --dir",
     "dist": "electron-builder",
     "pack:mac": "electron-builder --mac",
