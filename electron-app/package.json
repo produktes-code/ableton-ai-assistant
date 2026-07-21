@@ -1,7 +1,7 @@
 {
   "name": "ableton-ai-assistant",
   "productName": "Ableton AI Assistant",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "repository": "https://github.com/produktes-code/ableton-ai-assistant",
   "description": "Desktop companion app to communicate with Ableton via Max4Live",
   "author": "produktes-code",
