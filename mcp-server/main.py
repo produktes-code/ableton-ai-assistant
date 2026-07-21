@@ -8,24 +8,29 @@ logger = logging.getLogger("AbletonAIAssistantMCP")
 
 mcp = FastMCP("Ableton AI Assistant")
 
-ABLETON_HOST = '127.0.0.1'
+ABLETON_HOST = "127.0.0.1"
 ABLETON_PORT = 9001
+
 
 def send_to_ableton(action: str, payload: dict = None) -> dict:
     """Envía un comando al servidor TCP de Ableton AI Assistant en Ableton Live."""
     if payload is None:
         payload = {}
-    
+
     command = {"action": action, "payload": payload}
     try:
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
             s.settimeout(2.0)
             s.connect((ABLETON_HOST, ABLETON_PORT))
-            s.sendall(json.dumps(command).encode('utf-8'))
-            return {"status": "success", "message": f"Comando '{action}' enviado a Ableton."}
+            s.sendall(json.dumps(command).encode("utf-8"))
+            return {
+                "status": "success",
+                "message": f"Comando '{action}' enviado a Ableton.",
+            }
     except Exception as e:
         logger.error(f"Error conectando a Ableton: {e}")
         return {"status": "error", "message": str(e)}
+
 
 @mcp.tool()
 def test_connection() -> str:
@@ -35,6 +40,7 @@ def test_connection() -> str:
         return "Conexión con Ableton Live exitosa."
     else:
         return f"Fallo al conectar con Ableton Live: {result['message']}"
+
 
 @mcp.tool()
 def read_midi_clip(track_index: int, clip_index: int) -> str:
@@ -48,6 +54,7 @@ def read_midi_clip(track_index: int, clip_index: int) -> str:
     # Por ahora enviamos el trigger.
     result = send_to_ableton("read_midi", payload)
     return f"Comando de lectura MIDI enviado: {result['message']}"
+
 
 @mcp.tool()
 def inject_midi_notes(track_index: int, clip_index: int, notes_json_string: str) -> str:
@@ -64,6 +71,7 @@ def inject_midi_notes(track_index: int, clip_index: int, notes_json_string: str)
     except json.JSONDecodeError:
         return "Error: El formato de notes_json_string es inválido."
 
+
 @mcp.tool()
 def add_native_device(track_index: int, device_name: str) -> str:
     """
@@ -75,8 +83,11 @@ def add_native_device(track_index: int, device_name: str) -> str:
     result = send_to_ableton("add_device", payload)
     return f"Comando de inyección de dispositivo enviado: {result['message']}"
 
+
 @mcp.tool()
-def set_device_parameter(track_index: int, device_index: int, param_name: str, value: float) -> str:
+def set_device_parameter(
+    track_index: int, device_index: int, param_name: str, value: float
+) -> str:
     """
     Ajusta el valor de un parámetro específico de un dispositivo.
     track_index: Índice de la pista (0-indexed).
@@ -88,10 +99,11 @@ def set_device_parameter(track_index: int, device_index: int, param_name: str, v
         "track_index": track_index,
         "device_index": device_index,
         "param_name": param_name,
-        "value": value
+        "value": value,
     }
     result = send_to_ableton("set_parameter", payload)
     return f"Comando de ajuste de parámetro enviado: {result['message']}"
+
 
 if __name__ == "__main__":
     logger.info("Iniciando servidor MCP de Ableton AI Assistant...")

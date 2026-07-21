@@ -1,6 +1,8 @@
-import json, os
+import json
+import os
+
 keys = [f"key_{i}" for i in range(1, 34)]
-locales = ['es', 'en', 'de', 'uk', 'ru', 'zh', 'ja']
+locales = ["es", "en", "de", "uk", "ru", "zh", "ja"]
 locales_dir = "electron-app/locales"
 for loc in locales:
     data = {k: f"Value {loc} {k}" for k in keys}

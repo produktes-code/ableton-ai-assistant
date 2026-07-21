@@ -3,14 +3,14 @@ Tests reales para el servidor MCP de Ableton AI Assistant.
 Verifica: construcción de comandos JSON, manejo de errores, validación de payloads,
 configuración de red, y estructura de las 5 herramientas MCP.
 """
+
 import json
-import pytest
 
 
 # ============================================================
 # Constantes de configuración (espejo de mcp-server/main.py)
 # ============================================================
-ABLETON_HOST = '127.0.0.1'
+ABLETON_HOST = "127.0.0.1"
 ABLETON_PORT = 9001
 MCP_NAME = "Ableton AI Assistant"
 
@@ -37,6 +37,7 @@ def inject_midi_notes(track_index: int, clip_index: int, notes_json_string: str)
 # Tests
 # ============================================================
 
+
 class TestCommandConstruction:
     """Verifica la construcción de comandos JSON para TCP."""
 
@@ -61,35 +62,42 @@ class TestCommandConstruction:
     def test_inject_midi_payload_structure(self):
         """inject_midi debe contener track_index, clip_index, y array notes."""
         notes = [
-            {"pitch": 60, "time": 0.0, "duration": 1.0, "velocity": 100, "probability": 1.0},
-            {"pitch": 64, "time": 1.0, "duration": 0.5, "velocity": 80, "probability": 0.9}
+            {
+                "pitch": 60,
+                "time": 0.0,
+                "duration": 1.0,
+                "velocity": 100,
+                "probability": 1.0,
+            },
+            {
+                "pitch": 64,
+                "time": 1.0,
+                "duration": 0.5,
+                "velocity": 80,
+                "probability": 0.9,
+            },
         ]
-        cmd = build_command("inject_midi", {
-            "track_index": 0,
-            "clip_index": 0,
-            "notes": notes
-        })
+        cmd = build_command(
+            "inject_midi", {"track_index": 0, "clip_index": 0, "notes": notes}
+        )
         assert len(cmd["payload"]["notes"]) == 2
         assert cmd["payload"]["notes"][0]["pitch"] == 60
         assert cmd["payload"]["notes"][1]["velocity"] == 80
 
     def test_add_device_payload_structure(self):
         """add_device debe contener track_index y device_name."""
-        cmd = build_command("add_device", {
-            "track_index": 2,
-            "device_name": "Audio Effects/EQ Eight"
-        })
+        cmd = build_command(
+            "add_device", {"track_index": 2, "device_name": "Audio Effects/EQ Eight"}
+        )
         assert cmd["payload"]["track_index"] == 2
         assert "EQ Eight" in cmd["payload"]["device_name"]
 
     def test_set_parameter_payload_structure(self):
         """set_parameter debe contener 4 campos: track_index, device_index, param_name, value."""
-        cmd = build_command("set_parameter", {
-            "track_index": 0,
-            "device_index": 1,
-            "param_name": "Gain",
-            "value": -6.0
-        })
+        cmd = build_command(
+            "set_parameter",
+            {"track_index": 0, "device_index": 1, "param_name": "Gain", "value": -6.0},
+        )
         assert cmd["payload"]["param_name"] == "Gain"
         assert cmd["payload"]["value"] == -6.0
         assert cmd["payload"]["device_index"] == 1
@@ -99,9 +107,19 @@ class TestCommandConstruction:
         commands = [
             build_command("ping"),
             build_command("read_midi", {"track_index": 0, "clip_index": 0}),
-            build_command("inject_midi", {"track_index": 0, "clip_index": 0, "notes": []}),
+            build_command(
+                "inject_midi", {"track_index": 0, "clip_index": 0, "notes": []}
+            ),
             build_command("add_device", {"track_index": 0, "device_name": "EQ Eight"}),
-            build_command("set_parameter", {"track_index": 0, "device_index": 0, "param_name": "Gain", "value": 0.0})
+            build_command(
+                "set_parameter",
+                {
+                    "track_index": 0,
+                    "device_index": 0,
+                    "param_name": "Gain",
+                    "value": 0.0,
+                },
+            ),
         ]
         for cmd in commands:
             json_str = json.dumps(cmd)
@@ -120,9 +138,17 @@ class TestInjectMidiNotes:
 
     def test_accepts_valid_json(self):
         """JSON válido debe procesarse correctamente."""
-        valid_notes = json.dumps([
-            {"pitch": 60, "time": 0.0, "duration": 1.0, "velocity": 100, "probability": 1.0}
-        ])
+        valid_notes = json.dumps(
+            [
+                {
+                    "pitch": 60,
+                    "time": 0.0,
+                    "duration": 1.0,
+                    "velocity": 100,
+                    "probability": 1.0,
+                }
+            ]
+        )
         result = inject_midi_notes(0, 0, valid_notes)
         assert "Comando de inyección MIDI enviado" in result
         assert "Error" not in result
@@ -130,27 +156,53 @@ class TestInjectMidiNotes:
     def test_validates_note_fields(self):
         """Cada nota debe tener los 5 campos requeridos."""
         required_fields = {"pitch", "time", "duration", "velocity", "probability"}
-        note = {"pitch": 60, "time": 0.0, "duration": 1.0, "velocity": 100, "probability": 1.0}
-        assert required_fields.issubset(set(note.keys())), \
+        note = {
+            "pitch": 60,
+            "time": 0.0,
+            "duration": 1.0,
+            "velocity": 100,
+            "probability": 1.0,
+        }
+        assert required_fields.issubset(set(note.keys())), (
             f"Faltan campos requeridos en la nota: {required_fields - set(note.keys())}"
+        )
 
     def test_probability_range(self):
         """probability debe estar en rango 0.0-1.0."""
-        note = {"pitch": 60, "time": 0.0, "duration": 1.0, "velocity": 100, "probability": 0.85}
-        assert 0.0 <= note["probability"] <= 1.0, \
+        note = {
+            "pitch": 60,
+            "time": 0.0,
+            "duration": 1.0,
+            "velocity": 100,
+            "probability": 0.85,
+        }
+        assert 0.0 <= note["probability"] <= 1.0, (
             f"probability fuera de rango: {note['probability']}"
+        )
 
     def test_pitch_midi_range(self):
         """pitch debe estar en rango MIDI válido (0-127)."""
-        note = {"pitch": 60, "time": 0.0, "duration": 1.0, "velocity": 100, "probability": 1.0}
-        assert 0 <= note["pitch"] <= 127, \
-            f"pitch fuera de rango MIDI: {note['pitch']}"
+        note = {
+            "pitch": 60,
+            "time": 0.0,
+            "duration": 1.0,
+            "velocity": 100,
+            "probability": 1.0,
+        }
+        assert 0 <= note["pitch"] <= 127, f"pitch fuera de rango MIDI: {note['pitch']}"
 
     def test_velocity_midi_range(self):
         """velocity debe estar en rango MIDI válido (0-127)."""
-        note = {"pitch": 60, "time": 0.0, "duration": 1.0, "velocity": 100, "probability": 1.0}
-        assert 0 <= note["velocity"] <= 127, \
+        note = {
+            "pitch": 60,
+            "time": 0.0,
+            "duration": 1.0,
+            "velocity": 100,
+            "probability": 1.0,
+        }
+        assert 0 <= note["velocity"] <= 127, (
             f"velocity fuera de rango MIDI: {note['velocity']}"
+        )
 
 
 class TestMCPConfiguration:
@@ -158,7 +210,7 @@ class TestMCPConfiguration:
 
     def test_host_is_localhost(self):
         """El host debe ser 127.0.0.1 (localhost)."""
-        assert ABLETON_HOST == '127.0.0.1'
+        assert ABLETON_HOST == "127.0.0.1"
 
     def test_port_is_9001(self):
         """El puerto TCP debe ser 9001."""
@@ -179,11 +231,11 @@ class TestToolCoverage:
     def test_five_tools_defined(self):
         """Debe haber exactamente 5 herramientas MCP."""
         tools = [
-            "test_connection",   # ping a Ableton Live
-            "read_midi_clip",    # leer notas de un clip MIDI
-            "inject_midi_notes", # inyectar notas no destructivas
-            "add_native_device", # insertar dispositivo nativo
-            "set_device_parameter" # ajustar parámetro de dispositivo
+            "test_connection",  # ping a Ableton Live
+            "read_midi_clip",  # leer notas de un clip MIDI
+            "inject_midi_notes",  # inyectar notas no destructivas
+            "add_native_device",  # insertar dispositivo nativo
+            "set_device_parameter",  # ajustar parámetro de dispositivo
         ]
         assert len(tools) == 5, f"Se esperaban 5 tools, hay {len(tools)}"
         # Verificar que cada tool tiene un action correspondiente
