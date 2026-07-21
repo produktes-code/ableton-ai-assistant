@@ -87,8 +87,8 @@ class AbletonAIAssistant(ControlSurface):
                 if hasattr(self, 'server_socket') and self.server_socket:
                     try:
                         self.server_socket.close()
-                    except:
-                        pass
+                    except Exception as close_e:
+                        logger.debug(f"Error closing socket: {close_e}")
                 if self.running and retries < max_retries:
                     time.sleep(5)
                     
