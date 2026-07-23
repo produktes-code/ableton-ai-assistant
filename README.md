@@ -58,9 +58,15 @@ In Retail and Enterprise deployment, a system crash is not a bug; it is capital 
 
 ---
 
-### 🚀 Technical Deployment & CI/CD Installation
+## 🚀 Technical Deployment & CI/CD Installation
 
-We employ **Automated CI/CD via GitHub Actions** for the frontend desktop application. Download the latest automated build for your Operating System from the **[Releases](https://github.com/produktes-code/ableton-ai-assistant/releases)** section.
+We employ **Automated CI/CD via GitHub Actions** for cross-platform desktop compilation (Windows, macOS, and Linux).
+
+### 🛠️ Download Installers
+Navigate to the **[Releases](https://github.com/produktes-code/ableton-ai-assistant/releases)** section of this repository to download binaries for your OS:
+- **Windows**: `Ableton.AI.Assistant.Setup.1.0.11.exe`
+- **macOS**: `Ableton.AI.Assistant-1.0.11.dmg` / `Ableton.AI.Assistant-1.0.11-arm64.dmg`
+- **Linux**: `ableton-ai-assistant_1.0.11_amd64.deb` / `Ableton.AI.Assistant-1.0.11.AppImage`
 
 #### 🧠 Backend Installation (Crucial)
 This tool is not just a UI; it connects directly to Ableton Live's Python interpreter and Claude Desktop.
@@ -75,6 +81,12 @@ Lacking a paid Apple developer certificate, Gatekeeper will quarantine the binar
 
 ### 🪟 Windows Users (SmartScreen)
 Windows Defender may show a blue 'Windows protected your PC' warning when running the `.exe` installer. Click **'More info'** and then **'Run anyway'**.
+
+### 🐧 Linux Users (AppImage & Debian)
+- **AppImage**: Grant execution permissions before launching:
+  `chmod +x Ableton.AI.Assistant-1.0.11.AppImage` and run.
+- **Debian Package (`.deb`)**: Install via terminal:
+  `sudo dpkg -i ableton-ai-assistant_1.0.11_amd64.deb` or double-click to install via your distro software manager.
 
 ---
 
