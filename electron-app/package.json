@@ -1,6 +1,10 @@
 {
   "name": "antigravity-app",
   "version": "2.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Produktes-code/ableton-ai-assistant.git"
+  },
   "description": "Asistente de IA para Ableton Live",
   "main": "main.js",
   "scripts": {
