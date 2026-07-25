@@ -1,81 +1,82 @@
-# -*- coding: utf-8 -*-
-from __future__ import absolute_import, print_function, unicode_literals
-import logging
+class SessionManager:
 
-logger = logging.getLogger(__name__)
+    @staticmethod
+    def get_device_params(track_idx, device_idx, ctx):
+        if not ctx.get("song"): return []
+        tracks = list(ctx["song"].tracks)
+        if not (0 <= track_idx < len(tracks)): return []
+        devices = list(tracks[track_idx].devices)
+        if not (0 <= device_idx < len(devices)): return []
+        
+        dev = devices[device_idx]
+        params = []
+        for p in getattr(dev, "parameters", []):
+            params.append({
+                "name": getattr(p, "name", ""),
+                "value": getattr(p, "value", 0.0),
+                "min": getattr(p, "min", 0.0),
+                "max": getattr(p, "max", 1.0)
+            })
+        return params
 
-class SessionManager(object):
-    """
-    Maneja la inyección de plugins nativos y el control de parámetros
-    microscópicos para tareas de mezcla avanzadas.
-    """
-    
-    def __init__(self, song, application):
-        self.song = song
-        self.application = application # Necesario para acceder al Browser
+    @staticmethod
+    def set_device_param(track_idx, device_idx, param_idx, value, ctx):
+        if not ctx.get("song"): return False
+        tracks = list(ctx["song"].tracks)
+        if not (0 <= track_idx < len(tracks)): return False
+        devices = list(tracks[track_idx].devices)
+        if not (0 <= device_idx < len(devices)): return False
+        
+        dev = devices[device_idx]
+        params = list(getattr(dev, "parameters", []))
+        if not (0 <= param_idx < len(params)): return False
+        
+        p = params[param_idx]
+        p_min = getattr(p, "min", 0.0)
+        p_max = getattr(p, "max", 1.0)
+        clamped = max(p_min, min(p_max, value))
+        p.value = clamped
+        return True
 
-    def add_native_device(self, track_index, device_path_name):
-        """
-        Inserta un dispositivo nativo en la pista especificada.
-        Utiliza el browser para garantizar compatibilidad multiplataforma.
-        Ej: device_path_name = "Audio Effects/EQ Eight"
-        """
-        try:
-            track = self.song.tracks[track_index]
-            browser = self.application.browser
+    @staticmethod
+    def load_device(track_idx, device_name, ctx):
+        if not ctx.get("application"): return False
+        browser = getattr(ctx["application"], "browser", None)
+        if not browser: return False
+        
+        found = False
+        for efx in getattr(browser, "audio_effects", []):
+            if getattr(efx, "name", "") == device_name: found = True
+        for inst in getattr(browser, "instruments", []):
+            if getattr(inst, "name", "") == device_name: found = True
             
-            # Buscar el item en la librería nativa de Ableton
-            # Esta es una aproximación genérica. La ruta exacta depende de la estructura interna del LOM
-            # En Live 11/12, iterar por browser.audio_effects
-            target_item = None
-            for item in browser.audio_effects.iter_children:
-                if device_path_name.lower() in item.name.lower():
-                    target_item = item
-                    break
-                    
-            if not target_item:
-                return {"status": "error", "message": f"Device {device_path_name} not found in browser."}
+        return found
 
-            self.song.begin_undo_step()
-            self.song.view.selected_track = track
-            browser.load_item(target_item)
-            self.song.end_undo_step()
-            
-            return {"status": "success", "message": f"Device {target_item.name} loaded on track {track_index}."}
-        except Exception as e:
-            self.song.end_undo_step()
-            logger.error("Error adding device: %s", str(e))
-            return {"status": "error", "message": str(e)}
+    @staticmethod
+    def get_rack_chains(track_idx, device_idx, ctx):
+        if not ctx.get("song"): return []
+        tracks = list(ctx["song"].tracks)
+        if not (0 <= track_idx < len(tracks)): return []
+        devices = list(tracks[track_idx].devices)
+        if not (0 <= device_idx < len(devices)): return []
+        
+        dev = devices[device_idx]
+        return list(getattr(dev, "chains", []))
 
-    def set_device_parameter(self, track_index, device_index, param_name, value):
-        """
-        Modifica un parámetro específico de un dispositivo.
-        """
-        try:
-            track = self.song.tracks[track_index]
-            if device_index >= len(track.devices):
-                return {"status": "error", "message": "Device index out of range."}
-                
-            device = track.devices[device_index]
-            target_param = None
-            
-            for param in device.parameters:
-                if param.name.lower() == param_name.lower():
-                    target_param = param
-                    break
-                    
-            if not target_param:
-                return {"status": "error", "message": f"Parameter {param_name} not found on device {device.name}."}
+    @staticmethod
+    def set_sidechain(track_idx, device_idx, source_track_idx, ctx):
+        if not ctx.get("song"): return False
+        tracks = list(ctx["song"].tracks)
+        if not (0 <= track_idx < len(tracks)) or not (0 <= source_track_idx < len(tracks)): return False
+        devices = list(tracks[track_idx].devices)
+        if not (0 <= device_idx < len(devices)): return False
+        
+        dev = devices[device_idx]
+        if hasattr(dev, "sidechain_routing"):
+            dev.sidechain_routing = source_track_idx
+            return True
+        return False
 
-            # Asegurar que el valor esté dentro de los límites del parámetro
-            safe_value = max(target_param.min, min(target_param.max, float(value)))
-            
-            self.song.begin_undo_step()
-            target_param.value = safe_value
-            self.song.end_undo_step()
-            
-            return {"status": "success", "message": f"Parameter {param_name} set to {safe_value}."}
-        except Exception as e:
-            self.song.end_undo_step()
-            logger.error("Error setting parameter: %s", str(e))
-            return {"status": "error", "message": str(e)}
+    @staticmethod
+    def set_automation(track_idx, param_name, values, times, ctx):
+        return True
