@@ -1,6 +1,6 @@
 import os
 
-VERSION = "2.0.0"
+VERSION = "2.0.1"
 PROTOCOL_VERSION = 2
 
 PORT = int(os.environ.get("ANTIGRAVITY_PORT", 9001))

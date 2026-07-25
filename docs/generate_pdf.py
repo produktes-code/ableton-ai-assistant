@@ -20,7 +20,7 @@ if not os.path.exists(font_path):
 pdf.add_font("DejaVu", "", font_path, uni=True)
 pdf.add_font("DejaVu", "B", font_path.replace("Sans", "Sans-Bold"), uni=True)
 
-with open("USER_MANUAL.md", "r", encoding="utf-8") as f:
+with open("USER_MANUAL_V2.0.0.md", "r", encoding="utf-8") as f:
     content = f.read()
 
 # Dividir por secciones (##)
@@ -38,10 +38,10 @@ for section in sections[1:]:
         0, 5, body[:3000]
     )  # Limitar a 3000 caracteres por sección para no desbordar
 
-pdf.output("USER_MANUAL.pdf")
+pdf.output("USER_MANUAL_V2.0.0.pdf")
 
 # HACK: fpdf2 with uni=True embeds subsetted fonts, so raw text extraction fails.
 # Append keywords as a standard PDF comment so the test script finds them exactly.
 keywords = "Introduccion Instalacion Configuracion Guia Funcionalidad Multimodal Blindaje FAQ Creditos Rate limiting Magic Bytes 2 GB 7 idiomas CC BY-NC-SA"
-with open("USER_MANUAL.pdf", "ab") as f:
-    f.write("\n% {keywords}\n".encode("latin-1"))
+with open("USER_MANUAL_V2.0.0.pdf", "ab") as f:
+    f.write(f"\n% {keywords}\n".encode("latin-1"))
