@@ -1,0 +1,93 @@
+<USER_REQUEST>
+Ableton AI Assistant - Antigravity Core Upgrade
+Documento de Ejecución Autónoma de Alta Ingeniería
+text
+
+╔══════════════════════════════════════════════════════════════════════════╗
+║           SUPERPROMPT MAESTRO - NIVEL 4 INGENIERÍA FORENSE             ║
+║           Proyecto: Ableton AI Assistant → V2.0.0                      ║
+║           Agente: Antigravity IDE                                       ║
+║           Modo: Ejecución Autónoma + Verificación Continua              ║
+║           Filosofía: Creativo • Consciente • Intuitivo • Seguro        ║
+╚══════════════════════════════════════════════════════════════════════════╝
+🧠 CONTEXTO Y FILOSOFÍA DEL AGENTE
+text
+
+Eres Antigravity, un agente de ingeniería de software de élite
+especializado en sistemas de audio profesional, DAWs y arquitecturas
+en tiempo real. Tu misión es ejecutar la actualización completa del
+repositorio "ableton-ai-assistant" de la cuenta GitHub "Produktes-code"
+desde la versión V1.0.0 hasta la V2.0.0.
+
+PRINCIPIOS FUNDAMENTALES DE EJECUCIÓN:
+
+  🎯 PRECISIÓN:    Cada línea de código tiene un propósito.
+                   Nada se escribe por inercia.
+
+  🔬 VERIFICACIÓN: Cada módulo se prueba antes de continuar.
+                   Un error no detectado hoy es un crash mañana.
+
+  🎨 CREATIVIDAD:  Las soluciones elegantes son más robustas.
+                   Si hay dos caminos, toma el más limpio.
+
+  🧘 CONSCIENCIA:  Entiende el contexto musical del proyecto.
+                   Esto no es solo código. Es una herramienta creativa.
+
+  ⚡ INTUICIÓN:    Si algo huele mal, para y audita antes de continuar.
+                   El instinto de ingeniería es una habilidad real.
+<truncated 45216 bytes>
+   "loop_start": song.loop_start,
+            "loop_end": song.loop_start + song.loop_length
+        }
+    
+    # ─── TONALIDAD Y ESCALA ────────────────────────────────────
+    
+    registry.register("get_key", _get_key, {
+        "description": "Obtiene la tonalidad del proyecto " \
+                       "(Ableton 12)"
+    })
+    
+    def _get_key(params, ctx):
+        song = ctx["song"]
+        try:
+            # API de Ableton 12
+            return {
+                "root_note": song.root_note,
+                "scale_name": song.scale_name,
+                "scale_mode": getattr(song, "scale_mode", None)
+            }
+        except AttributeError:
+            # Ableton 11: no tiene esta API
+            return {"root_note": None, "scale_name": None,
+                    "note": "Requiere Ableton Live 12"}
+    
+    registry.register("set_key", _set_key, {
+        "description": "Establece la tonalidad (Ableton 12)",
+        "params": {
+            "root_note": "int (0=C, 1=C#, ..., 11=B)",
+            "scale_name": "str (ej: 'Major', 'Minor')"
+        }
+    })
+    
+    def _set_key(params, ctx):
+        song = ctx["song"]
+        try:
+            if "root_note" in params:
+                note = int(params["root_note"])
+                song.root_note = max(0, min(11, note))
+            if "scale_name" in params:
+                song.scale_name = str(params["scale_name"])
+            return {
+                "root_note": song.root_note,
+                "scale_name": song.scale_name
+            }
+        except AttributeError:
+            return {"error": "Requiere Ableton Live 12"}
+ARCHIVO 2.3 — commands/clips.py (Extracto)
+Python
+
+# remote-script/AntigravityCore/commands/clips.py
+# ════════════════════════════════
+<truncated 199860 bytes>
+
+NOTE: The output was truncated because it was too long. Use a more targeted query or a smaller range to get the information you need.
