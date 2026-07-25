@@ -6,6 +6,10 @@
     "url": "https://github.com/Produktes-code/ableton-ai-assistant.git"
   },
   "description": "Asistente de IA para Ableton Live",
+  "author": {
+    "name": "Produktes-code",
+    "email": "produktes.code@gmail.com"
+  },
   "main": "main.js",
   "scripts": {
     "start": "electron .",
