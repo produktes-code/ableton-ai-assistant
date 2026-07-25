@@ -9,15 +9,25 @@ jobs:
   build:
     strategy:
       matrix:
-        os: [macos-latest, windows-latest]
+        os: [macos-latest, windows-latest, ubuntu-latest]
+        include:
+          - os: macos-latest
+            artifact_name: "*.dmg"
+            artifact_label: antigravity-macos
+          - os: windows-latest
+            artifact_name: "*.exe"
+            artifact_label: antigravity-windows
+          - os: ubuntu-latest
+            artifact_name: "*.AppImage"
+            artifact_label: antigravity-linux
     runs-on: ${{ matrix.os }}
     
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 18
 
@@ -35,4 +45,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: installers-${{ matrix.os }}
-          path: electron-app/dist/*.{dmg,exe}
+          path: electron-app/dist/${{ matrix.artifact_name }}
