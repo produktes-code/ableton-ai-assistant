@@ -10,7 +10,7 @@ sys.modules['ableton.v3'] = MagicMock()
 sys.modules['ableton.v3.control_surface'] = MagicMock()
 
 # Agregar el directorio actual al path para importar módulos locales
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "remote-script")))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "remote-script")))
 
 from AntigravityCore import config
 from AntigravityCore.security import SecurityGuard
