@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <style>
+        :root {
+            --ableton-bg: #2a2a2a;
+            --ableton-panel: #333333;
+            --ableton-border: #444444;
+            --ableton-text: #b3b3b3;
+            --ableton-highlight: #ffb400;
+            --ableton-blue: #00b0e6;
+            --ableton-red: #ff3c3c;
+        }
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            background-color: var(--ableton-bg);
+            color: var(--ableton-text);
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .industrial-card {
+            background-color: var(--ableton-panel);
+            border: 1px solid var(--ableton-border);
+            border-radius: 0px; 
+        }
+        .recessed-input {
+            background-color: #1b1b1b;
+            border: 1px solid var(--ableton-border);
+        }
+        /* Sliders Native styling */
+        input[type=range] {
+            -webkit-appearance: none;
+            width: 100%;
+            background: transparent;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 20px;
+            width: 6px;
+            background: #ffffff;
+            cursor: pointer;
+            border-radius: 0;
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 20px;
+            cursor: pointer;
+            background: #1b1b1b;
+            border: 1px solid var(--ableton-border);
+        }
+        .knob-container {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            cursor: ns-resize;
+        }
+        .knob-track {
+            stroke: #1b1b1b;
+            stroke-width: 6;
+            fill: none;
+        }
+        .knob-value {
+            stroke: var(--ableton-blue);
+            stroke-width: 6;
+            stroke-linecap: butt; 
+            fill: none;
+            transition: stroke-dashoffset 0.1s ease;
+        }
+        .hidden-view { display: none !important; }
+        .active-nav { border-top: 2px solid var(--ableton-blue); color: var(--ableton-blue); background: #333; }
+        .toggle-on { background-color: var(--ableton-blue); color: #fff; border-color: var(--ableton-blue); }
+    </style>
+</head>
+<body class="flex flex-col">
+    <!-- TopAppBar -->
+    <header class="fixed top-0 w-full z-50 bg-[#2a2a2a] border-b border-[#444444] flex justify-between items-center h-12 px-4 shadow-sm">
+        <div class="flex items-center gap-3">
+            <img src="assets/icon.png" alt="Antigravity Icon" class="w-6 h-6 object-cover rounded-none">
+            <h1 class="text-sm font-bold tracking-wide text-gray-200">ANTIGRAVITY v1.0</h1>
+        </div>
+        <div class="flex items-center gap-4">
+            <button id="btn-settings" class="hover:bg-[#444] transition-colors p-1 rounded-none">
+                <span class="material-symbols-outlined text-gray-400 text-sm">settings</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Settings Modal -->
+    <div id="modal-settings" class="hidden-view fixed inset-0 bg-black/80 z-[60] flex items-center justify-center p-4">
+        <div class="industrial-card p-6 max-w-sm w-full">
+            <h2 class="text-xs font-bold text-gray-200 mb-4">AJUSTES DE ANTIGRAVITY</h2>
+            <div class="flex flex-col gap-3">
+                <div class="flex justify-between items-center">
+                    <span class="text-[11px] text-gray-400">Puerto TCP Ableton</span>
+                    <span class="text-[11px] font-mono text-gray-200">9001</span>
+                </div>
+                <div class="flex justify-between items-center">
+                    <span class="text-[11px] text-gray-400">Modelo LLM</span>
+                    <span class="text-[11px] font-mono text-blue-400">Claude 3.5 Sonnet</span>
+                </div>
+                <button id="btn-close-settings" class="mt-4 w-full h-8 bg-[#444] text-[10px] font-bold text-gray-200">CERRAR</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="flex-1 mt-16 mb-32 px-4 relative">
+        
+        <!-- View 1: DASHBOARD (Active) -->
+        <div id="view-dashboard" class="grid grid-cols-1 md:grid-cols-12 gap-4">
+            <section class="md:col-span-5 flex flex-col gap-2">
+                <div class="flex items-center justify-between mb-1">
+                    <h2 class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Salud de la Sesión</h2>
+                    <span class="text-[10px] text-blue-400">ESCANEO ACTIVO</span>
+                </div>
+                
+                <div class="industrial-card p-4 flex flex-col gap-4">
+                    <div class="flex items-end justify-between border-b border-[#444] pb-2">
+                        <span class="text-xs text-gray-300">Proyecto Salud</span>
+                        <span class="text-lg font-bold text-blue-400">84%</span>
+                    </div>
+
+                    <!-- Alert 1 -->
+                    <div class="flex flex-col gap-1 p-2 bg-[#ff3c3c1a] border-l-2 border-[#ff3c3c]">
+                        <div class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-[#ff3c3c] text-[14px]">error</span>
+                            <p class="text-[11px] text-gray-200 font-bold uppercase">Recorte en pista 4 (Voces)</p>
+                        </div>
+                        <p class="text-[10px] text-gray-400 pl-6">Pico en +2.4dB. Sugiere reducción de ganancia de -3dB.</p>
+                    </div>
+
+                    <!-- Alert 2 -->
+                    <div class="flex flex-col gap-1 p-2 bg-[#ffb4001a] border-l-2 border-[#ffb400]">
+                        <div class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-[#ffb400] text-[14px]">warning</span>
+                            <p class="text-[11px] text-gray-200 font-bold uppercase">ADVERTENCIA: Enmascaramiento</p>
+                        </div>
+                        <p class="text-[10px] text-gray-400 pl-6">Conflicto entre Kick y Bass en rango 60Hz - 120Hz.</p>
+                    </div>
+
+                    <button id="btn-autocorrect" class="w-full h-8 bg-[#444] hover:bg-[#555] transition-colors flex items-center justify-center gap-2 text-[10px] font-bold text-gray-200 uppercase rounded-none mt-2">
+                        <span class="material-symbols-outlined text-[14px]">auto_fix</span>
+                        AUTOCORRECCIÓN DE PROBLEMAS
+                    </button>
+                </div>
+            </section>
+
+            <section class="md:col-span-7 flex flex-col gap-2">
+                <div class="flex items-center justify-between mb-1">
+                    <h2 class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Control Macro Inteligente</h2>
+                    <button id="btn-link" class="flex items-center gap-2 hover:opacity-80 transition-opacity">
+                        <span id="linked-dot" class="w-2 h-2 bg-blue-500"></span>
+                        <span class="text-[9px] text-gray-400 uppercase tracking-widest">Vinculado</span>
+                    </button>
+                </div>
+
+                <div class="industrial-card p-6 flex flex-col md:flex-row items-center gap-8 min-h-[300px]">
+                    <!-- Main Knob -->
+                    <div class="flex flex-col items-center gap-4">
+                        <div class="knob-container" id="saturatorKnob">
+                            <svg class="w-full h-full transform -rotate-90" viewbox="0 0 100 100">
+                                <circle class="knob-track" cx="50" cy="50" r="45"></circle>
+                                <circle class="knob-value" id="knob-svg-value" cx="50" cy="50" r="45" style="stroke-dasharray: 283; stroke-dashoffset: 73;"></circle>
+                            </svg>
+                            <div class="absolute inset-0 flex items-center justify-center flex-col pointer-events-none">
+                                <span id="knob-text" class="text-xl font-bold text-gray-200 font-mono">74</span>
+                                <span class="text-[9px] text-gray-500">%</span>
+                            </div>
+                        </div>
+                        <span class="text-[10px] font-bold tracking-widest text-gray-300">SATURADOR INTELIGENTE</span>
+                    </div>
+
+                    <!-- Sliders -->
+                    <div class="flex-1 w-full flex flex-col gap-6">
+                        <div class="flex flex-col gap-2">
+                            <div class="flex justify-between text-[10px] font-bold text-gray-400 uppercase">
+                                <span>Ganancia</span>
+                                <span id="gain-val" class="text-blue-400">+4.2 dB</span>
+                            </div>
+                            <input type="range" id="slider-gain" min="-12" max="12" step="0.1" value="4.2">
+                        </div>
+                        
+                        <div class="flex flex-col gap-2">
+                            <div class="flex justify-between text-[10px] font-bold text-gray-400 uppercase">
+                                <span>Drive</span>
+                                <span id="drive-val" class="text-blue-400">40 %</span>
+                            </div>
+                            <input type="range" id="slider-drive" min="0" max="100" step="1" value="40">
+                        </div>
+
+                        <div class="mt-4 grid grid-cols-2 gap-2">
+                            <button id="btn-bypass" class="h-7 border border-[#444] hover:bg-[#444] text-[10px] font-bold uppercase text-gray-300 rounded-none transition-colors">BYPASS</button>
+                            <button id="btn-compare" class="h-7 border border-[#444] hover:bg-[#444] text-[10px] font-bold uppercase text-gray-300 rounded-none transition-colors">COMPARAR</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- View 2: EXPLORE (Hidden) -->
+        <div id="view-explore" class="hidden-view h-full flex items-center justify-center">
+            <span class="text-gray-500 text-sm">Explorador de Sesión en Desarrollo...</span>
+        </div>
+        <!-- View 3: MIXER (Hidden) -->
+        <div id="view-mixer" class="hidden-view h-full flex items-center justify-center">
+            <span class="text-gray-500 text-sm">Consola de Mezcla en Desarrollo...</span>
+        </div>
+    </main>
+
+    <!-- Bottom Input and Nav Container -->
+    <div class="fixed bottom-0 left-0 w-full z-50 bg-[#2a2a2a] border-t border-[#444]">
+        <!-- Terminal Log Area (New) -->
+        <div id="terminal-log" class="hidden-view px-4 py-2 bg-[#1b1b1b] border-b border-[#444] max-h-32 overflow-y-auto font-mono text-[10px] text-gray-400 flex flex-col gap-1">
+            <!-- Logs will be appended here -->
+        </div>
+
+        <div class="px-4 py-3">
+            <div class="max-w-4xl mx-auto recessed-input flex items-center px-3 h-10 gap-3 focus-within:border-blue-500 transition-colors">
+                <span class="material-symbols-outlined text-gray-500 text-[18px]">terminal</span>
+                <input id="cmd-input" class="flex-1 bg-transparent border-none focus:outline-none text-[12px] text-gray-200 placeholder:text-gray-600" placeholder="Ej: Añade un EQ Eight en pista 1 y corta a 120Hz..." type="text"/>
+                <div class="flex items-center gap-2">
+                    <span class="text-[10px] px-1 bg-[#333] border border-[#444] text-gray-500 font-mono">CMD+K</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="h-12 bg-[#1b1b1b] border-t border-[#444] flex justify-around items-center">
+            <button data-view="dashboard" class="nav-btn flex h-full w-full items-center justify-center text-gray-500 hover:text-gray-300 hover:bg-[#222] active-nav">
+                <span class="material-symbols-outlined text-[20px]">dashboard</span>
+            </button>
+            <button data-view="explore" class="nav-btn flex h-full w-full items-center justify-center text-gray-500 hover:text-gray-300 hover:bg-[#222]">
+                <span class="material-symbols-outlined text-[20px]">explore</span>
+            </button>
+            <button data-view="mixer" class="nav-btn flex h-full w-full items-center justify-center text-gray-500 hover:text-gray-300 hover:bg-[#222]">
+                <span class="material-symbols-outlined text-[20px]">equalizer</span>
+            </button>
+        </nav>
+    </div>
+
+    <script>
+        // State
+        let isLinked = true;
+        let isBypassed = false;
+        let isComparing = false;
+
+        // Terminal Log Helper
+        const terminalLog = document.getElementById('terminal-log');
+        function addLog(message, isUser = false) {
+            terminalLog.classList.remove('hidden-view');
+            const logEntry = document.createElement('div');
+            logEntry.className = isUser ? 'text-blue-400' : 'text-gray-300';
+            logEntry.innerHTML = `<span class="text-gray-600">[${new Date().toLocaleTimeString()}]</span> ${isUser ? 'USER:' : 'SYS:'} ${message}`;
+            terminalLog.appendChild(logEntry);
+            terminalLog.scrollTop = terminalLog.scrollHeight;
+        }
+
+        // Bridge sender wrapper
+        function sendTcpAction(paramName, value) {
+            if (window.antigravityAPI && window.antigravityAPI.sendAction) {
+                const payload = { track_index: 0, device_index: 0, param_name: paramName, value: parseFloat(value) };
+                window.antigravityAPI.sendAction({ action: "set_parameter", payload: payload });
+                addLog(`TCP Payload enviado -> set_parameter: ${paramName} = ${value}`);
+            }
+        }
+
+        // Sliders Logic
+        const sliderGain = document.getElementById('slider-gain');
+        const gainVal = document.getElementById('gain-val');
+        if (sliderGain) {
+            sliderGain.addEventListener('change', (e) => {
+                const val = parseFloat(e.target.value);
+                gainVal.textContent = (val > 0 ? '+' : '') + val.toFixed(1) + ' dB';
+                sendTcpAction("Gain", val);
+            });
+        }
+
+        const sliderDrive = document.getElementById('slider-drive');
+        const driveVal = document.getElementById('drive-val');
+        if (sliderDrive) {
+            sliderDrive.addEventListener('change', (e) => {
+                const val = parseFloat(e.target.value);
+                driveVal.textContent = val.toFixed(0) + ' %';
+                sendTcpAction("Drive", val);
+            });
+        }
+
+        // Knob Logic
+        const knob = document.getElementById('saturatorKnob');
+        if (knob) {
+            let startY;
+            let value = 74;
+            const knobText = document.getElementById('knob-text');
+            const circleValue = document.getElementById('knob-svg-value');
+            const circumference = 2 * Math.PI * 45;
+
+            knob.addEventListener('mousedown', (e) => {
+                startY = e.clientY;
+                document.addEventListener('mousemove', handleMouseMove);
+                document.addEventListener('mouseup', () => {
+                    document.removeEventListener('mousemove', handleMouseMove);
+                    sendTcpAction("Amount", value);
+                });
+            });
+
+            function handleMouseMove(e) {
+                const deltaY = startY - e.clientY;
+                value = Math.min(100, Math.max(0, value + deltaY * 0.5));
+                startY = e.clientY;
+                
+                knobText.textContent = Math.round(value);
+                const offset = circumference - (value / 100) * circumference;
+                circleValue.style.strokeDashoffset = offset;
+            }
+        }
+
+        // Buttons Logic
+        document.getElementById('btn-bypass').addEventListener('click', (e) => {
+            isBypassed = !isBypassed;
+            e.target.classList.toggle('toggle-on', isBypassed);
+            addLog(isBypassed ? "Dispositivo en BYPASS." : "Dispositivo ACTIVO.");
+            if (window.antigravityAPI) {
+                window.antigravityAPI.sendAction({
+                    action: "set_parameter",
+                    payload: { track_index: 0, device_index: 0, param_name: "Device On", value: isBypassed ? 0 : 1 }
+                });
+            }
+        });
+
+        document.getElementById('btn-compare').addEventListener('click', (e) => {
+            isComparing = !isComparing;
+            e.target.classList.toggle('toggle-on', isComparing);
+            addLog(isComparing ? "Comparación A/B activada." : "Comparación A/B desactivada.");
+        });
+
+        document.getElementById('btn-autocorrect').addEventListener('click', (e) => {
+            addLog("Iniciando autocorrección de enmascaramiento...");
+            if (window.antigravityAPI) window.antigravityAPI.sendCommand("Fix frequency masking between Kick and Bass");
+            
+            // Simular respuesta visual
+            setTimeout(() => {
+                addLog("LLM: Conflicto resuelto. EQ Eight insertado en Pista 4 (-3dB en 120Hz).");
+                e.target.parentElement.style.opacity = '0.5';
+                e.target.innerHTML = '<span class="material-symbols-outlined text-[14px]">check</span> CORREGIDO';
+                e.target.disabled = true;
+            }, 1500);
+        });
+
+        document.getElementById('btn-link').addEventListener('click', () => {
+            isLinked = !isLinked;
+            document.getElementById('linked-dot').style.backgroundColor = isLinked ? 'var(--ableton-blue)' : '#444';
+            addLog(isLinked ? "Macro Control VINCULADO a Ableton." : "Macro Control DESVINCULADO.");
+        });
+
+        // Settings Modal
+        document.getElementById('btn-settings').addEventListener('click', () => {
+            document.getElementById('modal-settings').classList.remove('hidden-view');
+        });
+        document.getElementById('btn-close-settings').addEventListener('click', () => {
+            document.getElementById('modal-settings').classList.add('hidden-view');
+        });
+
+        // Navigation
+        const views = {
+            'dashboard': document.getElementById('view-dashboard'),
+            'explore': document.getElementById('view-explore'),
+            'mixer': document.getElementById('view-mixer')
+        };
+        const navBtns = document.querySelectorAll('.nav-btn');
+        navBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const targetView = e.currentTarget.dataset.view;
+                navBtns.forEach(b => {
+                    b.classList.remove('active-nav');
+                    b.classList.add('text-gray-500');
+                    b.style.borderTop = 'none';
+                });
+                e.currentTarget.classList.add('active-nav');
+                Object.values(views).forEach(v => v.classList.add('hidden-view'));
+                if (views[targetView]) views[targetView].classList.remove('hidden-view');
+            });
+        });
+
+        // Command Input Execution
+        const cmdInput = document.getElementById('cmd-input');
+        if (cmdInput) {
+            cmdInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' && cmdInput.value.trim() !== '') {
+                    const commandText = cmdInput.value.trim();
+                    addLog(commandText, true);
+                    
+                    if (window.antigravityAPI) window.antigravityAPI.sendCommand(commandText);
+                    
+                    cmdInput.value = '';
+                    
+                    // Simular respuesta del LLM (El cerebro real irá aquí)
+                    setTimeout(() => {
+                        addLog(`IA: Procesando comando "${commandText}". Inyectando parámetros vía TCP 127.0.0.1:9001...`);
+                    }, 1000);
+                }
+            });
+        }
+    </script>
+</body>
+</html>

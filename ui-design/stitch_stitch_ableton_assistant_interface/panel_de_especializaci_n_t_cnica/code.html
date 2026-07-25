@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AI ANALYST v1.0 - Stem &amp; Latent MIDI</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            background-color: #16130b;
+            color: #e9e2d3;
+            font-family: 'Inter', sans-serif;
+            overflow: hidden;
+            user-select: none;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 20;
+            font-size: 18px;
+        }
+        .daw-border {
+            border: 1px solid #4c4735;
+        }
+        .knob-track {
+            background: #1e1b12;
+            border: 1px solid #4c4735;
+        }
+        .latent-grid {
+            background-image: radial-gradient(#4c4735 1px, transparent 1px);
+            background-size: 16px 16px;
+        }
+        /* Custom scrollbar for DAW look */
+        ::-webkit-scrollbar { width: 4px; height: 4px; }
+        ::-webkit-scrollbar-track { background: #16130b; }
+        ::-webkit-scrollbar-thumb { background: #4c4735; }
+        ::-webkit-scrollbar-thumb:hover { background: #98907b; }
+
+        .active-yellow {
+            background-color: #f7d84d !important;
+            color: #221b00 !important;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface": "#16130b",
+                    "on-primary-fixed": "#221b00",
+                    "tertiary-fixed": "#ffdad4",
+                    "on-background": "#e9e2d3",
+                    "on-surface": "#e9e2d3",
+                    "surface-bright": "#3c392f",
+                    "on-surface-variant": "#cfc6ae",
+                    "inverse-surface": "#e9e2d3",
+                    "on-secondary-fixed": "#001e2b",
+                    "inverse-primary": "#6f5d00",
+                    "secondary-container": "#00b0e6",
+                    "tertiary": "#fff3f1",
+                    "tertiary-container": "#ffcec6",
+                    "on-tertiary": "#680200",
+                    "on-primary-fixed-variant": "#534600",
+                    "on-error": "#690005",
+                    "error-container": "#93000a",
+                    "primary-fixed-dim": "#e3c53b",
+                    "secondary": "#73d1ff",
+                    "tertiary-fixed-dim": "#ffb4a7",
+                    "surface-dim": "#16130b",
+                    "error": "#ffb4ab",
+                    "on-tertiary-container": "#b12c1d",
+                    "surface-container-lowest": "#100e06",
+                    "on-primary-container": "#6f5e00",
+                    "primary-container": "#f7d84d",
+                    "on-secondary-container": "#003e54",
+                    "primary": "#fff5da",
+                    "surface-container-low": "#1e1b12",
+                    "surface-variant": "#38352a",
+                    "on-secondary-fixed-variant": "#004d67",
+                    "on-tertiary-fixed": "#400100",
+                    "surface-container-highest": "#38352a",
+                    "on-tertiary-fixed-variant": "#8f1107",
+                    "outline": "#98907b",
+                    "surface-tint": "#e3c53b",
+                    "inverse-on-surface": "#333026",
+                    "background": "#16130b",
+                    "on-secondary": "#003548",
+                    "on-primary": "#3a3000",
+                    "outline-variant": "#4c4735",
+                    "surface-container-high": "#2d2a20",
+                    "secondary-fixed": "#c1e8ff",
+                    "surface-container": "#221f16",
+                    "secondary-fixed-dim": "#73d1ff",
+                    "on-error-container": "#ffdad6",
+                    "primary-fixed": "#ffe263"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-padding": "12px",
+                    "element-gap": "4px",
+                    "section-margin": "16px",
+                    "unit": "4px"
+            },
+            "fontFamily": {
+                    "headline-sm": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "label-caps": ["Inter"],
+                    "mono-data": ["JetBrains Mono"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-sm": ["14px", {"lineHeight": "18px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-sm": ["11px", {"lineHeight": "14px", "fontWeight": "400"}],
+                    "label-caps": ["10px", {"lineHeight": "12px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "mono-data": ["11px", {"lineHeight": "12px", "fontWeight": "400"}],
+                    "body-md": ["12px", {"lineHeight": "16px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface select-none">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface text-primary border-b border-outline-variant flex justify-between items-center h-12 px-container-padding">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">waves</span>
+<h1 class="font-headline-sm text-headline-sm font-bold tracking-tighter text-on-surface">AI ANALYST v1.0</h1>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex items-center gap-1">
+<div class="w-2 h-2 bg-secondary rounded-full animate-pulse"></div>
+<span class="font-mono-data text-mono-data uppercase opacity-70">DSP ACTIVE</span>
+</div>
+<span class="material-symbols-outlined cursor-pointer hover:bg-surface-variant transition-colors duration-100 p-1">settings</span>
+</div>
+</header>
+<!-- Side Navigation Drawer -->
+<aside class="fixed left-0 top-0 h-full w-64 z-[60] bg-surface-container-low border-r border-outline-variant flex flex-col py-section-margin">
+<div class="px-container-padding mb-6">
+<h2 class="font-headline-sm text-headline-sm font-bold text-on-surface">UTILITIES</h2>
+</div>
+<nav class="flex flex-col">
+<div class="flex items-center gap-3 px-container-padding py-2 transition-all duration-75 hover:bg-surface-container-highest text-on-surface-variant cursor-pointer font-body-md text-body-md">
+<span class="material-symbols-outlined">health_and_safety</span>
+<span>Session Health</span>
+</div>
+<div class="flex items-center gap-3 px-container-padding py-2 transition-all duration-75 bg-surface-variant text-secondary font-bold cursor-pointer font-body-md text-body-md">
+<span class="material-symbols-outlined">layers</span>
+<span>Stem Splitter</span>
+</div>
+<div class="flex items-center gap-3 px-container-padding py-2 transition-all duration-75 hover:bg-surface-container-highest text-on-surface-variant cursor-pointer font-body-md text-body-md">
+<span class="material-symbols-outlined">reorder</span>
+<span>Plugin Chain</span>
+</div>
+<div class="flex items-center gap-3 px-container-padding py-2 transition-all duration-75 hover:bg-surface-container-highest text-on-surface-variant cursor-pointer font-body-md text-body-md">
+<span class="material-symbols-outlined">menu_book</span>
+<span>User Manual</span>
+</div>
+</nav>
+<div class="mt-auto px-container-padding space-y-4">
+<div class="bg-surface-container p-3 daw-border">
+<p class="font-label-caps text-label-caps text-outline mb-1 uppercase">Buffer Load</p>
+<div class="h-1 bg-surface-container-lowest w-full relative">
+<div class="absolute left-0 top-0 h-full bg-secondary w-[42%]"></div>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 mt-12 mb-14 p-container-padding grid grid-cols-12 gap-element-gap h-[calc(100vh-6.5rem)] overflow-y-auto">
+<!-- Stem Splitter Section -->
+<section class="col-span-12 lg:col-span-5 flex flex-col gap-element-gap bg-surface-container-low p-4 daw-border">
+<div class="flex justify-between items-center mb-2">
+<h3 class="font-label-caps text-label-caps text-secondary uppercase tracking-widest flex items-center gap-2">
+<span class="material-symbols-outlined text-[14px]" style="font-variation-settings: 'FILL' 1;">layers</span>
+                    Stem Splitter
+                </h3>
+<div class="flex bg-surface-container-lowest p-0.5 daw-border">
+<button class="px-3 py-1 font-label-caps text-label-caps active-yellow transition-all" id="toggle-speed">HIGH SPEED</button>
+<button class="px-3 py-1 font-label-caps text-label-caps text-on-surface-variant hover:bg-surface-variant transition-all" id="toggle-quality">HIGH QUALITY</button>
+</div>
+</div>
+<!-- Visualization Area -->
+<div class="relative h-32 bg-surface-container-lowest daw-border flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 opacity-20 pointer-events-none">
+
+</div>
+<div class="z-10 flex flex-col items-center">
+<p class="font-mono-data text-mono-data text-outline mb-1">INPUT: MAIN_TRACK.WAV</p>
+<div class="flex gap-1">
+<div class="w-1 h-8 bg-secondary animate-[bounce_1s_infinite]"></div>
+<div class="w-1 h-12 bg-secondary animate-[bounce_1.2s_infinite]"></div>
+<div class="w-1 h-6 bg-secondary animate-[bounce_0.8s_infinite]"></div>
+<div class="w-1 h-10 bg-secondary animate-[bounce_1.1s_infinite]"></div>
+<div class="w-1 h-7 bg-secondary animate-[bounce_0.9s_infinite]"></div>
+</div>
+</div>
+</div>
+<!-- Control Grid -->
+<div class="grid grid-cols-2 gap-2 mt-2">
+<button class="flex flex-col items-center justify-center p-4 bg-surface-variant daw-border hover:bg-outline-variant transition-colors group">
+<span class="material-symbols-outlined text-secondary mb-2 group-active:scale-95">mic</span>
+<span class="font-label-caps text-label-caps uppercase">Vocals</span>
+</button>
+<button class="flex flex-col items-center justify-center p-4 bg-surface-variant daw-border hover:bg-outline-variant transition-colors group">
+<span class="material-symbols-outlined text-secondary mb-2 group-active:scale-95">potted_plant</span>
+<span class="font-label-caps text-label-caps uppercase">Drums</span>
+</button>
+<button class="flex flex-col items-center justify-center p-4 bg-surface-variant daw-border hover:bg-outline-variant transition-colors group">
+<span class="material-symbols-outlined text-secondary mb-2 group-active:scale-95">graphic_eq</span>
+<span class="font-label-caps text-label-caps uppercase">Bass</span>
+</button>
+<button class="flex flex-col items-center justify-center p-4 bg-surface-variant daw-border hover:bg-outline-variant transition-colors group">
+<span class="material-symbols-outlined text-secondary mb-2 group-active:scale-95">blur_on</span>
+<span class="font-label-caps text-label-caps uppercase">Other</span>
+</button>
+</div>
+<button class="mt-4 w-full py-3 bg-primary-container text-on-primary-container font-headline-sm text-headline-sm font-bold uppercase hover:opacity-90 active:scale-[0.98] transition-all">
+                Generate Stems
+            </button>
+</section>
+<!-- MIDI Latent Space Section -->
+<section class="col-span-12 lg:col-span-7 flex flex-col gap-element-gap bg-surface-container-low p-4 daw-border">
+<div class="flex justify-between items-center mb-2">
+<h3 class="font-label-caps text-label-caps text-secondary uppercase tracking-widest flex items-center gap-2">
+<span class="material-symbols-outlined text-[14px]">grid_view</span>
+                    MIDI Latent Space
+                </h3>
+<div class="flex items-center gap-2 font-mono-data text-mono-data text-on-surface-variant">
+<span>COORDS:</span>
+<span class="text-secondary" id="coords">[ 0.42 , 0.88 ]</span>
+</div>
+</div>
+<!-- Latent Field Visualization -->
+<div class="relative flex-grow bg-surface-container-lowest daw-border latent-grid min-h-[300px] overflow-hidden cursor-crosshair group" id="latent-canvas">
+<!-- Anchor A -->
+<div class="absolute top-8 left-8 flex flex-col items-center">
+<div class="w-12 h-12 bg-surface-variant border-2 border-secondary flex items-center justify-center">
+<span class="font-bold text-secondary">A</span>
+</div>
+<span class="font-label-caps text-label-caps mt-1 text-on-surface-variant">CHORD_PROGRESSION_1</span>
+</div>
+<!-- Anchor B -->
+<div class="absolute bottom-8 right-8 flex flex-col items-center">
+<div class="w-12 h-12 bg-surface-variant border-2 border-primary-fixed-dim flex items-center justify-center">
+<span class="font-bold text-primary-fixed-dim">B</span>
+</div>
+<span class="font-label-caps text-label-caps mt-1 text-on-surface-variant">MELODY_RIFF_B</span>
+</div>
+<!-- Interpolation Line -->
+<svg class="absolute inset-0 w-full h-full pointer-events-none">
+<line stroke="#4c4735" stroke-dasharray="4 4" x1="56" x2="calc(100% - 56px)" y1="56" y2="calc(100% - 56px)"></line>
+<circle class="transition-all duration-300 shadow-[0_0_10px_#f7d84d]" cx="50%" cy="50%" fill="#f7d84d" id="playhead" r="6"></circle>
+</svg>
+<div class="absolute bottom-4 left-4 bg-surface-variant/80 p-2 daw-border backdrop-blur-sm">
+<p class="font-mono-data text-mono-data text-[9px] opacity-60 uppercase">Cluster Density</p>
+<p class="font-mono-data text-mono-data text-secondary">0.92 Sigma</p>
+</div>
+</div>
+<!-- Interpolation Slider -->
+<div class="mt-4 p-4 bg-surface-container-low daw-border">
+<div class="flex justify-between items-center mb-2">
+<span class="font-label-caps text-label-caps uppercase text-on-surface-variant">Interpolate A ↔ B</span>
+<span class="font-mono-data text-mono-data text-secondary" id="lerp-value">50%</span>
+</div>
+<input class="w-full h-1 bg-surface-container-lowest appearance-none cursor-pointer accent-secondary" id="lerp-slider" max="100" min="0" type="range" value="50"/>
+<div class="flex justify-between mt-1">
+<span class="font-mono-data text-[9px] opacity-40">0.00</span>
+<span class="font-mono-data text-[9px] opacity-40">1.00</span>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-2 mt-2">
+<button class="bg-surface-variant py-2 daw-border font-label-caps text-label-caps hover:bg-surface-container-highest uppercase">Snap to Grid</button>
+<button class="bg-surface-variant py-2 daw-border font-label-caps text-label-caps hover:bg-surface-container-highest uppercase">Randomize</button>
+<button class="bg-primary-container text-on-primary-container py-2 font-label-caps text-label-caps font-bold hover:opacity-90 uppercase">Export MIDI</button>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 h-14 bg-surface-container-lowest border-t border-outline-variant flex justify-around items-center">
+<div class="flex flex-col items-center justify-center text-on-surface-variant h-full w-full hover:bg-surface-container-high transition-all cursor-pointer">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-caps text-label-caps">ARRANGE</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant h-full w-full hover:bg-surface-container-high transition-all cursor-pointer">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-label-caps text-label-caps">BROWSE</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container border-t-2 border-secondary h-full w-full transition-all cursor-pointer">
+<span class="material-symbols-outlined">equalizer</span>
+<span class="font-label-caps text-label-caps">ANALYZE</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant h-full w-full hover:bg-surface-container-high transition-all cursor-pointer">
+<span class="material-symbols-outlined">piano</span>
+<span class="font-label-caps text-label-caps">INSTRUMENTS</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant h-full w-full hover:bg-surface-container-high transition-all cursor-pointer">
+<span class="material-symbols-outlined">terminal</span>
+<span class="font-label-caps text-label-caps">CONSOLE</span>
+</div>
+</nav>
+<script>
+        // Toggle Logic for Stem Splitter
+        const speedBtn = document.getElementById('toggle-speed');
+        const qualityBtn = document.getElementById('toggle-quality');
+
+        speedBtn.addEventListener('click', () => {
+            speedBtn.classList.add('active-yellow');
+            speedBtn.classList.remove('text-on-surface-variant');
+            qualityBtn.classList.remove('active-yellow');
+            qualityBtn.classList.add('text-on-surface-variant');
+        });
+
+        qualityBtn.addEventListener('click', () => {
+            qualityBtn.classList.add('active-yellow');
+            qualityBtn.classList.remove('text-on-surface-variant');
+            speedBtn.classList.remove('active-yellow');
+            speedBtn.classList.add('text-on-surface-variant');
+        });
+
+        // Latent Space Logic
+        const slider = document.getElementById('lerp-slider');
+        const playhead = document.getElementById('playhead');
+        const lerpVal = document.getElementById('lerp-value');
+        const canvas = document.getElementById('latent-canvas');
+        const coordsDisplay = document.getElementById('coords');
+
+        slider.addEventListener('input', (e) => {
+            const val = e.target.value;
+            lerpVal.textContent = `${val}%`;
+            
+            // Move playhead along the diagonal
+            const x = 56 + (val / 100) * (canvas.clientWidth - 112);
+            const y = 56 + (val / 100) * (canvas.clientHeight - 112);
+            
+            playhead.setAttribute('cx', x);
+            playhead.setAttribute('cy', y);
+        });
+
+        canvas.addEventListener('mousemove', (e) => {
+            const rect = canvas.getBoundingClientRect();
+            const x = ((e.clientX - rect.left) / rect.width).toFixed(2);
+            const y = ((e.clientY - rect.top) / rect.height).toFixed(2);
+            coordsDisplay.textContent = `[ ${x} , ${y} ]`;
+        });
+
+        // Simple reactive UI feedback
+        document.querySelectorAll('button').forEach(btn => {
+            btn.addEventListener('mousedown', () => {
+                btn.style.transform = 'scale(0.98)';
+            });
+            btn.addEventListener('mouseup', () => {
+                btn.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body></html>

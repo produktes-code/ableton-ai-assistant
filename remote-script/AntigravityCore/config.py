@@ -1,0 +1,16 @@
+import os
+
+VERSION = "2.0.0"
+PROTOCOL_VERSION = 2
+
+PORT = int(os.environ.get("ANTIGRAVITY_PORT", 9001))
+DSP_PORT = int(os.environ.get("ANTIGRAVITY_DSP_PORT", 9002))
+
+MAX_MESSAGE_SIZE = 64 * 1024  # 64KB
+RATE_LIMIT_REQS_PER_SEC = 100
+QUEUE_MAX_SIZE = 256
+COMMAND_TIMEOUT_MS = 5000
+BLACKLIST_DURATION_SEC = 5
+
+TOKEN_FILE_PATH = "/tmp/antigravity_session.token"
+LOG_FILE_PATH = "/tmp/antigravity_core.log"

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;family=JetBrains+Mono&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        :root {
+            --ableton-blue: #00b0e6;
+            --ableton-yellow: #f7d84d;
+            --ableton-red: #ff3c3c;
+            --ableton-amber: #ffb400;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #16130b;
+            color: #e9e2d3;
+            overflow: hidden;
+            height: 100vh;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .knob-container {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            cursor: ns-resize;
+        }
+        .knob-track {
+            stroke: #38352a;
+            stroke-width: 4;
+            fill: none;
+        }
+        .knob-value {
+            stroke: var(--ableton-blue);
+            stroke-width: 4;
+            stroke-linecap: square;
+            fill: none;
+            transition: stroke-dashoffset 0.1s ease;
+        }
+        .recessed-input {
+            background-color: #100e06;
+            border: 1px solid #4c4735;
+        }
+        .industrial-card {
+            background-color: #1e1b12;
+            border: 1px solid #4c4735;
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface": "#16130b",
+                    "on-primary-fixed": "#221b00",
+                    "tertiary-fixed": "#ffdad4",
+                    "on-background": "#e9e2d3",
+                    "on-surface": "#e9e2d3",
+                    "surface-bright": "#3c392f",
+                    "on-surface-variant": "#cfc6ae",
+                    "inverse-surface": "#e9e2d3",
+                    "on-secondary-fixed": "#001e2b",
+                    "inverse-primary": "#6f5d00",
+                    "secondary-container": "#00b0e6",
+                    "tertiary": "#fff3f1",
+                    "tertiary-container": "#ffcec6",
+                    "on-tertiary": "#680200",
+                    "on-primary-fixed-variant": "#534600",
+                    "on-error": "#690005",
+                    "error-container": "#93000a",
+                    "primary-fixed-dim": "#e3c53b",
+                    "secondary": "#73d1ff",
+                    "tertiary-fixed-dim": "#ffb4a7",
+                    "surface-dim": "#16130b",
+                    "error": "#ffb4ab",
+                    "on-tertiary-container": "#b12c1d",
+                    "surface-container-lowest": "#100e06",
+                    "on-primary-container": "#6f5e00",
+                    "primary-container": "#f7d84d",
+                    "on-secondary-container": "#003e54",
+                    "primary": "#fff5da",
+                    "surface-container-low": "#1e1b12",
+                    "surface-variant": "#38352a",
+                    "on-secondary-fixed-variant": "#004d67",
+                    "on-tertiary-fixed": "#400100",
+                    "surface-container-highest": "#38352a",
+                    "on-tertiary-fixed-variant": "#8f1107",
+                    "outline": "#98907b",
+                    "surface-tint": "#e3c53b",
+                    "inverse-on-surface": "#333026",
+                    "background": "#16130b",
+                    "on-secondary": "#003548",
+                    "on-primary": "#3a3000",
+                    "outline-variant": "#4c4735",
+                    "surface-container-high": "#2d2a20",
+                    "secondary-fixed": "#c1e8ff",
+                    "surface-container": "#221f16",
+                    "secondary-fixed-dim": "#73d1ff",
+                    "on-error-container": "#ffdad6",
+                    "primary-fixed": "#ffe263"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0px",
+                    "lg": "0px",
+                    "xl": "0px",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "container-padding": "12px",
+                    "element-gap": "4px",
+                    "section-margin": "16px",
+                    "unit": "4px"
+            },
+            "fontFamily": {
+                    "headline-sm": ["Inter"],
+                    "body-sm": ["Inter"],
+                    "label-caps": ["Inter"],
+                    "mono-data": ["JetBrains Mono"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-sm": ["14px", {"lineHeight": "18px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-sm": ["11px", {"lineHeight": "14px", "fontWeight": "400"}],
+                    "label-caps": ["10px", {"lineHeight": "12px", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                    "mono-data": ["11px", {"lineHeight": "12px", "fontWeight": "400"}],
+                    "body-md": ["12px", {"lineHeight": "16px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="flex flex-col">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface text-primary border-b border-outline-variant flex justify-between items-center h-12 px-container-padding">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface" data-icon="waves">waves</span>
+<h1 class="font-headline-sm text-headline-sm font-bold tracking-tighter text-on-surface">AI ANALYST v1.0</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="hover:bg-surface-variant transition-colors duration-100 p-1">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="settings">settings</span>
+</button>
+</div>
+</header>
+<!-- Main Content Grid -->
+<main class="flex-1 mt-12 mb-14 p-container-padding grid grid-cols-1 md:grid-cols-12 gap-section-margin overflow-y-auto scrollbar-hide">
+<!-- Left Column: Health Diagnostics -->
+<section class="md:col-span-5 flex flex-col gap-element-gap">
+<div class="flex items-center justify-between mb-2">
+<h2 class="font-label-caps text-label-caps text-on-surface-variant uppercase">Session Health</h2>
+<span class="font-mono-data text-mono-data text-secondary">ACTIVE SCAN</span>
+</div>
+<div class="industrial-card p-4 flex flex-col gap-4">
+<div class="flex items-end justify-between border-b border-outline-variant pb-2">
+<span class="font-body-md text-body-md text-on-surface-variant">Project Health</span>
+<span class="font-headline-sm text-headline-sm font-bold text-secondary">84%</span>
+</div>
+<!-- Alert 1 -->
+<div class="flex items-start gap-3 p-2 bg-[#ff3c3c1a] border-l-2 border-[#ff3c3c]">
+<span class="material-symbols-outlined text-[#ff3c3c] text-sm" data-icon="error">error</span>
+<div>
+<p class="font-body-md text-body-md text-on-surface font-semibold">Clipping on Track 4 (Vocals)</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Peak detected at +2.4dB. Suggesting -3dB gain reduction.</p>
+</div>
+</div>
+<!-- Alert 2 -->
+<div class="flex items-start gap-3 p-2 bg-[#ffb4001a] border-l-2 border-[#ffb400]">
+<span class="material-symbols-outlined text-[#ffb400] text-sm" data-icon="warning">warning</span>
+<div>
+<p class="font-body-md text-body-md text-on-surface font-semibold">Frequency Masking</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Conflict between Kick &amp; Bass in 60Hz - 120Hz range.</p>
+</div>
+</div>
+<button class="w-full h-8 bg-surface-variant hover:bg-surface-container-highest transition-all flex items-center justify-center gap-2 font-label-caps text-label-caps text-on-surface">
+<span class="material-symbols-outlined text-xs" data-icon="auto_fix">auto_fix</span>
+                    APPLY SUGGESTED FIXES
+                </button>
+</div>
+<!-- Mini Visualizer for Health -->
+<div class="industrial-card h-24 relative overflow-hidden flex items-end px-1 gap-[1px]">
+<div class="absolute top-2 left-2 font-label-caps text-label-caps text-on-surface-variant/50">SPECTRAL DENSITY</div>
+<div class="flex-1 bg-secondary/20 h-[30%]"></div>
+<div class="flex-1 bg-secondary/30 h-[45%]"></div>
+<div class="flex-1 bg-secondary/40 h-[60%]"></div>
+<div class="flex-1 bg-secondary/50 h-[80%]"></div>
+<div class="flex-1 bg-[#ffb400]/60 h-[90%]"></div>
+<div class="flex-1 bg-[#ff3c3c]/80 h-[95%]"></div>
+<div class="flex-1 bg-secondary/50 h-[70%]"></div>
+<div class="flex-1 bg-secondary/40 h-[50%]"></div>
+<div class="flex-1 bg-secondary/30 h-[35%]"></div>
+</div>
+</section>
+<!-- Right Column: Macro Controls -->
+<section class="md:col-span-7 flex flex-col gap-element-gap">
+<div class="flex items-center justify-between mb-2">
+<h2 class="font-label-caps text-label-caps text-on-surface-variant uppercase">Smart Macro Control</h2>
+<div class="flex gap-2">
+<span class="w-2 h-2 bg-secondary rounded-full animate-pulse"></span>
+<span class="font-label-caps text-label-caps text-on-surface-variant">LINKED</span>
+</div>
+</div>
+<div class="industrial-card p-6 flex flex-col md:flex-row items-center gap-8 min-h-[320px]">
+<!-- Main Knob -->
+<div class="flex flex-col items-center gap-4">
+<div class="knob-container" id="saturatorKnob">
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 100 100">
+<circle class="knob-track" cx="50" cy="50" r="45"></circle>
+<circle class="knob-value" cx="50" cy="50" r="45" style="stroke-dasharray: 283; stroke-dashoffset: 70;"></circle>
+</svg>
+<div class="absolute inset-0 flex items-center justify-center flex-col pointer-events-none">
+<span class="font-mono-data text-[20px] font-bold text-on-surface">74</span>
+<span class="font-label-caps text-[8px] text-on-surface-variant">%</span>
+</div>
+</div>
+<span class="font-label-caps text-label-caps tracking-widest text-on-surface">SMART SATURATOR</span>
+</div>
+<!-- Sliders -->
+<div class="flex-1 w-full flex flex-col gap-6">
+<div class="flex flex-col gap-2">
+<div class="flex justify-between font-label-caps text-label-caps text-on-surface-variant">
+<span>GAIN</span>
+<span class="text-secondary">+4.2 dB</span>
+</div>
+<div class="h-6 recessed-input relative flex items-center px-1">
+<div class="h-4 bg-secondary-container w-[65%] border-r-2 border-secondary"></div>
+<div class="absolute inset-0 w-full h-full cursor-pointer"></div>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<div class="flex justify-between font-label-caps text-label-caps text-on-surface-variant">
+<span>CHARACTER</span>
+<span class="text-secondary">TUBE / WARM</span>
+</div>
+<div class="h-6 recessed-input relative flex items-center px-1">
+<div class="h-4 bg-secondary-container w-[40%] border-r-2 border-secondary"></div>
+<div class="absolute inset-0 w-full h-full cursor-pointer"></div>
+</div>
+</div>
+<div class="mt-4 grid grid-cols-2 gap-2">
+<button class="h-8 border border-outline-variant hover:bg-surface-variant font-label-caps text-label-caps">BYPASS</button>
+<button class="h-8 border border-outline-variant hover:bg-surface-variant font-label-caps text-label-caps">COMPARE</button>
+</div>
+</div>
+</div>
+<!-- Dynamic Help/Context -->
+<div class="mt-2 p-3 industrial-card border-dashed border-outline-variant">
+<p class="font-body-sm text-body-sm text-on-surface-variant italic">
+                    "Smart Saturator is analyzing the mid-range transients of Track 4 and applying harmonic excitation to enhance vocal presence without increasing peak levels."
+                </p>
+</div>
+</section>
+</main>
+<!-- Bottom Command Input (Section 3) -->
+<div class="fixed bottom-14 left-0 w-full px-container-padding pb-4 z-50">
+<div class="max-w-4xl mx-auto recessed-input flex items-center px-4 h-12 gap-3 focus-within:ring-1 focus-within:ring-secondary transition-all">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="terminal">terminal</span>
+<input class="flex-1 bg-transparent border-none focus:ring-0 text-body-md text-on-surface placeholder:text-outline-variant" placeholder="Command DAW..." type="text"/>
+<div class="flex items-center gap-2">
+<kbd class="font-mono-data text-label-caps px-1.5 py-0.5 recessed-input text-outline-variant">CMD + K</kbd>
+<button class="hover:text-secondary transition-colors">
+<span class="material-symbols-outlined" data-icon="mic">mic</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Bottom Navigation Shell -->
+<nav class="fixed bottom-0 w-full z-50 h-14 bg-surface-container-lowest text-secondary border-t border-outline-variant flex justify-around items-center">
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container border-t-2 border-secondary h-full w-full active:opacity-80 transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant h-full w-full hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="explore">explore</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant h-full w-full hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="equalizer">equalizer</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant h-full w-full hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="piano">piano</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant h-full w-full hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="terminal">terminal</span>
+</a>
+</nav>
+<script>
+        // Micro-interaction for the knob
+        const knob = document.getElementById('saturatorKnob');
+        if (knob) {
+            let startY;
+            let value = 74;
+            const valueDisplay = knob.querySelector('span');
+            const circleValue = knob.querySelector('.knob-value');
+            const circumference = 2 * Math.PI * 45;
+
+            knob.addEventListener('mousedown', (e) => {
+                startY = e.clientY;
+                document.addEventListener('mousemove', handleMouseMove);
+                document.addEventListener('mouseup', () => {
+                    document.removeEventListener('mousemove', handleMouseMove);
+                });
+            });
+
+            function handleMouseMove(e) {
+                const deltaY = startY - e.clientY;
+                value = Math.min(100, Math.max(0, value + deltaY * 0.5));
+                startY = e.clientY;
+                
+                // Update UI
+                valueDisplay.textContent = Math.round(value);
+                const offset = circumference - (value / 100) * circumference;
+                circleValue.style.strokeDashoffset = offset;
+            }
+        }
+    </script>
+</body></html>
