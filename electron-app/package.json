@@ -7,7 +7,10 @@
     "start": "electron .",
     "test": "node -e \"console.log('Electron tests delegated to pytest UI structure suite')\"",
     "pack": "electron-builder --dir",
-    "dist": "electron-builder"
+    "dist": "electron-builder",
+    "dist:mac": "electron-builder --mac",
+    "dist:win": "electron-builder --win",
+    "dist:linux": "electron-builder --linux"
   },
   "build": {
     "appId": "com.antigravity.assistant",
@@ -25,6 +28,6 @@
   },
   "devDependencies": {
     "electron": "^31.0.0",
-    "electron-builder": "^26.15.3"
+    "electron-builder": "^25.1.8"
   }
 }
