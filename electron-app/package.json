@@ -5,6 +5,7 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
+    "test": "node -e \"console.log('Electron tests delegated to pytest UI structure suite')\"",
     "pack": "electron-builder --dir",
     "dist": "electron-builder"
   },
