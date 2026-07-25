@@ -27,8 +27,12 @@
     },
     "linux": {
       "target": [
-        "AppImage"
-      ]
+        {"target": "AppImage", "arch": ["x64"]},
+        {"target": "deb", "arch": ["x64"]}
+      ],
+      "category": "Audio",
+      "maintainer": "produktes-code",
+      "description": "Antigravity AI Assistant for Ableton Live"
     }
   },
   "dependencies": {
