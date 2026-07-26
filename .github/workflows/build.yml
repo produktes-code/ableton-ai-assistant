@@ -59,3 +59,24 @@ jobs:
         with:
           name: installers-${{ matrix.os }}
           path: electron-app/dist/${{ matrix.artifact_name }}
+
+  package-backend:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Create Backend Archive
+        run: |
+          mkdir -p backend-archive/Ableton.AI.Assistant-Backend
+          cp -r remote-script backend-archive/Ableton.AI.Assistant-Backend/
+          cp -r mcp-server backend-archive/Ableton.AI.Assistant-Backend/
+          cp docs/USER_MANUAL.pdf backend-archive/Ableton.AI.Assistant-Backend/
+          cd backend-archive
+          zip -r Ableton.AI.Assistant-Backend-V2.0.2.zip Ableton.AI.Assistant-Backend
+
+      - name: Upload Backend to Release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release upload ${{ github.ref_name }} backend-archive/Ableton.AI.Assistant-Backend-V2.0.2.zip --clobber

@@ -1,6 +1,6 @@
 {
-  "name": "antigravity-app",
-  "version": "2.0.1",
+  "name": "ableton-ai-assistant",
+  "version": "2.0.2",
   "repository": {
     "type": "git",
     "url": "https://github.com/Produktes-code/ableton-ai-assistant.git"
@@ -23,12 +23,14 @@
   "build": {
     "appId": "com.antigravity.assistant",
     "productName": "Ableton.AI.Assistant",
+    "artifactName": "Ableton.AI.Assistant-${version}.${ext}",
     "mac": {
       "target": "dmg",
       "category": "public.app-category.music"
     },
     "win": {
-      "target": "nsis"
+      "target": "nsis",
+      "artifactName": "Ableton.AI.Assistant.Setup.${version}.${ext}"
     },
     "linux": {
       "target": [
