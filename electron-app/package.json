@@ -22,6 +22,7 @@
   },
   "build": {
     "appId": "com.antigravity.assistant",
+    "productName": "Ableton.AI.Assistant",
     "mac": {
       "target": "dmg",
       "category": "public.app-category.music"

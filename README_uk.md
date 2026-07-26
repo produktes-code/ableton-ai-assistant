@@ -42,6 +42,8 @@
 - **Фазова роздільна здатність (EQ Eight)**: Зріз Side (S) нижче 120 Гц фіксує бас у Mono, щоб уникнути фазових скасувань.
 - **Протокол MCP**: ШІ читає стан доріжок через JSON і виконує математичні рішення.
 - **Ядро TCP**: Сирі сокети TCP керують Ableton без затримки MIDI.
+- **Рушій DSP Anti-Clash (Аналіз звуку в реальному часі)**: Новинка V2, окремий фоновий процес читає OS master audio loopback за допомогою швидкого перетворення Фур'є (FFT) на 44100 Гц. Він розділяє спектр на 8 ключових смуг і обчислює евристичний Anti-Clash Score в реальному часі, передаючи дані візуалізації при 60fps через WebSockets.
+- **MIDI Generator V2**: Вдосконалена детермінована генерація жанрових грувів (House, Techno, Trap, DnB) і обмежених багаторежимних мелодій, нативно обгорнута в кроки Undo Ableton для миттєвої оборотності за допомогою Ctrl+Z.
 - **Менеджер True Peak / LUFS**: Встановлює лімітери для ідеальної доставки на стримінгові платформи.
 
 ---
@@ -62,7 +64,7 @@
 
 #### 🧠 Встановлення Backend (Критично важливо)
 Це не просто UI; він безпосередньо підключається до інтерпретатора Python Ableton Live і Claude Desktop.
-1. **Ableton Remote Script**: ВИ ПОВИННІ скопіювати папку `remote-script/AbletonAIAssistant` у вашу директорію MIDI Remote Scripts.
+1. **Ableton Remote Script**: ВИ ПОВИННІ скопіювати папку `remote-script/AntigravityCore` у вашу директорію MIDI Remote Scripts.
 2. **MCP Server**: ВИ ПОВИННІ налаштувати `claude_desktop_config.json` у Claude Desktop на скрипт `mcp-server/main.py`.
 
 ### 🍎 Користувачі macOS (Gatekeeper)

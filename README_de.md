@@ -42,6 +42,8 @@ Das Mischen ist ein analytischer Engpass. Das Gehirn ermüdet bei der Lösung vo
 - **Phasenauflösung (EQ Eight)**: Ein strenger Side (S) Cut unter 120 Hz verankert Kick und Sub-Bass im Mono, um Phasenauslöschungen in Clubs zu vermeiden.
 - **MCP-Protokoll**: Die KI liest den JSON-Payload des Spurstatus, argumentiert mathematisch und führt Aktionen präzise aus.
 - **TCP-Kern**: Rohe TCP-Sockets greifen auf das Ableton Remote Script zu, um Modifikationen ohne MIDI-Latenz widerzuspiegeln.
+- **Anti-Clash DSP Engine (Echtzeit-Audioanalyse)**: Neu in V2, ein separater Hintergrundprozess liest das OS-Master-Audio-Loopback mittels Fast Fourier Transforms (FFT) bei 44100Hz. Es unterteilt das Spektrum in 8 Schlüsselbänder und berechnet in Echtzeit einen heuristischen Anti-Clash Score. Visualisierungsdaten werden mit 60fps über WebSockets gestreamt.
+- **MIDI Generator V2**: Fortschrittliche deterministische Generierung von genrespezifischen Grooves (House, Techno, Trap, DnB) und beschränkten Multi-Mode-Melodien, nativ eingebettet in Ableton Undo-Schritte für sofortige Ctrl+Z Reversibilität.
 - **True Peak / LUFS Manager**: Setzt Limiter auf dem Master, um eine mathematisch perfekte Bereitstellung für Streaming-Plattformen zu gewährleisten.
 
 ---
@@ -62,7 +64,7 @@ Wir verwenden **Automatisierte CI/CD über GitHub Actions** für die Desktop-Anw
 
 #### 🧠 Backend-Installation (Entscheidend)
 Dies ist nicht nur eine UI; es verbindet sich direkt mit dem Python-Interpreter von Ableton Live und Claude Desktop.
-1. **Ableton Remote Script**: Sie MÜSSEN den Ordner `remote-script/AbletonAIAssistant` in Ihr Ableton Live MIDI Remote Scripts-Verzeichnis kopieren.
+1. **Ableton Remote Script**: Sie MÜSSEN den Ordner `remote-script/AntigravityCore` in Ihr Ableton Live MIDI Remote Scripts-Verzeichnis kopieren.
 2. **MCP Server**: Sie MÜSSEN Ihre `claude_desktop_config.json` so konfigurieren, dass sie auf das Skript `mcp-server/main.py` verweist.
 
 ### 🍎 macOS-Benutzer (Gatekeeper)

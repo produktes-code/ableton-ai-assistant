@@ -62,7 +62,7 @@ Empleamos **CI/CD Automatizado vía GitHub Actions** para la aplicación de escr
 
 #### 🧠 Instalación del Backend (Crucial)
 Esta herramienta no es solo una interfaz; se conecta directamente al intérprete Python de Ableton Live y a Claude Desktop.
-1. **Ableton Remote Script**: DEBES copiar la carpeta `remote-script/AbletonAIAssistant` en tu directorio de MIDI Remote Scripts de Ableton Live.
+1. **Ableton Remote Script**: DEBES copiar la carpeta `remote-script/AntigravityCore` en tu directorio de MIDI Remote Scripts de Ableton Live.
 2. **Servidor MCP**: DEBES configurar el archivo `claude_desktop_config.json` de Claude Desktop para que apunte al script `mcp-server/main.py`.
 
 > [!CAUTION]

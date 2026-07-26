@@ -42,6 +42,8 @@
 - **相位解析 (EQ Eight)**：120Hz 以下的 Side (S) 切割将低音固定在 Mono 中，以避免相位抵消。
 - **MCP 协议**：AI 通过 JSON 读取轨道状态并执行数学决策。
 - **TCP 核心**：原始 TCP 套接字无延迟地控制 Ableton。
+- **Anti-Clash DSP 引擎 (实时音频分析)**：V2新功能，一个独立后台进程以44100Hz使用快速傅里叶变换（FFT）读取OS主音频环回。它将频谱分为8个关键频段，并实时计算启发式的Anti-Clash Score，通过WebSockets以60fps流式传输可视化数据。
+- **MIDI 生成器 V2**：特定流派律动（House、Techno、Trap、DnB）和受限多模式旋律的高级确定性生成，原生封装在Ableton撤销步骤中，支持立即Ctrl+Z可逆性。
 - **True Peak / LUFS 管理器**：设置限制器以完美交付给流媒体平台。
 
 ---
@@ -62,7 +64,7 @@
 
 #### 🧠 后端安装 (关键)
 该工具不仅是一个UI；它直接连接到 Ableton Live 的 Python 解释器和 Claude Desktop。
-1. **Ableton Remote Script**：您必须将 `remote-script/AbletonAIAssistant` 文件夹复制到您的 Ableton Live MIDI Remote Scripts 目录。
+1. **Ableton Remote Script**：您必须将 `remote-script/AntigravityCore` 文件夹复制到您的 Ableton Live MIDI Remote Scripts 目录。
 2. **MCP Server**：您必须配置 Claude Desktop 的 `claude_desktop_config.json`，使其指向 `mcp-server/main.py` 脚本。
 
 ### 🍎 macOS 用户 (Gatekeeper)

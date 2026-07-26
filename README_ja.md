@@ -42,6 +42,8 @@
 - **位相分解能 (EQ Eight)**：120Hz未満のSide (S) カットにより、ベースがMonoに固定され、位相の打ち消し合いが回避されます。
 - **MCPプロトコル**：AIはJSONを介してトラックのステータスを読み取り、数学的な決定を実行します。
 - **TCPコア**：生のTCPソケットがMIDIレイテンシなしでAbletonを制御します。
+- **Anti-Clash DSPエンジン (リアルタイムオーディオ分析)**: V2の新機能。分離されたバックグラウンドプロセスが、44100Hzで高速フーリエ変換（FFT）を使用してOSのマスターオーディオループバックを読み取ります。スペクトルを8つの主要な帯域に分割し、リアルタイムでヒューリスティックなAnti-Clashスコアを計算し、WebSocketsを介して60fpsで視覚化データをストリーミングします。
+- **MIDIジェネレーター V2**: ジャンル固有のグルーヴ（House、Techno、Trap、DnB）と制限されたマルチモードメロディーの高度な決定論的生成。即時のCtrl+Z可逆性のためにAbletonの元に戻すステップにネイティブにラップされています。
 - **True Peak / LUFSマネージャー**：ストリーミングプラットフォームへの完璧な配信のためにリミッターを設定します。
 
 ---
@@ -62,7 +64,7 @@
 
 #### 🧠 バックエンドのインストール (重要)
 これは単なるUIではありません。Ableton LiveのPythonインタープリターとClaude Desktopに直接接続します。
-1. **Ableton Remote Script**：`remote-script/AbletonAIAssistant` フォルダーをAbleton LiveのMIDI Remote Scriptsディレクトリにコピーする必要があります。
+1. **Ableton Remote Script**：`remote-script/AntigravityCore` フォルダーをAbleton LiveのMIDI Remote Scriptsディレクトリにコピーする必要があります。
 2. **MCP Server**：Claude Desktopの `claude_desktop_config.json` を設定して、`mcp-server/main.py` スクリプトを指すようにする必要があります。
 
 ### 🍎 macOSユーザー（Gatekeeper）
