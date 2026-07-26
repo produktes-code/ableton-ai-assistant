@@ -2,7 +2,7 @@
   <img src="icon.png" width="250" height="250" style="border-radius: 20px; box-shadow: 0 8px 16px rgba(0,0,0,0.5);" alt="Ableton AI Assistant Logo" />
 </p>
 
-# Ableton AI Assistant V2.0.2
+# Ableton AI Assistant V1.0.0
 <h3 align="center">Official User Manual / Manual de Usuario Maestro</h3>
 
 <p align="center">
@@ -21,7 +21,7 @@ La mezcla de audio avanzada suele ser un cuello de botella analítico. El cerebr
 
 ### 2. Despliegue Técnico (Instalación) e Instalación CI/CD
 
-Empleamos **CI/CD Automatizado vía GitHub Actions** para la aplicación de escritorio. Descarga la última versión compilada automáticamente para tu Sistema Operativo y el archivo ZIP oficial del Backend (`Ableton.AI.Assistant-Backend-V2.0.2.zip`) desde la sección [Releases](https://github.com/produktes-code/ableton-ai-assistant/releases).
+Empleamos **CI/CD Automatizado vía GitHub Actions** para la aplicación de escritorio. Descarga la última versión compilada automáticamente para tu Sistema Operativo y el archivo ZIP oficial del Backend (`Ableton.AI.Assistant-Backend-V1.0.0.zip`) desde la sección [Releases](https://github.com/produktes-code/ableton-ai-assistant/releases).
 
 #### 🧠 Instalación del Backend (Crucial)
 Esta herramienta no es solo una interfaz; se conecta directamente al intérprete Python de Ableton Live y a Claude Desktop.

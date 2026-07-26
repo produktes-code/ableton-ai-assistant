@@ -1,5 +1,5 @@
 {
-  "timestamp": 1785102075.463209,
+  "timestamp": 1785106369.521334,
   "version": "2.0.0",
   "total_suites": 8,
   "passed": 8,
@@ -9,56 +9,56 @@
     {
       "nombre": "Seguridad TCP",
       "passed": true,
-      "tiempo": 1.24,
+      "tiempo": 1.27,
       "critico": true,
       "output": ""
     },
     {
       "nombre": "Command Registry",
       "passed": true,
-      "tiempo": 1.08,
+      "tiempo": 1.21,
       "critico": true,
       "output": ""
     },
     {
       "nombre": "DSP Engine",
       "passed": true,
-      "tiempo": 1.23,
+      "tiempo": 1.5,
       "critico": true,
       "output": ""
     },
     {
       "nombre": "MIDI Generator",
       "passed": true,
-      "tiempo": 0.96,
+      "tiempo": 1.35,
       "critico": true,
       "output": ""
     },
     {
       "nombre": "Session Manager",
       "passed": true,
-      "tiempo": 1.17,
+      "tiempo": 1.33,
       "critico": true,
       "output": ""
     },
     {
       "nombre": "UI Structure",
       "passed": true,
-      "tiempo": 1.09,
+      "tiempo": 1.27,
       "critico": true,
       "output": ""
     },
     {
       "nombre": "TCP Integration",
       "passed": true,
-      "tiempo": 9.93,
+      "tiempo": 10.0,
       "critico": true,
       "output": ""
     },
     {
       "nombre": "Stress Suite",
       "passed": true,
-      "tiempo": 4.29,
+      "tiempo": 4.73,
       "critico": false,
       "output": ""
     }

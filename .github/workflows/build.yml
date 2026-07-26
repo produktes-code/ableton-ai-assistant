@@ -18,7 +18,7 @@ jobs:
             artifact_name: "*.exe"
             artifact_label: antigravity-windows
           - os: ubuntu-latest
-            artifact_name: "*.{AppImage,deb}"
+            artifact_name: "Ableton.AI.Assistant-*.*"
             artifact_label: antigravity-linux
     runs-on: ${{ matrix.os }}
     
@@ -73,10 +73,10 @@ jobs:
           cp -r mcp-server backend-archive/Ableton.AI.Assistant-Backend/
           cp docs/USER_MANUAL.pdf backend-archive/Ableton.AI.Assistant-Backend/
           cd backend-archive
-          zip -r Ableton.AI.Assistant-Backend-V2.0.2.zip Ableton.AI.Assistant-Backend
+          zip -r Ableton.AI.Assistant-Backend-V1.0.0.zip Ableton.AI.Assistant-Backend
 
       - name: Upload Backend to Release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh release upload ${{ github.ref_name }} backend-archive/Ableton.AI.Assistant-Backend-V2.0.2.zip --clobber
+          gh release upload ${{ github.ref_name }} backend-archive/Ableton.AI.Assistant-Backend-V1.0.0.zip --clobber

@@ -3,7 +3,7 @@
   <img src="build/icon.png" width="128" height="128" style="border-radius: 28px; box-shadow: 0 8px 24px rgba(0,0,0,0.25);" alt="Ableton AI Assistant Logo" />
 </p>
 
-<h1 align="center">Ableton AI Assistant V2.0.1</h1>
+<h1 align="center">Ableton AI Assistant V1.0.0</h1>
 
 <p align="center">
   <b>Cognitive AI Mixing Engineer & MCP Real-Time Audio Assistant</b><br/>
@@ -12,7 +12,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Build-Passing-brightgreen?style=for-the-badge" alt="Build" />
-  <img src="https://img.shields.io/badge/Version-2.0.1-blue?style=for-the-badge" alt="Version" />
+  <img src="https://img.shields.io/badge/Version-1.0.0-blue?style=for-the-badge" alt="Version" />
   <img src="https://img.shields.io/badge/Status-Enterprise_Ready-success?style=for-the-badge" alt="Status" />
   <img src="https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-red?style=for-the-badge" alt="License" />
 </p>
@@ -66,9 +66,9 @@ We employ **Automated CI/CD via GitHub Actions** for cross-platform desktop comp
 
 ### 🛠️ Download Installers
 Navigate to the **[Releases](https://github.com/produktes-code/ableton-ai-assistant/releases)** section of this repository to download binaries for your OS:
-- **Windows**: `Ableton.AI.Assistant.Setup.2.0.1.exe`
-- **macOS**: `Ableton.AI.Assistant-2.0.1.dmg` / `Ableton.AI.Assistant-2.0.1-arm64.dmg`
-- **Linux**: `ableton-ai-assistant_2.0.1_amd64.deb` / `Ableton.AI.Assistant-2.0.1.AppImage`
+- **Windows**: `Ableton.AI.Assistant.Setup.1.0.0.exe`
+- **macOS**: `Ableton.AI.Assistant-1.0.0.dmg` / `Ableton.AI.Assistant-1.0.0-arm64.dmg`
+- **Linux**: `ableton-ai-assistant_1.0.0_amd64.deb` / `Ableton.AI.Assistant-1.0.0.AppImage`
 
 #### 🧠 Backend Installation (Crucial)
 This tool is not just a UI; it connects directly to Ableton Live's Python interpreter and Claude Desktop.
@@ -86,9 +86,9 @@ Windows Defender may show a blue 'Windows protected your PC' warning when runnin
 
 ### 🐧 Linux Users (AppImage & Debian)
 - **AppImage**: Grant execution permissions before launching:
-  `chmod +x Ableton.AI.Assistant-2.0.1.AppImage` and run.
+  `chmod +x Ableton.AI.Assistant-1.0.0.AppImage` and run.
 - **Debian Package (`.deb`)**: Install via terminal:
-  `sudo dpkg -i ableton-ai-assistant_2.0.1_amd64.deb` or double-click to install via your distro software manager.
+  `sudo dpkg -i ableton-ai-assistant_1.0.0_amd64.deb` or double-click to install via your distro software manager.
 
 ---
 
