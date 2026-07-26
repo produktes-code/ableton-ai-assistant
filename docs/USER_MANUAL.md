@@ -1,13 +1,4 @@
-<p align="center">
-  <img src="icon.png" width="250" height="250" style="border-radius: 20px; box-shadow: 0 8px 16px rgba(0,0,0,0.5);" alt="Ableton AI Assistant Logo" />
-</p>
-
-# Ableton AI Assistant V1.0.0
-<h3 align="center">Official User Manual / Manual de Usuario Maestro</h3>
-
-<p align="center">
-  <img src="screenshot-UI.png" style="border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.6);" alt="Ableton AI Assistant Console" />
-</p>
+# Ableton AI Assistant V1.0.0 - Manual de Usuario / User Manual
 
 ---
 
