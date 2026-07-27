@@ -24,7 +24,7 @@ h1 {
 
 h2 {
     color: #8E44AD;
-    font-size: 14px;
+    font-size: 16px;
     text-align: center;
     margin-top: 0;
     margin-bottom: 2em;
@@ -60,6 +60,8 @@ img {
     height: auto;
     display: block;
     margin: 1.5em auto;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
 }
 
 .page-break {
@@ -100,7 +102,12 @@ code {
     font-size: 0.95em;
 }
 
-.header-container {
+/* Centrado para la portada y títulos especiales de portada (h5, h6) */
+h5 {
     text-align: center;
-    margin-bottom: 3em;
+    color: #555555;
+    font-style: italic;
+    font-size: 12px;
+    font-weight: normal;
+    margin-bottom: 2em;
 }

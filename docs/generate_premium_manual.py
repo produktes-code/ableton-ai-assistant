@@ -1,18 +1,14 @@
 import os
 import re
 
-header = """<div class="header-container">
-  <h1>Ableton AI Assistant - Manual de Usuario / User Manual</h1>
-  <h2>Official Documentation & Technical Guide</h2>
-  <br/>
-  <img src="icon.png" width="180" height="180" style="border-radius: 32px; box-shadow: 0 12px 32px rgba(0,0,0,0.15);" alt="Ableton AI Assistant Logo" />
-  <br/>
-  <img src="screenshot-UI.png" style="border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.6);" alt="Ableton AI Assistant Console" />
+header = """<div style="text-align: center; margin-bottom: 2em;">
+
+![Ableton AI Assistant Logo](screenshot-UI.png)
+
 </div>
 
-<div class="page-break"></div>
-
-<h1 style="font-size: 16px;">Ableton AI Assistant - Manual de Usuario / User Manual</h1>
+<h1>Ableton AI Assistant - Manual de Usuario / User Manual</h1>
+<h5>Official Documentation & Technical Guide</h5>
 <hr/>
 
 ### Keywords de Seguridad
@@ -37,14 +33,11 @@ for idx, (code, title, filename) in enumerate(languages):
     with open(f"../{filename}", "r", encoding="utf-8") as f:
         lines = f.readlines()
     
-    # Encontrar dónde empieza el contenido real (después del último --- tras los idiomas)
+    # Encontrar dónde empieza el contenido real usando la diana (## 🎯)
     start_idx = 0
-    found_languages = False
     for i, line in enumerate(lines):
-        if "🌐 **Leer en:**" in line or "🌐 **Read in:**" in line or "🌐 **Lesen auf:**" in line or "🌐 **Читать на:**" in line or "🌐 **阅读:**" in line or "🌐 **日本語:**" in line or "🌐 **Читати на:**" in line or "🌐 **Read on:**" in line or "🌐 **Lesen Sie auf:**" in line:
-            found_languages = True
-        elif found_languages and line.startswith("---"):
-            start_idx = i + 1
+        if line.startswith("## 🎯"):
+            start_idx = i
             break
             
     body = "".join(lines[start_idx:]).strip()
@@ -58,7 +51,6 @@ for idx, (code, title, filename) in enumerate(languages):
     
     # Reemplazar encabezados H2 por H4 para que no choquen con el CSS, excepto los que queremos como H3 o H4
     # En el CSS H3 es el bloque purpura. H4 es texto normal negrita.
-    # Los H2 de Markdown (## 🎯 La Visión) los convertimos a H4.
     body = body.replace("## ", "#### ")
     
     manual_content += f"\n\n### {title} ({code})\n\n"

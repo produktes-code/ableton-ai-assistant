@@ -1,89 +1,79 @@
-<p align="center">
-  <img src="build/icon.png" width="128" height="128" style="border-radius: 28px; box-shadow: 0 8px 24px rgba(0,0,0,0.25);" alt="Ableton AI Assistant Logo" />
-</p>
+![Security Audit](https://img.shields.io/badge/Security_Audit-Passed_Level_4-brightgreen)
+![Build](https://img.shields.io/badge/Build-Passing-brightgreen?style=for-the-badge)
+![Version](https://img.shields.io/badge/Version-1.0.0-blue?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Enterprise_Ready-success?style=for-the-badge)
+![License](https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-red?style=for-the-badge)
 
-<h1 align="center">Ableton AI Assistant V1.0.0</h1>
+![Ableton AI Assistant Logo](build/icon.png)
 
-<p align="center">
-  <b>Cognitive AI Mixing Engineer & MCP Real-Time Audio Assistant</b><br/>
-  <i>Ingeniero de Mezcla Cognitivo IA y Asistente de Audio en Tiempo Real MCP</i>
-</p>
+# Ableton AI Assistant V1.0.0
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Build-Passing-brightgreen?style=for-the-badge" alt="Build" />
-  <img src="https://img.shields.io/badge/Version-1.0.0-blue?style=for-the-badge" alt="Version" />
-  <img src="https://img.shields.io/badge/Status-Enterprise_Ready-success?style=for-the-badge" alt="Status" />
-  <img src="https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-red?style=for-the-badge" alt="License" />
-</p>
+##### Когнітивний ШІ-інженер зі зведення та аудіопомічник реального часу / Cognitive AI Mixing Engineer & MCP Real-Time Audio Assistant
 
-🌐 **Читати українською:** [🇬🇧 English](README.md) | [🇪🇸 Español](README_es.md) | [🇩🇪 Deutsch](README_de.md) | [🇷🇺 Русский](README_ru.md) | [🇯🇵 日本語](README_ja.md) | **🇺🇦 Українська** | [🇨🇳 中文](README_zh.md)
+🌐 **Читати на:** [🇬🇧 English](README.md) | [🇪🇸 Español](README_es.md) | [🇩🇪 Deutsch](README_de.md) | [🇷🇺 Русский](README_ru.md) | [🇯🇵 日本語](README_ja.md) | **🇺🇦 Українська** | [🇨🇳 中文](README_zh.md)
 
 ---
 
-## 🎯 Бачення
+## 🎯 1. Бачення (Вступ)
 
-Зведення - це аналітичне вузьке місце. Ми розробили цей інструмент, ставлячи під сумнів парадигму DAW: навіщо крутити ручки вручну, коли машина може розрахувати маскування? Цей штучний інтелект діє як когнітивний інженер, читаючи стан Ableton через MCP і виконуючи рішення з майстерингу.
+Просунуте зведення аудіо часто є аналітичним вузьким місцем. Ми розробили Ableton AI Assistant, щоб вирішити цю проблему. Навіщо крутити ручки вручну, якщо машина має хірургічну точність для розрахунку частотного маскування? Цей інструмент — когнітивний інженер. Підключаючись в реальному часі через протокол MCP і TCP, ШІ Claude «чує» стан вашої консолі та виконує рішення з мастерингу.
 
 > [!NOTE]
-> Developed by **produktes-code** and **Jesús Ferrer (CHUS BZN)** to establish professional standards in commercial engineering.
+> Розроблено **produktes-code** та **Jesús Ferrer (CHUS BZN)** для встановлення професійних стандартів.
 
----
+## 🚀 2. Технічне розгортання (Встановлення)
 
-## 📸 Interface / Ergonomics
+Для забезпечення стабільності ми використовуємо **Automated CI/CD через GitHub Actions**.
 
-![Desktop Interface](docs/screenshot-UI.png)
-
-
----
-
-## ⚙️ Майстер-клас параметрів
-
-- **Адаптивна компресія**: Встановлює повільну атаку та швидкий реліз (на основі BPM), щоб компресор дихав у ритмі треку.
-- **Фазова роздільна здатність (EQ Eight)**: Зріз Side (S) нижче 120 Гц фіксує бас у Mono, щоб уникнути фазових скасувань.
-- **Протокол MCP**: ШІ читає стан доріжок через JSON і виконує математичні рішення.
-- **Ядро TCP**: Сирі сокети TCP керують Ableton без затримки MIDI.
-- **Рушій DSP Anti-Clash (Аналіз звуку в реальному часі)**: Новинка V2, окремий фоновий процес читає OS master audio loopback за допомогою швидкого перетворення Фур'є (FFT) на 44100 Гц. Він розділяє спектр на 8 ключових смуг і обчислює евристичний Anti-Clash Score в реальному часі, передаючи дані візуалізації при 60fps через WebSockets.
-- **MIDI Generator V2**: Вдосконалена детермінована генерація жанрових грувів (House, Techno, Trap, DnB) і обмежених багаторежимних мелодій, нативно обгорнута в кроки Undo Ableton для миттєвої оборотності за допомогою Ctrl+Z.
-- **Менеджер True Peak / LUFS**: Встановлює лімітери для ідеальної доставки на стримінгові платформи.
-
----
-
-## 🛡️ Архітектура екранування
-
-Екранування:
-
-• Anti-Flood: Блокування сплесків запитів.
-• Magic Bytes: Гексадецимальна перевірка файлів.
-• 2 GB Limit: Захист оперативної пам'яті.
-
----
-
-## 🚀 Технічне розгортання та встановлення CI/CD
-
-Ми використовуємо **Автоматизований CI/CD через GitHub Actions** для додатку. Завантажте останню збірку для вашої ОС із розділу **[Releases](https://github.com/produktes-code/ableton-ai-assistant/releases)**.
-
-#### 🧠 Встановлення Backend (Критично важливо)
-Це не просто UI; він безпосередньо підключається до інтерпретатора Python Ableton Live і Claude Desktop.
-1. **Ableton Remote Script**: ВИ ПОВИННІ скопіювати папку `remote-script/AntigravityCore` у вашу директорію MIDI Remote Scripts.
-2. **MCP Server**: ВИ ПОВИННІ налаштувати `claude_desktop_config.json` у Claude Desktop на скрипт `mcp-server/main.py`.
+#### Як завантажити та встановити
+1. Перейдіть до розділу **Releases**.
+2. Завантажте останню версію:
+   - `antigravity-app.Setup.1.0.0.exe` (Windows)
+   - `antigravity-app-1.0.0.dmg` (macOS)
 
 ### 🍎 Користувачі macOS (Gatekeeper)
-Через відсутність платного сертифіката розробника Apple, Gatekeeper помістить бінарний файл у карантин. Законний локальний обхід: **Правий клік по додатку -> Відкрити**.
+**Правий клік по додатку -> Відкрити**.
 
 ### 🪟 Користувачі Windows (SmartScreen)
-Windows Defender може показати синій екран. Натисніть **'Докладніше'**, а потім **'Виконати в будь-якому випадку'**.
+Натисніть **«Докладніше»**, потім **«Виконати в будь-якому випадку»**.
 
-## 📚 Документація та посібники
+## 🔌 3. Маршрутизація сигналів
 
-Завантажте наш офіційний посібник:
+• **Remote Script (Python):** Перемістіть `AntigravityCore` у папку Remote Scripts в Ableton.
+• **Low-Latency TCP:** Скрипт Python відкриває порт `9001`. Додаток Electron підключається до цього порту.
+• **LLM Tokens:** Ваш ключ API Claude шифрується локально.
 
-📥 **[USER_MANUAL.pdf (PDF - 7 Languages)](docs/USER_MANUAL.pdf)**
+## 💻 4. Операційна філософія
 
+Ергономіка для професіоналів. Принцип Dark-Mode.
+• **Dashboard:** Панель діагностики стану проєкту.
+• **Нативні контролери:** Слайдери прив'язані до TCP-порту.
+• **Асинхронність:** 60fps UI без зависань.
 
----
+## ⚙️ 5. Майстер-клас параметрів
 
-## ⚖️ Інженерний маніфест
+- **Адаптивний компресор (Glue Compressor):** ШІ динамічно встановлює повільну атаку та надшвидкий реліз на основі BPM.
+- **Видалення фазових конфліктів (EQ Eight):** Ми робимо зріз Side (S) нижче 120 Гц, залишаючи саб-бас у моно.
+- **LLM Framework (MCP):** ШІ математично аналізує JSON-дані ваших треків.
 
-Розроблено produktes-code та Jesus Ferrer (CHUS BZN). CC BY-NC-SA 4.0. CORPORATE STANDARD.
+## 🌍 6. Мультимодальна інтеграція
 
+100% підтримка Unicode та Hot-Reloading на 7 мовах.
 
+## 🛡️ 7. Архітектура безпеки (Shielding)
+
+• **Anti-Flood (Rate limiting):** Алгоритми обмежують аномальні стрибки TCP-запитів.
+• **JSON Payload Validation:** Видалення шкідливих структур.
+• **RAM-Sanity (2 GB Limit):** Запобігання OOM-атакам.
+
+## 📝 8. Журнал налагодження (FAQ)
+
+П: **macOS Gatekeeper блокує додаток.**
+В: Правий клік -> Відкрити.
+
+П: **TCP Deadlock / Немає відповіді.**
+В: Порт `9001` заблоковано, або скрипт не призначено.
+
+## ⚖️ 9. Інженерний маніфест та Ліцензія
+
+Створено produktes-code та Jesus Ferrer (CHUS BZN). CC BY-NC-SA 4.0. CORPORATE STANDARD.

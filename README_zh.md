@@ -1,89 +1,79 @@
-<p align="center">
-  <img src="build/icon.png" width="128" height="128" style="border-radius: 28px; box-shadow: 0 8px 24px rgba(0,0,0,0.25);" alt="Ableton AI Assistant Logo" />
-</p>
+![Security Audit](https://img.shields.io/badge/Security_Audit-Passed_Level_4-brightgreen)
+![Build](https://img.shields.io/badge/Build-Passing-brightgreen?style=for-the-badge)
+![Version](https://img.shields.io/badge/Version-1.0.0-blue?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Enterprise_Ready-success?style=for-the-badge)
+![License](https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-red?style=for-the-badge)
 
-<h1 align="center">Ableton AI Assistant V1.0.0</h1>
+![Ableton AI Assistant Logo](build/icon.png)
 
-<p align="center">
-  <b>Cognitive AI Mixing Engineer & MCP Real-Time Audio Assistant</b><br/>
-  <i>Ingeniero de Mezcla Cognitivo IA y Asistente de Audio en Tiempo Real MCP</i>
-</p>
+# Ableton AI Assistant V1.0.0
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Build-Passing-brightgreen?style=for-the-badge" alt="Build" />
-  <img src="https://img.shields.io/badge/Version-1.0.0-blue?style=for-the-badge" alt="Version" />
-  <img src="https://img.shields.io/badge/Status-Enterprise_Ready-success?style=for-the-badge" alt="Status" />
-  <img src="https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-red?style=for-the-badge" alt="License" />
-</p>
+##### 认知AI混音工程师 & MCP实时音频助手 / Cognitive AI Mixing Engineer & MCP Real-Time Audio Assistant
 
-🌐 **其他语言阅读:** [🇬🇧 English](README.md) | [🇪🇸 Español](README_es.md) | [🇩🇪 Deutsch](README_de.md) | [🇷🇺 Русский](README_ru.md) | [🇯🇵 日本語](README_ja.md) | [🇺🇦 Українська](README_uk.md) | **🇨🇳 中文**
+🌐 **阅读:** [🇬🇧 English](README.md) | [🇪🇸 Español](README_es.md) | [🇩🇪 Deutsch](README_de.md) | [🇷🇺 Русский](README_ru.md) | [🇯🇵 日本語](README_ja.md) | [🇺🇦 Українська](README_uk.md) | **🇨🇳 中文**
 
 ---
 
-## 🎯 愿景 (介绍)
+## 🎯 1. 愿景 (简介)
 
-混音是一个分析瓶颈。我们通过质疑 DAW 范式来开发此工具：当机器可以计算掩蔽时，为什么还要手动转动旋钮？此 AI 充当认知工程师，通过 MCP 读取 Ableton 的状态并执行母带处理决策。
+高级音频混音通常是一个分析瓶颈。制作人的大脑在试图解决毫米级相位冲突时会进入听觉疲劳，从而失去全局创作视角。我们开发了 Ableton AI Assistant，并对 DAW 范式提出了质疑：当机器具有计算频率掩蔽的外科手术般的精度时，为什么我们必须手动移动旋钮？这个工具是一个革命性的认知工程师。通过模型上下文协议 (MCP) 和 TCP 架构进行实时连接，Claude AI 可以“监听”控制台的状态并执行母带处理决策。
 
 > [!NOTE]
-> Developed by **produktes-code** and **Jesús Ferrer (CHUS BZN)** to establish professional standards in commercial engineering.
+> 由 **produktes-code** 和 **Jesús Ferrer (CHUS BZN)** 开发。
 
----
+## 🚀 2. 技术部署 (安装)
 
-## 📸 Interface / Ergonomics
+为了保证跨平台稳定性，我们使用 **通过 GitHub Actions 进行自动化 CI/CD**。
 
-![Desktop Interface](docs/screenshot-UI.png)
-
-
----
-
-## ⚙️ 参数大师班 (功能)
-
-- **自适应压缩**：动态设置慢速起音和快速释放（基于 BPM），让压缩器随着轨道节奏呼吸。
-- **相位解析 (EQ Eight)**：120Hz 以下的 Side (S) 切割将低音固定在 Mono 中，以避免相位抵消。
-- **MCP 协议**：AI 通过 JSON 读取轨道状态并执行数学决策。
-- **TCP 核心**：原始 TCP 套接字无延迟地控制 Ableton。
-- **Anti-Clash DSP 引擎 (实时音频分析)**：V2新功能，一个独立后台进程以44100Hz使用快速傅里叶变换（FFT）读取OS主音频环回。它将频谱分为8个关键频段，并实时计算启发式的Anti-Clash Score，通过WebSockets以60fps流式传输可视化数据。
-- **MIDI 生成器 V2**：特定流派律动（House、Techno、Trap、DnB）和受限多模式旋律的高级确定性生成，原生封装在Ableton撤销步骤中，支持立即Ctrl+Z可逆性。
-- **True Peak / LUFS 管理器**：设置限制器以完美交付给流媒体平台。
-
----
-
-## 🛡️ 屏蔽架构 (安全)
-
-防御装甲：
-
-• 反洪泛：限制请求峰值。
-• 魔法字节：十六进制标头验证。
-• RAM 限制 (2 GB)：防止 OOM 攻击。
-
----
-
-## 🚀 技术部署 (安装) 与 CI/CD 安装
-
-我们为桌面应用程序采用 **基于 GitHub Actions 的自动化 CI/CD**。从 **[Releases](https://github.com/produktes-code/ableton-ai-assistant/releases)** 部分下载适用于您操作系统的最新自动化版本。
-
-#### 🧠 后端安装 (关键)
-该工具不仅是一个UI；它直接连接到 Ableton Live 的 Python 解释器和 Claude Desktop。
-1. **Ableton Remote Script**：您必须将 `remote-script/AntigravityCore` 文件夹复制到您的 Ableton Live MIDI Remote Scripts 目录。
-2. **MCP Server**：您必须配置 Claude Desktop 的 `claude_desktop_config.json`，使其指向 `mcp-server/main.py` 脚本。
+#### 下载和安装
+1. 导航到此存储库的 **Releases** 部分。
+2. 下载适用于您操作系统的最新版本：
+   - `antigravity-app.Setup.1.0.0.exe` (Windows)
+   - `antigravity-app-1.0.0.dmg` (macOS)
 
 ### 🍎 macOS 用户 (Gatekeeper)
-合法本地绕过方法是 **右键单击应用程序 -> 打开**。
+**右键单击该应用程序 -> 打开**。
 
 ### 🪟 Windows 用户 (SmartScreen)
-点击 **“更多信息”**，然后点击 **“仍要运行”**。
+单击 **“更多信息”**，然后单击 **“仍要运行”**。
 
-## 📚 文档和手册
+## 🔌 3. 信号流与设置
 
-请下载我们的官方手册：
+• **Remote Script (Python):** 将 `AntigravityCore` 文件夹拖到 Ableton Live 的 Remote Scripts 路径中。
+• **低延迟 TCP 套接字:** Python 脚本打开端口 `9001`。Electron 桌面应用程序通过 IPC 连接到此端口。
+• **LLM 令牌:** 您的 Claude API 密钥在本地加密。
 
-📥 **[USER_MANUAL.pdf (PDF - 7 Languages)](docs/USER_MANUAL.pdf)**
+## 💻 4. 操作理念
 
+制作人的界面设计。暗模式原则。
+• **主画布 (Dashboard):** 诊断面板。
+• **原生触觉控制:** 滑块毫秒级绑定到 TCP 端口。
+• **异步:** 60fps UI，没有冻结。
 
----
+## ⚙️ 5. 参数大师班 (功能)
 
-## ⚖️ 工程宣言，鸣谢与许可
+- **自适应算法压缩 (Glue Compressor):** AI 根据 BPM 动态设置慢速起音和超快速释放。
+- **相位与掩蔽清除 (EQ Eight):** 注入低于 120Hz 的 Side (S) 削减。
+- **LLM 框架 (MCP):** AI 从数学上推理轨道状态的 JSON 数据并返回执行顺序。
 
-由 produktes-code 和 Jesus Ferrer (CHUS BZN) 开发。CC BY-NC-SA 4.0。企业标准。
+## 🌍 6. 全球多模态集成
 
+100% Unicode 支持和 7 种语言的热重载。
 
+## 🛡️ 7. 屏蔽架构 (安全性)
+
+• **防洪 (速率限制):** 限制异常 TCP 请求。
+• **JSON 负载验证:** 防止恶意操作系统代码注入。
+• **RAM 限制 (2 GB Limit):** 防止 OOM 攻击。
+
+## 📝 8. 调试日志 (FAQ)
+
+Q: **macOS Gatekeeper 阻止该应用程序。**
+A: 右键单击 -> 打开。
+
+Q: **TCP 死锁 / 无响应。**
+A: A) 本地端口 `9001` 被防火墙阻止。B) 未分配 `AntigravityCore` 脚本。
+
+## ⚖️ 9. 工程宣言与许可证
+
+由 produktes-code 和 Jesus Ferrer (CHUS BZN) 创建。CC BY-NC-SA 4.0。CORPORATE STANDARD。

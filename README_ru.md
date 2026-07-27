@@ -1,89 +1,79 @@
-<p align="center">
-  <img src="build/icon.png" width="128" height="128" style="border-radius: 28px; box-shadow: 0 8px 24px rgba(0,0,0,0.25);" alt="Ableton AI Assistant Logo" />
-</p>
+![Security Audit](https://img.shields.io/badge/Security_Audit-Passed_Level_4-brightgreen)
+![Build](https://img.shields.io/badge/Build-Passing-brightgreen?style=for-the-badge)
+![Version](https://img.shields.io/badge/Version-1.0.0-blue?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Enterprise_Ready-success?style=for-the-badge)
+![License](https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-red?style=for-the-badge)
 
-<h1 align="center">Ableton AI Assistant V1.0.0</h1>
+![Ableton AI Assistant Logo](build/icon.png)
 
-<p align="center">
-  <b>Cognitive AI Mixing Engineer & MCP Real-Time Audio Assistant</b><br/>
-  <i>Ingeniero de Mezcla Cognitivo IA y Asistente de Audio en Tiempo Real MCP</i>
-</p>
+# Ableton AI Assistant V1.0.0
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Build-Passing-brightgreen?style=for-the-badge" alt="Build" />
-  <img src="https://img.shields.io/badge/Version-1.0.0-blue?style=for-the-badge" alt="Version" />
-  <img src="https://img.shields.io/badge/Status-Enterprise_Ready-success?style=for-the-badge" alt="Status" />
-  <img src="https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-red?style=for-the-badge" alt="License" />
-</p>
+##### Когнитивный ИИ-инженер по сведению и аудиопомощник реального времени / Cognitive AI Mixing Engineer & MCP Real-Time Audio Assistant
 
 🌐 **Читать на:** [🇬🇧 English](README.md) | [🇪🇸 Español](README_es.md) | [🇩🇪 Deutsch](README_de.md) | **🇷🇺 Русский** | [🇯🇵 日本語](README_ja.md) | [🇺🇦 Українська](README_uk.md) | [🇨🇳 中文](README_zh.md)
 
 ---
 
-## 🎯 Видение
+## 🎯 1. Видение (Введение)
 
-Сведение - это аналитическое узкое место. Мы разработали этот инструмент, ставя под сомнение парадигму DAW: зачем крутить ручки вручную, когда машина может рассчитать маскирование? Этот ИИ действует как когнитивный инженер, читая состояние Ableton через MCP и выполняя решения по мастерингу.
+Продвинутое сведение аудио часто является аналитическим узким местом. Мы разработали Ableton AI Assistant, чтобы решить эту проблему. Зачем крутить ручки вручную, если машина обладает хирургической точностью для расчета частотной маскировки? Этот инструмент — когнитивный инженер. Подключаясь в реальном времени через протокол MCP и TCP, ИИ Claude «слышит» состояние вашей консоли и выполняет решения по мастерингу.
 
 > [!NOTE]
-> Developed by **produktes-code** and **Jesús Ferrer (CHUS BZN)** to establish professional standards in commercial engineering.
+> Разработано **produktes-code** и **Jesús Ferrer (CHUS BZN)** для установления профессиональных стандартов.
 
----
+## 🚀 2. Техническое развертывание (Установка)
 
-## 📸 Interface / Ergonomics
+Для обеспечения стабильности мы используем **Automated CI/CD через GitHub Actions**.
 
-![Desktop Interface](docs/screenshot-UI.png)
-
-
----
-
-## ⚙️ Мастер-класс параметров
-
-- **Адаптивная компрессия**: Устанавливает медленную атаку и быстрый релиз (на основе BPM), чтобы компрессор дышал в ритме трека.
-- **Фазовое разрешение (EQ Eight)**: Срез Side (S) ниже 120 Гц фиксирует бас в Mono, чтобы избежать фазовых отмен.
-- **Протокол MCP**: ИИ читает состояние дорожек через JSON и выполняет математические решения.
-- **Ядро TCP**: Сырые сокеты TCP управляют Ableton без задержки MIDI.
-- **Движок DSP Anti-Clash (Анализ звука в реальном времени)**: Новинка V2, отдельный фоновый процесс читает OS master audio loopback с использованием быстрого преобразования Фурье (FFT) на 44100 Гц. Он разделяет спектр на 8 ключевых полос и вычисляет эвристический Anti-Clash Score в реальном времени, передавая данные визуализации при 60fps через WebSockets.
-- **MIDI Generator V2**: Усовершенствованная детерминированная генерация жанровых грувов (House, Techno, Trap, DnB) и ограниченных многорежимных мелодий, нативно обернутая в шаги Undo Ableton для мгновенной обратимости с помощью Ctrl+Z.
-- **Менеджер True Peak / LUFS**: Устанавливает лимитеры для идеальной доставки на стриминговые платформы.
-
----
-
-## 🛡️ Архитектура экранирования
-
-Экранирование:
-
-• Anti-Flood: Блокировка всплесков запросов.
-• Magic Bytes: Гексадецимальная проверка файлов.
-• 2 GB Limit: Защита оперативной памяти.
-
----
-
-## 🚀 Техническое развертывание и установка CI/CD
-
-Мы используем **Автоматизированный CI/CD через GitHub Actions** для настольного приложения. Скачайте последнюю сборку для вашей ОС из раздела **[Releases](https://github.com/produktes-code/ableton-ai-assistant/releases)**.
-
-#### 🧠 Установка Backend (Критически важно)
-Это не просто UI; он напрямую подключается к интерпретатору Python Ableton Live и Claude Desktop.
-1. **Ableton Remote Script**: ВЫ ДОЛЖНЫ скопировать папку `remote-script/AntigravityCore` в вашу директорию MIDI Remote Scripts в Ableton Live.
-2. **MCP Server**: ВЫ ДОЛЖНЫ настроить `claude_desktop_config.json` в Claude Desktop на скрипт `mcp-server/main.py`.
+#### Как скачать и установить
+1. Перейдите в раздел **Releases**.
+2. Скачайте последнюю версию:
+   - `antigravity-app.Setup.1.0.0.exe` (Windows)
+   - `antigravity-app-1.0.0.dmg` (macOS)
 
 ### 🍎 Пользователи macOS (Gatekeeper)
-Из-за отсутствия платного сертификата разработчика Apple, Gatekeeper поместит бинарный файл в карантин. Законный локальный обход: **Правый клик по приложению -> Открыть** (не двойной клик).
+**Правый клик по приложению -> Открыть**.
 
 ### 🪟 Пользователи Windows (SmartScreen)
-Windows Defender может показать синий экран. Нажмите **'Подробнее'**, а затем **'Выполнить в любом случае'**.
+Нажмите **«Подробнее»**, затем **«Выполнить в любом случае»**.
 
-## 📚 Документация и руководства
+## 🔌 3. Маршрутизация сигналов
 
-Загрузите наше официальное руководство:
+• **Remote Script (Python):** Переместите `AntigravityCore` в папку Remote Scripts в Ableton.
+• **Low-Latency TCP:** Скрипт Python открывает порт `9001`. Приложение Electron подключается к этому порту по IPC.
+• **LLM Tokens:** Ваш ключ API Claude шифруется локально.
 
-📥 **[USER_MANUAL.pdf (PDF - 7 Languages)](docs/USER_MANUAL.pdf)**
+## 💻 4. Операционная философия
 
+Эргономика для профессионалов. Принцип Dark-Mode.
+• **Dashboard:** Панель диагностики состояния проекта.
+• **Нативные контроллеры:** Слайдеры миллисекунда в миллисекунду привязаны к TCP-порту.
+• **Асинхронность:** 60fps UI без зависаний.
 
----
+## ⚙️ 5. Мастер-класс параметров
 
-## ⚖️ Инженерный манифест
+- **Адаптивный компрессор (Glue Compressor):** ИИ динамически устанавливает медленную атаку и сверхбыстрый релиз на основе BPM.
+- **Удаление фазовых конфликтов (EQ Eight):** Мы делаем срез Side (S) ниже 120 Гц, оставляя саб-бас в моно.
+- **LLM Framework (MCP):** ИИ математически анализирует JSON-данные ваших треков и возвращает порядок выполнения.
 
-Разработано produktes-code и Jesus Ferrer (CHUS BZN). CC BY-NC-SA 4.0. CORPORATE STANDARD.
+## 🌍 6. Мультимодальная интеграция
 
+100% поддержка Unicode и Hot-Reloading на 7 языках.
 
+## 🛡️ 7. Архитектура безопасности
+
+• **Anti-Flood (Rate limiting):** Алгоритмы ограничивают аномальные скачки TCP-запросов.
+• **JSON Payload Validation:** Удаление вредоносных структур.
+• **RAM-Sanity (2 GB Limit):** Предотвращение OOM-атак.
+
+## 📝 8. Журнал отладки (FAQ)
+
+В: **macOS Gatekeeper блокирует приложение.**
+О: Правый клик -> Открыть.
+
+В: **TCP Deadlock / Нет ответа.**
+О: Порт `9001` заблокирован, или скрипт не назначен в настройках Ableton.
+
+## ⚖️ 9. Инженерный манифест и Лицензия
+
+Создано produktes-code и Jesus Ferrer (CHUS BZN). CC BY-NC-SA 4.0. CORPORATE STANDARD.

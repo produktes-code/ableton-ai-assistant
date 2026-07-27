@@ -1,89 +1,79 @@
-<p align="center">
-  <img src="build/icon.png" width="128" height="128" style="border-radius: 28px; box-shadow: 0 8px 24px rgba(0,0,0,0.25);" alt="Ableton AI Assistant Logo" />
-</p>
+![Security Audit](https://img.shields.io/badge/Security_Audit-Passed_Level_4-brightgreen)
+![Build](https://img.shields.io/badge/Build-Passing-brightgreen?style=for-the-badge)
+![Version](https://img.shields.io/badge/Version-1.0.0-blue?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Enterprise_Ready-success?style=for-the-badge)
+![License](https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-red?style=for-the-badge)
 
-<h1 align="center">Ableton AI Assistant V1.0.0</h1>
+![Ableton AI Assistant Logo](build/icon.png)
 
-<p align="center">
-  <b>Cognitive AI Mixing Engineer & MCP Real-Time Audio Assistant</b><br/>
-  <i>Ingeniero de Mezcla Cognitivo IA y Asistente de Audio en Tiempo Real MCP</i>
-</p>
+# Ableton AI Assistant V1.0.0
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Build-Passing-brightgreen?style=for-the-badge" alt="Build" />
-  <img src="https://img.shields.io/badge/Version-1.0.0-blue?style=for-the-badge" alt="Version" />
-  <img src="https://img.shields.io/badge/Status-Enterprise_Ready-success?style=for-the-badge" alt="Status" />
-  <img src="https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-red?style=for-the-badge" alt="License" />
-</p>
+##### 認知型AIミキシングエンジニア & MCPリアルタイムオーディオアシスタント / Cognitive AI Mixing Engineer & MCP Real-Time Audio Assistant
 
-🌐 **他の言語で読む:** [🇬🇧 English](README.md) | [🇪🇸 Español](README_es.md) | [🇩🇪 Deutsch](README_de.md) | [🇷🇺 Русский](README_ru.md) | **🇯🇵 日本語** | [🇺🇦 Українська](README_uk.md) | [🇨🇳 中文](README_zh.md)
+🌐 **日本語:** [🇬🇧 English](README.md) | [🇪🇸 Español](README_es.md) | [🇩🇪 Deutsch](README_de.md) | [🇷🇺 Русский](README_ru.md) | **🇯🇵 日本語** | [🇺🇦 Українська](README_uk.md) | [🇨🇳 中文](README_zh.md)
 
 ---
 
-## 🎯 ビジョン（はじめに）
+## 🎯 1. ビジョン (概要)
 
-ミキシングは分析のボトルネックです。DAWのパラダイムに疑問を投げかけることで、このツールを開発しました。機械がマスキングを計算できるのに、なぜノブを手動で動かす必要があるのでしょうか。このAIは、MCPを介してAbletonのステータスを読み取り、マスタリングの決定を実行する認知エンジニアとして機能します。
+高度なオーディオミキシングは、しばしば分析のボトルネックになります。機械が周波数マスキングを計算するための外科的な精度を持っているのに、なぜ手動でノブを動かさなければならないのでしょうか？このツールは革新的な認知エンジニアです。Model Context Protocol (MCP) とTCPアーキテクチャを通じてリアルタイムで接続し、Claude AIはコンソールの状態を「聴き」、マスタリングの決定を実行します。
 
 > [!NOTE]
-> Developed by **produktes-code** and **Jesús Ferrer (CHUS BZN)** to establish professional standards in commercial engineering.
+> **produktes-code** と **Jesús Ferrer (CHUS BZN)** によって開発されました。
 
----
+## 🚀 2. 技術的なデプロイ (インストール)
 
-## 📸 Interface / Ergonomics
+クロスプラットフォームの安定性を保証するため、**GitHub Actionsを介した自動CI/CD**を採用しています。
 
-![Desktop Interface](docs/screenshot-UI.png)
+#### ダウンロードとインストール
+1. このリポジトリの **Releases** セクションに移動します。
+2. オペレーティングシステム用の最新ビルドをダウンロードします：
+   - `antigravity-app.Setup.1.0.0.exe` (Windows)
+   - `antigravity-app-1.0.0.dmg` (macOS)
 
+### 🍎 macOSユーザー (Gatekeeper)
+有料のApple開発者証明書がないため、Gatekeeperはバイナリをブロックします。正当なバイパス方法は、**アプリを右クリックして「開く」**を選択することです。
 
----
+### 🪟 Windowsユーザー (SmartScreen)
+Windows Defenderが青い警告画面を表示する場合があります。**「詳細情報」**をクリックし、**「実行」**をクリックします。
 
-## ⚙️ パラメーターマスタークラス（機能）
+## 🔌 3. 信号フローとセットアップ
 
-- **アダプティブコンプレッション**：スローアタックとファストリリース（BPMに基づく）を動的に設定し、コンプレッサーをトラックの一定のペースで呼吸させます。
-- **位相分解能 (EQ Eight)**：120Hz未満のSide (S) カットにより、ベースがMonoに固定され、位相の打ち消し合いが回避されます。
-- **MCPプロトコル**：AIはJSONを介してトラックのステータスを読み取り、数学的な決定を実行します。
-- **TCPコア**：生のTCPソケットがMIDIレイテンシなしでAbletonを制御します。
-- **Anti-Clash DSPエンジン (リアルタイムオーディオ分析)**: V2の新機能。分離されたバックグラウンドプロセスが、44100Hzで高速フーリエ変換（FFT）を使用してOSのマスターオーディオループバックを読み取ります。スペクトルを8つの主要な帯域に分割し、リアルタイムでヒューリスティックなAnti-Clashスコアを計算し、WebSocketsを介して60fpsで視覚化データをストリーミングします。
-- **MIDIジェネレーター V2**: ジャンル固有のグルーヴ（House、Techno、Trap、DnB）と制限されたマルチモードメロディーの高度な決定論的生成。即時のCtrl+Z可逆性のためにAbletonの元に戻すステップにネイティブにラップされています。
-- **True Peak / LUFSマネージャー**：ストリーミングプラットフォームへの完璧な配信のためにリミッターを設定します。
+• **Remote Script (Python):** `AntigravityCore` フォルダをAbleton LiveのRemote Scriptsパスにドラッグする必要があります。
+• **低遅延TCPソケット:** Pythonスクリプトはサイレントにポート `9001` を開きます。ElectronデスクトップアプリケーションはIPCを介してこのポートに接続します。
+• **LLMトークン:** Claude APIキーはローカルで暗号化されます。
 
----
+## 💻 4. 操作哲学 (ユーザーガイド)
 
-## 🛡️ シールドアーキテクチャ（セキュリティ）
+プロデューサー向けのインターフェース設計。ダークモードの原則。
+• **メインキャンバス (Dashboard):** プロジェクトの「健康状態」を即座に表示します。
+• **ネイティブな触覚コントロール:** スライダーはTCPポートにミリ秒単位でバインドされています。
+• **非同期性:** メインスレッドはUIを60fpsでレンダリングします。
 
-防御装甲：
+## ⚙️ 5. パラメーターのマスタークラス (機能)
 
-• アンチフラッド：リクエストのスパイクを制限します。
-• マジックバイト：16進ヘッダーの検証。
-• RAM制限（2 GB）：OOM攻撃を防ぎます。
+- **適応型アルゴリズム圧縮 (Glue Compressor):** AIは、セッションのBPMに基づいて、遅いアタック時間と超高速なリリースを動的に設定します。
+- **マスキングと位相のクリア (EQ Eight):** 120Hz未満のSide (S)カットを注入し、サブベースをモノラルに固定します。
+- **LLMフレームワーク (MCP):** AIはトラック状態のJSONデータを数学的に推論し、実行順序を返します。
 
----
+## 🌍 6. グローバルマルチモーダル統合
 
-## 🚀 技術展開（インストール） とCI/CDインストール
+7言語（ES、EN、DE、UK、RU、ZH、JA）の100% Unicodeサポートとホットリロード。
 
-デスクトップアプリケーションには、**GitHub Actionsを介した自動CI/CD**を採用しています。**[Releases](https://github.com/produktes-code/ableton-ai-assistant/releases)** セクションから最新のビルドをダウンロードします。
+## 🛡️ 7. シールドアーキテクチャ (セキュリティ)
 
-#### 🧠 バックエンドのインストール (重要)
-これは単なるUIではありません。Ableton LiveのPythonインタープリターとClaude Desktopに直接接続します。
-1. **Ableton Remote Script**：`remote-script/AntigravityCore` フォルダーをAbleton LiveのMIDI Remote Scriptsディレクトリにコピーする必要があります。
-2. **MCP Server**：Claude Desktopの `claude_desktop_config.json` を設定して、`mcp-server/main.py` スクリプトを指すようにする必要があります。
+• **アンチフラッド (レート制限):** 異常なTCP要求スパイクを制限します。
+• **JSONペイロードの検証:** 悪意のあるOSコードの挿入を防ぎます。
+• **RAM制限 (2 GB Limit):** OOM攻撃を防ぎます。
 
-### 🍎 macOSユーザー（Gatekeeper）
-正当なローカルバイパス方法は、**アプリを右クリック -> 開く**ことです。
+## 📝 8. デバッグログ (FAQ)
 
-### 🪟 Windowsユーザー（SmartScreen）
-**「詳細情報」**をクリックし、**「実行」**をクリックします。
+Q: **macOS Gatekeeperがアプリをブロックする。**
+A: 右クリック -> 開く。
 
-## 📚 ドキュメントとマニュアル
+Q: **TCPデッドロック / Ableton Liveからの応答がない。**
+A: A) ローカルポート `9001` がファイアウォールでブロックされている。B) `AntigravityCore` スクリプトが割り当てられていない。
 
-公式マニュアルをダウンロードしてください：
+## ⚖️ 9. エンジニアリング宣言とライセンス
 
-📥 **[USER_MANUAL.pdf (PDF - 7 Languages)](docs/USER_MANUAL.pdf)**
-
-
----
-
-## ⚖️ エンジニアリングマニフェスト、クレジット、ライセンス
-
-produktes-codeとJesus Ferrer（CHUS BZN）によって開発されました。 CC BY-NC-SA 4.0。 企業標準。
-
-
+produktes-codeとJesus Ferrer (CHUS BZN) によって開発されました。CC BY-NC-SA 4.0。CORPORATE STANDARD。

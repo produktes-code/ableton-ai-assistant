@@ -1,89 +1,85 @@
-<p align="center">
-  <img src="build/icon.png" width="128" height="128" style="border-radius: 28px; box-shadow: 0 8px 24px rgba(0,0,0,0.25);" alt="Ableton AI Assistant Logo" />
-</p>
+![Security Audit](https://img.shields.io/badge/Security_Audit-Passed_Level_4-brightgreen)
+![Build](https://img.shields.io/badge/Build-Passing-brightgreen?style=for-the-badge)
+![Version](https://img.shields.io/badge/Version-1.0.0-blue?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Enterprise_Ready-success?style=for-the-badge)
+![License](https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-red?style=for-the-badge)
 
-<h1 align="center">Ableton AI Assistant V1.0.0</h1>
+![Ableton AI Assistant Logo](build/icon.png)
 
-<p align="center">
-  <b>Cognitive AI Mixing Engineer & MCP Real-Time Audio Assistant</b><br/>
-  <i>Ingeniero de Mezcla Cognitivo IA y Asistente de Audio en Tiempo Real MCP</i>
-</p>
+# Ableton AI Assistant V1.0.0
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Build-Passing-brightgreen?style=for-the-badge" alt="Build" />
-  <img src="https://img.shields.io/badge/Version-1.0.0-blue?style=for-the-badge" alt="Version" />
-  <img src="https://img.shields.io/badge/Status-Enterprise_Ready-success?style=for-the-badge" alt="Status" />
-  <img src="https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-red?style=for-the-badge" alt="License" />
-</p>
+##### Kognitiver KI-Mischingenieur & MCP-Echtzeit-Audioassistent / Cognitive AI Mixing Engineer & MCP Real-Time Audio Assistant
 
-🌐 **Lesen Sie dies auf:** [🇬🇧 English](README.md) | [🇪🇸 Español](README_es.md) | **🇩🇪 Deutsch** | [🇷🇺 Русский](README_ru.md) | [🇯🇵 日本語](README_ja.md) | [🇺🇦 Українська](README_uk.md) | [🇨🇳 中文](README_zh.md)
+🌐 **Lesen Sie auf:** [🇬🇧 English](README.md) | [🇪🇸 Español](README_es.md) | **🇩🇪 Deutsch** | [🇷🇺 Русский](README_ru.md) | [🇯🇵 日本語](README_ja.md) | [🇺🇦 Українська](README_uk.md) | [🇨🇳 中文](README_zh.md)
 
 ---
 
-## 🎯 Die Vision (Einführung)
+## 🎯 1. Die Vision (Einführung)
 
-Das Mischen ist ein analytischer Engpass. Das Gehirn ermüdet bei der Lösung von Phasenkonflikten. Wir haben dieses Tool entwickelt, indem wir das DAW-Paradigma in Frage gestellt haben: Warum Knöpfe manuell bewegen, wenn eine Maschine Maskierungen berechnen kann? Diese KI agiert als kognitiver Ingenieur, der Abletons Status über MCP liest und native Mastering-Entscheidungen ausführt.
+Fortgeschrittenes Audio-Mixing ist oft ein analytischer Engpass. Das Gehirn des Produzenten leidet unter Ermüdung, wenn es versucht, millimetergenaue Phasenkonflikte zu lösen, und verliert dabei die kreative Perspektive. Wir haben den Ableton AI Assistant entwickelt und das DAW-Paradigma in Frage gestellt: Warum müssen wir Knöpfe manuell bewegen, wenn eine Maschine die chirurgische Präzision hat, um Frequenzmaskierung zu berechnen? Dieses Werkzeug ist ein kognitiver Ingenieur. In Echtzeit über das Model Context Protocol (MCP) und eine unerbittliche TCP-Architektur verbunden, 'hört' die Claude-KI den Status Ihrer Konsole und führt nativ festcodierte Mastering-Entscheidungen aus. Es ist die Brücke zwischen Abletons Low-Level-Code und der natürlichen Semantik der KI.
 
 > [!NOTE]
-> Developed by **produktes-code** and **Jesús Ferrer (CHUS BZN)** to establish professional standards in commercial engineering.
+> Entwickelt von **produktes-code** und **Jesús Ferrer (CHUS BZN)**, um professionelle Standards in der kommerziellen Tontechnik zu setzen.
 
----
+## 🚀 2. Technische Bereitstellung & CI/CD Installation
 
-## 📸 Interface / Ergonomics
+Um eine plattformübergreifende Stabilität zu gewährleisten, verwenden wir jetzt **Automatisierte CI/CD über GitHub Actions**. 
+Anstelle einer lokalen Paketierung wird unser Quellcode nativ auf Windows- und macOS-Umgebungen in der Cloud kompiliert.
 
-![Desktop Interface](docs/screenshot-UI.png)
-
-
----
-
-## ⚙️ Parameter Masterclass
-
-- **Adaptive Kompression**: Stellt dynamisch langsamen Attack (für Transienten) und schnellen Release (basierend auf BPM) ein, um den Kompressor mit dem Rhythmus atmen zu lassen.
-- **Phasenauflösung (EQ Eight)**: Ein strenger Side (S) Cut unter 120 Hz verankert Kick und Sub-Bass im Mono, um Phasenauslöschungen in Clubs zu vermeiden.
-- **MCP-Protokoll**: Die KI liest den JSON-Payload des Spurstatus, argumentiert mathematisch und führt Aktionen präzise aus.
-- **TCP-Kern**: Rohe TCP-Sockets greifen auf das Ableton Remote Script zu, um Modifikationen ohne MIDI-Latenz widerzuspiegeln.
-- **Anti-Clash DSP Engine (Echtzeit-Audioanalyse)**: Neu in V2, ein separater Hintergrundprozess liest das OS-Master-Audio-Loopback mittels Fast Fourier Transforms (FFT) bei 44100Hz. Es unterteilt das Spektrum in 8 Schlüsselbänder und berechnet in Echtzeit einen heuristischen Anti-Clash Score. Visualisierungsdaten werden mit 60fps über WebSockets gestreamt.
-- **MIDI Generator V2**: Fortschrittliche deterministische Generierung von genrespezifischen Grooves (House, Techno, Trap, DnB) und beschränkten Multi-Mode-Melodien, nativ eingebettet in Ableton Undo-Schritte für sofortige Ctrl+Z Reversibilität.
-- **True Peak / LUFS Manager**: Setzt Limiter auf dem Master, um eine mathematisch perfekte Bereitstellung für Streaming-Plattformen zu gewährleisten.
-
----
-
-## 🛡️ Abschirmarchitektur
-
-Systemabstürze sind Kapitalverlust. Shielding:
-
-• Anti-Flood: Middlewares blockieren Spitzen.
-• Magic Bytes: Hexadezimale Überprüfung der Header-Integrität.
-• RAM-Sanity (2 GB Limit): Schutz vor OOM-Attacken.
-
----
-
-## 🚀 Technische Bereitstellung & CI/CD Installation
-
-Wir verwenden **Automatisierte CI/CD über GitHub Actions** für die Desktop-Anwendung. Laden Sie den neuesten Build für Ihr Betriebssystem im Bereich **[Releases](https://github.com/produktes-code/ableton-ai-assistant/releases)** herunter.
-
-#### 🧠 Backend-Installation (Entscheidend)
-Dies ist nicht nur eine UI; es verbindet sich direkt mit dem Python-Interpreter von Ableton Live und Claude Desktop.
-1. **Ableton Remote Script**: Sie MÜSSEN den Ordner `remote-script/AntigravityCore` in Ihr Ableton Live MIDI Remote Scripts-Verzeichnis kopieren.
-2. **MCP Server**: Sie MÜSSEN Ihre `claude_desktop_config.json` so konfigurieren, dass sie auf das Skript `mcp-server/main.py` verweist.
+#### Herunterladen und Installieren
+1. Navigieren Sie zum Abschnitt **Releases** dieses Repositories.
+2. Laden Sie den neuesten automatisierten Build für Ihr Betriebssystem herunter:
+   - `antigravity-app.Setup.1.0.0.exe` (Windows)
+   - `antigravity-app-1.0.0.dmg` (macOS)
 
 ### 🍎 macOS-Benutzer (Gatekeeper)
-Da ein kostenpflichtiges Apple-Entwicklerzertifikat fehlt, wird Gatekeeper die Binärdatei unter Quarantäne stellen. Die legitime lokale Umgehung ist **Rechtsklick auf die App -> Öffnen** (nicht doppelklicken).
+Da kein kostenpflichtiges Apple-Entwicklerzertifikat vorliegt, wird Gatekeeper die Binärdatei isolieren. Als Ingenieure wissen wir, dass der legitime Weg zur Umgehung darin besteht, mit der **rechten Maustaste auf die App zu klicken -> Öffnen**.
 
 ### 🪟 Windows-Benutzer (SmartScreen)
-Windows Defender zeigt möglicherweise einen blauen Warnbildschirm beim Ausführen des `.exe`-Installationsprogramms an. Klicken Sie auf **'Weitere Informationen'** und dann auf **'Trotzdem ausführen'**.
+Windows Defender zeigt beim Ausführen des `.exe`-Installationsprogramms möglicherweise eine blaue Warnung an. Klicken Sie auf **'Weitere Informationen'** und dann auf **'Trotzdem ausführen'**.
 
-## 📚 Dokumentation & Handbücher
+## 🔌 3. Signalfluss & Setup
 
-Laden Sie unser offizielles Handbuch herunter:
+Eine professionelle Plattform muss absolute Transparenz über ihre Datenflüsse bieten. Die hybride Architektur des Ableton AI Assistant erfordert präzises Routing.
 
-📥 **[USER_MANUAL.pdf (PDF - 7 Languages)](docs/USER_MANUAL.pdf)**
+• **Remote Script (Python in Ableton):** Sie müssen den Ordner `AntigravityCore` in den Pfad für Remote-Skripte von Ableton Live ziehen. Dies injiziert unser Backend direkt in die Audio-Engine.
+• **Low-Latency TCP Sockets:** Das Python-Skript öffnet lautlos den Port `9001`. Die Electron-Desktop-Anwendung verbindet sich bidirektional über IPC mit diesem Port.
+• **LLM Tokens (API Keys):** Das System verschlüsselt und verarbeitet Ihren Claude API-Schlüssel lokal. Nur komplexe Schlussfolgerungen reisen in die Cloud, während das DSP lokal berechnet wird.
 
+## 💻 4. Operative Philosophie
 
----
+Die Gestaltung von Schnittstellen erfordert den Respekt vor der visuellen Ergonomie. Abletons Dark-Mode-Prinzip wurde nachgezeichnet.
 
-## ⚖️ Engineering Manifesto & Credits
+• **Hauptleinwand (Dashboard):** Ein Diagnosefeld, das den "Projektzustand" sofort aufdeckt.
+• **Native Taktyle Steuerung:** Der zentrale Knob und die Schieberegler sind keine Mockups. Sie sind reaktive Regler, die millisekundengenau an den TCP-Port gebunden sind.
+• **Asynchron:** Keine Verzögerungen. Der Haupt-Thread rendert die UI konstant mit 60fps, während der KI-Server die Spuren im Hintergrund analysiert.
 
-Entwickelt von produktes-code und Jesus Ferrer (CHUS BZN). CC BY-NC-SA 4.0. CORPORATE STANDARD.
+## ⚙️ 5. Parameter Masterclass
 
+- **Adaptive algorithmische Kompression (Glue Compressor):** Die KI legt dynamisch eine langsame Attack-Zeit und ein ultraschnelles Release basierend auf dem BPM fest.
+- **Phasen- und Maskierungskorrektur (EQ Eight):** Wir injizieren einen strikten Side (S)-Schnitt unter 120Hz. Dies verankert den Subbass in Mono und verhindert Phasenauslöschungen.
+- **LLM Framework (MCP):** Die KI rät nicht; sie 'liest' den JSON-Payload des Spurenzustands, analysiert mathematisch und gibt den Ausführungsbefehl zurück.
 
+## 🌍 6. Globale Multimodale Integration
+
+Wir haben ein strukturelles multimodales Paradigma codiert. Dies bedeutet 100% Unicode-Unterstützung und Hot-Reloading in 7 Sprachen (ES, EN, DE, UK, RU, ZH, JA).
+
+## 🛡️ 7. Abschirmarchitektur (Sicherheit)
+
+Wir haben eine Schutzrüstung (Shielding) nach DevSecOps Best Practices entworfen:
+
+• **Anti-Flood (Rate limiting):** Drosselung anomaler TCP-Anfragespitzen, um Zusammenbrüche des Thread-Pools zu vermeiden.
+• **JSON Payload Validierung:** Überprüfung jedes eingehenden Frames, um böswilligen OS-Code zu blockieren.
+• **RAM-Sanity (2 GB Limit):** Beschränkung extrem langer Modellantworten zur Vermeidung von OOM-Angriffen.
+
+## 📝 8. Debug-Protokoll (FAQ)
+
+Q: **macOS Gatekeeper blockiert die App.**
+A: Rechtsklick -> Öffnen. Wir bestätigen die Integrität.
+
+Q: **TCP Deadlock / Keine Antwort von Ableton Live.**
+A: A) Lokaler Port `9001` blockiert. B) Das `AntigravityCore`-Skript wurde in Ableton nicht zugewiesen.
+
+## ⚖️ 9. Engineering Manifesto, Credits & Lizenz
+
+Konzipiert von produktes-code in unzertrennlicher Einheit mit Jesus Ferrer Garcia (CHUS BZN). CC BY-NC-SA 4.0. CORPORATE STANDARD.
