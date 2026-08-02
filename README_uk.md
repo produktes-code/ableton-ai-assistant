@@ -1,44 +1,68 @@
 ![Security Audit](https://img.shields.io/badge/Security_Audit-Passed_Level_4-brightgreen)
-![Build](https://img.shields.io/badge/Build-Passing-brightgreen?style=for-the-badge)
-![Version](https://img.shields.io/badge/Version-1.0.0-blue?style=for-the-badge)
-![Status](https://img.shields.io/badge/Status-Enterprise_Ready-success?style=for-the-badge)
-![License](https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-red?style=for-the-badge)
+<p align="center">
+  <img src="build/icon.png" width="128" height="128" style="border-radius: 28px; box-shadow: 0 8px 24px rgba(0,0,0,0.25);" alt="Ableton AI Assistant Logo" />
+</p>
 
-![Ableton AI Assistant Logo](build/icon.png)
+<h1 align="center">Ableton AI Assistant V1.0.0</h1>
 
-# Ableton AI Assistant V1.0.0
+<p align="center">
+  <b>Cognitive AI Mixing Engineer & MCP Real-Time Audio Assistant</b><br/>
+  <i>Когнітивний ШІ-інженер зі зведення та аудіопомічник реального часу</i>
+</p>
 
-##### Когнітивний ШІ-інженер зі зведення та аудіопомічник реального часу / Cognitive AI Mixing Engineer & MCP Real-Time Audio Assistant
+<p align="center">
+  <img src="https://img.shields.io/badge/Build-Passing-brightgreen?style=for-the-badge" alt="Build" />
+  <img src="https://img.shields.io/badge/Version-1.0.0-blue?style=for-the-badge" alt="Version" />
+  <img src="https://img.shields.io/badge/Status-Enterprise_Ready-success?style=for-the-badge" alt="Status" />
+  <img src="https://img.shields.io/badge/License-CC_BY--NC--SA_4.0-red?style=for-the-badge" alt="License" />
+</p>
 
 🌐 **Читати на:** [🇬🇧 English](README.md) | [🇪🇸 Español](README_es.md) | [🇩🇪 Deutsch](README_de.md) | [🇷🇺 Русский](README_ru.md) | [🇯🇵 日本語](README_ja.md) | **🇺🇦 Українська** | [🇨🇳 中文](README_zh.md)
 
 ---
 
-## 📖 Завантажити посібник користувача (PDF)
-Для отримання розширених інструкцій завантажте офіційний посібник:
-📥 **[Завантажити USER_MANUAL.pdf (V1.0.0)](https://github.com/produktes-code/ableton-ai-assistant/releases/download/v1.0.0/USER_MANUAL.pdf)**
-
----
-
-## 🎯 1. Бачення (Вступ)
+## 🎯 Бачення (Вступ)
 
 Просунуте зведення аудіо часто є аналітичним вузьким місцем. Ми розробили Ableton AI Assistant, щоб вирішити цю проблему. Навіщо крутить ручки вручну, якщо машина має хірургічну точність для розрахунку частотного маскування? Цей інструмент — когнітивний інженер. Підключаючись в реальному часі через протокол MCP і TCP, ШІ Claude «чує» стан вашої консолі та виконує рішення з мастерингу.
 
 > [!NOTE]
 > Розроблено **produktes-code** та **Jesús Ferrer (CHUS BZN)** для встановлення професійних стандартів.
 
-## 🚀 2. Технічне розгортання (Встановлення)
+---
+
+## 📸 Інтерфейс (Ergonomics)
+
+![Desktop Interface](docs/screenshot-UI.png)
+
+---
+
+## ⚙️ Майстер-клас параметрів (Функції)
+
+- **Адаптивний компресор (Glue Compressor)**: ШІ динамічно встановлює повільну атаку та надшвидкий реліз на основі BPM.
+- **Видалення фазових конфліктів (EQ Eight)**: Ми робимо зріз Side (S) нижче 120 Гц, залишаючи саб-бас у моно.
+- **LLM Framework (MCP)**: ШІ математично аналізує JSON-дані ваших треків.
+- **Асинхронність**: 60fps UI без зависань.
+
+---
+
+## 🛡️ Архітектура безпеки (Shielding)
+
+• **Anti-Flood (Rate limiting)**: Алгоритми обмежують аномальні стрибки TCP-запитів.
+• **JSON Payload Validation**: Видалення шкідливих структур.
+• **RAM-Sanity (2 GB Limit)**: Запобігання OOM-атакам.
+
+---
+
+## 🚀 Технічне розгортання та встановлення CI/CD
 
 Для забезпечення стабільності ми використовуємо **Automated CI/CD через GitHub Actions**.
 Вихідний код компілюється в хмарі для Windows, macOS та Linux.
 
-#### Як завантажити та встановити
-1. Перейдіть до розділу **[Releases](https://github.com/produktes-code/ableton-ai-assistant/releases)**.
-2. Завантажте останню версію:
-   - `Ableton.AI.Assistant.Setup.1.0.0.exe` (Windows)
-   - `Ableton.AI.Assistant-1.0.0.dmg` (macOS)
-   - `Ableton.AI.Assistant-1.0.0.AppImage` (Linux Portable)
-   - `Ableton.AI.Assistant-1.0.0.deb` (Linux Ubuntu)
+### 🛠️ Завантажити інсталятори
+Перейдіть до розділу **[Releases](https://github.com/produktes-code/ableton-ai-assistant/releases)**:
+- **Windows**: `Ableton.AI.Assistant.Setup.1.0.0.exe`
+- **macOS**: `Ableton.AI.Assistant-1.0.0.dmg`
+- **Linux**: `Ableton.AI.Assistant-1.0.0.deb` / `Ableton.AI.Assistant-1.0.0.AppImage`
 
 ### 🍎 Користувачі macOS (Gatekeeper)
 **Правий клік по додатку -> Відкрити**.
@@ -46,43 +70,33 @@
 ### 🪟 Користувачі Windows (SmartScreen)
 Натисніть **«Докладніше»**, потім **«Виконати в будь-якому випадку»**.
 
-## 🔌 3. Маршрутизація сигналів
+### 🐧 Користувачі Linux (AppImage & Debian)
+- **AppImage**: Надайте права на виконання:
+  `chmod +x Ableton.AI.Assistant-1.0.0.AppImage`
+- **Debian Package (`.deb`)**: Встановлення через термінал:
+  `sudo dpkg -i Ableton.AI.Assistant-1.0.0.deb`
 
-• **Remote Script (Python):** Перемістіть `AntigravityCore` у папку Remote Scripts в Ableton.
-• **Low-Latency TCP:** Скрипт Python відкриває порт `9001`. Додаток Electron підключається до цього порту.
-• **LLM Tokens:** Ваш ключ API Claude шифрується локально.
+---
 
-## 💻 4. Операційна філософія
+## 🔌 Маршрутизація сигналів
 
-Ергономіка для професіоналів. Принцип Dark-Mode.
-• **Dashboard:** Панель діагностики стану проєкту.
-• **Нативні контролери:** Слайдери прив'язані до TCP-порту.
-• **Асинхронність:** 60fps UI без зависань.
+• **Remote Script (Python)**: Перемістіть `AntigravityCore` у папку Remote Scripts.
+• **Low-Latency TCP**: Скрипт Python відкриває порт `9001`.
+• **LLM Tokens**: Ваш ключ API Claude шифрується локально.
 
-## ⚙️ 5. Майстер-клас параметрів
+---
 
-- **Адаптивний компресор (Glue Compressor):** ШІ динамічно встановлює повільну атаку та надшвидкий реліз на основі BPM.
-- **Видалення фазових конфліктів (EQ Eight):** Ми робимо зріз Side (S) нижче 120 Гц, залишаючи саб-бас у моно.
-- **LLM Framework (MCP):** ШІ математично аналізує JSON-дані ваших треків.
+## 📚 Документація
 
-## 🌍 6. Мультимодальна інтеграція
+Для отримання розширених інструкцій завантажте офіційний посібник:
 
-100% підтримка Unicode та Hot-Reloading на 7 мовах.
+📥 **[USER_MANUAL.pdf (PDF - 7 Languages)](https://github.com/produktes-code/ableton-ai-assistant/releases/download/v1.0.0/USER_MANUAL.pdf)**
 
-## 🛡️ 7. Архітектура безпеки (Shielding)
+---
 
-• **Anti-Flood (Rate limiting):** Алгоритми обмежують аномальні стрибки TCP-запитів.
-• **JSON Payload Validation:** Видалення шкідливих структур.
-• **RAM-Sanity (2 GB Limit):** Запобігання OOM-атакам.
-
-## 📝 8. Журнал налагодження (FAQ)
-
-П: **macOS Gatekeeper блокує додаток.**
-В: Правий клік -> Відкрити.
-
-П: **TCP Deadlock / Немає відповіді.**
-В: Порт `9001` заблоковано, або скрипт не призначено.
-
-## ⚖️ 9. Інженерний маніфест та Ліцензія
+## ⚖️ Інженерний маніфест
 
 Створено produktes-code та Jesus Ferrer (CHUS BZN). CC BY-NC-SA 4.0. CORPORATE STANDARD.
+
+## Auditoría de Seguridad
+Este repositorio superó satisfactoriamente una auditoría de Nivel 4 (análisis estático, remediación de dependencias y linting de seguridad) con fecha **2026-07-27**.
