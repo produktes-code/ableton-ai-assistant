@@ -14,9 +14,17 @@
 
 ---
 
+## 📖 Download the User Manual (PDF)
+For advanced engineering instructions and parameter masterclass, download the Official User Manual (PDF):
+📥 **[Download USER_MANUAL.pdf (V1.0.0)](https://github.com/produktes-code/ableton-ai-assistant/releases/download/v1.0.0/USER_MANUAL.pdf)**
+
+---
+
 ## 🎯 1. The Vision (Introduction)
 
-Advanced audio mixing is often an analytical bottleneck. The producer's brain enters ear fatigue trying to resolve millimeter phase conflicts, losing global creative perspective. We developed Ableton AI Assistant questioning the DAW paradigm: Why must we move knobs manually when a machine has the surgical precision to calculate frequency masking? This tool is a revolutionary cognitive engineer. Connecting in real time via the Model Context Protocol (MCP) and relentless TCP architecture, Claude's AI 'listens' to your console's state and natively executes hardcoded mastering decisions. It is the bridge between Ableton's low-level code and the natural semantics of AI.
+The genesis of Ableton AI Assistant stems from a deep frustration in the music production industry: the producer's brain enters ear fatigue trying to resolve millimeter phase conflicts, losing global creative perspective. We developed this assistant by questioning the DAW paradigm: Why must we move knobs manually when a machine has the surgical precision to calculate frequency masking?
+
+Ableton AI Assistant was designed to be the ultimate **Audio Digital Twin** for producers and engineers. It is not a simple MIDI script; it is a curatorial brain that understands the energy of the mix and shields your session. Connecting in real time via the Model Context Protocol (MCP) and relentless TCP architecture, Claude's AI 'listens' to your console's state and natively executes hardcoded mastering decisions. We created this tool to give engineers back control over their sonic identity.
 
 > [!NOTE]
 > Developed by **produktes-code** and **Jesús Ferrer (CHUS BZN)** to establish professional standards in commercial engineering.
@@ -24,16 +32,18 @@ Advanced audio mixing is often an analytical bottleneck. The producer's brain en
 ## 🚀 2. Technical Deployment (Installation) & CI/CD Installation
 
 To guarantee cross-platform stability, we now employ **Automated CI/CD via GitHub Actions**. 
-Instead of local packaging, our source code is natively compiled on pure Windows and macOS environments in the cloud.
+Instead of local packaging, our source code is natively compiled on pure Windows, macOS and Linux Ubuntu environments in the cloud.
 
 #### How to Download and Install
-1. Navigate to the **Releases** section of this repository.
+1. Navigate to the **[Releases](https://github.com/produktes-code/ableton-ai-assistant/releases)** section of this repository.
 2. Download the latest automated build for your Operating System:
-   - `antigravity-app.Setup.1.0.0.exe` (Windows)
-   - `antigravity-app-1.0.0.dmg` (macOS)
+   - `Ableton.AI.Assistant.Setup.1.0.0.exe` (Windows)
+   - `Ableton.AI.Assistant-1.0.0.dmg` (macOS)
+   - `Ableton.AI.Assistant-1.0.0.AppImage` (Linux Portable)
+   - `Ableton.AI.Assistant-1.0.0.deb` (Linux Ubuntu/Debian)
 
 ### 🍎 macOS Users (Gatekeeper)
-Lacking a paid Apple developer certificate, Gatekeeper will quarantine the binary. As engineers, the legitimate local bypass is to **Right-click the app -> Open** (do not double click). This is not a bug; it is the standard flow for high-performance open-source software.
+Lacking a paid Apple developer certificate, Gatekeeper will quarantine the binary. As engineers, the legitimate local bypass is to **Right-click the app -> Open** (do not double click).
 
 ### 🪟 Windows Users (SmartScreen)
 Windows Defender may show a blue 'Windows protected your PC' warning when running the `.exe` installer. Click **'More info'** and then **'Run anyway'**.
@@ -48,11 +58,11 @@ A truly professional platform must offer total transparency over its data flows.
 
 ## 💻 4. Operative Philosophy (User Guide)
 
-Designing interfaces for producers demands respecting their visual ergonomics during long studio sessions. Ableton's Dark-Mode principle has been traced and optimized.
+Designing interfaces for creators demands respecting their visual ergonomics during long night shifts. Ableton's Dark-Mode principle (RGB: 15, 15, 15) maximizes contrast readability and focuses vision where it matters.
 
-• **Main Canvas (The Dashboard):** A diagnostic panel that instantly exposes the "Project Health" through progress bars and critical saturation alerts.
+• **Main Canvas (The Dashboard):** A diagnostic panel that instantly exposes the "Project Health" through progress bars and critical saturation alerts. No 4-level deep hidden menus.
 • **Native Tactile Controls:** The central Knob and the Drive/Gain sliders are not visual mockups. They are reactive controls bound millisecond by millisecond to the TCP port. Sliding them in the app alters your mix in Ableton with zero delay.
-• **Asynchronous Nature:** No freezes. The main thread renders the UI and chat at a constant 60fps while the IA's MCP server analyzes the JSON tree nodes of your tracks in the abyss of the background.
+• **Asynchronous Nature:** No blockages or freezes. The Main Thread renders the UI at an unbreakable 60fps while background MCP server workers operate in the abyss consuming CPU cores.
 
 ## ⚙️ 5. Parameter Masterclass (Features)
 
@@ -62,26 +72,26 @@ Designing interfaces for producers demands respecting their visual ergonomics du
 
 ## 🌍 6. Global Multimodal Integration
 
-Treating internationalization through simple flat translation JSONs is an insult to the global professional. We encoded a Structural Multimodal paradigm. This implies 100% Unicode support and Hot-Reloading of complete lexical layers in 7 languages (ES, EN, DE, UK, RU, ZH, JA). Because engineering precision and respect for the producer do not understand language barriers.
+Treating internationalization through simple flat translation JSONs is an insult to the global professional. We encoded a Structural Multimodal paradigm. This implies 100% Unicode support and Hot-Reloading of complete lexical layers in 7 languages (ES, EN, DE, UK, RU, ZH, JA). Because engineering precision and respect for the operator do not understand language barriers.
 
 ## 🛡️ 7. Shielding Architecture (Security)
 
-In a professional studio environment, a crash can mean the loss of an unrepeatable vocal take. We designed a defensive armor (Shielding) emulating DevSecOps best practices:
+In a professional deployment environment, a crash is not a bug; it is capital loss (unrepeatable vocal takes). We designed a defensive armor (Shielding) emulating DevSecOps best practices:
 
-• **Anti-Flood Engineering (Rate limiting):** Algorithms strangle any anomalous TCP request spikes using limitation middlewares, evading Thread Pool collapses when dragging MIDI cursors massively.
+• **Anti-Flood Engineering (Rate limiting):** Asynchronous algorithms strangle any anomalous TCP request spikes using limitation middlewares, evading Thread Pool collapses when dragging cursors massively.
 • **JSON Payload Validation:** The Remote Script inspects each incoming frame and discards malformed structures, preventing malicious OS code injections.
-• **Binary Crystallography & RAM (2 GB Limit):** The system restricts the ingestion of abnormally long responses from the LLM model to prevent Out Of Memory (OOM) attacks that would freeze your Ableton session.
+• **RAM Sanity (2 GB Limit):** We relentlessly reject any atypical weight at the LLM model response threshold to prevent Out Of Memory (OOM) attacks that would destroy servers and freeze your session.
 
 ## 📝 8. Debug Log (FAQ)
 
 Q: **macOS Gatekeeper reports the application is 'damaged' or cannot be opened.**
 A: This is a strict temporary Apple security flag. As an engineer, you know you must approve the binary using 'Right-click -> Open'. We confirm the absolute integrity of the local compilation.
 
-Q: **TCP Deadlock / No response from Ableton Live.**
-A: Two probable engineering causes: A) Local port `9001` is blocked by a restrictive OS firewall. B) You have not assigned the `AntigravityCore` script in the Link/MIDI tab of Ableton Live's Preferences.
+Q: **Infinite TCP Deadlock / No response from Ableton.**
+A: Two probable engineering causes: A) Local port `9001` is blocked by your OS firewall. B) You have not assigned the `AntigravityCore` script in the Link/MIDI tab of Ableton Live's Preferences.
 
 Q: **Latency discrepancies in Chat (API / LLM).**
-A: Sliders manipulation (Gain/Drive) occurs through the local socket (0ms). Only complex chat inferences (model reasoning) travel to Anthropic's servers. Check your WAN routing if the chat takes more than 3 seconds to respond.
+A: Sliders manipulation occurs through the local socket (0ms). Only massive LLM inferences travel through the WAN socket. Check your router if pings are high in the chat.
 
 ## ⚖️ 9. Engineering Manifesto, Credits & License
 

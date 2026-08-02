@@ -14,9 +14,17 @@
 
 ---
 
+## 📖 Descargar el Manual de Usuario / User Manual (PDF)
+Para instrucciones avanzadas de ingeniería y masterclass de parámetros, descarga el Manual de Usuario (PDF) Oficial:
+📥 **[Descargar USER_MANUAL.pdf (V1.0.0)](https://github.com/produktes-code/ableton-ai-assistant/releases/download/v1.0.0/USER_MANUAL.pdf)**
+
+---
+
 ## 🎯 1. La Visión (Introducción)
 
-La mezcla de audio avanzada suele ser un cuello de botella analítico. El cerebro del productor entra en fatiga auditiva intentando resolver conflictos de fase milimétricos, perdiendo la perspectiva creativa global. Desarrollamos Ableton AI Assistant cuestionando el paradigma del DAW: ¿Por qué debemos mover knobs manualmente cuando una máquina tiene la precisión quirúrgica para calcular el enmascaramiento frecuencial? Esta herramienta es un revolucionario ingeniero cognitivo. Conectándose en tiempo real mediante el Protocolo de Contexto de Modelo (MCP) y una arquitectura TCP implacable, la IA de Claude 'escucha' el estado de tu consola y ejecuta decisiones de mastering hardcodeadas nativamente. Es el puente entre el código de bajo nivel de Ableton y la semántica natural de la IA.
+La génesis de Ableton AI Assistant surge de una frustración profunda en la industria de la producción musical: el cerebro del productor entra en fatiga auditiva intentando resolver conflictos de fase milimétricos, perdiendo la perspectiva creativa global. Desarrollamos este asistente cuestionando el paradigma del DAW: ¿Por qué debemos mover knobs manualmente cuando una máquina tiene la precisión quirúrgica para calcular el enmascaramiento frecuencial?
+
+Ableton AI Assistant fue diseñado para ser el **Gemelo Digital de Audio** definitivo para productores e ingenieros. No es un simple script MIDI; es un cerebro curatorial que comprende la energía de la mezcla y blinda tu sesión. Conectándose en tiempo real mediante el Protocolo de Contexto de Modelo (MCP) y una arquitectura TCP implacable, la IA de Claude 'escucha' el estado de tu consola y ejecuta decisiones de mastering hardcodeadas nativamente. Hemos creado esta herramienta para devolverle el control a los ingenieros sobre su identidad sonora.
 
 > [!NOTE]
 > Desarrollado por **produktes-code** y **Jesús Ferrer (CHUS BZN)** para establecer estándares profesionales en la ingeniería comercial.
@@ -24,16 +32,18 @@ La mezcla de audio avanzada suele ser un cuello de botella analítico. El cerebr
 ## 🚀 2. Despliegue Técnico (Instalación) e Instalación CI/CD
 
 Para garantizar estabilidad multiplataforma, ahora empleamos **CI/CD Automatizado vía GitHub Actions**. 
-En lugar de empaquetar de forma local, nuestro código fuente se compila nativamente en entornos puros de Windows y macOS en la nube.
+En lugar de empaquetar de forma local, nuestro código fuente se compila nativamente en entornos puros de Windows, macOS y Linux Ubuntu en la nube.
 
 #### Cómo Descargar e Instalar
-1. Navega a la sección **Releases** de este repositorio.
+1. Navega a la sección **[Releases](https://github.com/produktes-code/ableton-ai-assistant/releases)** de este repositorio.
 2. Descarga la última versión compilada automáticamente para tu Sistema Operativo:
-   - `antigravity-app.Setup.1.0.0.exe` (Windows)
-   - `antigravity-app-1.0.0.dmg` (macOS)
+   - `Ableton.AI.Assistant.Setup.1.0.0.exe` (Windows)
+   - `Ableton.AI.Assistant-1.0.0.dmg` (macOS)
+   - `Ableton.AI.Assistant-1.0.0.AppImage` (Linux Portable)
+   - `Ableton.AI.Assistant-1.0.0.deb` (Linux Ubuntu/Debian)
 
 ### 🍎 Usuarios de macOS (Gatekeeper)
-Al no contar con un certificado de desarrollador de pago de Apple, Gatekeeper marcará el binario. El método legítimo de bypass local es hacer **Clic derecho sobre la app -> Abrir** (no hagas doble clic). No es un fallo, es el flujo estándar de software open-source de alto rendimiento.
+Al no contar con un certificado de desarrollador de pago de Apple, Gatekeeper marcará el binario. Como ingenieros, el método legítimo de bypass local es hacer **Clic derecho sobre la app -> Abrir** (no hagas doble clic).
 
 ### 🪟 Usuarios de Windows (SmartScreen)
 Windows Defender puede mostrar un aviso azul de 'PC protegido' al ejecutar el instalador `.exe`. Haz clic en **'Más información'** y luego en **'Ejecutar de todas formas'**.
@@ -48,11 +58,11 @@ Una plataforma verdaderamente profesional debe ofrecer transparencia total sobre
 
 ## 💻 4. Filosofía Operativa (Guía de Uso)
 
-Diseñar interfaces para productores exige respetar su ergonomía visual durante largas jornadas en el estudio. El principio de Dark-Mode de Ableton se ha calcado y optimizado.
+Diseñar interfaces para creadores exige respetar su ergonomía visual durante largas jornadas nocturnas. El principio de Dark-Mode de Ableton (RGB: 15, 15, 15) maximiza la legibilidad del contraste y concentra la visión donde importa.
 
-• **Lienzo Principal (El Dashboard):** Un panel de diagnóstico que expone instantáneamente la "Salud del Proyecto" mediante barras de progreso y alertas críticas de saturación.
+• **Lienzo Principal (El Dashboard):** Un panel de diagnóstico que expone instantáneamente la "Salud del Proyecto" mediante barras de progreso y alertas críticas de saturación. Sin menús ocultos de 4 niveles de profundidad.
 • **Controles Táctiles Nativos:** El Knob central y los sliders de Drive/Gain no son maquetas visuales. Son controles reactivos unidos milisegundo a milisegundo al puerto TCP. Deslizarlos en la app altera tu mezcla en Ableton sin delay.
-• **Naturaleza Asíncrona:** No hay cuelgues (freezes). El hilo principal renderiza la UI y el chat a 60fps constantes mientras el servidor MCP de la IA analiza los nodos del árbol JSON de tus pistas en el background.
+• **La Naturaleza Asíncrona:** No hay cuelgues (freezes). El hilo principal (Main Thread) renderiza la UI a 60fps inquebrantables mientras los workers del servidor MCP operan en el abismo del background consumiendo núcleos de CPU.
 
 ## ⚙️ 5. Masterclass de Parámetros (Funcionalidades)
 
@@ -62,26 +72,26 @@ Diseñar interfaces para productores exige respetar su ergonomía visual durante
 
 ## 🌍 6. Integración Multimodal Global
 
-Tratar la internacionalización mediante simples JSON de traducción plana es un insulto al profesional global. Hemos codificado un paradigma Multimodal Estructural. Esto implica soporte Unicode del 100% y recarga en caliente (Hot-Reloading) de las capas léxicas completas en los 7 idiomas (ES, EN, DE, UK, RU, ZH, JA). Porque la precisión de la ingeniería y el respeto al productor no entienden de barreras idiomáticas.
+Tratar la internacionalización mediante simples JSON de traducción plana es un insulto al profesional global. Hemos codificado un paradigma Multimodal Estructural. Esto implica soporte Unicode del 100% y recarga en caliente (Hot-Reloading) de las capas léxicas completas en los 7 idiomas (ES, EN, DE, UK, RU, ZH, JA). Porque la precisión de la ingeniería y el respeto al operador no entienden de barreras idiomáticas.
 
 ## 🛡️ 7. Arquitectura de Blindaje (Seguridad)
 
-En un entorno de estudio profesional, un crash puede significar la pérdida de una toma vocal irrepetible. Hemos diseñado una coraza defensiva (Shielding) que emula las mejores prácticas de DevSecOps:
+En un entorno de despliegue profesional, un crash no es un bug, es pérdida de capital (tomas vocales irrepetibles). Hemos diseñado una coraza defensiva (Shielding) que emula las mejores prácticas de DevSecOps:
 
-• **Ingeniería Anti-Flood (Rate limiting):** Los algoritmos estrangulan cualquier pico anómalo de peticiones TCP mediante middlewares de limitación, evadiendo colapsos de Thread Pool al arrastrar cursores MIDI masivamente.
+• **Ingeniería Anti-Flood (Rate limiting):** Los algoritmos asíncronos estrangulan cualquier pico anómalo de peticiones TCP mediante middlewares de limitación, evadiendo colapsos de Thread Pool al arrastrar cursores masivamente.
 • **Validación de Payloads JSON:** El Remote Script inspecciona cada trama entrante y descarta estructuras malformadas, impidiendo inyecciones maliciosas de código OS.
-• **Cristalografía Binaria y RAM (Limitador 2 GB):** El sistema restringe la ingesta de respuestas anormalmente largas del modelo LLM para evitar ataques OOM (Out Of Memory) que congelarían tu sesión de Ableton.
+• **Sanidad de RAM (Limitador 2 GB):** El sistema restringe la ingesta de respuestas anormalmente largas del modelo LLM para evitar ataques OOM (Out Of Memory) que destruirían los servidores y congelarían tu sesión.
 
 ## 📝 8. Debug Log (FAQ)
 
 P: **macOS Gatekeeper informa que la aplicación está 'dañada' o no puede abrirse.**
 R: Este es un flag de seguridad estricto temporal de Apple. Como ingeniero, sabes que debes aprobar el binario usando 'Clic derecho -> Abrir'. Confirmamos la absoluta integridad de la compilación local.
 
-P: **Interbloqueo de TCP / No hay respuesta del Ableton Live.**
-R: Dos causas de ingeniería probables: A) El puerto `9001` local está bloqueado por un firewall restrictivo en tu OS. B) No has asignado el script `AntigravityCore` en la pestaña Link/MIDI de las Preferencias de Ableton Live.
+P: **Interbloqueo infinito de TCP / No hay respuesta de Ableton.**
+R: Dos causas de ingeniería probables: A) El puerto local `9001` está bloqueado por el firewall de tu OS. B) No has asignado el script `AntigravityCore` en la pestaña Link/MIDI de las Preferencias de Ableton Live.
 
-P: **Discrepancias de latencia en el Chat (API / LLM).**
-R: La manipulación de los sliders (Gain/Drive) transcurre por el socket local (0ms). Únicamente las inferencias complejas del chat (razonamiento del modelo) viajan a los servidores de Anthropic. Revisa tu enrutamiento WAN si el chat tarda más de 3 segundos en responder.
+P: **Discrepancias de latencia en la conexión de red (API / LLM).**
+R: La manipulación de los faders transcurre por el socket local (0ms). Únicamente las inferencias LLM masivas transitan por el socket WAN. Revisa tu router si los pings son altos en la charla.
 
 ## ⚖️ 9. Manifiesto de Ingeniería, Créditos y Licencia
 

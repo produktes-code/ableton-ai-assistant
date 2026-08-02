@@ -14,9 +14,17 @@
 
 ---
 
+## 📖 Laden Sie das Benutzerhandbuch herunter (PDF)
+Für fortgeschrittene Anweisungen und die Parameter-Masterclass laden Sie das offizielle Handbuch herunter:
+📥 **[USER_MANUAL.pdf (V1.0.0) herunterladen](https://github.com/produktes-code/ableton-ai-assistant/releases/download/v1.0.0/USER_MANUAL.pdf)**
+
+---
+
 ## 🎯 1. Die Vision (Einführung)
 
-Fortgeschrittenes Audio-Mixing ist oft ein analytischer Engpass. Das Gehirn des Produzenten leidet unter Ermüdung, wenn es versucht, millimetergenaue Phasenkonflikte zu lösen, und verliert dabei die kreative Perspektive. Wir haben den Ableton AI Assistant entwickelt und das DAW-Paradigma in Frage gestellt: Warum müssen wir Knöpfe manuell bewegen, wenn eine Maschine die chirurgische Präzision hat, um Frequenzmaskierung zu berechnen? Dieses Werkzeug ist ein kognitiver Ingenieur. In Echtzeit über das Model Context Protocol (MCP) und eine unerbittliche TCP-Architektur verbunden, 'hört' die Claude-KI den Status Ihrer Konsole und führt nativ festcodierte Mastering-Entscheidungen aus. Es ist die Brücke zwischen Abletons Low-Level-Code und der natürlichen Semantik der KI.
+Fortgeschrittenes Audio-Mixing ist oft ein analytischer Engpass. Das Gehirn des Produzenten leidet unter Ermüdung, wenn es versucht, millimetergenaue Phasenkonflikte zu lösen, und verliert dabei die kreative Perspektive. Wir haben den Ableton AI Assistant entwickelt und das DAW-Paradigma in Frage gestellt: Warum müssen wir Knöpfe manuell bewegen, wenn eine Maschine die chirurgische Präzision hat, um Frequenzmaskierung zu berechnen? 
+
+Dieses Werkzeug ist der ultimative **Digitale Audio-Zwilling**. Es ist kein einfaches MIDI-Skript; es ist ein kognitiver Ingenieur. In Echtzeit über das Model Context Protocol (MCP) und eine unerbittliche TCP-Architektur verbunden, 'hört' die Claude-KI den Status Ihrer Konsole und führt nativ festcodierte Mastering-Entscheidungen aus. Es ist die Brücke zwischen Abletons Low-Level-Code und der natürlichen Semantik der KI.
 
 > [!NOTE]
 > Entwickelt von **produktes-code** und **Jesús Ferrer (CHUS BZN)**, um professionelle Standards in der kommerziellen Tontechnik zu setzen.
@@ -24,13 +32,15 @@ Fortgeschrittenes Audio-Mixing ist oft ein analytischer Engpass. Das Gehirn des 
 ## 🚀 2. Technische Bereitstellung & CI/CD Installation
 
 Um eine plattformübergreifende Stabilität zu gewährleisten, verwenden wir jetzt **Automatisierte CI/CD über GitHub Actions**. 
-Anstelle einer lokalen Paketierung wird unser Quellcode nativ auf Windows- und macOS-Umgebungen in der Cloud kompiliert.
+Anstelle einer lokalen Paketierung wird unser Quellcode nativ auf Windows-, macOS- und Linux-Umgebungen in der Cloud kompiliert.
 
 #### Herunterladen und Installieren
-1. Navigieren Sie zum Abschnitt **Releases** dieses Repositories.
+1. Navigieren Sie zum Abschnitt **[Releases](https://github.com/produktes-code/ableton-ai-assistant/releases)** dieses Repositories.
 2. Laden Sie den neuesten automatisierten Build für Ihr Betriebssystem herunter:
-   - `antigravity-app.Setup.1.0.0.exe` (Windows)
-   - `antigravity-app-1.0.0.dmg` (macOS)
+   - `Ableton.AI.Assistant.Setup.1.0.0.exe` (Windows)
+   - `Ableton.AI.Assistant-1.0.0.dmg` (macOS)
+   - `Ableton.AI.Assistant-1.0.0.AppImage` (Linux Portable)
+   - `Ableton.AI.Assistant-1.0.0.deb` (Linux Ubuntu)
 
 ### 🍎 macOS-Benutzer (Gatekeeper)
 Da kein kostenpflichtiges Apple-Entwicklerzertifikat vorliegt, wird Gatekeeper die Binärdatei isolieren. Als Ingenieure wissen wir, dass der legitime Weg zur Umgehung darin besteht, mit der **rechten Maustaste auf die App zu klicken -> Öffnen**.

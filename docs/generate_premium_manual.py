@@ -1,15 +1,15 @@
 import os
 import re
 
-header = """<div style="text-align: center; margin-bottom: 2em;">
+header = """![Ableton AI Assistant Logo](../build/icon.png)
 
-![Ableton AI Assistant Logo](screenshot-UI.png)
+# Ableton AI Assistant - Manual de Usuario / User Manual
 
-</div>
+*Official Documentation & Technical Guide*
 
-<h1>Ableton AI Assistant - Manual de Usuario / User Manual</h1>
-<h5>Official Documentation & Technical Guide</h5>
-<hr/>
+---
+
+![Ableton AI Assistant UI](../docs/screenshot-UI.png)
 
 ### Keywords de Seguridad
 
@@ -17,19 +17,20 @@ header = """<div style="text-align: center; margin-bottom: 2em;">
 
 """
 
+# country codes for flagcdn (lowercase)
 languages = [
-    ("ES", "🇪🇸 Español", "README_es.md"),
-    ("EN", "🇬🇧 English", "README.md"),
-    ("DE", "🇩🇪 Deutsch", "README_de.md"),
-    ("RU", "🇷🇺 Русский", "README_ru.md"),
-    ("JA", "🇯🇵 日本語", "README_ja.md"),
-    ("UK", "🇺🇦 Українська", "README_uk.md"),
-    ("ZH", "🇨🇳 中文", "README_zh.md")
+    ("ES", "es", "Español", "README_es.md"),
+    ("EN", "gb", "English", "README.md"),
+    ("DE", "de", "Deutsch", "README_de.md"),
+    ("RU", "ru", "Русский", "README_ru.md"),
+    ("JA", "jp", "日本語", "README_ja.md"),
+    ("UK", "ua", "Українська", "README_uk.md"),
+    ("ZH", "cn", "中文", "README_zh.md")
 ]
 
 manual_content = header
 
-for idx, (code, title, filename) in enumerate(languages):
+for idx, (code, flag_code, title, filename) in enumerate(languages):
     with open(f"../{filename}", "r", encoding="utf-8") as f:
         lines = f.readlines()
     
@@ -46,18 +47,18 @@ for idx, (code, title, filename) in enumerate(languages):
     body = re.sub(r'\[(.*?)\]\([^)]+\.md\)', r'\1', body) # quita links a otros md
     body = re.sub(r'\[(.*?)\]\([^)]+\.pdf\)', r'\1', body) # quita links a pdfs
     
-    # Arreglar paths
-    body = body.replace("docs/screenshot-UI.png", "screenshot-UI.png")
-    
     # Reemplazar encabezados H2 por H4 para que no choquen con el CSS, excepto los que queremos como H3 o H4
     # En el CSS H3 es el bloque purpura. H4 es texto normal negrita.
     body = body.replace("## ", "#### ")
     
-    manual_content += f"\n\n### {title} ({code})\n\n"
+    # Inject flag image using flagcdn
+    flag_md = f"![{code}](https://flagcdn.com/h24/{flag_code}.png)"
+    
+    manual_content += f"\n\n### {flag_md} {title} ({code})\n\n"
     manual_content += body
     
     if idx < len(languages) - 1:
-        manual_content += "\n\n<div class=\"page-break\"></div>\n\n"
+        manual_content += "\n\n---\n\n"
         
 with open("USER_MANUAL.md", "w", encoding="utf-8") as f:
     f.write(manual_content)

@@ -14,6 +14,12 @@
 
 ---
 
+## 📖 ユーザーマニュアル (PDF) のダウンロード
+高度な手順については、公式マニュアルをダウンロードしてください：
+📥 **[USER_MANUAL.pdf (V1.0.0) をダウンロード](https://github.com/produktes-code/ableton-ai-assistant/releases/download/v1.0.0/USER_MANUAL.pdf)**
+
+---
+
 ## 🎯 1. ビジョン (概要)
 
 高度なオーディオミキシングは、しばしば分析のボトルネックになります。機械が周波数マスキングを計算するための外科的な精度を持っているのに、なぜ手動でノブを動かさなければならないのでしょうか？このツールは革新的な認知エンジニアです。Model Context Protocol (MCP) とTCPアーキテクチャを通じてリアルタイムで接続し、Claude AIはコンソールの状態を「聴き」、マスタリングの決定を実行します。
@@ -24,12 +30,15 @@
 ## 🚀 2. 技術的なデプロイ (インストール)
 
 クロスプラットフォームの安定性を保証するため、**GitHub Actionsを介した自動CI/CD**を採用しています。
+ソースコードは、クラウド内のWindows、macOS、Linux環境向けにコンパイルされています。
 
 #### ダウンロードとインストール
-1. このリポジトリの **Releases** セクションに移動します。
+1. このリポジトリの **[Releases](https://github.com/produktes-code/ableton-ai-assistant/releases)** セクションに移動します。
 2. オペレーティングシステム用の最新ビルドをダウンロードします：
-   - `antigravity-app.Setup.1.0.0.exe` (Windows)
-   - `antigravity-app-1.0.0.dmg` (macOS)
+   - `Ableton.AI.Assistant.Setup.1.0.0.exe` (Windows)
+   - `Ableton.AI.Assistant-1.0.0.dmg` (macOS)
+   - `Ableton.AI.Assistant-1.0.0.AppImage` (Linux Portable)
+   - `Ableton.AI.Assistant-1.0.0.deb` (Linux Ubuntu)
 
 ### 🍎 macOSユーザー (Gatekeeper)
 有料のApple開発者証明書がないため、Gatekeeperはバイナリをブロックします。正当なバイパス方法は、**アプリを右クリックして「開く」**を選択することです。

@@ -14,9 +14,15 @@
 
 ---
 
+## 📖 下载用户手册 (PDF)
+有关高级说明，请下载官方手册：
+📥 **[下载 USER_MANUAL.pdf (V1.0.0)](https://github.com/produktes-code/ableton-ai-assistant/releases/download/v1.0.0/USER_MANUAL.pdf)**
+
+---
+
 ## 🎯 1. 愿景 (简介)
 
-高级音频混音通常是一个分析瓶颈。制作人的大脑在试图解决毫米级相位冲突时会进入听觉疲劳，从而失去全局创作视角。我们开发了 Ableton AI Assistant，并对 DAW 范式提出了质疑：当机器具有计算频率掩蔽的外科手术般的精度时，为什么我们必须手动移动旋钮？这个工具是一个革命性的认知工程师。通过模型上下文协议 (MCP) 和 TCP 架构进行实时连接，Claude AI 可以“监听”控制台的状态并执行母带处理决策。
+高级音频混音通常是一个分析瓶颈。我们开发了 Ableton AI Assistant，并对 DAW 范式提出了质疑：当机器具有计算频率掩蔽的外科手术般的精度时，为什么我们必须手动移动旋钮？这个工具是一个革命性的认知工程师。通过模型上下文协议 (MCP) 和 TCP 架构进行实时连接，Claude AI 可以“监听”控制台的状态并执行母带处理决策。
 
 > [!NOTE]
 > 由 **produktes-code** 和 **Jesús Ferrer (CHUS BZN)** 开发。
@@ -24,12 +30,15 @@
 ## 🚀 2. 技术部署 (安装)
 
 为了保证跨平台稳定性，我们使用 **通过 GitHub Actions 进行自动化 CI/CD**。
+源代码在云中为 Windows、macOS 和 Linux 环境编译。
 
 #### 下载和安装
-1. 导航到此存储库的 **Releases** 部分。
+1. 导航到此存储库的 **[Releases](https://github.com/produktes-code/ableton-ai-assistant/releases)** 部分。
 2. 下载适用于您操作系统的最新版本：
-   - `antigravity-app.Setup.1.0.0.exe` (Windows)
-   - `antigravity-app-1.0.0.dmg` (macOS)
+   - `Ableton.AI.Assistant.Setup.1.0.0.exe` (Windows)
+   - `Ableton.AI.Assistant-1.0.0.dmg` (macOS)
+   - `Ableton.AI.Assistant-1.0.0.AppImage` (Linux Portable)
+   - `Ableton.AI.Assistant-1.0.0.deb` (Linux Ubuntu)
 
 ### 🍎 macOS 用户 (Gatekeeper)
 **右键单击该应用程序 -> 打开**。
