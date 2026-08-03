@@ -1,17 +1,12 @@
-# ABLETON AI ASSISTANT V1.0.0
-### MANUAL OFICIAL DE USUARIO / OFFICIAL USER MANUAL (7 IDIOMAS)
-
----
-
 <div class="cover-container">
 
-![Imagotipo produktes-code](../build/icon.png)
+![Imagotipo produktes-code](icon.png)
 
 # ABLETON AI ASSISTANT V1.0.0
 
 <div class="subtitle">Cognitive AI Mixing Engineer & MCP Real-Time Audio Assistant / Ingeniero de Mezcla Cognitivo IA y Asistente de Audio en Tiempo Real MCP</div>
 
-🌐 **Selector de Idiomas / Language Selector:**
+🌐 **Selector de Idiomas / Language Selector:**  
 [ES](#-español-es) | [EN](#-english-en) | [DE](#-deutsch-de) | [RU](#-русский-ru) | [UK](#-українська-uk) | [JA](#-日本語-ja) | [ZH](#-中文-zh)
 
 <div class="keywords">
@@ -36,7 +31,7 @@ Ableton AI Assistant fue concebido no como un simple complemento o script MIDI d
 
 Conectándose en tiempo real mediante el **Protocolo de Contexto de Modelo (MCP - Model Context Protocol)** y alimentado por una arquitectura TCP de ultra baja latencia, la Inteligencia Artificial "escucha" inductivamente el estado dinámico del mezclador de Ableton Live y ejecuta órdenes paramétricas hardcodeadas en el motor DSP nativo. Devolvemos a los creadores e ingenieros el dominio absoluto sobre su identidad sonora.
 
-![Dashboard principal](../docs/screenshot-UI.png)
+![Dashboard principal](screenshot-UI.png)
 *Figura 1.1: Vista general del panel de control de Ableton AI Assistant.*
 
 > [!NOTE]
@@ -69,7 +64,7 @@ La arquitectura gráfica de Electron aísla completamente el hilo de renderizado
 
 Para garantizar una estabilidad absoluta en cualquier entorno operativo comercial o de estudio, la compilación de Ableton AI Assistant se ejecuta de forma centralizada mediante un flujo de **Integración y Despliegue Continuo (CI/CD)** alojado en GitHub Actions.
 
-![Logotipos de plataformas](../build/icon.png)
+![Logotipos de plataformas](icon.png)
 *Figura 3.1: Instaladores disponibles para Windows, macOS y Linux.*
 
 #### 3.1 Pipeline de Compilación Automatizada
@@ -115,7 +110,7 @@ Para distribuciones basadas en Ubuntu, Debian, Manjaro o Fedora:
 
 El diseño híbrido de Ableton AI Assistant combina tres capas de ejecución tecnológica altamente especializadas: el motor de audio en Python dentro de Ableton Live, la interfaz nativa en Electron y el servidor MCP conectado a la infraestructura de inteligencia artificial en la nube.
 
-![Diagrama de flujo de señal](../docs/screenshot-UI.png)
+![Diagrama de flujo de señal](screenshot-UI.png)
 *Figura 4.1: Arquitectura híbrida: comunicación entre Remote Script, Electron y la nube.*
 
 #### 4.1 Instalación del Remote Script de Ableton (Python Engine)
@@ -125,7 +120,7 @@ El diseño híbrido de Ableton AI Assistant combina tres capas de ejecución tec
    - **Windows**: `C:\ProgramData\Ableton\Live 11/12 Suite\Resources\MIDI Remote Scripts\`
 3. Abra Ableton Live, acceda a **Preferencias -> Link / MIDI**, y en la pestaña de **Control Surface (Superficie de Control)**, seleccione `AntigravityCore` en la primera casilla disponible.
 
-![Selección del Control Surface](../build/icon.png)
+![Selección del Control Surface](icon.png)
 *Figura 4.2: Selección de 'AntigravityCore' en las preferencias de Ableton Live.*
 
 #### 4.2 Sockets TCP de Ultra Baja Latencia (Local Loopback)
@@ -183,11 +178,11 @@ $$\text{Release Time} = \text{Ultrarrápido (100 ms o Auto)}, \quad \text{sincro
 #### 6.2 Despeje de Enmascaramiento y Fase (EQ Eight)
 Uno de los errores más comunes en la mezcla de música electrónica y urbana es la cancelación de fase en frecuencias subgraves.
 
-![Alerta de enmascaramiento](../docs/screenshot-UI.png)
+![Alerta de enmascaramiento](screenshot-UI.png)
 *Figura 6.1: Alerta por conflicto de frecuencias entre Kick y Bass.*
 
 Nuestra directiva técnica ejecuta una instrucción de procesamiento Mid/Side en el *EQ Eight* asignado a las pistas secundarias y de efectos:
-- **Filtro de Corte de Graves (High-Pass / Low-Cut)**: Pendiente de 48 dB/octava en la señal **Side (S)** fijada strictly por debajo de **120 Hz**.
+- **Filtro de Corte de Graves (High-Pass / Low-Cut)**: Pendiente de 48 dB/octava en la señal **Side (S)** fijada estrictamente por debajo de **120 Hz**.
 - **Resultado Físico**: Toda la energía comprendida entre 20 Hz y 120 Hz (Kick y Sub-bass) queda anclada de forma puramente **Mono (Mid)**. Esto erradica las cancelaciones de fase al reproducir el material en sistemas de sonido estéreo de clubs, festivales o dispositivos móviles.
 
 #### 6.3 Framework LLM (Protocolo MCP - Model Context Protocol)
@@ -326,6 +321,24 @@ Este repositorio ha superado satisfactoriamente una auditoría de seguridad exha
 
 ## 🇬🇧 ENGLISH (EN)
 
+<div class="cover-container">
+
+![Imagotipo produktes-code](icon.png)
+
+# ABLETON AI ASSISTANT V1.0.0
+
+<div class="subtitle">Cognitive AI Mixing Engineer & MCP Real-Time Audio Assistant</div>
+
+🌐 **Language Selector:** [ES](#-español-es) | [EN](#-english-en) | [DE](#-deutsch-de) | [RU](#-русский-ru) | [UK](#-українська-uk) | [JA](#-日本語-ja) | [ZH](#-中文-zh)
+
+<div class="keywords">
+CERTIFIED | RETAIL-READY | Rate limiting | Magic Bytes | 2 GB | 7 languages | CC BY-NC-SA 4.0
+</div>
+
+</div>
+
+---
+
 ### 1. THE VISION (INTRODUCTION)
 
 The genesis of **Ableton AI Assistant** stems from a deep and historical frustration in professional music production: cumulative ear fatigue. After long mixing sessions in the control room, the human ear loses objective discrimination of millimeter phase conflicts and microscopic frequency overlaps. Producers and engineers spend routine hours manually adjusting potentiometers, losing sight of the project's global artistic perspective.
@@ -336,7 +349,7 @@ Ableton AI Assistant was conceived not as a mere plugin or decorative MIDI scrip
 
 Connecting in real time via the **Model Context Protocol (MCP)** and powered by an ultra-low latency TCP architecture, Claude's Artificial Intelligence "listens" to Ableton Live's mixer dynamic state and executes hardcoded parametric commands in the native DSP engine. We give creators and engineers back absolute control over their sonic identity.
 
-![Main Dashboard](../docs/screenshot-UI.png)
+![Main Dashboard](screenshot-UI.png)
 *Figure 1.1: Ableton AI Assistant main control panel overview.*
 
 > [!NOTE]
@@ -369,7 +382,7 @@ Electron's graphic architecture completely isolates the Main UI Thread, guarante
 
 To guarantee cross-platform stability in commercial and studio environments, compilation of Ableton AI Assistant is centrally executed via **Automated CI/CD Workflows** hosted on GitHub Actions.
 
-![Platform Logos](../build/icon.png)
+![Platform Logos](icon.png)
 *Figure 3.1: Installers available for Windows, macOS, and Linux.*
 
 #### 3.1 Automated Build Pipeline
@@ -415,7 +428,7 @@ For Ubuntu, Debian, Manjaro, or Fedora distributions:
 
 Ableton AI Assistant's hybrid design combines three specialized technological execution layers: the Python audio engine inside Ableton Live, the native Electron interface, and the MCP server connected to cloud AI infrastructure.
 
-![Signal Flow Diagram](../docs/screenshot-UI.png)
+![Signal Flow Diagram](screenshot-UI.png)
 *Figure 4.1: Hybrid architecture: communication between Remote Script, Electron, and Cloud.*
 
 #### 4.1 Ableton Remote Script Installation (Python Engine)
@@ -425,7 +438,7 @@ Ableton AI Assistant's hybrid design combines three specialized technological ex
    - **Windows**: `C:\ProgramData\Ableton\Live 11/12 Suite\Resources\MIDI Remote Scripts\`
 3. Open Ableton Live, navigate to **Preferences -> Link / MIDI**, and under the **Control Surface** tab, select `AntigravityCore`.
 
-![Control Surface Selection](../build/icon.png)
+![Control Surface Selection](icon.png)
 *Figure 4.2: Selecting 'AntigravityCore' in Ableton Live Preferences.*
 
 #### 4.2 Ultra-Low Latency TCP Sockets (Local Loopback)
@@ -476,7 +489,7 @@ Bass phase cancellation is a common mix error. Our technical directive executes 
 - **Low-Cut Filter**: 48 dB/octave slope on the **Side (S)** channel fixed strictly below **120 Hz**.
 - **Physical Result**: All energy between 20 Hz and 120 Hz (Kick & Sub-bass) is anchored purely in **Mono (Mid)**, eradicating phase cancellations on stereo club/PA systems.
 
-![Masking Alert](../docs/screenshot-UI.png)
+![Masking Alert](screenshot-UI.png)
 *Figure 6.1: Frequency masking conflict alert between Kick and Bass.*
 
 #### 6.3 LLM Framework (MCP Protocol)
@@ -540,13 +553,33 @@ Definitions for MCP, TCP, DSP, LLM, API, JSON, OOM, DAW, Remote Script, Rate Lim
 
 ## 🇩🇪 DEUTSCH (DE)
 
+<div class="cover-container">
+
+![Imagotipo produktes-code](icon.png)
+
+# ABLETON AI ASSISTANT V1.0.0
+
+<div class="subtitle">Kognitiver KI-Mischingenieur & MCP-Echtzeit-Audioassistent</div>
+
+🌐 **Sprachauswahl / Language Selector:** [ES](#-español-es) | [EN](#-english-en) | [DE](#-deutsch-de) | [RU](#-русский-ru) | [UK](#-українська-uk) | [JA](#-日本語-ja) | [ZH](#-中文-zh)
+
+<div class="keywords">
+CERTIFIED | RETAIL-READY | Rate limiting | Magic Bytes | 2 GB | 7 Sprachen | CC BY-NC-SA 4.0
+</div>
+
+</div>
+
+---
+
 ### 1. DIE VISION (EINFÜHRUNG)
 
-Die Genesis von **Ableton AI Assistant** entstand aus einer tiefen Frustration in der Musikproduktion: der kumulativen Gehörermüdung. Nach langen Mischen-Sitzungen verliert das menschliche Gehör die objektive Fähigkeit, Phasenkonflikte und Frequenzüberlappungen zu erkennen.
+Die Genesis von **Ableton AI Assistant** entstand aus einer tiefen Frustration in der professionellen Musikproduktion: der kumulativen Gehörermüdung. Nach langen Mischen-Sitzungen verliert das menschliche Gehör die objektive Fähigkeit, Phasenkonflikte und Frequenzüberlappungen zu erkennen.
 
-Wir stellen das traditionelle DAW-Paradigma in Frage: Ableton AI Assistant ist der ultimative **Audio Digital Twin**. Über das **Model Context Protocol (MCP)** und eine TCP-Architektur mit extrem geringer Latenz steuert die KI Claude den Mixer von Ableton Live in Echtzeit.
+Wir stellen das traditionelle DAW-Paradigma in Frage: *Warum muss ein Ingenieur Aufwand manuell betreiben, wenn eine digitale Verarbeitungsarchitektur Frequenzmaskierung präzise berechnen kann?*
 
-![Haupt-Dashboard](../docs/screenshot-UI.png)
+Ableton AI Assistant ist der ultimative **Audio Digital Twin**. Über das **Model Context Protocol (MCP)** und eine TCP-Architektur mit extrem geringer Latenz steuert die KI Claude den Mixer von Ableton Live in Echtzeit.
+
+![Haupt-Dashboard](screenshot-UI.png)
 *Abbildung 1.1: Übersicht über das Haupt-Bedienfeld des Ableton AI Assistant.*
 
 > [!NOTE]
@@ -600,7 +633,21 @@ Anti-Flood Rate Limiting (100 Events/Sek), JSON-Validierung und striktes 2 GB RA
 
 ### 9. DEBUG-LOG (FAQ - 15 EINTRÄGE)
 
-Vollständige Lösungen für Gatekeeper, SmartScreen, AppImage, Port 9001, API-Key und Latenzfragen.
+1. **macOS Gatekeeper-Warnung**: Rechtsklick -> **Öffnen**.
+2. **Windows SmartScreen**: Weitere Informationen -> **Trotzdem ausführen**.
+3. **Linux AppImage Rechte**: `chmod +x Ableton.AI.Assistant-1.0.0.AppImage`.
+4. **`AntigravityCore` fehlt in Ableton**: Ordnerpfad prüfen und Ableton neu starten.
+5. **TCP Port 9001 Fehler**: `127.0.0.1:9001` in der Firewall freigeben.
+6. **Electron "Disconnected"**: Ableton Live mit aktivem Script ausführen.
+7. **HTTP 401 Fehler**: Claude API-Schlüssel in Einstellungen prüfen.
+8. **KI Latenz > 5 Sek**: KI-Abfragen hängen von der Internetverbindung ab.
+9. **Maskierungswarnung bleibt**: Nebenbässe auf Side-Cut unter 120 Hz prüfen.
+10. **UI eingefroren**: Electron neu starten. Python-Script läuft weiter.
+11. **Offline-Nutzung**: Gain Staging und Touch-Regler funktionieren 100% offline.
+12. **Kompressor-Pumpen**: Attack-Zeit erhöhen oder Input verringern.
+13. **HTTP 429 Rate Limit**: Limit überschritten. 60 Sekunden warten.
+14. **App-Update**: Neueste Version von GitHub Releases überschreiben.
+15. **Fehler melden**: Issue im GitHub-Repository von produktes-code erstellen.
 
 ---
 
@@ -620,11 +667,29 @@ Audit Level 4 bestanden am 27. Juli 2026. Begriffsdefinitionen für MCP, TCP, DS
 
 ## 🇷🇺 РУССКИЙ (RU)
 
+<div class="cover-container">
+
+![Imagotipo produktes-code](icon.png)
+
+# ABLETON AI ASSISTANT V1.0.0
+
+<div class="subtitle">Когнитивный ИИ-инженер по сведению и аудиопомощник реального времени</div>
+
+🌐 **Выбор языка:** [ES](#-español-es) | [EN](#-english-en) | [DE](#-deutsch-de) | [RU](#-русский-ru) | [UK](#-українська-uk) | [JA](#-日本語-ja) | [ZH](#-中文-zh)
+
+<div class="keywords">
+CERTIFIED | RETAIL-READY | Rate limiting | Magic Bytes | 2 GB | 7 языков | CC BY-NC-SA 4.0
+</div>
+
+</div>
+
+---
+
 ### 1. ВИДЕНИЕ (ВВЕДЕНИЕ)
 
 **Ableton AI Assistant** — это цифровой двойник аудио (**Audio Digital Twin**), созданный лабораторией **produktes-code** и инженером **Jesús Ferrer (CHUS BZN)**. Приложение подключается через **Model Context Protocol (MCP)** и TCP-сокет к Ableton Live, устраняя фазовые конфликты и маскировку частот.
 
-![Главная панель](../docs/screenshot-UI.png)
+![Главная панель](screenshot-UI.png)
 *Рисунок 1.1: Обзор панели управления Ableton AI Assistant.*
 
 ---
@@ -667,15 +732,29 @@ Audit Level 4 bestanden am 27. Juli 2026. Begriffsdefinitionen für MCP, TCP, DS
 
 ---
 
-### 9. FAQ (15 ВОПРОСОВ) & 10. МАНИФЕСТ
+### 9. FAQ (15 ВОПРОСОВ)
 
-Ответы на проблемы установки, Gatekeeper, SmartScreen и портов. Лицензия CC BY-NC-SA 4.0.
+1. **Gatekeeper в macOS**: Правый клик -> **Открыть**.
+2. **SmartScreen в Windows**: Подробнее -> **Выполнить в любом случае**.
+3. **Права в Linux**: `chmod +x Ableton.AI.Assistant-1.0.0.AppImage`.
+4. **Скрипт не виден**: Проверьте папку `MIDI Remote Scripts` и перезапустите Live.
+5. **Ошибка порта 9001**: Разрешите `127.0.0.1:9001` в брандмауэре.
+6. **Electron "Disconnected"**: Запустите Ableton Live с выбранным `AntigravityCore`.
+7. **Ошибка HTTP 401**: Проверьте API ключ Claude в настройках.
+8. **Задержка ИИ > 5 сек**: Запросы зависят от интернет-соединения.
+9. **Предупреждение о маскировке не исчезает**: Проверьте вторичные басовые треки.
+10. **Интерфейс завис**: Перезапустите Electron. Python-скрипт продолжит работу.
+11. **Офлайн режим**: Все локальные регуляторы работают без интернета.
+12. **Пампинг компрессора**: Увеличьте атаку или уменьшите входной уровень.
+13. **Ошибка HTTP 429**: Превышен лимит запросов. Подождите 60 секунд.
+14. **Обновление**: Замените бинарный файл новой версией из GitHub Releases.
+15. **Сообщение об ошибке**: Создайте Issue в репозитории produktes-code.
 
 ---
 
-### 11. АУДИТ БЕЗОПАСНОСТИ & 12. ГЛОССАРИЙ
+### 10. МАНИФЕСТ, 11. АУДИТ & 12. ГЛОССАРИЙ
 
-Аудит Уровня 4 пройден 27 июля 2026 г. Глоссарий терминов MCP, TCP, DSP, LLM, API, JSON, OOM, DAW.
+Разработано produktes-code и Jesús Ferrer (CHUS BZN). Лицензия CC BY-NC-SA 4.0. Аудит Уровня 4 пройден 27 июля 2026 г.
 
 ---
 
@@ -683,11 +762,29 @@ Audit Level 4 bestanden am 27. Juli 2026. Begriffsdefinitionen für MCP, TCP, DS
 
 ## 🇺🇦 УКРАЇНСЬКА (UK)
 
+<div class="cover-container">
+
+![Imagotipo produktes-code](icon.png)
+
+# ABLETON AI ASSISTANT V1.0.0
+
+<div class="subtitle">Когнітивний ШІ-інженер зі зведення та аудіопомічник реального часу</div>
+
+🌐 **Вибір мови:** [ES](#-español-es) | [EN](#-english-en) | [DE](#-deutsch-de) | [RU](#-русский-ru) | [UK](#-українська-uk) | [JA](#-日本語-ja) | [ZH](#-中文-zh)
+
+<div class="keywords">
+CERTIFIED | RETAIL-READY | Rate limiting | Magic Bytes | 2 GB | 7 мов | CC BY-NC-SA 4.0
+</div>
+
+</div>
+
+---
+
 ### 1. БАЧЕННЯ (ВСТУП)
 
 **Ableton AI Assistant** — це цифровий двійник аудіо (**Audio Digital Twin**), розроблений **produktes-code** та інженером **Jesús Ferrer (CHUS BZN)**. Модуль усуває фазові конфлікти та маскування частот у реальному часі через **Model Context Protocol (MCP)** та TCP.
 
-![Головна панель](../docs/screenshot-UI.png)
+![Головна панель](screenshot-UI.png)
 *Малюнок 1.1: Огляд панелі керування Ableton AI Assistant.*
 
 ---
@@ -698,7 +795,7 @@ Audit Level 4 bestanden am 27. Juli 2026. Begriffsdefinitionen für MCP, TCP, DS
 
 ---
 
-### 3. ТЕХНІЧНЕ РОЗГОРТАННЯ ТА СИГНАЛЫ
+### 3. ТЕХНІЧНЕ РОЗГОРТАННЯ ТА СИГНАЛИ
 
 CI/CD збірка через GitHub Actions для Windows, macOS та Linux (`.AppImage` / `.deb`). Скрипт `AntigravityCore` для Ableton Live, порт TCP 9001.
 
@@ -714,7 +811,27 @@ CI/CD збірка через GitHub Actions для Windows, macOS та Linux (`
 
 ### 5. МУЛЬТИМОДАЛЬНІСТЬ, БЕЗОПЕКА ТА FAQ (15 ПИТАНЬ)
 
-Підтримка 7 мов, захист від флуду, ліміт RAM 2 ГБ, детальний FAQ та ліцензія CC BY-NC-SA 4.0. Аудит безпеки Рівня 4 пройдено 27 липня 2026 року.
+1. **Gatekeeper в macOS**: Правий клік -> **Відкрити**.
+2. **SmartScreen в Windows**: Докладніше -> **Виконати в будь-якому разі**.
+3. **Права в Linux**: `chmod +x Ableton.AI.Assistant-1.0.0.AppImage`.
+4. **Скрипт не видно**: Перевірте папку `MIDI Remote Scripts` і перезапустіть Live.
+5. **Помилка порту 9001**: Дозвольте `127.0.0.1:9001` у фаєрволі.
+6. **Electron "Disconnected"**: Запустіть Ableton Live з вибраним `AntigravityCore`.
+7. **Помилка HTTP 401**: Перевірте API ключ Claude в налаштуваннях.
+8. **Затримка ШІ > 5 сек**: Запити залежать від інтернет-з'єднання.
+9. **Попередження про маскування не зникає**: Перевірте вторинні треки басу.
+10. **Інтерфейс завис**: Перезапустіть Electron. Python-скрипт продовжить роботу.
+11. **Офлайн режим**: Усі локальні регулятори працюють без інтернету.
+12. **Пампінг компресора**: Збільшіть атаку або зменшіть вхідний рівень.
+13. **Помилка HTTP 429**: Перевищено ліміт запитів. Зачекайте 60 секунд.
+14. **Оновлення**: Замініть бінарний файл новою версією з GitHub Releases.
+15. **Повідомити про помилку**: Створіть Issue в репозиторії produktes-code.
+
+---
+
+### 6. МАНІФЕСТ, АУДИТ ТА ГЛОСАРІЙ
+
+Розроблено produktes-code та Jesus Ferrer (CHUS BZN). Ліцензія CC BY-NC-SA 4.0. Аудит Безпеки Рівня 4 пройдено 27 липня 2026 року.
 
 ---
 
@@ -722,18 +839,36 @@ CI/CD збірка через GitHub Actions для Windows, macOS та Linux (`
 
 ## 🇯🇵 日本語 (JA)
 
+<div class="cover-container">
+
+![Imagotipo produktes-code](icon.png)
+
+# ABLETON AI ASSISTANT V1.0.0
+
+<div class="subtitle">認知型AIミキシングエンジニア & MCPリアルタイムオーディオアシスタント</div>
+
+🌐 **言語選択 / Language Selector:** [ES](#-español-es) | [EN](#-english-en) | [DE](#-deutsch-de) | [RU](#-русский-ru) | [UK](#-українська-uk) | [JA](#-日本語-ja) | [ZH](#-中文-zh)
+
+<div class="keywords">
+CERTIFIED | RETAIL-READY | Rate limiting | Magic Bytes | 2 GB | 7言語 | CC BY-NC-SA 4.0
+</div>
+
+</div>
+
+---
+
 ### 1. ビジョン（概要）
 
 **Ableton AI Assistant** は、**produktes-code** とエンジニア **Jesús Ferrer (CHUS BZN)** によって開発された究極の **Audio Digital Twin（オーディオ・デジタルツイン）** です。**Model Context Protocol (MCP)** と低レイテンシーTCPアーキテクチャを介してAbleton Liveとリアルタイム接続し、周波数マスキングや位相キャンセルを自動補正します。
 
-![メインダッシュボード](../docs/screenshot-UI.png)
+![メインダッシュボード](screenshot-UI.png)
 *図 1.1: Ableton AI Assistant のメインコントロールパネル概要*
 
 ---
 
 ### 2. インターフェース & エルゴノミクス
 
-RGB(15, 15, 15)の純粋ダークモード、ゴールド/イエローのアクセン トカラー（#F5A623）、60 fpsの高速レスポンス。
+RGB(15, 15, 15)の純粋ダークモード、ゴールド/イエローのアクセントカラー（#F5A623）、60 fpsの高速レスポンス。
 
 ---
 
@@ -753,7 +888,27 @@ GitHub ActionsによるCI/CD自動ビルド。Windows (`.exe`)、macOS (`.dmg`)�
 
 ### 5. 多言語対応、セキュリティ & FAQ（15項目）
 
-7言語対応（ES, EN, DE, RU, UK, JA, ZH）、レート制限（100 events/sec）、2 GB RAM上限保護、CC BY-NC-SA 4.0 ライセンス。2026年7月27日 Level 4 セキュリティ監査合格。
+1. **macOS Gatekeeper警告**: 右クリック -> **開く** を選択。
+2. **Windows SmartScreen**: 詳細情報 -> **実行** をクリック。
+3. **Linux 実行権限**: `chmod +x Ableton.AI.Assistant-1.0.0.AppImage` を実行。
+4. **`AntigravityCore` が未表示**: フォルダ配置を確認しLiveを再起動。
+5. **TCP ポート 9001 エラー**: ファイアウォールで `127.0.0.1:9001` を許可。
+6. **Electron "Disconnected"**: Ableton Liveが起動中か確認。
+7. **HTTP 401 エラー**: 設定でClaude APIキーを確認。
+8. **AI応答遅延 > 5秒**: 自然言語処理はインターネット回線に依存。
+9. **マスキング警告が消えない**: サブベースのSideカット処理を確認。
+10. **UIのフリーズ**: Electronを再起動（Pythonスクリプトは継続動作）。
+11. **オフライン利用**: タッチコントロールとGain Stagingは100%オフライン動作。
+12. **コンプレッサーのパンピング**: アタック時間を延ばすか入力ゲインを調整。
+13. **HTTP 429 レート制限**: APIクォータ超過。60秒待機。
+14. **アップデート方法**: 最新のGitHub Releasesから上書き。
+15. **バグ報告**: produktes-codeのGitHubリポジトリでIssueを作成。
+
+---
+
+### 6. ライセンス、監査 & 用語集
+
+CC BY-NC-SA 4.0 ライセンス。2026年7月27日 Level 4 セキュリティ監査合格。MCP, TCP, DSP, LLM, API, JSON, OOM などの用語定義。
 
 ---
 
@@ -761,11 +916,29 @@ GitHub ActionsによるCI/CD自動ビルド。Windows (`.exe`)、macOS (`.dmg`)�
 
 ## 🇨🇳 中文 (ZH)
 
+<div class="cover-container">
+
+![Imagotipo produktes-code](icon.png)
+
+# ABLETON AI ASSISTANT V1.0.0
+
+<div class="subtitle">认知AI混音工程师 & MCP实时音频助手</div>
+
+🌐 **语言选择 / Language Selector:** [ES](#-español-es) | [EN](#-english-en) | [DE](#-deutsch-de) | [RU](#-русский-ru) | [UK](#-українська-uk) | [JA](#-日本語-ja) | [ZH](#-中文-zh)
+
+<div class="keywords">
+CERTIFIED | RETAIL-READY | Rate limiting | Magic Bytes | 2 GB | 7种语言 | CC BY-NC-SA 4.0
+</div>
+
+</div>
+
+---
+
 ### 1. 愿景 (简介)
 
 **Ableton AI Assistant** 是由 **produktes-code** 与工程师 **Jesús Ferrer (CHUS BZN)** 联合打造的终极**音频数字孪生体 (Audio Digital Twin)**。系统通过**模型上下文协议 (MCP)** 与低延迟 TCP 架构实时连接 Ableton Live，精准计算频率掩蔽并消除相位冲突。
 
-![主控制面板](../docs/screenshot-UI.png)
+![主控制面板](screenshot-UI.png)
 *图 1.1: Ableton AI Assistant 主控制面板概览*
 
 ---
@@ -792,4 +965,24 @@ GitHub ActionsによるCI/CD自動ビルド。Windows (`.exe`)、macOS (`.dmg`)�
 
 ### 5. 全球多模态、安全架构与 FAQ (15 条)
 
-支持 7 种语言 (ES, EN, DE, RU, UK, JA, ZH)，具备防刷限流 (100 次/秒) 与 2 GB 内存上限保护。采用 CC BY-NC-SA 4.0 许可证。2026 年 7 月 27 日通过 4 级安全审计。
+1. **macOS Gatekeeper 警告**: 右键单击 -> 选择 **打开**。
+2. **Windows SmartScreen 拦截**: 单击 **更多信息** -> 选择 **仍要运行**。
+3. **Linux 运行权限**: 执行 `chmod +x Ableton.AI.Assistant-1.0.0.AppImage`。
+4. **`AntigravityCore` 未显示**: 检查目录并重启 Ableton Live。
+5. **端口 9001 绑定错误**: 防火墙中允许 `127.0.0.1:9001`。
+6. **Electron 显示 "Disconnected"**: 确认 Ableton Live 已启动。
+7. **HTTP 401 错误**: 检查设置中的 Claude API 密钥。
+8. **AI 响应延迟 > 5秒**: 自然语言请求依赖网络连接。
+9. **掩蔽警告持续显示**: 检查副低音轨道的 Side 剪切处理。
+10. **UI 无响应/冻结**: 重启 Electron 应用，后台 Python 脚本不受影响。
+11. **离线使用**: 触控与 Gain Staging 100% 支持离线运行。
+12. **压缩器抽气效应 (Pumping)**: 增加启动时间或降低输入电平。
+13. **HTTP 429 限流错误**: API 超额，等待 60 秒。
+14. **软件更新**: 从 GitHub Releases 下载新版本覆盖安装。
+15. **提交反馈**: 在 produktes-code 官方 GitHub 仓库提交 Issue。
+
+---
+
+### 6. 工程宣言、安全审计与词汇表
+
+采用 CC BY-NC-SA 4.0 许可证。2026 年 7 月 27 日通过 4 级安全审计。包含 MCP, TCP, DSP, LLM, API, JSON, OOM, DAW 等技术术语定义。
