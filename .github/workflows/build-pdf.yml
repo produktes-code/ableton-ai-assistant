@@ -1,0 +1,41 @@
+name: Build PDF
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build-pdf:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install pandoc and texlive
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc texlive-xetex texlive-fonts-recommended
+
+      - name: Build PDF
+        run: |
+          pandoc USER_MANUAL.md -o USER_MANUAL.pdf \
+            --pdf-engine=xelatex \
+            --css=style.css \
+            --self-contained \
+            -V geometry:margin=2.5cm \
+            -V fontsize=11pt \
+            -V mainfont=Arial \
+            -V sansfont=Arial \
+            -V colorlinks=true \
+            -V linkcolor=gold \
+            -V urlcolor=gold
+
+      - name: Upload PDF to release
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: ./USER_MANUAL.pdf
+          asset_name: USER_MANUAL.pdf
+          asset_content_type: application/pdf
