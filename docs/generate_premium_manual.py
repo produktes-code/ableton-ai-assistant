@@ -12,8 +12,8 @@ def main():
         print(f"Error: {manual_md} no existe.")
         sys.exit(1)
 
-    print("📄 Generando USER_MANUAL.pdf con markdown-pdf...")
-    cmd = ["markdown-pdf", "--css-path", css_file, manual_md]
+    print("📄 Generando USER_MANUAL.pdf con md-to-pdf...")
+    cmd = ["md-to-pdf", "USER_MANUAL.md", "--stylesheet", "style.css"]
     
     try:
         res = subprocess.run(cmd, cwd=docs_dir, check=True, capture_output=True, text=True)

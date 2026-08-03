@@ -1,150 +1,14 @@
-<style>
-@page {
-  size: A4;
-  margin: 2.5cm;
-  @bottom-right {
-    content: "Página " counter(page);
-    font-size: 9pt;
-    color: #999;
-  }
-}
-
-body {
-  font-family: Arial, sans-serif;
-  font-size: 11pt;
-  line-height: 1.15;
-  color: #000;
-}
-
-h1 {
-  font-size: 22pt;
-  font-weight: bold;
-  text-transform: uppercase;
-  color: #F5A623;
-  text-align: center;
-  margin-top: 2cm;
-  margin-bottom: 0.5cm;
-}
-
-h2 {
-  font-size: 16pt;
-  font-weight: bold;
-  text-transform: uppercase;
-  color: #F5A623;
-  margin-top: 1.5cm;
-  margin-bottom: 0.3cm;
-  page-break-before: avoid;
-}
-
-h3 {
-  font-size: 14pt;
-  font-weight: bold;
-  color: #F5A623;
-  margin-top: 1cm;
-  margin-bottom: 0.2cm;
-}
-
-.subtitle {
-  font-size: 14pt;
-  font-style: italic;
-  text-align: center;
-  color: #333;
-  margin-bottom: 0.5cm;
-}
-
-.keywords {
-  font-size: 10pt;
-  text-align: center;
-  color: #666;
-  margin-top: 0.5cm;
-  margin-bottom: 1cm;
-  border-top: 1px solid #F5A623;
-  border-bottom: 1px solid #F5A623;
-  padding: 0.2cm 0;
-}
-
-.cover-container {
-  text-align: center;
-  margin-top: 0.5cm;
-}
-
-.cover-logo {
-  max-width: 120px;
-  height: auto;
-  display: block;
-  margin: 0 auto 0.5cm auto;
-}
-
-.note {
-  background-color: #f9f9f9;
-  border-left: 4px solid #F5A623;
-  padding: 0.2cm 0.5cm;
-  margin: 0.5cm 0;
-  font-size: 10pt;
-}
-
-code {
-  font-family: 'Courier New', monospace;
-  font-size: 10pt;
-  background-color: #f4f4f4;
-  padding: 0.1cm 0.3cm;
-}
-
-.page-break {
-  page-break-before: always;
-}
-
-.language-selector {
-  text-align: center;
-  font-size: 12pt;
-  margin: 0.3cm 0;
-}
-
-.language-selector a {
-  color: #F5A623;
-  text-decoration: none;
-  margin: 0 0.2cm;
-  font-weight: bold;
-}
-
-.language-selector a:hover {
-  text-decoration: underline;
-}
-
-figcaption {
-  font-size: 10pt;
-  font-style: italic;
-  text-align: center;
-  margin-top: 0.2cm;
-  color: #555;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 1cm auto;
-}
-</style>
-
 <a id="es"></a>
 
-<div class="cover-container">
-
-![Imagotipo produktes-code](icon.png)
-
-# ABLETON AI ASSISTANT V1.0.0
-
-<div class="subtitle">Cognitive AI Mixing Engineer & MCP Real-Time Audio Assistant / Ingeniero de Mezcla Cognitivo IA y Asistente de Audio en Tiempo Real MCP</div>
-
-<div class="language-selector">
-  [ES](#es) | [EN](#en) | [DE](#de) | [RU](#ru) | [UK](#uk) | [JA](#ja) | [ZH](#zh)
-</div>
-
-<div class="keywords">
-CERTIFIED | RETAIL-READY | Rate limiting | Magic Bytes | 2 GB | 7 idiomas | CC BY-NC-SA 4.0
-</div>
-
+<div class="cover-card">
+  <img src="icon.png" class="cover-logo" alt="Imagotipo produktes-code" />
+  <h1>ABLETON AI ASSISTANT V1.0.0</h1>
+  <div class="subtitle">Cognitive AI Mixing Engineer & MCP Real-Time Audio Assistant / Ingeniero de Mezcla Cognitivo IA y Asistente de Audio en Tiempo Real MCP</div>
+  <p><b>Selector de Idiomas / Language Selector:</b><br/>
+  <a href="#es">ES</a> | <a href="#en">EN</a> | <a href="#de">DE</a> | <a href="#ru">RU</a> | <a href="#uk">UK</a> | <a href="#ja">JA</a> | <a href="#zh">ZH</a></p>
+  <div class="keywords">
+    CERTIFIED | RETAIL-READY | Rate limiting | Magic Bytes | 2 GB | 7 idiomas | CC BY-NC-SA 4.0
+  </div>
 </div>
 
 ---
@@ -452,20 +316,14 @@ Este repositorio ha superado satisfactoriamente una auditoría de seguridad exha
 
 <a id="en"></a>
 
-<div class="cover-container">
-
-# ABLETON AI ASSISTANT V1.0.0
-
-<div class="subtitle">Cognitive AI Mixing Engineer & MCP Real-Time Audio Assistant</div>
-
-<div class="language-selector">
-  [ES](#es) | [EN](#en) | [DE](#de) | [RU](#ru) | [UK](#uk) | [JA](#ja) | [ZH](#zh)
-</div>
-
-<div class="keywords">
-CERTIFIED | RETAIL-READY | Rate limiting | Magic Bytes | 2 GB | 7 languages | CC BY-NC-SA 4.0
-</div>
-
+<div class="cover-card">
+  <h1>ABLETON AI ASSISTANT V1.0.0</h1>
+  <div class="subtitle">Cognitive AI Mixing Engineer & MCP Real-Time Audio Assistant</div>
+  <p><b>Language Selector:</b><br/>
+  <a href="#es">ES</a> | <a href="#en">EN</a> | <a href="#de">DE</a> | <a href="#ru">RU</a> | <a href="#uk">UK</a> | <a href="#ja">JA</a> | <a href="#zh">ZH</a></p>
+  <div class="keywords">
+    CERTIFIED | RETAIL-READY | Rate limiting | Magic Bytes | 2 GB | 7 languages | CC BY-NC-SA 4.0
+  </div>
 </div>
 
 ---
@@ -694,20 +552,14 @@ Level 4 Security Audit passed on **July 27, 2026** (0 critical vulnerabilities).
 
 <a id="de"></a>
 
-<div class="cover-container">
-
-# ABLETON AI ASSISTANT V1.0.0
-
-<div class="subtitle">Kognitiver KI-Mischingenieur & MCP-Echtzeit-Audioassistent</div>
-
-<div class="language-selector">
-  [ES](#es) | [EN](#en) | [DE](#de) | [RU](#ru) | [UK](#uk) | [JA](#ja) | [ZH](#zh)
-</div>
-
-<div class="keywords">
-CERTIFIED | RETAIL-READY | Rate limiting | Magic Bytes | 2 GB | 7 Sprachen | CC BY-NC-SA 4.0
-</div>
-
+<div class="cover-card">
+  <h1>ABLETON AI ASSISTANT V1.0.0</h1>
+  <div class="subtitle">Kognitiver KI-Mischingenieur & MCP-Echtzeit-Audioassistent</div>
+  <p><b>Sprachauswahl / Language Selector:</b><br/>
+  <a href="#es">ES</a> | <a href="#en">EN</a> | <a href="#de">DE</a> | <a href="#ru">RU</a> | <a href="#uk">UK</a> | <a href="#ja">JA</a> | <a href="#zh">ZH</a></p>
+  <div class="keywords">
+    CERTIFIED | RETAIL-READY | Rate limiting | Magic Bytes | 2 GB | 7 Sprachen | CC BY-NC-SA 4.0
+  </div>
 </div>
 
 ---
@@ -850,20 +702,14 @@ Level 4 Sicherheitsaudit am 27. Juli 2026 erfolgreich bestanden (0 kritische Sch
 
 <a id="ru"></a>
 
-<div class="cover-container">
-
-# ABLETON AI ASSISTANT V1.0.0
-
-<div class="subtitle">Когнитивный ИИ-инженер по сведению и аудиопомощник реального времени</div>
-
-<div class="language-selector">
-  [ES](#es) | [EN](#en) | [DE](#de) | [RU](#ru) | [UK](#uk) | [JA](#ja) | [ZH](#zh)
-</div>
-
-<div class="keywords">
-CERTIFIED | RETAIL-READY | Rate limiting | Magic Bytes | 2 GB | 7 языков | CC BY-NC-SA 4.0
-</div>
-
+<div class="cover-card">
+  <h1>ABLETON AI ASSISTANT V1.0.0</h1>
+  <div class="subtitle">Когнитивный ИИ-инженер по сведению и аудиопомощник реального времени</div>
+  <p><b>Выбор языка / Language Selector:</b><br/>
+  <a href="#es">ES</a> | <a href="#en">EN</a> | <a href="#de">DE</a> | <a href="#ru">RU</a> | <a href="#uk">UK</a> | <a href="#ja">JA</a> | <a href="#zh">ZH</a></p>
+  <div class="keywords">
+    CERTIFIED | RETAIL-READY | Rate limiting | Magic Bytes | 2 GB | 7 языков | CC BY-NC-SA 4.0
+  </div>
 </div>
 
 ---
@@ -986,20 +832,14 @@ CERTIFIED | RETAIL-READY | Rate limiting | Magic Bytes | 2 GB | 7 языков |
 
 <a id="uk"></a>
 
-<div class="cover-container">
-
-# ABLETON AI ASSISTANT V1.0.0
-
-<div class="subtitle">Когнітивний ШІ-інженер зі зведення та аудіопомічник реального часу</div>
-
-<div class="language-selector">
-  [ES](#es) | [EN](#en) | [DE](#de) | [RU](#ru) | [UK](#uk) | [JA](#ja) | [ZH](#zh)
-</div>
-
-<div class="keywords">
-CERTIFIED | RETAIL-READY | Rate limiting | Magic Bytes | 2 GB | 7 мов | CC BY-NC-SA 4.0
-</div>
-
+<div class="cover-card">
+  <h1>ABLETON AI ASSISTANT V1.0.0</h1>
+  <div class="subtitle">Когнітивний ШІ-інженер зі зведення та аудіопомічник реального часу</div>
+  <p><b>Вибір мови / Language Selector:</b><br/>
+  <a href="#es">ES</a> | <a href="#en">EN</a> | <a href="#de">DE</a> | <a href="#ru">RU</a> | <a href="#uk">UK</a> | <a href="#ja">JA</a> | <a href="#zh">ZH</a></p>
+  <div class="keywords">
+    CERTIFIED | RETAIL-READY | Rate limiting | Magic Bytes | 2 GB | 7 мов | CC BY-NC-SA 4.0
+  </div>
 </div>
 
 ---
@@ -1101,20 +941,14 @@ CI/CD збірка через GitHub Actions для Windows (`.exe`), macOS (`.d
 
 <a id="ja"></a>
 
-<div class="cover-container">
-
-# ABLETON AI ASSISTANT V1.0.0
-
-<div class="subtitle">認知型AIミキシングエンジニア & MCPリアルタイムオーディオアシスタント</div>
-
-<div class="language-selector">
-  [ES](#es) | [EN](#en) | [DE](#de) | [RU](#ru) | [UK](#uk) | [JA](#ja) | [ZH](#zh)
-</div>
-
-<div class="keywords">
-CERTIFIED | RETAIL-READY | Rate limiting | Magic Bytes | 2 GB | 7言語 | CC BY-NC-SA 4.0
-</div>
-
+<div class="cover-card">
+  <h1>ABLETON AI ASSISTANT V1.0.0</h1>
+  <div class="subtitle">認知型AIミキシングエンジニア & MCPリアルタイムオーディオアシスタント</div>
+  <p><b>言語選択 / Language Selector:</b><br/>
+  <a href="#es">ES</a> | <a href="#en">EN</a> | <a href="#de">DE</a> | <a href="#ru">RU</a> | <a href="#uk">UK</a> | <a href="#ja">JA</a> | <a href="#zh">ZH</a></p>
+  <div class="keywords">
+    CERTIFIED | RETAIL-READY | Rate limiting | Magic Bytes | 2 GB | 7言語 | CC BY-NC-SA 4.0
+  </div>
 </div>
 
 ---
@@ -1217,20 +1051,14 @@ CC BY-NC-SA 4.0 ライセンス。2026年7月27日 Level 4 セキュリティ監
 
 <a id="zh"></a>
 
-<div class="cover-container">
-
-# ABLETON AI ASSISTANT V1.0.0
-
-<div class="subtitle">认知AI混音工程师 & MCP实时音频助手</div>
-
-<div class="language-selector">
-  [ES](#es) | [EN](#en) | [DE](#de) | [RU](#ru) | [UK](#uk) | [JA](#ja) | [ZH](#zh)
-</div>
-
-<div class="keywords">
-CERTIFIED | RETAIL-READY | Rate limiting | Magic Bytes | 2 GB | 7种语言 | CC BY-NC-SA 4.0
-</div>
-
+<div class="cover-card">
+  <h1>ABLETON AI ASSISTANT V1.0.0</h1>
+  <div class="subtitle">认知AI混音工程师 & MCP实时音频助手</div>
+  <p><b>语言选择 / Language Selector:</b><br/>
+  <a href="#es">ES</a> | <a href="#en">EN</a> | <a href="#de">DE</a> | <a href="#ru">RU</a> | <a href="#uk">UK</a> | <a href="#ja">JA</a> | <a href="#zh">ZH</a></p>
+  <div class="keywords">
+    CERTIFIED | RETAIL-READY | Rate limiting | Magic Bytes | 2 GB | 7种语言 | CC BY-NC-SA 4.0
+  </div>
 </div>
 
 ---
