@@ -12,7 +12,7 @@ def main():
         print(f"Error: {manual_md} no existe.")
         sys.exit(1)
 
-    print("📄 Generando USER_MANUAL.pdf con md-to-pdf...")
+    print("📄 Generando USER_MANUAL.pdf corporativo con md-to-pdf...")
     cmd = ["md-to-pdf", "USER_MANUAL.md", "--stylesheet", "style.css"]
     
     try:

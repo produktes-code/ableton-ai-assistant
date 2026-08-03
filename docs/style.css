@@ -3,67 +3,23 @@
 @page {
     size: A4;
     margin: 25mm 20mm;
+    @bottom-right {
+        content: "Página " counter(page);
+        font-family: 'Inter', Arial, sans-serif;
+        font-size: 9pt;
+        color: #777777;
+    }
 }
 
 body {
     background-color: #FFFFFF;
     color: #1A1A1A;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
     font-size: 11pt;
-    line-height: 1.5;
+    line-height: 1.15;
 }
 
-/* Portada Estilo Oscuro Corporativo */
-.cover-card {
-    background-color: #0F0F0F;
-    color: #FFFFFF;
-    padding: 40px 25px;
-    border-radius: 14px;
-    text-align: center;
-    margin-bottom: 2em;
-    border: 3px solid #F5A623;
-    box-shadow: 0 10px 30px rgba(245, 166, 35, 0.25);
-}
-
-.cover-card h1 {
-    color: #F5A623 !important;
-    font-size: 24pt !important;
-    font-weight: 700 !important;
-    text-transform: uppercase !important;
-    margin-top: 15px !important;
-    margin-bottom: 10px !important;
-    border: none !important;
-}
-
-.cover-card .subtitle {
-    color: #E0E0E0;
-    font-size: 13pt;
-    font-style: italic;
-    margin-bottom: 25px;
-}
-
-.cover-card .keywords {
-    background-color: #181818;
-    color: #F5A623;
-    border: 1px solid #F5A623;
-    padding: 8px 16px;
-    border-radius: 6px;
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 9pt;
-    display: inline-block;
-    margin-top: 15px;
-}
-
-.cover-logo {
-    max-width: 120px;
-    height: auto;
-    display: block;
-    margin: 0 auto 15px auto;
-    border-radius: 20px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.5);
-}
-
-/* Encabezados y Títulos Corporativos Amarillo/Dorado (#F5A623) */
+/* Encabezados Principales */
 h1 {
     color: #F5A623;
     font-size: 22pt;
@@ -83,13 +39,14 @@ h2 {
     padding-bottom: 6px;
     margin-top: 1.8em;
     margin-bottom: 0.8em;
+    page-break-before: always;
 }
 
 h3 {
     background-color: #FFF9E6;
     color: #B87B00;
     border-left: 5px solid #F5A623;
-    font-size: 13pt;
+    font-size: 14pt;
     padding: 8px 14px;
     border-radius: 4px;
     margin-top: 1.4em;
@@ -99,7 +56,7 @@ h3 {
 
 h4 {
     color: #222222;
-    font-size: 11pt;
+    font-size: 12pt;
     margin-top: 1.2em;
     margin-bottom: 0.5em;
     font-weight: 700;
@@ -120,13 +77,11 @@ img {
     box-shadow: 0 4px 16px rgba(0,0,0,0.15);
 }
 
-.caption, figcaption {
+.caption, figcaption, em {
     text-align: center;
     font-size: 9.5pt;
     font-style: italic;
     color: #666666;
-    margin-top: -8pt;
-    margin-bottom: 16pt;
 }
 
 .page-break {
@@ -140,7 +95,7 @@ hr {
     margin: 20pt 0;
 }
 
-blockquote, .note {
+blockquote {
     border-left: 5px solid #F5A623;
     padding: 10px 16px;
     color: #333333;
