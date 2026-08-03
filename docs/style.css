@@ -2,7 +2,13 @@
 
 @page {
     size: A4;
-    margin: 25mm 20mm;
+    margin: 25mm 20mm 20mm 20mm;
+    @bottom-right {
+        content: "Página " counter(page);
+        font-family: 'Inter', Arial, sans-serif;
+        font-size: 9pt;
+        color: #777777;
+    }
 }
 
 body {
@@ -57,6 +63,16 @@ body {
     font-size: 9pt;
     display: inline-block;
     margin-top: 10px;
+}
+
+/* Imagotipo de la Portada Principal (Máximo 120px de ancho) */
+.cover-logo {
+    max-width: 120px !important;
+    height: auto !important;
+    display: block;
+    margin: 0 auto 15px auto !important;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(245, 166, 35, 0.3) !important;
 }
 
 /* Títulos de Sección Principales */

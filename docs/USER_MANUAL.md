@@ -1,6 +1,6 @@
 <div class="cover-container">
 
-![Imagotipo produktes-code](icon.png)
+<img src="icon.png" class="cover-logo" alt="Imagotipo produktes-code" />
 
 # ABLETON AI ASSISTANT V1.0.0
 
@@ -64,7 +64,7 @@ La arquitectura gráfica de Electron aísla completamente el hilo de renderizado
 
 Para garantizar una estabilidad absoluta en cualquier entorno operativo comercial o de estudio, la compilación de Ableton AI Assistant se ejecuta de forma centralizada mediante un flujo de **Integración y Despliegue Continuo (CI/CD)** alojado en GitHub Actions.
 
-![Logotipos de plataformas](icon.png)
+![Instaladores de plataformas](icon.png)
 *Figura 3.1: Instaladores disponibles para Windows, macOS y Linux.*
 
 #### 3.1 Pipeline de Compilación Automatizada
@@ -72,10 +72,10 @@ El código fuente no se empaqueta localmente en máquinas de desarrollo. En cada
 
 #### 3.2 Descarga de Instaladores Oficiales
 Los binarios compilados están disponibles directamente en el repositorio oficial de GitHub dentro de la sección **Releases**:
-- **Windows (x64)**: `Ableton.AI.Assistant.Setup.1.0.0.exe` (Instalador ejecutable de 64 bits)
-- **macOS (Universal - Intel & Apple Silicon)**: `Ableton.AI.Assistant-1.0.0.dmg` (Imagen de disco montable)
-- **Linux (Debian/Ubuntu)**: `Ableton.AI.Assistant-1.0.0.deb` (Paquete Debian nativo)
-- **Linux (Portabilidad Universal)**: `Ableton.AI.Assistant-1.0.0.AppImage` (Binario autónomo ejecutable)
+- **🪟 Windows (x64)**: `Ableton.AI.Assistant.Setup.1.0.0.exe` (Instalador ejecutable de 64 bits)
+- **🍎 macOS (Universal - Intel & Apple Silicon)**: `Ableton.AI.Assistant-1.0.0.dmg` (Imagen de disco montable)
+- **🐧 Linux (Debian/Ubuntu)**: `Ableton.AI.Assistant-1.0.0.deb` (Paquete Debian nativo)
+- **🐧 Linux (Portabilidad Universal)**: `Ableton.AI.Assistant-1.0.0.AppImage` (Binario autónomo ejecutable)
 
 #### 3.3 Instrucciones Específicas por Sistema Operativo
 
@@ -120,7 +120,7 @@ El diseño híbrido de Ableton AI Assistant combina tres capas de ejecución tec
    - **Windows**: `C:\ProgramData\Ableton\Live 11/12 Suite\Resources\MIDI Remote Scripts\`
 3. Abra Ableton Live, acceda a **Preferencias -> Link / MIDI**, y en la pestaña de **Control Surface (Superficie de Control)**, seleccione `AntigravityCore` en la primera casilla disponible.
 
-![Selección del Control Surface](icon.png)
+![Selección de Control Surface](icon.png)
 *Figura 4.2: Selección de 'AntigravityCore' en las preferencias de Ableton Live.*
 
 #### 4.2 Sockets TCP de Ultra Baja Latencia (Local Loopback)
@@ -151,7 +151,7 @@ Al iniciar una nueva sesión de producción, el operador activa el botón **Anal
 - Mapeo de panoramas estéreo e identificación de instrumentos de frecuencia grave.
 
 #### 5.2 Estaciado Dinámico de Ganancia (Gain Staging)
-El mantenimiento de un headroom adecuado es la regla de oro en el entorno digital. El asistente calcula la atenuación o ganancia necesaria para posicionar el valor nominal de cada canal entre **-18 dBFS y -12 dBFS**, permitiendo que los plugins de emulación analógica operen en su punto dulce lineal sin introducir distorsión armónica no deseada.
+El mantenimiento de un headroom adecuado es la regla de oro en el entorno digital. El asistente calcula la atenuación o ganancia necesaria para posicionar el valor nominal de cada canal entre **-18 dBFS y -12 dBFS**, permitir que los plugins de emulación analógica operen en su punto dulce lineal sin introducir distorsión armónica no deseada.
 
 #### 5.3 Control de Enmascaramiento y Limpieza Espectral
 A través de algoritmos de detección espectral en tiempo real, la consola identifica frecuencias de choque. Al pulsar **Clear Masking**, el sistema envía una orden paramétrica al plugin *EQ Eight* de Ableton, ejecutando un corte de fase estricto para limpiar el rango inferior de la mezcla.
@@ -323,8 +323,6 @@ Este repositorio ha superado satisfactoriamente una auditoría de seguridad exha
 
 <div class="cover-container">
 
-![Imagotipo produktes-code](icon.png)
-
 # ABLETON AI ASSISTANT V1.0.0
 
 <div class="subtitle">Cognitive AI Mixing Engineer & MCP Real-Time Audio Assistant</div>
@@ -390,10 +388,10 @@ Source code is not packaged locally on developer machines. On every release, cle
 
 #### 3.2 Official Installer Downloads
 Compiled binaries are directly available from the official GitHub repository in the **Releases** section:
-- **Windows (x64)**: `Ableton.AI.Assistant.Setup.1.0.0.exe` (64-bit executable installer)
-- **macOS (Universal - Intel & Apple Silicon)**: `Ableton.AI.Assistant-1.0.0.dmg` (Mountable disk image)
-- **Linux (Debian/Ubuntu)**: `Ableton.AI.Assistant-1.0.0.deb` (Native Debian package)
-- **Linux (Universal Portability)**: `Ableton.AI.Assistant-1.0.0.AppImage` (Standalone executable binary)
+- **🪟 Windows (x64)**: `Ableton.AI.Assistant.Setup.1.0.0.exe` (64-bit executable installer)
+- **🍎 macOS (Universal - Intel & Apple Silicon)**: `Ableton.AI.Assistant-1.0.0.dmg` (Mountable disk image)
+- **🐧 Linux (Debian/Ubuntu)**: `Ableton.AI.Assistant-1.0.0.deb` (Native Debian package)
+- **🐧 Linux (Universal Portability)**: `Ableton.AI.Assistant-1.0.0.AppImage` (Standalone executable binary)
 
 #### 3.3 Platform-Specific Instructions
 
@@ -545,7 +543,16 @@ Level 4 Security Audit passed on **July 27, 2026** (0 critical vulnerabilities).
 
 ### 12. TECHNICAL GLOSSARY
 
-Definitions for MCP, TCP, DSP, LLM, API, JSON, OOM, DAW, Remote Script, Rate Limiting.
+- **MCP (Model Context Protocol)**: Open standard protocol allowing AI models to securely interact with local tools and environments.
+- **TCP (Transmission Control Protocol)**: Connection-oriented transport protocol guaranteeing lossless, ordered delivery between Electron and Ableton Live.
+- **DSP (Digital Signal Processing)**: Mathematical algorithms dedicated to real-time numerical processing of digital audio signals.
+- **LLM (Large Language Model)**: Deep neural networks (such as Claude 3.5 Sonnet) trained to understand and generate complex reasoning.
+- **API (Application Programming Interface)**: Standardized code interface connecting local client applications to cloud inference servers.
+- **JSON (JavaScript Object Notation)**: Lightweight text format used to serialize and transfer Ableton Live track structures over local sockets.
+- **OOM (Out Of Memory)**: Critical system fault condition occurring when an application consumes all available system RAM.
+- **DAW (Digital Audio Workstation)**: Complete software environment used for recording, editing, mixing, and mastering audio.
+- **Remote Script**: Executable Python script integrating into Ableton Live core to expose internal APIs to external controllers.
+- **Rate Limiting**: Defensive traffic control technique restricting request frequency to prevent system overload.
 
 ---
 
@@ -555,13 +562,11 @@ Definitions for MCP, TCP, DSP, LLM, API, JSON, OOM, DAW, Remote Script, Rate Lim
 
 <div class="cover-container">
 
-![Imagotipo produktes-code](icon.png)
-
 # ABLETON AI ASSISTANT V1.0.0
 
 <div class="subtitle">Kognitiver KI-Mischingenieur & MCP-Echtzeit-Audioassistent</div>
 
-🌐 **Sprachauswahl / Language Selector:** [ES](#-español-es) | [EN](#-english-en) | [DE](#-deutsch-de) | [RU](#-русский-ru) | [UK](#-українська-uk) | [JA](#-日本語-ja) | [ZH](#-中文-zh)
+🌐 **Sprachauswahl:** [ES](#-español-es) | [EN](#-english-en) | [DE](#-deutsch-de) | [RU](#-русский-ru) | [UK](#-українська-uk) | [JA](#-日本語-ja) | [ZH](#-中文-zh)
 
 <div class="keywords">
 CERTIFIED | RETAIL-READY | Rate limiting | Magic Bytes | 2 GB | 7 Sprachen | CC BY-NC-SA 4.0
@@ -573,11 +578,13 @@ CERTIFIED | RETAIL-READY | Rate limiting | Magic Bytes | 2 GB | 7 Sprachen | CC 
 
 ### 1. DIE VISION (EINFÜHRUNG)
 
-Die Genesis von **Ableton AI Assistant** entstand aus einer tiefen Frustration in der professionellen Musikproduktion: der kumulativen Gehörermüdung. Nach langen Mischen-Sitzungen verliert das menschliche Gehör die objektive Fähigkeit, Phasenkonflikte und Frequenzüberlappungen zu erkennen.
+Die Genesis von **Ableton AI Assistant** entstand aus einer tiefen Frustration in der professionellen Musikproduktion: der kumulativen Gehörermüdung. Nach langen Mischen-Sitzungen im Studio verliert das menschliche Gehör die objektive Fähigkeit, Phasenkonflikte und Frequenzüberlappungen im Mikrometerbereich zu erkennen. Produzenten und Ingenieure verbringen Routinestunden damit, Regler manuell zu bewegen, und verlieren dabei die globale künstlerische Perspektive des Projekts aus den Augen.
 
-Wir stellen das traditionelle DAW-Paradigma in Frage: *Warum muss ein Ingenieur Aufwand manuell betreiben, wenn eine digitale Verarbeitungsarchitektur Frequenzmaskierung präzise berechnen kann?*
+Wir stellen das traditionelle DAW-Paradigma radikal in Frage: *Warum muss ein Ingenieur Aufwand manuell betreiben, wenn eine digitale Verarbeitungsarchitektur Frequenzmaskierung mit chirurgischer Präzision berechnen kann?*
 
-Ableton AI Assistant ist der ultimative **Audio Digital Twin**. Über das **Model Context Protocol (MCP)** und eine TCP-Architektur mit extrem geringer Latenz steuert die KI Claude den Mixer von Ableton Live in Echtzeit.
+Ableton AI Assistant ist der ultimative **Audio Digital Twin**. Es handelt sich um eine kognitive Engine, die die kumulierte Spurenergie analysiert, die harmonische und spektrale Struktur des Arrangements versteht und die Session vor Verzerrungen und Phasenauslöschungen schützt.
+
+Über das **Model Context Protocol (MCP)** und eine TCP-Architektur mit extrem geringer Latenz steuert die KI Claude den Mixer von Ableton Live in Echtzeit und führt festcodierte parametrische Befehle in der nativen DSP-Engine aus. Wir geben Schöpfern und Ingenieuren die absolute Kontrolle über ihre klangliche Identität zurück.
 
 ![Haupt-Dashboard](screenshot-UI.png)
 *Abbildung 1.1: Übersicht über das Haupt-Bedienfeld des Ableton AI Assistant.*
@@ -587,62 +594,86 @@ Ableton AI Assistant ist der ultimative **Audio Digital Twin**. Über das **Mode
 
 ---
 
-### 2. INTERFACE & ERGONOMIE
+### 2. INTERFACE / ERGONOMIE
 
-Dunkles Farbschema (RGB 15, 15, 15) mit korporativen Gold/Gelb-Akzenten (#F5A623), 60 fps Benutzeroberfläche und nativer TCP-Touch-Steuerung.
+Dunkles Farbschema (**RGB 15, 15, 15**) zur Reduzierung der Augenermüdung bei Nachtsitzungen, ergänzt durch korporative Gold/Gelb-Akzente (#F5A623). Haupt-Dashboard mit RMS/Peak-Messung, 60 fps Benutzeroberfläche und nativer TCP-Touch-Steuerung für latenzfreie Reglerbewegungen.
 
 ---
 
-### 3. TECHNISCHE BEREITSTELLUNG & CI/CD
+### 3. TECHNISCHE BEREITSTELLUNG & CI/CD INSTALLATION
 
 Automatisiertes CI/CD über GitHub Actions. Binärdateien verfügbar für Windows (`.exe`), macOS (`.dmg`), Linux (`.deb` & `.AppImage`).
+
+![Plattform-Logos](icon.png)
+*Abbildung 3.1: Verfügbare Installationsprogramme für Windows, macOS und Linux.*
+
+#### 3.1 Betriebssystem-Spezifische Anweisungen
+- **🍎 macOS**: Gatekeeper-Bypass durch Rechtsklick auf die Anwendung -> **Öffnen**.
+- **🪟 Windows**: SmartScreen-Meldung durch Klick auf **Weitere Informationen** -> **Trotzdem ausführen** bestätigen.
+- **🐧 Linux**: Ausführungsrechte erteilen mit `chmod +x Ableton.AI.Assistant-1.0.0.AppImage` oder Installation über `sudo dpkg -i Ableton.AI.Assistant-1.0.0.deb`.
 
 ---
 
 ### 4. SIGNALFLUSS & SETUP
 
-Integration des Python Remote Scripts `AntigravityCore` in den Ableton Live Ordner `MIDI Remote Scripts`. TCP-Kommunikation über Port 9001 und sichere Claude-API-Schlüssel-Verschlüsselung.
+Integration des Python Remote Scripts `AntigravityCore` in den Ableton Live Ordner `MIDI Remote Scripts`. TCP-Kommunikation über Port 9001 (Local Loopback `127.0.0.1`) mit einer Übertragungslatenz unter 1 Millisekunde. Sichere lokale Verschlüsselung des Claude-API-Schlüssels im Keychain des Betriebssystems.
+
+![Signalfluss-Diagramm](screenshot-UI.png)
+*Abbildung 4.1: Hybride Architektur: Kommunikation zwischen Remote Script, Electron und Cloud.*
+
+![Bedienoberflächen-Auswahl](icon.png)
+*Abbildung 4.2: Auswahl von 'AntigravityCore' in den Ableton Live Einstellungen.*
 
 ---
 
-### 5. OPERATIVE PHILOSOPHIE
+### 5. OPERATIVE PHILOSOPHIE (BENUTZERHANDBUCH)
 
-4-Phasen-Arbeitsablauf: Audit ➔ Gain Staging ➔ Frequenz-Clearing ➔ Master-Polish.
+4-Phasen-Arbeitsablauf:
+1. **Audit-Modus**: Automatische Analyse der Spurenzahl, RMS/Peak-Werte und Frequenzüberlappungen.
+2. **Gain Staging**: Automatische Pegelanpassung zwischen -18 dBFS und -12 dBFS für optimalen Headroom.
+3. **Frequenz-Clearing**: Automatischer Cut von Phasen- und Frequenzkonflikten im Bassbereich.
+4. **Master-Polish**: Tonaler Feinschliff des Master-Busses für Streaming-Plattformen.
 
 ---
 
-### 6. PARAMETER MASTERCLASS
+### 6. PARAMETER MASTERCLASS (FUNKTIONEN) – TECHNISCHE DETAILS
 
-- **Glue Compressor**: Dynamische Attack- (30ms) und Release-Zeiten (100ms), abgestimmt auf die BPM.
-- **EQ Eight Side-Cut**: 48 dB/Okt High-Pass-Filter auf dem Side-Kanal unter **120 Hz** verankert Sub-Bässe rein in Mono.
-- **MCP Framework**: JSON-Payload-Analyse und deterministische Ausführung.
+- **Glue Compressor**: Dynamische Attack-Zeiten (30 ms) zur Erhaltung von Transienten und ultraschneller Release (100 ms), synchronisiert mit den bpm der Session.
+- **EQ Eight Side-Cut**: Steiler 48 dB/Okt High-Pass-Filter auf dem Side (S)-Kanal unter **120 Hz** verankert Sub-Bässe rein in Mono (Mid) und eliminiert Phasenauslöschungen auf Club-Sound-Systemen.
+
+![Maskierungs-Warnung](screenshot-UI.png)
+*Abbildung 6.1: Warnung vor Frequenzmaskierungskonflikten zwischen Kick und Bass.*
+
+- **MCP Framework**: JSON-Payload-Analyse des Spurenzustands und deterministische Befehlsausführung über das Claude 3.5 Sonnet Modell.
 
 ---
 
 ### 7. MULTIMODALE INTEGRATION
 
-7 Sprachen (ES, EN, DE, RU, UK, JA, ZH) mit 100% Unicode-Unterstützung.
+Vollständige Unterstützung von 7 Sprachen (ES, EN, DE, RU, UK, JA, ZH) mit 100% UTF-8 Unicode-Konformität und Hot-Reloading ohne Unterbrechung der Audiowiedergabe.
 
 ---
 
 ### 8. SCHUTZARCHITEKTUR (SICHERHEIT)
 
-Anti-Flood Rate Limiting (100 Events/Sek), JSON-Validierung und striktes 2 GB RAM-Limit.
+- **Anti-Flood Rate Limiting**: TCP-Anfragen werden über Middleware auf 100 Events/Sek gedrosselt.
+- **JSON-Validierung**: Strikte Schema-Prüfung verwirft fehlerhafte Netzwerk-Frames.
+- **2 GB RAM-Limit**: Harte OOM-Schutzgrenze blockiert übergroße Modellantworten.
 
 ---
 
-### 9. DEBUG-LOG (FAQ - 15 EINTRÄGE)
+### 9. DEBUG-LOG (FAQ) – 15 TECHNISCHE EINTRÄGE
 
-1. **macOS Gatekeeper-Warnung**: Rechtsklick -> **Öffnen**.
+1. **macOS Gatekeeper**: Rechtsklick -> **Öffnen**.
 2. **Windows SmartScreen**: Weitere Informationen -> **Trotzdem ausführen**.
-3. **Linux AppImage Rechte**: `chmod +x Ableton.AI.Assistant-1.0.0.AppImage`.
-4. **`AntigravityCore` fehlt in Ableton**: Ordnerpfad prüfen und Ableton neu starten.
-5. **TCP Port 9001 Fehler**: `127.0.0.1:9001` in der Firewall freigeben.
-6. **Electron "Disconnected"**: Ableton Live mit aktivem Script ausführen.
+3. **Linux AppImage**: `chmod +x Ableton.AI.Assistant-1.0.0.AppImage` ausführen.
+4. **`AntigravityCore` fehlt**: Ordnerpfad prüfen und Ableton neu starten.
+5. **TCP Port 9001 Fehler**: Port `127.0.0.1:9001` in der Firewall freigeben.
+6. **Electron "Disconnected"**: Ableton Live mit aktivem Skript ausführen.
 7. **HTTP 401 Fehler**: Claude API-Schlüssel in Einstellungen prüfen.
-8. **KI Latenz > 5 Sek**: KI-Abfragen hängen von der Internetverbindung ab.
+8. **KI-Latenz > 5 Sek**: KI-Abfragen hängen von der Internetverbindung ab.
 9. **Maskierungswarnung bleibt**: Nebenbässe auf Side-Cut unter 120 Hz prüfen.
-10. **UI eingefroren**: Electron neu starten. Python-Script läuft weiter.
+10. **UI eingefroren**: Electron neu starten. Python-Skript läuft weiter.
 11. **Offline-Nutzung**: Gain Staging und Touch-Regler funktionieren 100% offline.
 12. **Kompressor-Pumpen**: Attack-Zeit erhöhen oder Input verringern.
 13. **HTTP 429 Rate Limit**: Limit überschritten. 60 Sekunden warten.
@@ -651,15 +682,30 @@ Anti-Flood Rate Limiting (100 Events/Sek), JSON-Validierung und striktes 2 GB RA
 
 ---
 
-### 10. MANIFEST & LIZENZ
+### 10. MANIFEST, CREDITS & LIZENZ
 
-Entwickelt von produktes-code & Jesús Ferrer García (CHUS BZN). Lizenz: CC BY-NC-SA 4.0.
+Entwickelt von **produktes-code** und Ingenieur **Jesús Ferrer García (CHUS BZN)**. Lizenz: **CC BY-NC-SA 4.0**.
 
 ---
 
-### 11. SICHERHEITSAUDIT & 12. GLOSSAR
+### 11. SICHERHEITSAUDIT
 
-Audit Level 4 bestanden am 27. Juli 2026. Begriffsdefinitionen für MCP, TCP, DSP, LLM, API, JSON, OOM, DAW.
+Level 4 Sicherheitsaudit am 27. Juli 2026 erfolgreich bestanden (0 kritische Schwachstellen).
+
+---
+
+### 12. TECHNISCHES GLOSSAR
+
+- **MCP**: Offener Protokollstandard für sichere KI-Tool-Interaktion.
+- **TCP**: Verbindungsorientiertes Netzwerkprotokoll für verlustfreie Übertragung.
+- **DSP**: Mathematische Algorithmen zur digitalen Signalverarbeitung in Echtzeit.
+- **LLM**: Große Sprachmodelle (z. B. Claude 3.5 Sonnet) für komplexe Analysen.
+- **API**: Standardisierte Programmierschnittstelle zwischen Client und Cloud.
+- **JSON**: Leichtes Textformat zur Datenübertragung über das lokale Netzwerk.
+- **OOM**: Systemfehlerzustand bei vollständiger RAM-Auslastung.
+- **DAW**: Digitale Audio-Workstation (z. B. Ableton Live).
+- **Remote Script**: Ausführbares Python-Skript zur Steuerung der Ableton Live API.
+- **Rate Limiting**: Schutzmechanismus zur Begrenzung der Anfragefrequenz.
 
 ---
 
@@ -668,8 +714,6 @@ Audit Level 4 bestanden am 27. Juli 2026. Begriffsdefinitionen für MCP, TCP, DS
 ## 🇷🇺 РУССКИЙ (RU)
 
 <div class="cover-container">
-
-![Imagotipo produktes-code](icon.png)
 
 # ABLETON AI ASSISTANT V1.0.0
 
@@ -687,48 +731,77 @@ CERTIFIED | RETAIL-READY | Rate limiting | Magic Bytes | 2 GB | 7 языков |
 
 ### 1. ВИДЕНИЕ (ВВЕДЕНИЕ)
 
-**Ableton AI Assistant** — это цифровой двойник аудио (**Audio Digital Twin**), созданный лабораторией **produktes-code** и инженером **Jesús Ferrer (CHUS BZN)**. Приложение подключается через **Model Context Protocol (MCP)** и TCP-сокет к Ableton Live, устраняя фазовые конфликты и маскировку частот.
+**Ableton AI Assistant** — это цифровой двойник аудио (**Audio Digital Twin**), созданный лабораторией **produktes-code** и инженером **Jesús Ferrer (CHUS BZN)**. Приложение решает проблему накопительного слухового утомления звукорежиссеров.
+
+Мы кардинально меняем подход к DAW: *Зачем вручную двигать регуляторы, если цифровая архитектура может рассчитать частотную маскировку с хирургической точностью?*
+
+Подключаясь через **Model Context Protocol (MCP)** и TCP-сокет с низкой задержкой, ИИ Claude в реальном времени анализирует состояние микшера Ableton Live и выполняет команды в нативном DSP-движке.
 
 ![Главная панель](screenshot-UI.png)
-*Рисунок 1.1: Обзор панели управления Ableton AI Assistant.*
+*Рисунок 1.1: Обзор главной панели управления Ableton AI Assistant.*
+
+> [!NOTE]
+> Разработано **produktes-code** и **Jesús Ferrer (CHUS BZN)**.
 
 ---
 
 ### 2. ИНТЕРФЕЙС И ЭРГОНОМИКА
 
-Тёмный режим RGB(15, 15, 15) с корпоративными золотисто-жёлтыми акцентами (#F5A623), интерфейс 60 кадров/сек и низкая задержка.
+Тёмный режим (**RGB 15, 15, 15**) с золотисто-жёлтыми акцентами (#F5A623). Измерение RMS/Peak, интерфейс 60 кадров/сек и мгновенный отклик регуляторов по TCP.
 
 ---
 
 ### 3. ТЕХНИЧЕСКОЕ РАЗВЕРТЫВАНИЕ И CI/CD
 
-Автоматическая сборка через GitHub Actions. Установочные пакеты для Windows (`.exe`), macOS (`.dmg`), Linux (`.deb` и `.AppImage`).
+Автоматическая сборка через GitHub Actions. Установочные файлы: Windows (`.exe`), macOS (`.dmg`), Linux (`.deb` и `.AppImage`).
+
+![Логотипы платформ](icon.png)
+*Рисунок 3.1: Установочные пакеты для Windows, macOS и Linux.*
+
+#### 3.1 Инструкции для ОС
+- **🍎 macOS**: Обход Gatekeeper: Правый клик -> **Открыть**.
+- **🪟 Windows**: Обход SmartScreen: Подробнее -> **Выполнить в любом случае**.
+- **🐧 Linux**: Права на выполнение: `chmod +x Ableton.AI.Assistant-1.0.0.AppImage` или установка через `sudo dpkg -i Ableton.AI.Assistant-1.0.0.deb`.
 
 ---
 
 ### 4. ПОТОК СИГНАЛА И НАСТРОЙКА
 
-Установка скрипта `AntigravityCore` в папку `MIDI Remote Scripts` Ableton Live. Связь по локальному порту 9001 TCP.
+Скрипт `AntigravityCore` устанавливается в папку `MIDI Remote Scripts`. Локальное TCP-соединение по порту 9001 (`127.0.0.1`) с задержкой менее 1 мс. Шифрование ключа Claude API в системном хранилище.
+
+![Диаграмма потока сигнала](screenshot-UI.png)
+*Рисунок 4.1: Гибридная архитектура: связь между Remote Script, Electron и облаком.*
+
+![Выбор панели управления](icon.png)
+*Рисунок 4.2: Выбор 'AntigravityCore' в настройках Ableton Live.*
 
 ---
 
 ### 5. ОПЕРАЦИОННАЯ ФИЛОСОФИЯ
 
-Четыре этапа: Аудит ➔ Gain Staging ➔ Частотная очистка ➔ Мастеринг.
+4 этапа работы:
+1. **Аудит**: Сканирование пиков, громкости LUFS и конфликтов частот.
+2. **Gain Staging**: Автоматическая выравнивание уровня от -18 dBFS до -12 dBFS.
+3. **Очистка частот**: Автоматическое устранение маскировки в басовом регистре.
+4. **Мастеринг**: Тоновая полировка мастера для стриминговых платформ.
 
 ---
 
-### 6. МАСТЕР-КЛАСС ПАРАМЕТРОВ
+### 6. МАСТЕР-КЛАСС ПАРАМЕТРОВ – ТЕХНИЧЕСКИЕ ДЕТАЛИ
 
-- **Glue Compressor**: Адаптивная атака (30 мс) и релиз (100 мс), синхронизированные с темпом (BPM).
-- **EQ Eight Side-Cut**: Срез каналов Side ниже **120 Гц** для монофонического суб-баса.
-- **MCP Протокол**: Анализ JSON-структур и выполнение инженерных команд.
+- **Glue Compressor**: Адаптивная атака (30 мс) и релиз (100 мс), синхронизированные с темпом BPM.
+- **EQ Eight Side-Cut**: Фильтр среза высоких частот 48 дБ/окт на канале **Side (S)** ниже **120 Гц** фиксирует суб-бас в чистое **Mono (Mid)**, устраняя фазовые конфликты.
+
+![Предупреждение о маскировке](screenshot-UI.png)
+*Рисунок 6.1: Предупреждение о частотном конфликте между Kick и Bass.*
+
+- **MCP Протокол**: Анализ JSON-данных треков и передача детерминированных команд модели Claude 3.5 Sonnet.
 
 ---
 
-### 7. МУЛЬТИМОДАЛЬНОСТЬ & 8. БЕЗОПАСНОСТЬ
+### 7. МУЛЬТИМОДАЛЬНОСТЬ И 8. БЕЗОПАСНОСТЬ
 
-Поддержка 7 языков, защита от флуда (100 соб/сек), валидация JSON и лимит ОЗУ 2 ГБ.
+Поддержка 7 языков (ES, EN, DE, RU, UK, JA, ZH), защита от флуда (100 соб/сек), валидация JSON и лимит ОЗУ 2 ГБ.
 
 ---
 
@@ -752,9 +825,20 @@ CERTIFIED | RETAIL-READY | Rate limiting | Magic Bytes | 2 GB | 7 языков |
 
 ---
 
-### 10. МАНИФЕСТ, 11. АУДИТ & 12. ГЛОССАРИЙ
+### 10. МАНИФЕСТ, 11. АУДИТ И 12. ГЛОССАРИЙ
 
-Разработано produktes-code и Jesús Ferrer (CHUS BZN). Лицензия CC BY-NC-SA 4.0. Аудит Уровня 4 пройден 27 июля 2026 г.
+Разработано produktes-code и Jesús Ferrer García (CHUS BZN). Лицензия CC BY-NC-SA 4.0. Аудит Уровня 4 пройден 27 июля 2026 г.
+
+- **MCP**: Открытый протокол взаимодействия ИИ с локальными инструментами.
+- **TCP**: Надежный сетевой протокол передачи данных без потерь.
+- **DSP**: Цифровая обработка сигналов в реальном времени.
+- **LLM**: Большие языковые модели (например, Claude 3.5 Sonnet).
+- **API**: Интерфейс взаимодействия между приложением и сервером.
+- **JSON**: Текстовый формат обмена данными.
+- **OOM**: Ошибка исчерпания оперативной памяти.
+- **DAW**: Цифровая звуковая рабочая станция.
+- **Remote Script**: Скрипт Python для расширения API Ableton Live.
+- **Rate Limiting**: Ограничение частоты запросов для защиты сервера.
 
 ---
 
@@ -763,8 +847,6 @@ CERTIFIED | RETAIL-READY | Rate limiting | Magic Bytes | 2 GB | 7 языков |
 ## 🇺🇦 УКРАЇНСЬКА (UK)
 
 <div class="cover-container">
-
-![Imagotipo produktes-code](icon.png)
 
 # ABLETON AI ASSISTANT V1.0.0
 
@@ -782,7 +864,7 @@ CERTIFIED | RETAIL-READY | Rate limiting | Magic Bytes | 2 GB | 7 мов | CC BY
 
 ### 1. БАЧЕННЯ (ВСТУП)
 
-**Ableton AI Assistant** — це цифровий двійник аудіо (**Audio Digital Twin**), розроблений **produktes-code** та інженером **Jesús Ferrer (CHUS BZN)**. Модуль усуває фазові конфлікти та маскування частот у реальному часі через **Model Context Protocol (MCP)** та TCP.
+**Ableton AI Assistant** — це цифровий двійник аудіо (**Audio Digital Twin**), розроблений **produktes-code** та інженером **Jesús Ferrer (CHUS BZN)**. Модуль вирішує проблему втоми слуху звукорежисера, усуваючи фазові конфлікти та маскування частот у реальному часі через **Model Context Protocol (MCP)** та TCP.
 
 ![Головна панель](screenshot-UI.png)
 *Малюнок 1.1: Огляд панелі керування Ableton AI Assistant.*
@@ -791,25 +873,48 @@ CERTIFIED | RETAIL-READY | Rate limiting | Magic Bytes | 2 GB | 7 мов | CC BY
 
 ### 2. ІНТЕРФЕЙС ТА ЕРГОНОМІКА
 
-Темний режим RGB(15, 15, 15), корпоративні золоті акценти (#F5A623), 60 fps інтерфейс.
+Темний режим (**RGB 15, 15, 15**), золотисто-жовті акценти (#F5A623), 60 fps інтерфейс та інтерактивні регулятори через TCP.
 
 ---
 
 ### 3. ТЕХНІЧНЕ РОЗГОРТАННЯ ТА СИГНАЛИ
 
-CI/CD збірка через GitHub Actions для Windows, macOS та Linux (`.AppImage` / `.deb`). Скрипт `AntigravityCore` для Ableton Live, порт TCP 9001.
+CI/CD збірка через GitHub Actions для Windows (`.exe`), macOS (`.dmg`) та Linux (`.AppImage` / `.deb`).
+
+![Логотипи платформ](icon.png)
+*Малюнок 3.1: Інсталятори для Windows, macOS та Linux.*
+
+#### 3.1 Інструкції для ОС
+- **🍎 macOS**: Обхід Gatekeeper: Правий клік -> **Відкрити**.
+- **🪟 Windows**: Обхід SmartScreen: Докладніше -> **Виконати в будь-якому разі**.
+- **🐧 Linux**: `chmod +x Ableton.AI.Assistant-1.0.0.AppImage` або `sudo dpkg -i Ableton.AI.Assistant-1.0.0.deb`.
 
 ---
 
-### 4. ОПЕРАЦІЙНА ФІЛОСОФІЯ ТА ПАРАМЕТРИ
+### 4. СИГНАЛЬНИЙ ПОТІК ТА НАЛАШТУВАННЯ
+
+Скрипт `AntigravityCore` для Ableton Live (папка `MIDI Remote Scripts`), порт TCP 9001 (`127.0.0.1`), локальне шифрування ключа API Claude.
+
+![Діаграма потоку сигналу](screenshot-UI.png)
+*Малюнок 4.1: Гібридна архітектура: зв'язок між Remote Script, Electron та хмарою.*
+
+![Вибір панелі керування](icon.png)
+*Малюнок 4.2: Вибір 'AntigravityCore' у налаштуваннях Ableton Live.*
+
+---
+
+### 5. ОПЕРАЦІЙНА ФІЛОСОФІЯ ТА ПАРАМЕТРИ
 
 - 4 етапи: Аудит ➔ Gain Staging ➔ Очищення ➔ Мастеринг.
-- **Glue Compressor**: Автоматична атака (30 мс) та реліз (100 мс).
-- **EQ Eight Side-Cut**: Зріз Side-каналу нижче **120 Гц** для збереження моно-басу.
+- **Glue Compressor**: Автоматична атака (30 мс) та реліз (100 мс), синхронізовані з BPM.
+- **EQ Eight Side-Cut**: Зріз Side-каналу нижче **120 Гц** для збереження моно-басу та усунення фазових конфліктів.
+
+![Попередження про маскування](screenshot-UI.png)
+*Малюнок 6.1: Попередження про частотний конфлікт між Kick та Bass.*
 
 ---
 
-### 5. МУЛЬТИМОДАЛЬНІСТЬ, БЕЗОПЕКА ТА FAQ (15 ПИТАНЬ)
+### 6. МУЛЬТИМОДАЛЬНІСТЬ, БЕЗОПЕКА ТА FAQ (15 ПИТАНЬ)
 
 1. **Gatekeeper в macOS**: Правий клік -> **Відкрити**.
 2. **SmartScreen в Windows**: Докладніше -> **Виконати в будь-якому разі**.
@@ -829,9 +934,20 @@ CI/CD збірка через GitHub Actions для Windows, macOS та Linux (`
 
 ---
 
-### 6. МАНІФЕСТ, АУДИТ ТА ГЛОСАРІЙ
+### 7. МАНІФЕСТ, АУДИТ ТА ГЛОСАРІЙ
 
 Розроблено produktes-code та Jesus Ferrer (CHUS BZN). Ліцензія CC BY-NC-SA 4.0. Аудит Безпеки Рівня 4 пройдено 27 липня 2026 року.
+
+- **MCP**: Відкритий протокол взаємодії ШІ з локальними інструментами.
+- **TCP**: Надійний мережевий протокол передачі даних.
+- **DSP**: Цифрова обробка сигналів у реальному часі.
+- **LLM**: Великі мовні моделі (наприклад, Claude 3.5 Sonnet).
+- **API**: Інтерфейс взаємодії між програмою та сервером.
+- **JSON**: Текстовий формат обміну даними.
+- **OOM**: Помилка вичерпання оперативної пам'яті.
+- **DAW**: Цифрова звукова робоча станція.
+- **Remote Script**: Скрипт Python для розширення API Ableton Live.
+- **Rate Limiting**: Обмеження частоти запитів для захисту сервера.
 
 ---
 
@@ -841,13 +957,11 @@ CI/CD збірка через GitHub Actions для Windows, macOS та Linux (`
 
 <div class="cover-container">
 
-![Imagotipo produktes-code](icon.png)
-
 # ABLETON AI ASSISTANT V1.0.0
 
 <div class="subtitle">認知型AIミキシングエンジニア & MCPリアルタイムオーディオアシスタント</div>
 
-🌐 **言語選択 / Language Selector:** [ES](#-español-es) | [EN](#-english-en) | [DE](#-deutsch-de) | [RU](#-русский-ru) | [UK](#-українська-uk) | [JA](#-日本語-ja) | [ZH](#-中文-zh)
+🌐 **言語選択:** [ES](#-español-es) | [EN](#-english-en) | [DE](#-deutsch-de) | [RU](#-русский-ru) | [UK](#-українська-uk) | [JA](#-日本語-ja) | [ZH](#-中文-zh)
 
 <div class="keywords">
 CERTIFIED | RETAIL-READY | Rate limiting | Magic Bytes | 2 GB | 7言語 | CC BY-NC-SA 4.0
@@ -859,7 +973,7 @@ CERTIFIED | RETAIL-READY | Rate limiting | Magic Bytes | 2 GB | 7言語 | CC BY-
 
 ### 1. ビジョン（概要）
 
-**Ableton AI Assistant** は、**produktes-code** とエンジニア **Jesús Ferrer (CHUS BZN)** によって開発された究極の **Audio Digital Twin（オーディオ・デジタルツイン）** です。**Model Context Protocol (MCP)** と低レイテンシーTCPアーキテクチャを介してAbleton Liveとリアルタイム接続し、周波数マスキングや位相キャンセルを自動補正します。
+**Ableton AI Assistant** は、**produktes-code** とエンジニア **Jesús Ferrer (CHUS BZN)** によって開発された究極の **Audio Digital Twin（オーディオ・デジタルツイン）** です。累積的な耳の疲労問題を解決し、**Model Context Protocol (MCP)** と低レイテンシーTCPアーキテクチャを介してAbleton Liveとリアルタイム接続し、周波数マスキングや位相キャンセルを自動補正します。
 
 ![メインダッシュボード](screenshot-UI.png)
 *図 1.1: Ableton AI Assistant のメインコントロールパネル概要*
@@ -874,19 +988,43 @@ RGB(15, 15, 15)の純粋ダークモード、ゴールド/イエローのアク�
 
 ### 3. 技術的デプロイ & セットアップ
 
-GitHub ActionsによるCI/CD自動ビルド。Windows (`.exe`)、macOS (`.dmg`)、Linux (`.deb` / `.AppImage`) に対応。Python Remote Script `AntigravityCore` をAbleton Liveの `MIDI Remote Scripts` に配置し、TCPポート 9001 で通信。
+GitHub ActionsによるCI/CD自動ビルド。Windows (`.exe`)、macOS (`.dmg`)、Linux (`.deb` / `.AppImage`) に対応。
+
+![プラットフォームロゴ](icon.png)
+*図 3.1: Windows、macOS、Linux 用インストーラー*
+
+#### 3.1 OS別手順
+- **🍎 macOS**: アプリを右クリック -> **開く** を選択。
+- **🪟 Windows**: 詳細情報 -> **実行** をクリック。
+- **🐧 Linux**: `chmod +x Ableton.AI.Assistant-1.0.0.AppImage` または `sudo dpkg -i Ableton.AI.Assistant-1.0.0.deb`。
 
 ---
 
-### 4. ワークフロー & パラメーターマスタークラス
+### 4. 信号フロー & 設定
+
+Python Remote Script `AntigravityCore` をAbleton Liveの `MIDI Remote Scripts` に配置し、TCPポート 9001 (`127.0.0.1`) で通信。Claude APIキーはローカル暗号化。
+
+![信号フロー図](screenshot-UI.png)
+*図 4.1: ハイブリッドアーキテクチャ：Remote Script、Electron、クラウド間の通信*
+
+![コントロールサーフェス選択](icon.png)
+*図 4.2: Ableton Live 設定での 'AntigravityCore' 選択*
+
+---
+
+### 5. ワークフロー & パラメーターマスタークラス
 
 - **Glue Compressor**: BPMに同期したアタック（30ms）とリリース（100ms）。
-- **EQ Eight Side-Cut**: 120 Hz 以下の Side 帯域をカットし、サブベースを完全なモノラルに固定。
+- **EQ Eight Side-Cut**: 120 Hz 以下の Side 帯域をカットし、サブベースを完全なモノラル（Mid）に固定。
+
+![マスキング警告](screenshot-UI.png)
+*図 6.1: Kick と Bass の周波数マスキング葛藤警告*
+
 - **MCP Framework**: JSON構造解析と決定論的コマンド実行。
 
 ---
 
-### 5. 多言語対応、セキュリティ & FAQ（15項目）
+### 6. 多言語対応、セキュリティ & FAQ（15項目）
 
 1. **macOS Gatekeeper警告**: 右クリック -> **開く** を選択。
 2. **Windows SmartScreen**: 詳細情報 -> **実行** をクリック。
@@ -906,9 +1044,20 @@ GitHub ActionsによるCI/CD自動ビルド。Windows (`.exe`)、macOS (`.dmg`)�
 
 ---
 
-### 6. ライセンス、監査 & 用語集
+### 7. ライセンス、監査 & 用語集
 
-CC BY-NC-SA 4.0 ライセンス。2026年7月27日 Level 4 セキュリティ監査合格。MCP, TCP, DSP, LLM, API, JSON, OOM などの用語定義。
+CC BY-NC-SA 4.0 ライセンス。2026年7月27日 Level 4 セキュリティ監査合格。
+
+- **MCP**: AIモデルとローカルツール間のオープン通信規格。
+- **TCP**: 信頼性の高い接続指向型ネットワークプロトコル。
+- **DSP**: リアルタイムデジタル信号処理。
+- **LLM**: 大規模言語モデル（例：Claude 3.5 Sonnet）。
+- **API**: 独立したアプリケーション間の標準コードインターフェース。
+- **JSON**: トラック構造伝送用の軽量テキストフォーマット。
+- **OOM**: メモリ枯渇によるシステムエラー状態。
+- **DAW**: デジタルオーディオワークステーション。
+- **Remote Script**: Ableton Live API拡張用Pythonスクリプト。
+- **Rate Limiting**: リクエスト頻度を制限する防衛機構。
 
 ---
 
@@ -918,13 +1067,11 @@ CC BY-NC-SA 4.0 ライセンス。2026年7月27日 Level 4 セキュリティ監
 
 <div class="cover-container">
 
-![Imagotipo produktes-code](icon.png)
-
 # ABLETON AI ASSISTANT V1.0.0
 
 <div class="subtitle">认知AI混音工程师 & MCP实时音频助手</div>
 
-🌐 **语言选择 / Language Selector:** [ES](#-español-es) | [EN](#-english-en) | [DE](#-deutsch-de) | [RU](#-русский-ru) | [UK](#-українська-uk) | [JA](#-日本語-ja) | [ZH](#-中文-zh)
+🌐 **语言选择:** [ES](#-español-es) | [EN](#-english-en) | [DE](#-deutsch-de) | [RU](#-русский-ru) | [UK](#-українська-uk) | [JA](#-日本語-ja) | [ZH](#-中文-zh)
 
 <div class="keywords">
 CERTIFIED | RETAIL-READY | Rate limiting | Magic Bytes | 2 GB | 7种语言 | CC BY-NC-SA 4.0
@@ -936,7 +1083,7 @@ CERTIFIED | RETAIL-READY | Rate limiting | Magic Bytes | 2 GB | 7种语言 | CC 
 
 ### 1. 愿景 (简介)
 
-**Ableton AI Assistant** 是由 **produktes-code** 与工程师 **Jesús Ferrer (CHUS BZN)** 联合打造的终极**音频数字孪生体 (Audio Digital Twin)**。系统通过**模型上下文协议 (MCP)** 与低延迟 TCP 架构实时连接 Ableton Live，精准计算频率掩蔽并消除相位冲突。
+**Ableton AI Assistant** 是由 **produktes-code** 与工程师 **Jesús Ferrer (CHUS BZN)** 联合打造的终极**音频数字孪生体 (Audio Digital Twin)**。系统针对音乐制作中的听觉疲劳问题，通过**模型上下文协议 (MCP)** 与低延迟 TCP 架构实时连接 Ableton Live，精准计算频率掩蔽并消除相位冲突。
 
 ![主控制面板](screenshot-UI.png)
 *图 1.1: Ableton AI Assistant 主控制面板概览*
@@ -949,21 +1096,46 @@ CERTIFIED | RETAIL-READY | Rate limiting | Magic Bytes | 2 GB | 7种语言 | CC 
 
 ---
 
-### 3. 技术部署与信号流设置
+### 3. 技术部署与 CI/CD 安装
 
-采用 GitHub Actions 进行自动 CI/CD 构建，提供 Windows (`.exe`)、macOS (`.dmg`) 及 Linux (`.deb` / `.AppImage`) 安装包。将 `AntigravityCore` 脚本放入 Ableton Live 的 `MIDI Remote Scripts` 目录，通过本地 9001 端口进行 IPC 通信。
+采用 GitHub Actions 进行自动 CI/CD 构建，提供 Windows (`.exe`)、macOS (`.dmg`) 及 Linux (`.deb` / `.AppImage`) 安装包。
+
+![平台标志](icon.png)
+*图 3.1: 适用于 Windows、macOS 和 Linux 的安装程序*
+
+#### 3.1 操作系统特定说明
+- **🍎 macOS**: 右键单击应用 -> 选择 **打开**。
+- **🪟 Windows**: 单击 **更多信息** -> 选择 **仍要运行**。
+- **🐧 Linux**: 执行 `chmod +x Ableton.AI.Assistant-1.0.0.AppImage` 或 `sudo dpkg -i Ableton.AI.Assistant-1.0.0.deb`。
 
 ---
 
-### 4. 操作哲学与参数大师班
+### 4. 信号流与设置
+
+将 `AntigravityCore` 脚本放入 Ableton Live 的 `MIDI Remote Scripts` 目录，通过本地 9001 端口进行传输延迟小于 1 毫秒的 IPC 通信。Claude API 密钥在本地加密保存。
+
+![信号流图](screenshot-UI.png)
+*图 4.1: 混合架构：Remote Script、Electron 和云端之间的通信*
+
+![控制界面选择](icon.png)
+*图 4.2: 在 Ableton Live 首选项中选择 'AntigravityCore'*
+
+---
+
+### 5. 操作哲学与参数大师班
 
 - 4 阶段工作流：审计 ➔ 增益调整 ➔ 频谱清理 ➔ 母带修饰。
 - **Glue Compressor**: 基于 BPM 动态计算慢启动 (30ms) 与超快释放 (100ms)。
-- **EQ Eight Side-Cut**: 严格切除 **120 Hz** 以下 Side 信号，锁定 Mono 低频。
+- **EQ Eight Side-Cut**: 严格切除 **120 Hz** 以下 Side 信号，锁定 Mono 低频，消除俱乐部音响系统的相位抵消。
+
+![掩蔽警告](screenshot-UI.png)
+*图 6.1: Kick 与 Bass 之间的频率掩蔽冲突警告*
+
+- **MCP 框架**: 分析轨道 JSON 载荷，执行来自 Claude 3.5 Sonnet 模型的高精度指令。
 
 ---
 
-### 5. 全球多模态、安全架构与 FAQ (15 条)
+### 6. 全球多模态、安全架构与 FAQ (15 条)
 
 1. **macOS Gatekeeper 警告**: 右键单击 -> 选择 **打开**。
 2. **Windows SmartScreen 拦截**: 单击 **更多信息** -> 选择 **仍要运行**。
@@ -983,6 +1155,17 @@ CERTIFIED | RETAIL-READY | Rate limiting | Magic Bytes | 2 GB | 7种语言 | CC 
 
 ---
 
-### 6. 工程宣言、安全审计与词汇表
+### 7. 工程宣言、安全审计与词汇表
 
-采用 CC BY-NC-SA 4.0 许可证。2026 年 7 月 27 日通过 4 级安全审计。包含 MCP, TCP, DSP, LLM, API, JSON, OOM, DAW 等技术术语定义。
+采用 CC BY-NC-SA 4.0 许可证。2026 年 7 月 27 日通过 4 级安全审计。
+
+- **MCP**: AI 模型与本地工具安全交互的开放协议标准。
+- **TCP**: 保证无损按序传输的面向连接网络协议。
+- **DSP**: 数字信号实时数学处理算法。
+- **LLM**: 大规模语言模型（如 Claude 3.5 Sonnet）。
+- **API**: 独立应用程序之间的标准代码接口。
+- **JSON**: 用于传输 Ableton 轨道结构的轻量级文本格式。
+- **OOM**: 系统内存耗尽导致的严重错误状态。
+- **DAW**: 数字音频工作站（如 Ableton Live）。
+- **Remote Script**: 用于扩展 Ableton Live API 的 Python 脚本。
+- **Rate Limiting**: 限制请求频率以保护服务器的防御机制。
