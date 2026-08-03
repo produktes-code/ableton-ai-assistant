@@ -68,13 +68,24 @@ p {
     text-align: justify; 
 }
 
+/* Imágenes */
 img {
-    max-width: 100%;
+    max-width: 90%;
     height: auto;
     display: block;
     margin: 16pt auto;
     border-radius: 8px;
     box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+}
+
+/* Imagotipo Corporativo de Portada */
+img[alt*="Imagotipo"], img[src*="icon.png"] {
+    max-width: 140px !important;
+    height: auto !important;
+    display: block !important;
+    margin: 10px auto 20px auto !important;
+    border-radius: 20px !important;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.4) !important;
 }
 
 .caption, figcaption, em {
