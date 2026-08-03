@@ -1,13 +1,145 @@
+<style>
+@page {
+  size: A4;
+  margin: 2.5cm;
+  @bottom-right {
+    content: "Página " counter(page);
+    font-size: 9pt;
+    color: #999;
+  }
+}
+
+body {
+  font-family: Arial, sans-serif;
+  font-size: 11pt;
+  line-height: 1.15;
+  color: #000;
+}
+
+h1 {
+  font-size: 22pt;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #F5A623;
+  text-align: center;
+  margin-top: 2cm;
+  margin-bottom: 0.5cm;
+}
+
+h2 {
+  font-size: 16pt;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #F5A623;
+  margin-top: 1.5cm;
+  margin-bottom: 0.3cm;
+  page-break-before: avoid;
+}
+
+h3 {
+  font-size: 14pt;
+  font-weight: bold;
+  color: #F5A623;
+  margin-top: 1cm;
+  margin-bottom: 0.2cm;
+}
+
+.subtitle {
+  font-size: 14pt;
+  font-style: italic;
+  text-align: center;
+  color: #333;
+  margin-bottom: 0.5cm;
+}
+
+.keywords {
+  font-size: 10pt;
+  text-align: center;
+  color: #666;
+  margin-top: 0.5cm;
+  margin-bottom: 1cm;
+  border-top: 1px solid #F5A623;
+  border-bottom: 1px solid #F5A623;
+  padding: 0.2cm 0;
+}
+
+.cover-container {
+  text-align: center;
+  margin-top: 0.5cm;
+}
+
+.cover-logo {
+  max-width: 120px;
+  height: auto;
+  display: block;
+  margin: 0 auto 0.5cm auto;
+}
+
+.note {
+  background-color: #f9f9f9;
+  border-left: 4px solid #F5A623;
+  padding: 0.2cm 0.5cm;
+  margin: 0.5cm 0;
+  font-size: 10pt;
+}
+
+code {
+  font-family: 'Courier New', monospace;
+  font-size: 10pt;
+  background-color: #f4f4f4;
+  padding: 0.1cm 0.3cm;
+}
+
+.page-break {
+  page-break-before: always;
+}
+
+.language-selector {
+  text-align: center;
+  font-size: 12pt;
+  margin: 0.3cm 0;
+}
+
+.language-selector a {
+  color: #F5A623;
+  text-decoration: none;
+  margin: 0 0.2cm;
+  font-weight: bold;
+}
+
+.language-selector a:hover {
+  text-decoration: underline;
+}
+
+figcaption {
+  font-size: 10pt;
+  font-style: italic;
+  text-align: center;
+  margin-top: 0.2cm;
+  color: #555;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1cm auto;
+}
+</style>
+
+<a id="es"></a>
+
 <div class="cover-container">
 
-<img src="icon.png" class="cover-logo" alt="Imagotipo produktes-code" />
+![Imagotipo produktes-code](icon.png)
 
 # ABLETON AI ASSISTANT V1.0.0
 
 <div class="subtitle">Cognitive AI Mixing Engineer & MCP Real-Time Audio Assistant / Ingeniero de Mezcla Cognitivo IA y Asistente de Audio en Tiempo Real MCP</div>
 
-🌐 **Selector de Idiomas / Language Selector:**  
-[ES](#-español-es) | [EN](#-english-en) | [DE](#-deutsch-de) | [RU](#-русский-ru) | [UK](#-українська-uk) | [JA](#-日本語-ja) | [ZH](#-中文-zh)
+<div class="language-selector">
+  [ES](#es) | [EN](#en) | [DE](#de) | [RU](#ru) | [UK](#uk) | [JA](#ja) | [ZH](#zh)
+</div>
 
 <div class="keywords">
 CERTIFIED | RETAIL-READY | Rate limiting | Magic Bytes | 2 GB | 7 idiomas | CC BY-NC-SA 4.0
@@ -32,10 +164,11 @@ Ableton AI Assistant fue concebido no como un simple complemento o script MIDI d
 Conectándose en tiempo real mediante el **Protocolo de Contexto de Modelo (MCP - Model Context Protocol)** y alimentado por una arquitectura TCP de ultra baja latencia, la Inteligencia Artificial "escucha" inductivamente el estado dinámico del mezclador de Ableton Live y ejecuta órdenes paramétricas hardcodeadas en el motor DSP nativo. Devolvemos a los creadores e ingenieros el dominio absoluto sobre su identidad sonora.
 
 ![Dashboard principal](screenshot-UI.png)
-*Figura 1.1: Vista general del panel de control de Ableton AI Assistant.*
+<figcaption>Figura 1.1: Vista general del panel de control de Ableton AI Assistant.</figcaption>
 
-> [!NOTE]
-> Developed by **produktes-code** and **Jesús Ferrer (CHUS BZN)** to establish professional standards in commercial engineering.
+<div class="note">
+Developed by <strong>produktes-code</strong> and <strong>Jesús Ferrer (CHUS BZN)</strong> to establish professional standards in commercial engineering.
+</div>
 
 ---
 
@@ -65,7 +198,7 @@ La arquitectura gráfica de Electron aísla completamente el hilo de renderizado
 Para garantizar una estabilidad absoluta en cualquier entorno operativo comercial o de estudio, la compilación de Ableton AI Assistant se ejecuta de forma centralizada mediante un flujo de **Integración y Despliegue Continuo (CI/CD)** alojado en GitHub Actions.
 
 ![Instaladores de plataformas](icon.png)
-*Figura 3.1: Instaladores disponibles para Windows, macOS y Linux.*
+<figcaption>Figura 3.1: Instaladores disponibles para Windows, macOS y Linux.</figcaption>
 
 #### 3.1 Pipeline de Compilación Automatizada
 El código fuente no se empaqueta localmente en máquinas de desarrollo. En cada release, servidores de compilación limpios en la nube compilan de forma nativa los artefactos finales para Windows, macOS y Linux Ubuntu, ejecutando pruebas de integración estáticas antes de publicar el empaquetado final.
@@ -111,7 +244,7 @@ Para distribuciones basadas en Ubuntu, Debian, Manjaro o Fedora:
 El diseño híbrido de Ableton AI Assistant combina tres capas de ejecución tecnológica altamente especializadas: el motor de audio en Python dentro de Ableton Live, la interfaz nativa en Electron y el servidor MCP conectado a la infraestructura de inteligencia artificial en la nube.
 
 ![Diagrama de flujo de señal](screenshot-UI.png)
-*Figura 4.1: Arquitectura híbrida: comunicación entre Remote Script, Electron y la nube.*
+<figcaption>Figura 4.1: Arquitectura híbrida: comunicación entre Remote Script, Electron y la nube.</figcaption>
 
 #### 4.1 Instalación del Remote Script de Ableton (Python Engine)
 1. Descargue el paquete de código fuente o localice la carpeta `AntigravityCore` dentro del directorio de instalación de la aplicación.
@@ -121,7 +254,7 @@ El diseño híbrido de Ableton AI Assistant combina tres capas de ejecución tec
 3. Abra Ableton Live, acceda a **Preferencias -> Link / MIDI**, y en la pestaña de **Control Surface (Superficie de Control)**, seleccione `AntigravityCore` en la primera casilla disponible.
 
 ![Selección de Control Surface](icon.png)
-*Figura 4.2: Selección de 'AntigravityCore' en las preferencias de Ableton Live.*
+<figcaption>Figura 4.2: Selección de 'AntigravityCore' en las preferencias de Ableton Live.</figcaption>
 
 #### 4.2 Sockets TCP de Ultra Baja Latencia (Local Loopback)
 Una vez inicializado el Remote Script `AntigravityCore`, Python abre silenciosamente un servidor de sockets TCP escuchando en la dirección local `127.0.0.1` a través del puerto especificado **9001**.
@@ -151,7 +284,7 @@ Al iniciar una nueva sesión de producción, el operador activa el botón **Anal
 - Mapeo de panoramas estéreo e identificación de instrumentos de frecuencia grave.
 
 #### 5.2 Estaciado Dinámico de Ganancia (Gain Staging)
-El mantenimiento de un headroom adecuado es la regla de oro en el entorno digital. El asistente calcula la atenuación o ganancia necesaria para posicionar el valor nominal de cada canal entre **-18 dBFS y -12 dBFS**, permitir que los plugins de emulación analógica operen en su punto dulce lineal sin introducir distorsión armónica no deseada.
+El mantenimiento de un headroom adecuado es la regla de oro en el entorno digital. El asistente calcula la atenuación o ganancia necesaria para posicionar el valor nominal de cada canal entre **-18 dBFS y -12 dBFS**, permitiendo que los plugins de emulación analógica operen en su punto dulce lineal sin introducir distorsión armónica no deseada.
 
 #### 5.3 Control de Enmascaramiento y Limpieza Espectral
 A través de algoritmos de detección espectral en tiempo real, la consola identifica frecuencias de choque. Al pulsar **Clear Masking**, el sistema envía una orden paramétrica al plugin *EQ Eight* de Ableton, ejecutando un corte de fase estricto para limpiar el rango inferior de la mezcla.
@@ -168,10 +301,8 @@ Esta sección expone detalladamente la lógica matemática e ingenieril aplicada
 #### 6.1 Compresión Algorítmica Adaptativa (Glue Compressor)
 La compresión de bus no debe aplicarse mediante presets estáticos. El asistente analiza el ritmo de la pista (BPM) y la envolvente de los transitorios para instanciar el procesador *Glue Compressor* con los siguientes parámetros calculados:
 
-$$\text{Attack Time} = \text{Lento (30 ms)} \quad \text{para preservar la pegada del bombo y la caja.}$$
-
-$$\text{Release Time} = \text{Ultrarrápido (100 ms o Auto)}, \quad \text{sincronizado al tempo de la sesión.}$$
-
+- **Attack Time**: Lento (30 ms) para preservar la pegada del bombo y la caja.
+- **Release Time**: Ultrarrápido (100 ms o Auto), sincronizado al tempo de la sesión.
 - **Ratio**: Fijado en 2:1 o 4:1 según el rango dinámico entrante.
 - **Makeup Gain**: Compensación de ganancia automatizada sobre el valor RMS efectivo.
 
@@ -179,7 +310,7 @@ $$\text{Release Time} = \text{Ultrarrápido (100 ms o Auto)}, \quad \text{sincro
 Uno de los errores más comunes en la mezcla de música electrónica y urbana es la cancelación de fase en frecuencias subgraves.
 
 ![Alerta de enmascaramiento](screenshot-UI.png)
-*Figura 6.1: Alerta por conflicto de frecuencias entre Kick y Bass.*
+<figcaption>Figura 6.1: Alerta por conflicto de frecuencias entre Kick y Bass.</figcaption>
 
 Nuestra directiva técnica ejecuta una instrucción de procesamiento Mid/Side en el *EQ Eight* asignado a las pistas secundarias y de efectos:
 - **Filtro de Corte de Graves (High-Pass / Low-Cut)**: Pendiente de 48 dB/octava en la señal **Side (S)** fijada estrictamente por debajo de **120 Hz**.
@@ -319,7 +450,7 @@ Este repositorio ha superado satisfactoriamente una auditoría de seguridad exha
 
 <div class="page-break"></div>
 
-## 🇬🇧 ENGLISH (EN)
+<a id="en"></a>
 
 <div class="cover-container">
 
@@ -327,7 +458,9 @@ Este repositorio ha superado satisfactoriamente una auditoría de seguridad exha
 
 <div class="subtitle">Cognitive AI Mixing Engineer & MCP Real-Time Audio Assistant</div>
 
-🌐 **Language Selector:** [ES](#-español-es) | [EN](#-english-en) | [DE](#-deutsch-de) | [RU](#-русский-ru) | [UK](#-українська-uk) | [JA](#-日本語-ja) | [ZH](#-中文-zh)
+<div class="language-selector">
+  [ES](#es) | [EN](#en) | [DE](#de) | [RU](#ru) | [UK](#uk) | [JA](#ja) | [ZH](#zh)
+</div>
 
 <div class="keywords">
 CERTIFIED | RETAIL-READY | Rate limiting | Magic Bytes | 2 GB | 7 languages | CC BY-NC-SA 4.0
@@ -348,10 +481,11 @@ Ableton AI Assistant was conceived not as a mere plugin or decorative MIDI scrip
 Connecting in real time via the **Model Context Protocol (MCP)** and powered by an ultra-low latency TCP architecture, Claude's Artificial Intelligence "listens" to Ableton Live's mixer dynamic state and executes hardcoded parametric commands in the native DSP engine. We give creators and engineers back absolute control over their sonic identity.
 
 ![Main Dashboard](screenshot-UI.png)
-*Figure 1.1: Ableton AI Assistant main control panel overview.*
+<figcaption>Figure 1.1: Ableton AI Assistant main control panel overview.</figcaption>
 
-> [!NOTE]
-> Developed by **produktes-code** and **Jesús Ferrer (CHUS BZN)** to establish professional standards in commercial engineering.
+<div class="note">
+Developed by <strong>produktes-code</strong> and <strong>Jesús Ferrer (CHUS BZN)</strong> to establish professional standards in commercial engineering.
+</div>
 
 ---
 
@@ -381,7 +515,7 @@ Electron's graphic architecture completely isolates the Main UI Thread, guarante
 To guarantee cross-platform stability in commercial and studio environments, compilation of Ableton AI Assistant is centrally executed via **Automated CI/CD Workflows** hosted on GitHub Actions.
 
 ![Platform Logos](icon.png)
-*Figure 3.1: Installers available for Windows, macOS, and Linux.*
+<figcaption>Figure 3.1: Installers available for Windows, macOS, and Linux.</figcaption>
 
 #### 3.1 Automated Build Pipeline
 Source code is not packaged locally on developer machines. On every release, clean cloud compilation servers natively build final artifacts for Windows, macOS, and Linux Ubuntu, running static integration tests prior to publishing.
@@ -427,7 +561,7 @@ For Ubuntu, Debian, Manjaro, or Fedora distributions:
 Ableton AI Assistant's hybrid design combines three specialized technological execution layers: the Python audio engine inside Ableton Live, the native Electron interface, and the MCP server connected to cloud AI infrastructure.
 
 ![Signal Flow Diagram](screenshot-UI.png)
-*Figure 4.1: Hybrid architecture: communication between Remote Script, Electron, and Cloud.*
+<figcaption>Figure 4.1: Hybrid architecture: communication between Remote Script, Electron, and Cloud.</figcaption>
 
 #### 4.1 Ableton Remote Script Installation (Python Engine)
 1. Download the source package or locate the `AntigravityCore` folder inside the application directory.
@@ -437,7 +571,7 @@ Ableton AI Assistant's hybrid design combines three specialized technological ex
 3. Open Ableton Live, navigate to **Preferences -> Link / MIDI**, and under the **Control Surface** tab, select `AntigravityCore`.
 
 ![Control Surface Selection](icon.png)
-*Figure 4.2: Selecting 'AntigravityCore' in Ableton Live Preferences.*
+<figcaption>Figure 4.2: Selecting 'AntigravityCore' in Ableton Live Preferences.</figcaption>
 
 #### 4.2 Ultra-Low Latency TCP Sockets (Local Loopback)
 Once `AntigravityCore` initializes, Python silently opens a TCP socket server listening on local address `127.0.0.1` at port **9001**.
@@ -488,7 +622,7 @@ Bass phase cancellation is a common mix error. Our technical directive executes 
 - **Physical Result**: All energy between 20 Hz and 120 Hz (Kick & Sub-bass) is anchored purely in **Mono (Mid)**, eradicating phase cancellations on stereo club/PA systems.
 
 ![Masking Alert](screenshot-UI.png)
-*Figure 6.1: Frequency masking conflict alert between Kick and Bass.*
+<figcaption>Figure 6.1: Frequency masking conflict alert between Kick and Bass.</figcaption>
 
 #### 6.3 LLM Framework (MCP Protocol)
 The assistant implements an MCP server architecture acting as a gateway between Claude 3.5 Sonnet and Ableton Live. JSON track state payloads are evaluated against sound engineering rules to return deterministic execution orders.
@@ -558,7 +692,7 @@ Level 4 Security Audit passed on **July 27, 2026** (0 critical vulnerabilities).
 
 <div class="page-break"></div>
 
-## 🇩🇪 DEUTSCH (DE)
+<a id="de"></a>
 
 <div class="cover-container">
 
@@ -566,7 +700,9 @@ Level 4 Security Audit passed on **July 27, 2026** (0 critical vulnerabilities).
 
 <div class="subtitle">Kognitiver KI-Mischingenieur & MCP-Echtzeit-Audioassistent</div>
 
-🌐 **Sprachauswahl:** [ES](#-español-es) | [EN](#-english-en) | [DE](#-deutsch-de) | [RU](#-русский-ru) | [UK](#-українська-uk) | [JA](#-日本語-ja) | [ZH](#-中文-zh)
+<div class="language-selector">
+  [ES](#es) | [EN](#en) | [DE](#de) | [RU](#ru) | [UK](#uk) | [JA](#ja) | [ZH](#zh)
+</div>
 
 <div class="keywords">
 CERTIFIED | RETAIL-READY | Rate limiting | Magic Bytes | 2 GB | 7 Sprachen | CC BY-NC-SA 4.0
@@ -587,10 +723,11 @@ Ableton AI Assistant ist der ultimative **Audio Digital Twin**. Es handelt sich 
 Über das **Model Context Protocol (MCP)** und eine TCP-Architektur mit extrem geringer Latenz steuert die KI Claude den Mixer von Ableton Live in Echtzeit und führt festcodierte parametrische Befehle in der nativen DSP-Engine aus. Wir geben Schöpfern und Ingenieuren die absolute Kontrolle über ihre klangliche Identität zurück.
 
 ![Haupt-Dashboard](screenshot-UI.png)
-*Abbildung 1.1: Übersicht über das Haupt-Bedienfeld des Ableton AI Assistant.*
+<figcaption>Abbildung 1.1: Übersicht über das Haupt-Bedienfeld des Ableton AI Assistant.</figcaption>
 
-> [!NOTE]
-> Entwickelt von **produktes-code** und **Jesús Ferrer (CHUS BZN)**.
+<div class="note">
+Entwickelt von <strong>produktes-code</strong> und <strong>Jesús Ferrer (CHUS BZN)</strong>.
+</div>
 
 ---
 
@@ -605,7 +742,7 @@ Dunkles Farbschema (**RGB 15, 15, 15**) zur Reduzierung der Augenermüdung bei N
 Automatisiertes CI/CD über GitHub Actions. Binärdateien verfügbar für Windows (`.exe`), macOS (`.dmg`), Linux (`.deb` & `.AppImage`).
 
 ![Plattform-Logos](icon.png)
-*Abbildung 3.1: Verfügbare Installationsprogramme für Windows, macOS und Linux.*
+<figcaption>Abbildung 3.1: Verfügbare Installationsprogramme für Windows, macOS und Linux.</figcaption>
 
 #### 3.1 Betriebssystem-Spezifische Anweisungen
 - **🍎 macOS**: Gatekeeper-Bypass durch Rechtsklick auf die Anwendung -> **Öffnen**.
@@ -619,10 +756,10 @@ Automatisiertes CI/CD über GitHub Actions. Binärdateien verfügbar für Window
 Integration des Python Remote Scripts `AntigravityCore` in den Ableton Live Ordner `MIDI Remote Scripts`. TCP-Kommunikation über Port 9001 (Local Loopback `127.0.0.1`) mit einer Übertragungslatenz unter 1 Millisekunde. Sichere lokale Verschlüsselung des Claude-API-Schlüssels im Keychain des Betriebssystems.
 
 ![Signalfluss-Diagramm](screenshot-UI.png)
-*Abbildung 4.1: Hybride Architektur: Kommunikation zwischen Remote Script, Electron und Cloud.*
+<figcaption>Abbildung 4.1: Hybride Architektur: Kommunikation zwischen Remote Script, Electron und Cloud.</figcaption>
 
 ![Bedienoberflächen-Auswahl](icon.png)
-*Abbildung 4.2: Auswahl von 'AntigravityCore' in den Ableton Live Einstellungen.*
+<figcaption>Abbildung 4.2: Auswahl von 'AntigravityCore' in den Ableton Live Einstellungen.</figcaption>
 
 ---
 
@@ -642,7 +779,7 @@ Integration des Python Remote Scripts `AntigravityCore` in den Ableton Live Ordn
 - **EQ Eight Side-Cut**: Steiler 48 dB/Okt High-Pass-Filter auf dem Side (S)-Kanal unter **120 Hz** verankert Sub-Bässe rein in Mono (Mid) und eliminiert Phasenauslöschungen auf Club-Sound-Systemen.
 
 ![Maskierungs-Warnung](screenshot-UI.png)
-*Abbildung 6.1: Warnung vor Frequenzmaskierungskonflikten zwischen Kick und Bass.*
+<figcaption>Abbildung 6.1: Warnung vor Frequenzmaskierungskonflikten zwischen Kick und Bass.</figcaption>
 
 - **MCP Framework**: JSON-Payload-Analyse des Spurenzustands und deterministische Befehlsausführung über das Claude 3.5 Sonnet Modell.
 
@@ -664,9 +801,9 @@ Vollständige Unterstützung von 7 Sprachen (ES, EN, DE, RU, UK, JA, ZH) mit 100
 
 ### 9. DEBUG-LOG (FAQ) – 15 TECHNISCHE EINTRÄGE
 
-1. **macOS Gatekeeper**: Rechtsklick -> **Öffnen**.
+1. **macOS Gatekeeper-Warnung**: Rechtsklick -> **Öffnen**.
 2. **Windows SmartScreen**: Weitere Informationen -> **Trotzdem ausführen**.
-3. **Linux AppImage**: `chmod +x Ableton.AI.Assistant-1.0.0.AppImage` ausführen.
+3. **Linux AppImage Rechte**: `chmod +x Ableton.AI.Assistant-1.0.0.AppImage` ausführen.
 4. **`AntigravityCore` fehlt**: Ordnerpfad prüfen und Ableton neu starten.
 5. **TCP Port 9001 Fehler**: Port `127.0.0.1:9001` in der Firewall freigeben.
 6. **Electron "Disconnected"**: Ableton Live mit aktivem Skript ausführen.
@@ -711,7 +848,7 @@ Level 4 Sicherheitsaudit am 27. Juli 2026 erfolgreich bestanden (0 kritische Sch
 
 <div class="page-break"></div>
 
-## 🇷🇺 РУССКИЙ (RU)
+<a id="ru"></a>
 
 <div class="cover-container">
 
@@ -719,7 +856,9 @@ Level 4 Sicherheitsaudit am 27. Juli 2026 erfolgreich bestanden (0 kritische Sch
 
 <div class="subtitle">Когнитивный ИИ-инженер по сведению и аудиопомощник реального времени</div>
 
-🌐 **Выбор языка:** [ES](#-español-es) | [EN](#-english-en) | [DE](#-deutsch-de) | [RU](#-русский-ru) | [UK](#-українська-uk) | [JA](#-日本語-ja) | [ZH](#-中文-zh)
+<div class="language-selector">
+  [ES](#es) | [EN](#en) | [DE](#de) | [RU](#ru) | [UK](#uk) | [JA](#ja) | [ZH](#zh)
+</div>
 
 <div class="keywords">
 CERTIFIED | RETAIL-READY | Rate limiting | Magic Bytes | 2 GB | 7 языков | CC BY-NC-SA 4.0
@@ -738,10 +877,11 @@ CERTIFIED | RETAIL-READY | Rate limiting | Magic Bytes | 2 GB | 7 языков |
 Подключаясь через **Model Context Protocol (MCP)** и TCP-сокет с низкой задержкой, ИИ Claude в реальном времени анализирует состояние микшера Ableton Live и выполняет команды в нативном DSP-движке.
 
 ![Главная панель](screenshot-UI.png)
-*Рисунок 1.1: Обзор главной панели управления Ableton AI Assistant.*
+<figcaption>Рисунок 1.1: Обзор главной панели управления Ableton AI Assistant.</figcaption>
 
-> [!NOTE]
-> Разработано **produktes-code** и **Jesús Ferrer (CHUS BZN)**.
+<div class="note">
+Разработано <strong>produktes-code</strong> и <strong>Jesús Ferrer (CHUS BZN)</strong>.
+</div>
 
 ---
 
@@ -756,7 +896,7 @@ CERTIFIED | RETAIL-READY | Rate limiting | Magic Bytes | 2 GB | 7 языков |
 Автоматическая сборка через GitHub Actions. Установочные файлы: Windows (`.exe`), macOS (`.dmg`), Linux (`.deb` и `.AppImage`).
 
 ![Логотипы платформ](icon.png)
-*Рисунок 3.1: Установочные пакеты для Windows, macOS и Linux.*
+<figcaption>Рисунок 3.1: Установочные пакеты для Windows, macOS и Linux.</figcaption>
 
 #### 3.1 Инструкции для ОС
 - **🍎 macOS**: Обход Gatekeeper: Правый клик -> **Открыть**.
@@ -770,10 +910,10 @@ CERTIFIED | RETAIL-READY | Rate limiting | Magic Bytes | 2 GB | 7 языков |
 Скрипт `AntigravityCore` устанавливается в папку `MIDI Remote Scripts`. Локальное TCP-соединение по порту 9001 (`127.0.0.1`) с задержкой менее 1 мс. Шифрование ключа Claude API в системном хранилище.
 
 ![Диаграмма потока сигнала](screenshot-UI.png)
-*Рисунок 4.1: Гибридная архитектура: связь между Remote Script, Electron и облаком.*
+<figcaption>Рисунок 4.1: Гибридная архитектура: связь между Remote Script, Electron и облаком.</figcaption>
 
 ![Выбор панели управления](icon.png)
-*Рисунок 4.2: Выбор 'AntigravityCore' в настройках Ableton Live.*
+<figcaption>Рисунок 4.2: Выбор 'AntigravityCore' в настройках Ableton Live.</figcaption>
 
 ---
 
@@ -781,7 +921,7 @@ CERTIFIED | RETAIL-READY | Rate limiting | Magic Bytes | 2 GB | 7 языков |
 
 4 этапа работы:
 1. **Аудит**: Сканирование пиков, громкости LUFS и конфликтов частот.
-2. **Gain Staging**: Автоматическая выравнивание уровня от -18 dBFS до -12 dBFS.
+2. **Gain Staging**: Автоматическое выравнивание уровня от -18 dBFS до -12 dBFS.
 3. **Очистка частот**: Автоматическое устранение маскировки в басовом регистре.
 4. **Мастеринг**: Тоновая полировка мастера для стриминговых платформ.
 
@@ -793,7 +933,7 @@ CERTIFIED | RETAIL-READY | Rate limiting | Magic Bytes | 2 GB | 7 языков |
 - **EQ Eight Side-Cut**: Фильтр среза высоких частот 48 дБ/окт на канале **Side (S)** ниже **120 Гц** фиксирует суб-бас в чистое **Mono (Mid)**, устраняя фазовые конфликты.
 
 ![Предупреждение о маскировке](screenshot-UI.png)
-*Рисунок 6.1: Предупреждение о частотном конфликте между Kick и Bass.*
+<figcaption>Рисунок 6.1: Предупреждение о частотном конфликте между Kick и Bass.</figcaption>
 
 - **MCP Протокол**: Анализ JSON-данных треков и передача детерминированных команд модели Claude 3.5 Sonnet.
 
@@ -844,7 +984,7 @@ CERTIFIED | RETAIL-READY | Rate limiting | Magic Bytes | 2 GB | 7 языков |
 
 <div class="page-break"></div>
 
-## 🇺🇦 УКРАЇНСЬКА (UK)
+<a id="uk"></a>
 
 <div class="cover-container">
 
@@ -852,7 +992,9 @@ CERTIFIED | RETAIL-READY | Rate limiting | Magic Bytes | 2 GB | 7 языков |
 
 <div class="subtitle">Когнітивний ШІ-інженер зі зведення та аудіопомічник реального часу</div>
 
-🌐 **Вибір мови:** [ES](#-español-es) | [EN](#-english-en) | [DE](#-deutsch-de) | [RU](#-русский-ru) | [UK](#-українська-uk) | [JA](#-日本語-ja) | [ZH](#-中文-zh)
+<div class="language-selector">
+  [ES](#es) | [EN](#en) | [DE](#de) | [RU](#ru) | [UK](#uk) | [JA](#ja) | [ZH](#zh)
+</div>
 
 <div class="keywords">
 CERTIFIED | RETAIL-READY | Rate limiting | Magic Bytes | 2 GB | 7 мов | CC BY-NC-SA 4.0
@@ -867,7 +1009,11 @@ CERTIFIED | RETAIL-READY | Rate limiting | Magic Bytes | 2 GB | 7 мов | CC BY
 **Ableton AI Assistant** — це цифровий двійник аудіо (**Audio Digital Twin**), розроблений **produktes-code** та інженером **Jesús Ferrer (CHUS BZN)**. Модуль вирішує проблему втоми слуху звукорежисера, усуваючи фазові конфлікти та маскування частот у реальному часі через **Model Context Protocol (MCP)** та TCP.
 
 ![Головна панель](screenshot-UI.png)
-*Малюнок 1.1: Огляд панелі керування Ableton AI Assistant.*
+<figcaption>Малюнок 1.1: Огляд панелі керування Ableton AI Assistant.</figcaption>
+
+<div class="note">
+Розроблено <strong>produktes-code</strong> та <strong>Jesús Ferrer (CHUS BZN)</strong>.
+</div>
 
 ---
 
@@ -882,7 +1028,7 @@ CERTIFIED | RETAIL-READY | Rate limiting | Magic Bytes | 2 GB | 7 мов | CC BY
 CI/CD збірка через GitHub Actions для Windows (`.exe`), macOS (`.dmg`) та Linux (`.AppImage` / `.deb`).
 
 ![Логотипи платформ](icon.png)
-*Малюнок 3.1: Інсталятори для Windows, macOS та Linux.*
+<figcaption>Малюнок 3.1: Інсталятори для Windows, macOS та Linux.</figcaption>
 
 #### 3.1 Інструкції для ОС
 - **🍎 macOS**: Обхід Gatekeeper: Правий клік -> **Відкрити**.
@@ -896,10 +1042,10 @@ CI/CD збірка через GitHub Actions для Windows (`.exe`), macOS (`.d
 Скрипт `AntigravityCore` для Ableton Live (папка `MIDI Remote Scripts`), порт TCP 9001 (`127.0.0.1`), локальне шифрування ключа API Claude.
 
 ![Діаграма потоку сигналу](screenshot-UI.png)
-*Малюнок 4.1: Гібридна архітектура: зв'язок між Remote Script, Electron та хмарою.*
+<figcaption>Малюнок 4.1: Гібридна архітектура: зв'язок між Remote Script, Electron та хмарою.</figcaption>
 
 ![Вибір панелі керування](icon.png)
-*Малюнок 4.2: Вибір 'AntigravityCore' у налаштуваннях Ableton Live.*
+<figcaption>Малюнок 4.2: Вибір 'AntigravityCore' у налаштуваннях Ableton Live.</figcaption>
 
 ---
 
@@ -910,7 +1056,7 @@ CI/CD збірка через GitHub Actions для Windows (`.exe`), macOS (`.d
 - **EQ Eight Side-Cut**: Зріз Side-каналу нижче **120 Гц** для збереження моно-басу та усунення фазових конфліктів.
 
 ![Попередження про маскування](screenshot-UI.png)
-*Малюнок 6.1: Попередження про частотний конфлікт між Kick та Bass.*
+<figcaption>Малюнок 6.1: Попередження про частотний конфлікт між Kick та Bass.</figcaption>
 
 ---
 
@@ -953,7 +1099,7 @@ CI/CD збірка через GitHub Actions для Windows (`.exe`), macOS (`.d
 
 <div class="page-break"></div>
 
-## 🇯🇵 日本語 (JA)
+<a id="ja"></a>
 
 <div class="cover-container">
 
@@ -961,7 +1107,9 @@ CI/CD збірка через GitHub Actions для Windows (`.exe`), macOS (`.d
 
 <div class="subtitle">認知型AIミキシングエンジニア & MCPリアルタイムオーディオアシスタント</div>
 
-🌐 **言語選択:** [ES](#-español-es) | [EN](#-english-en) | [DE](#-deutsch-de) | [RU](#-русский-ru) | [UK](#-українська-uk) | [JA](#-日本語-ja) | [ZH](#-中文-zh)
+<div class="language-selector">
+  [ES](#es) | [EN](#en) | [DE](#de) | [RU](#ru) | [UK](#uk) | [JA](#ja) | [ZH](#zh)
+</div>
 
 <div class="keywords">
 CERTIFIED | RETAIL-READY | Rate limiting | Magic Bytes | 2 GB | 7言語 | CC BY-NC-SA 4.0
@@ -976,7 +1124,11 @@ CERTIFIED | RETAIL-READY | Rate limiting | Magic Bytes | 2 GB | 7言語 | CC BY-
 **Ableton AI Assistant** は、**produktes-code** とエンジニア **Jesús Ferrer (CHUS BZN)** によって開発された究極の **Audio Digital Twin（オーディオ・デジタルツイン）** です。累積的な耳の疲労問題を解決し、**Model Context Protocol (MCP)** と低レイテンシーTCPアーキテクチャを介してAbleton Liveとリアルタイム接続し、周波数マスキングや位相キャンセルを自動補正します。
 
 ![メインダッシュボード](screenshot-UI.png)
-*図 1.1: Ableton AI Assistant のメインコントロールパネル概要*
+<figcaption>図 1.1: Ableton AI Assistant のメインコントロールパネル概要</figcaption>
+
+<div class="note">
+開発：<strong>produktes-code</strong> &amp; <strong>Jesús Ferrer (CHUS BZN)</strong>
+</div>
 
 ---
 
@@ -991,7 +1143,7 @@ RGB(15, 15, 15)の純粋ダークモード、ゴールド/イエローのアク�
 GitHub ActionsによるCI/CD自動ビルド。Windows (`.exe`)、macOS (`.dmg`)、Linux (`.deb` / `.AppImage`) に対応。
 
 ![プラットフォームロゴ](icon.png)
-*図 3.1: Windows、macOS、Linux 用インストーラー*
+<figcaption>図 3.1: Windows、macOS、Linux 用インストーラー</figcaption>
 
 #### 3.1 OS別手順
 - **🍎 macOS**: アプリを右クリック -> **開く** を選択。
@@ -1005,10 +1157,10 @@ GitHub ActionsによるCI/CD自動ビルド。Windows (`.exe`)、macOS (`.dmg`)�
 Python Remote Script `AntigravityCore` をAbleton Liveの `MIDI Remote Scripts` に配置し、TCPポート 9001 (`127.0.0.1`) で通信。Claude APIキーはローカル暗号化。
 
 ![信号フロー図](screenshot-UI.png)
-*図 4.1: ハイブリッドアーキテクチャ：Remote Script、Electron、クラウド間の通信*
+<figcaption>図 4.1: ハイブリッドアーキテクチャ：Remote Script、Electron、クラウド間の通信</figcaption>
 
 ![コントロールサーフェス選択](icon.png)
-*図 4.2: Ableton Live 設定での 'AntigravityCore' 選択*
+<figcaption>図 4.2: Ableton Live 設定での 'AntigravityCore' 選択</figcaption>
 
 ---
 
@@ -1018,7 +1170,7 @@ Python Remote Script `AntigravityCore` をAbleton Liveの `MIDI Remote Scripts` 
 - **EQ Eight Side-Cut**: 120 Hz 以下の Side 帯域をカットし、サブベースを完全なモノラル（Mid）に固定。
 
 ![マスキング警告](screenshot-UI.png)
-*図 6.1: Kick と Bass の周波数マスキング葛藤警告*
+<figcaption>図 6.1: Kick と Bass の周波数マスキング葛藤警告</figcaption>
 
 - **MCP Framework**: JSON構造解析と決定論的コマンド実行。
 
@@ -1063,7 +1215,7 @@ CC BY-NC-SA 4.0 ライセンス。2026年7月27日 Level 4 セキュリティ監
 
 <div class="page-break"></div>
 
-## 🇨🇳 中文 (ZH)
+<a id="zh"></a>
 
 <div class="cover-container">
 
@@ -1071,7 +1223,9 @@ CC BY-NC-SA 4.0 ライセンス。2026年7月27日 Level 4 セキュリティ監
 
 <div class="subtitle">认知AI混音工程师 & MCP实时音频助手</div>
 
-🌐 **语言选择:** [ES](#-español-es) | [EN](#-english-en) | [DE](#-deutsch-de) | [RU](#-русский-ru) | [UK](#-українська-uk) | [JA](#-日本語-ja) | [ZH](#-中文-zh)
+<div class="language-selector">
+  [ES](#es) | [EN](#en) | [DE](#de) | [RU](#ru) | [UK](#uk) | [JA](#ja) | [ZH](#zh)
+</div>
 
 <div class="keywords">
 CERTIFIED | RETAIL-READY | Rate limiting | Magic Bytes | 2 GB | 7种语言 | CC BY-NC-SA 4.0
@@ -1086,7 +1240,11 @@ CERTIFIED | RETAIL-READY | Rate limiting | Magic Bytes | 2 GB | 7种语言 | CC 
 **Ableton AI Assistant** 是由 **produktes-code** 与工程师 **Jesús Ferrer (CHUS BZN)** 联合打造的终极**音频数字孪生体 (Audio Digital Twin)**。系统针对音乐制作中的听觉疲劳问题，通过**模型上下文协议 (MCP)** 与低延迟 TCP 架构实时连接 Ableton Live，精准计算频率掩蔽并消除相位冲突。
 
 ![主控制面板](screenshot-UI.png)
-*图 1.1: Ableton AI Assistant 主控制面板概览*
+<figcaption>图 1.1: Ableton AI Assistant 主控制面板概览</figcaption>
+
+<div class="note">
+开发团队：<strong>produktes-code</strong> 与 <strong>Jesús Ferrer (CHUS BZN)</strong>
+</div>
 
 ---
 
@@ -1101,7 +1259,7 @@ CERTIFIED | RETAIL-READY | Rate limiting | Magic Bytes | 2 GB | 7种语言 | CC 
 采用 GitHub Actions 进行自动 CI/CD 构建，提供 Windows (`.exe`)、macOS (`.dmg`) 及 Linux (`.deb` / `.AppImage`) 安装包。
 
 ![平台标志](icon.png)
-*图 3.1: 适用于 Windows、macOS 和 Linux 的安装程序*
+<figcaption>图 3.1: 适用于 Windows、macOS 和 Linux 的安装程序</figcaption>
 
 #### 3.1 操作系统特定说明
 - **🍎 macOS**: 右键单击应用 -> 选择 **打开**。
@@ -1115,10 +1273,10 @@ CERTIFIED | RETAIL-READY | Rate limiting | Magic Bytes | 2 GB | 7种语言 | CC 
 将 `AntigravityCore` 脚本放入 Ableton Live 的 `MIDI Remote Scripts` 目录，通过本地 9001 端口进行传输延迟小于 1 毫秒的 IPC 通信。Claude API 密钥在本地加密保存。
 
 ![信号流图](screenshot-UI.png)
-*图 4.1: 混合架构：Remote Script、Electron 和云端之间的通信*
+<figcaption>图 4.1: 混合架构：Remote Script、Electron 和云端之间的通信</figcaption>
 
 ![控制界面选择](icon.png)
-*图 4.2: 在 Ableton Live 首选项中选择 'AntigravityCore'*
+<figcaption>图 4.2: 在 Ableton Live 首选项中选择 'AntigravityCore'</figcaption>
 
 ---
 
@@ -1129,7 +1287,7 @@ CERTIFIED | RETAIL-READY | Rate limiting | Magic Bytes | 2 GB | 7种语言 | CC 
 - **EQ Eight Side-Cut**: 严格切除 **120 Hz** 以下 Side 信号，锁定 Mono 低频，消除俱乐部音响系统的相位抵消。
 
 ![掩蔽警告](screenshot-UI.png)
-*图 6.1: Kick 与 Bass 之间的频率掩蔽冲突警告*
+<figcaption>图 6.1: Kick 与 Bass 之间的频率掩蔽冲突警告</figcaption>
 
 - **MCP 框架**: 分析轨道 JSON 载荷，执行来自 Claude 3.5 Sonnet 模型的高精度指令。
 
